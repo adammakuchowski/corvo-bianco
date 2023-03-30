@@ -8,9 +8,9 @@ interface LayoutProps {
 export const Layout = ({children}: LayoutProps): JSX.Element => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
         {children}
-      <Footer/>
+      <Footer />
     </>
   )
 }
