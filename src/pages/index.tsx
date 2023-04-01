@@ -1,7 +1,18 @@
 import Head from 'next/head'
-import { Inter } from 'next/font/google'
+import { Cinzel, Merriweather} from 'next/font/google'
+import Slider from '../components/Slider/Slider'
+import About from '../components/About/About'
 
-const inter = Inter({ subsets: ['latin'] })
+export const cinzel = Cinzel({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
+
+export const merriweather = Merriweather({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
+
 
 export default function Home() {
   return (
@@ -12,8 +23,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      Body
+      <Slider/>
+      <About/>
     </>
   )
 }
