@@ -8,7 +8,8 @@ export const NavbarContainer = styled.div`
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: #e0e0e0;
+  background-color: #F1F1F1;
+  z-index: 3;
 `
 
 export const NameContainer = styled.div`
@@ -36,7 +37,7 @@ export const ListWrapper = styled.ul`
   padding: 0px;
   display: flex;
   list-style: none;
-  color: white;
+  color: black;
   gap: 70px;
 
   font-size: 18px;
@@ -73,13 +74,15 @@ export const CartCounter = styled.div`
   top: -15px;
   right: -15px;
   font-size: 15px;
-
+  width: 20px;
+  height: 20px;
   background-color: white;
   border-radius: 50%;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
+  color: #641B30;
 `
 
 export const SettingWrapper = styled.div`
