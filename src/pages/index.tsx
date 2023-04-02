@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import { Cinzel, Merriweather} from 'next/font/google'
-import Slider from '../components/Slider/Slider'
-import About from '../components/About/About'
+import Slider from '@/components/Slider/Slider'
+import About from '@/components/About/About'
+import Gallery from '@/components/Gallery/Gallery'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -25,6 +26,7 @@ export default function Home() {
       </Head>
       <Slider/>
       <About/>
+      <Gallery/>
     </>
   )
 }

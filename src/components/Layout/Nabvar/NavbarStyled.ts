@@ -33,6 +33,7 @@ export const PagesContainer = styled.div`
   align-items: center;
   justify-content: center;
 `
+
 export const ListWrapper = styled.ul`
   padding: 0px;
   display: flex;
@@ -57,6 +58,7 @@ export const OptionsContainer = styled.div`
   justify-content: space-around;
   align-items: center;
 `
+
 export const ActionsWrapper = styled.div`
   font-size: 20px;
   display: flex;
