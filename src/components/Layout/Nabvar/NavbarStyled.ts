@@ -1,14 +1,13 @@
 import styled from 'styled-components'
 
 export const NavbarContainer = styled.div`
-  background-color: red;
-  height: 100px;
+  height: 150px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between; 
   align-items: center;
-  position: sticky;
-  top: 0;
   background-color: #F1F1F1;
+  top: 0;
   z-index: 3;
 `
 
@@ -17,8 +16,6 @@ export const NameContainer = styled.div`
   align-items: center;
   justify-content: center;
   min-width: 240px;
-  position: relative;
-  left: 50px;
   color: #641B30;
 `
 
@@ -52,7 +49,7 @@ export const PageItem = styled.li`
   }
 `
 
-export const OptionsContainer = styled.div`
+export const MenuContainer = styled.div`
   min-width: 240px;
   display: flex;
   justify-content: space-around;
@@ -63,6 +60,8 @@ export const ActionsWrapper = styled.div`
   font-size: 20px;
   display: flex;
   gap: 20px;
+  min-width: 100px;
+  margin-right: 30px;
 `
 
 export const CartWrapper = styled.div`
@@ -88,8 +87,19 @@ export const CartCounter = styled.div`
 `
 
 export const SettingWrapper = styled.div`
+  min-width: 100px;
   font-size: 20px;
   display: flex;
+  margin-left: 30px;
 
   cursor: pointer;
+`
+
+export const OptionsContainer = styled.div`
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  border-bottom: solid 1px #C0C0C0;
 `

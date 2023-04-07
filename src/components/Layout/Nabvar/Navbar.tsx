@@ -13,6 +13,7 @@ import {
   SettingWrapper,
   CartCounter,
   CartWrapper,
+  MenuContainer,
 } from './NavbarStyled'
 import {cinzel, merriweather} from '@/pages'
 
@@ -22,23 +23,17 @@ export const Navbar = () => {
   return (
     <NavbarContainer className={merriweather.className}>
 
+      <OptionsContainer>
+
+      <SettingWrapper>
+        <AiOutlineSetting />
+      </SettingWrapper>
+
       <NameContainer className={cinzel.className}>
         <NameWrapper>Corvo Bianco</NameWrapper>
       </NameContainer>
 
-      <PagesContainer>
-        <ListWrapper>
-          <PageItem>Homepage</PageItem>
-          <PageItem>Products</PageItem>
-          <PageItem>Manu</PageItem>
-          <PageItem>Events</PageItem>
-          <PageItem>Blog</PageItem>
-          <PageItem>Contact</PageItem>
-        </ListWrapper>
-      </PagesContainer>
-
-      <OptionsContainer>
-        <ActionsWrapper>
+      <ActionsWrapper>
           <BsPersonCircle style={{cursor: 'pointer'}} />
           <AiOutlineSearch style={{cursor: 'pointer'}} />
           <CartWrapper>
@@ -48,12 +43,25 @@ export const Navbar = () => {
             )}
           </CartWrapper>
         </ActionsWrapper>
-
-        <SettingWrapper>
-          <AiOutlineSetting />
-        </SettingWrapper>
-
+        
       </OptionsContainer>
+
+
+
+      <MenuContainer>
+      
+        <PagesContainer>
+          <ListWrapper>
+            <PageItem>Homepage</PageItem>
+            <PageItem>Products</PageItem>
+            <PageItem>Manu</PageItem>
+            <PageItem>Events</PageItem>
+            <PageItem>Blog</PageItem>
+            <PageItem>Contact</PageItem>
+          </ListWrapper>
+        </PagesContainer>
+
+      </MenuContainer>
 
     </NavbarContainer>
   )

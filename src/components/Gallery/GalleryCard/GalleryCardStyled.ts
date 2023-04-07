@@ -5,6 +5,7 @@ export const GalleryCardContainer = styled.div`
     height: 200px;
     position: relative;
     background-color: gold;
+    cursor: pointer;
 
     transition: all 0.2s ease-in-out;
     :hover{
