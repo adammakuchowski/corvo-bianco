@@ -5,7 +5,7 @@ export const SliderContainer = styled.div`
   align-items: center;
   justify-content: center;
   background-color: white;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 150px);
   background-color: #f9f9f9;
 `
 
@@ -17,8 +17,8 @@ export const ImageContainer = styled.div`
 `
 
 export const ImageWrapper = styled.div`
-  width: 1400px;
-  height: 800px;
+  width: 1200px;
+  height: 750px;
   display: flex;
   position: relative;
 
