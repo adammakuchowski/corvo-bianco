@@ -6,7 +6,7 @@ export const NavbarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between; 
   align-items: center;
-  background-color: #F1F1F1;
+  /* background-color: #F1F1F1; */
   top: 0;
   z-index: 3;
 `

@@ -1,6 +1,6 @@
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
-import {Cinzel, Merriweather} from '@next/font/google'
+import {cinzel, merriweather} from '@/pages'
 import {
   NavbarContainer,
   NameContainer,
@@ -15,24 +15,17 @@ import {
   CartWrapper,
   MenuContainer,
 } from './NavbarStyled'
-import {cinzel, merriweather} from '@/pages'
-
-
 
 export const Navbar = () => {
   return (
     <NavbarContainer className={merriweather.className}>
-
       <OptionsContainer>
-
       <SettingWrapper>
         <AiOutlineSetting />
       </SettingWrapper>
-
       <NameContainer className={cinzel.className}>
         <NameWrapper>Corvo Bianco</NameWrapper>
       </NameContainer>
-
       <ActionsWrapper>
           <BsPersonCircle style={{cursor: 'pointer'}} />
           <AiOutlineSearch style={{cursor: 'pointer'}} />
@@ -43,13 +36,8 @@ export const Navbar = () => {
             )}
           </CartWrapper>
         </ActionsWrapper>
-        
       </OptionsContainer>
-
-
-
       <MenuContainer>
-      
         <PagesContainer>
           <ListWrapper>
             <PageItem>Homepage</PageItem>
@@ -60,9 +48,7 @@ export const Navbar = () => {
             <PageItem>Contact</PageItem>
           </ListWrapper>
         </PagesContainer>
-
       </MenuContainer>
-
     </NavbarContainer>
   )
 }
