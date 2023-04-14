@@ -17,19 +17,19 @@ export const BannerWrapper = styled.div`
 `
 
 export const ImgWrapper = styled.div`
-  min-width: 75%;
+  min-width: 100%;
   min-height: 600px;
   z-index: -2;
-  position: fixed;
+  position: absolute;
 `
 
 export const BannerOpacity = styled.div`
   background-color: black;
-  min-width: 75%;
+  min-width: 100%;
   min-height: 600px;
   z-index: -1;
   color: red;
-  position: fixed;
+  position: absolute;
   opacity: 0.4;
 `
 

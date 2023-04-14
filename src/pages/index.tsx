@@ -1,6 +1,7 @@
 import Head from 'next/head'
-import { Cinzel, Merriweather} from 'next/font/google'
+import { Cinzel, Merriweather, Great_Vibes} from 'next/font/google'
 import Banner from '@/components/Banner/Banner'
+import Slogan from '@/components/Slogan/Slogan'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -10,6 +11,11 @@ export const cinzel = Cinzel({
 export const merriweather = Merriweather({
   subsets: ['latin'],
   weight: ['400', '700']
+})
+
+export const greatVibes = Great_Vibes({
+  subsets: ['latin'],
+  weight: ['400']
 })
 
 
@@ -23,6 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner/>
+      <Slogan/>
     </>
   )
 }
