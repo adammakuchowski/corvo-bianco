@@ -1,4 +1,3 @@
-
 import SectionHeader from '../SectionHeader/SectionHeader'
 import AboutContent from './AboutContent/AboutContent'
 import {
