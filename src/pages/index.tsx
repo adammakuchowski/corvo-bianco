@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Cinzel, Merriweather, Great_Vibes} from 'next/font/google'
+import { Cinzel, Merriweather, Great_Vibes, Playfair_Display, Tangerine, Sacramento} from 'next/font/google'
 import Banner from '@/components/Banner/Banner'
-import Slogan from '@/components/Slogan/Slogan'
+import About from '@/components/About/About'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -18,6 +18,20 @@ export const greatVibes = Great_Vibes({
   weight: ['400']
 })
 
+export const playfairDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '700']
+})
+
+export const tangerine = Tangerine({
+  subsets: ['latin'],
+  weight: ['400', '700']
+})
+
+export const sacramento = Sacramento({
+  subsets: ['latin'],
+  weight: ['400']
+})
 
 export default function Home() {
   return (
@@ -29,7 +43,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner/>
-      <Slogan/>
+      <About/>
     </>
   )
 }
