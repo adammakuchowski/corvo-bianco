@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
-import {cinzel, merriweather} from '@/pages'
+import {cinzel} from '@/pages'
 import {
   BannerContainer,
   BannerNameWrapper,
