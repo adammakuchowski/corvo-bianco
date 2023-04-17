@@ -1,6 +1,6 @@
 export const Footer = () => {
   return (
-    <div>
+    <div style={{height: '50vh'}}>
       Footer
     </div>
   )

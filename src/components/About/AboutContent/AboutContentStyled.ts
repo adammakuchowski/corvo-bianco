@@ -5,6 +5,14 @@ export const AboutContentContainer = styled.div`
   /* background-color: red; */
   display: flex;
   justify-content: space-between;
+
+  > * {
+      &:nth-child(2) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
 `
 
 export const ContentWarpper = styled.div`
@@ -14,7 +22,7 @@ export const ContentWarpper = styled.div`
   min-height: 80%;
 `
 
-export const FirstContentHeaderWrapper = styled.div`
+export const LeftContentHeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +59,7 @@ export const FirstContentHeaderWrapper = styled.div`
     }
 `
 
-export const FirstContentImgContainer = styled.div`
+export const CircleContentImgContainer = styled.div`
   /* background-color: gold; */
   width: 100%;
   height: 250px;
@@ -61,7 +69,7 @@ export const FirstContentImgContainer = styled.div`
   align-items: center;
 `
 
-export const FirstContentImgWrapper = styled.div`
+export const CircleContentImgWrapper = styled.div`
   /* background-color: red; */
   width: 220px;
   height: 220px;
@@ -73,7 +81,7 @@ export const FirstContentImgWrapper = styled.div`
   position: absolute;
 `
 
-export const FirstContentDescriptionContainer = styled.div`
+export const ContentDescriptionContainer = styled.div`
   /* background-color: green; */
   width: 100%;
   min-height: 150px;
@@ -84,7 +92,7 @@ export const FirstContentDescriptionContainer = styled.div`
   flex-direction: column;
 `
 
-export const FirstContentDescriptionWrapper = styled.div`
+export const ContentDescriptionWrapper = styled.div`
   margin-top: 10px;
   padding: 0;
   font-size: 25px;
@@ -93,9 +101,56 @@ export const FirstContentDescriptionWrapper = styled.div`
   width: 80%;
 `
 
-export const FirstContentAutograph = styled.div`
+export const ContentAutograph = styled.div`
   margin-top: 20px;
   font-size: 25px;
   font-weight: bold;
 `
 
+export const SecondContentImgContainer = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+`
+
+export const SecondContentImgWrapper = styled.div`
+  width: 220px;
+  height: 650px;
+  position: absolute;
+`
+
+export const RightContentHeaderWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  > * {
+      &:nth-child(1) {
+        font-size: 30px;
+        margin: 0px;
+        color: #708238;
+      }
+
+      &:nth-child(2) {
+        font-size: 18px;
+        font-weight: 400;
+        color: #949494;
+        border-bottom: solid 1px #C0C0C0;
+        padding-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45%;
+      }
+
+      &:nth-child(3) {
+        margin-bottom: 20px;
+      }
+    }
+`
