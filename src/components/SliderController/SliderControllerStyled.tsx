@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ImageCardSwitcherContainer = styled.div`
+export const SliderControllerContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
