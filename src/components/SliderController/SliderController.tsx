@@ -1,8 +1,8 @@
-import {useState} from 'react';
-import {ImageCardSwitcherContainer} from './SliderControllerStyled'
-import TileButton from './TileButton/TileButton';
+import {useState} from 'react'
+import {SliderControllerContainer} from './SliderControllerStyled'
+import TileButton from './TileButton/TileButton'
 
-interface ImageCardSwitcherProps {
+interface SliderControllerProps {
 
 }
 
@@ -14,11 +14,11 @@ const SliderController = (): JSX.Element => {
   }
 
   return (
-    <ImageCardSwitcherContainer>
+    <SliderControllerContainer>
       <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
       <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
       <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
-    </ImageCardSwitcherContainer>
+    </SliderControllerContainer>
   )
 }
 

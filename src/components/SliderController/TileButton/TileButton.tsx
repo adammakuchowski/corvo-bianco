@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import {TileButtonContainer} from './TileButtonStyled';
+import {useEffect, useState} from 'react'
+import {TileButtonContainer} from './TileButtonStyled'
 
 interface TileButtonProps {
   active: boolean;
