@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ContentWarpper = styled.div`
-  background-color: red;
+  /* background-color: red; */
   min-width: 33%;
   max-width: 33%;
   min-height: 80%;
@@ -82,8 +82,8 @@ export const ContentHeaderWrapper = styled.div`
 
 export const ImageSwitchContainer = styled.div`
   width: 100%;
-  height: 100px;
-  background-color: gold;
+  height: 20px;
+  /* background-color: gold; */
 
   display: flex;
   align-items: center;

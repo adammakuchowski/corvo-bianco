@@ -1,23 +1,23 @@
-import {useState} from 'react'
 import {SliderControllerContainer} from './SliderControllerStyled'
 import TileButton from './TileButton/TileButton'
 
 interface SliderControllerProps {
-
+  imgIndex: number;
+  setImgIndex: Function;
+  imgs: any[];
 }
 
-const SliderController = (): JSX.Element => {
-  const [active, setActive] = useState<boolean>(false)
-
-  const disactiveTiles = () => {
-    setActive(false)
-  }
-
+const SliderController = ({imgIndex, setImgIndex, imgs}: SliderControllerProps): JSX.Element => {
   return (
     <SliderControllerContainer>
-      <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
-      <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
-      <TileButton active={active} disactiveTiles={disactiveTiles}></TileButton>
+      {imgs.map((img, index) => (
+        <TileButton
+          key={index}
+          index={index}
+          setImgIndex={setImgIndex}
+          imgIndex={imgIndex}
+        />
+      ))}
     </SliderControllerContainer>
   )
 }

@@ -8,5 +8,5 @@ export const TileButtonContainer = styled.button`
   width: 30px;
   height: 5px;
 
-  background-color: red;
+  border-radius: 15%;
 `
