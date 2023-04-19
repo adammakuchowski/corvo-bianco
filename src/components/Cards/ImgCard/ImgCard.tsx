@@ -15,7 +15,7 @@ const ImgCard = ({imgs}: ImgCardProps): JSX.Element => {
       <ContentImgContainer>
         <ContentImgWrapper>
           <Image
-            src={imgs[1]}
+            src={imgs[0]}
             alt=''
             fill
             style={{objectFit: 'cover'}}

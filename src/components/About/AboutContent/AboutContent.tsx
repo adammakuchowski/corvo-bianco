@@ -3,10 +3,18 @@ import ImgCard from '@/components/Cards/ImgCard/ImgCard'
 import CircleImgSliderCard from '@/components/Cards/CircleImgSliderCard/CircleImgSliderCard'
 import {AboutContentContainer} from './AboutContentStyled'
 
-const imgs = [
-  '/images/leftContentImg.jpg',
-  '/images/middleContentImg.jpg',
-  '/images/rightContentImg.jpg',
+const circleCardImgs = [
+  '/images/circleCardImg.jpg',
+]
+
+const imgCard = [
+  '/images/imgCard.jpg',
+]
+
+const circleCardSliderImgs = [
+  '/images/circleCardSliderImgs1.jpg',
+  '/images/circleCardSliderImgs2.jpg',
+  '/images/circleCardSliderImgs3.jpg',
 ]
 
 const CircleImgCardDesc = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat velit ipsa suscipit cupiditate provident autem optio nobis ea tenetur vero delectus, neque natus id aut rerum hic expedita incidunt iusto.'
@@ -17,16 +25,16 @@ const AboutContent = (): JSX.Element => {
   return (
     <AboutContentContainer>
       <CircleImgCard
-        imgs={imgs}
+        imgs={circleCardImgs}
         headerLocation='Toussaint'
         headerYear='2015'
         headerText='Wineyard'
         description={CircleImgCardDesc}
         autograph='Geralt'
       />
-      <ImgCard imgs={imgs} />
+      <ImgCard imgs={imgCard} />
       <CircleImgSliderCard
-        imgs={imgs}
+        imgs={circleCardSliderImgs}
         headerLocation='Anna Henrietta'
         headerText='Creative Director'
         description={CircleImgSliderCardDesc}

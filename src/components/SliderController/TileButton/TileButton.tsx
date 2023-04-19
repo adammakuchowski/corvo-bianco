@@ -2,17 +2,22 @@ import {useEffect, useState} from 'react'
 import {TileButtonContainer} from './TileButtonStyled'
 
 interface TileButtonProps {
-  active: boolean;
-  disactiveTiles: Function;
+  index: number;
+  imgIndex: number;
+  setImgIndex: Function;
 }
 
-const TileButton = ({active, disactiveTiles}: TileButtonProps): JSX.Element => {
-  const [buttonActive, setButtonActive] = useState<boolean>(active)
+const TileButton = ({index, setImgIndex, imgIndex}: TileButtonProps): JSX.Element => {
   const [backgroundColor, setBackgroundColor] = useState<string>('red')
+
+  useEffect(() => {
+    const activeColor = index === imgIndex ? '#708238' : '#949494'
+    setBackgroundColor(activeColor)
+  }, [imgIndex])
 
   return (
     <TileButtonContainer
-      // onClick={}
+      onClick={() => setImgIndex(index)}
       style={{backgroundColor: `${backgroundColor}`}}
     >
     </TileButtonContainer>

@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Image from 'next/image'
 import {playfairDisplay, tangerine} from '@/pages'
 import {
@@ -9,7 +10,7 @@ import {
   ContentHeaderWrapper,
   ImageSwitchContainer,
 } from './CircleImgSliderCardStyled'
-import ImageCardSwitcher from '../../SliderController/SliderController'
+import SliderController from '../../SliderController/SliderController'
 
 interface ImgCardProps {
   imgs: any[];
@@ -24,6 +25,7 @@ const CircleImgSliderCard = ({
   headerText,
   description,
 }: ImgCardProps): JSX.Element => {
+  const [imgIndex, setImgIndex] = useState<number>(0)
 
   return (
     <ContentWarpper>
@@ -36,7 +38,7 @@ const CircleImgSliderCard = ({
       <CircleContentImgContainer>
         <CircleContentImgWrapper>
           <Image
-            src={imgs[2]}
+            src={imgs[imgIndex]}
             alt=''
             fill
             style={{objectFit: 'cover'}}
@@ -51,7 +53,7 @@ const CircleImgSliderCard = ({
       </ContentDescriptionContainer>
 
       <ImageSwitchContainer>
-        <ImageCardSwitcher/>
+        <SliderController imgIndex={imgIndex} setImgIndex={setImgIndex} imgs={imgs}/>
       </ImageSwitchContainer>
 
     </ContentWarpper>
