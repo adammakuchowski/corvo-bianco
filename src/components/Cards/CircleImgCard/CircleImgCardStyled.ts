@@ -13,8 +13,6 @@ export const ContentHeaderWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
 
-  /* background-color: pink; */
-
   > * {
       &:nth-child(1) {
         font-size: 30px;
@@ -45,32 +43,25 @@ export const ContentHeaderWrapper = styled.div`
 `
 
 export const CircleContentImgContainer = styled.div`
-  /* background-color: gold; */
   width: 100%;
   height: 250px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 export const CircleContentImgWrapper = styled.div`
-  /* background-color: red; */
   width: 220px;
   height: 220px;
-
   border-radius: 50%;
   border: solid 2px #C0C0C0;
   overflow: hidden;
-
   position: absolute;
 `
 
 export const ContentDescriptionContainer = styled.div`
-  /* background-color: green; */
   width: 100%;
   min-height: 150px;
-
   display: flex;
   align-items: center;
   justify-content: center;
