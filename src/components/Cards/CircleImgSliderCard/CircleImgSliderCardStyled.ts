@@ -1,39 +1,32 @@
 import styled from 'styled-components'
 
 export const ContentWarpper = styled.div`
-  /* background-color: red; */
+  /* background-color: blue; */
   min-width: 33%;
   max-width: 33%;
   min-height: 80%;
 `
 
 export const CircleContentImgContainer = styled.div`
-  /* background-color: gold; */
   width: 100%;
   height: 250px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 `
 
 export const CircleContentImgWrapper = styled.div`
-  /* background-color: red; */
   width: 220px;
   height: 220px;
-
   border-radius: 50%;
   border: solid 2px #C0C0C0;
   overflow: hidden;
-
   position: absolute;
 `
 
 export const ContentDescriptionContainer = styled.div`
-  /* background-color: green; */
   width: 100%;
   min-height: 150px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,8 +76,6 @@ export const ContentHeaderWrapper = styled.div`
 export const ImageSwitchContainer = styled.div`
   width: 100%;
   height: 20px;
-  /* background-color: gold; */
-
   display: flex;
   align-items: center;
   justify-content: center;
