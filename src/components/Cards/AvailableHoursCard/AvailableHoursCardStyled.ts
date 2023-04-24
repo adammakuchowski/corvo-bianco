@@ -13,7 +13,6 @@ export const HeaderContentWrapper = styled.p`
   margin-bottom: 10px;
   font-size: 20px;
   color: #949494;
-
 `
 
 export const ContentWrapper = styled.p`

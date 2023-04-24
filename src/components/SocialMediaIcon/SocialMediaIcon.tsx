@@ -1,14 +1,19 @@
+import {SocialMediaIconContainer} from './SocialMediaIconStyled';
 
 interface SocialMediaIconProps {
   iconComponent: any;
+  iconAction?: Function;
 }
 
-const SocialMediaIcon = ({iconComponent}: SocialMediaIconProps): JSX.Element => {
+const SocialMediaIcon = ({iconComponent, iconAction}: SocialMediaIconProps): JSX.Element => {
+  const iconActionHandler = () => {
+    iconAction && iconAction()
+  }
 
   return (
-    <div>
+    <SocialMediaIconContainer onClick={iconActionHandler}>
       {iconComponent}
-    </div>
+    </SocialMediaIconContainer>
   )
 }
 

@@ -9,10 +9,9 @@ export const SocialMediaCardContainer = styled.div`
 `
 
 export const HeaderContentWrapper = styled.p`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   font-size: 20px;
   color: #949494;
-
 `
 
 export const ContentWrapper = styled.div`
