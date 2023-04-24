@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const ContactContainer = styled.div`
   min-height: 100px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +17,6 @@ export const ContactWrapper = styled.div`
   position: relative;
   width: 75%;
   height: 200px;
-  background-color: gold;
 
   > * {
       &:nth-child(2) {

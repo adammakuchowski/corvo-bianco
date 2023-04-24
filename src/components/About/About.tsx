@@ -1,3 +1,4 @@
+import Contact from '../Contact/Contact'
 import SectionHeader from '../SectionHeader/SectionHeader'
 import AboutContent from './AboutContent/AboutContent'
 import {
@@ -10,6 +11,7 @@ const About = (): JSX.Element => {
     <AboutContainer>
       <SectionHeader title='Welcome' text='VINEYARD'/>
       <AboutContent/>
+      <Contact/>
     </AboutContainer>
   )
 }

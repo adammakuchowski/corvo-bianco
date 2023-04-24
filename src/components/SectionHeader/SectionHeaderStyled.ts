@@ -18,7 +18,7 @@ export const SectionHeaderContentWrapper = styled.div`
 
 export const SectionHeaderTitleWrapper = styled.div`
   color: #708238;
-  font-size: 30px;
+  font-size: 32px;
   margin: 5px;
 `
 

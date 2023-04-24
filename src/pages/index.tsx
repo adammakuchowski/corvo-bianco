@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { Cinzel, Merriweather, Great_Vibes, Playfair_Display, Tangerine, Sacramento} from 'next/font/google'
 import Banner from '@/components/Banner/Banner'
 import About from '@/components/About/About'
-import Contact from '@/components/Contact/Contact'
+import Products from '@/components/Products/Products'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -45,7 +45,7 @@ export default function Home() {
       </Head>
       <Banner/>
       <About/>
-      <Contact/>
+      <Products/>
     </>
   )
 }
