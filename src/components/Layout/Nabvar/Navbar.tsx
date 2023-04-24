@@ -1,20 +1,19 @@
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
 import {cinzel, merriweather} from '@/pages'
+import Navigation from '@/components/Navigation/Navigation'
 import {
   NavbarContainer,
   NameContainer,
   NameWrapper,
-  ListWrapper,
-  PagesContainer,
-  PageItem,
   OptionsContainer,
   ActionsWrapper,
   SettingWrapper,
   CartCounter,
   CartWrapper,
-  MenuContainer,
 } from './NavbarStyled'
+
+const manuOptions = ['Homepage', 'Products', 'Manu', 'Events', 'Blog', 'Contact']
 
 export const Navbar = () => {
   return (
@@ -37,18 +36,7 @@ export const Navbar = () => {
           </CartWrapper>
         </ActionsWrapper>
       </OptionsContainer>
-      <MenuContainer>
-        <PagesContainer>
-          <ListWrapper>
-            <PageItem>Homepage</PageItem>
-            <PageItem>Products</PageItem>
-            <PageItem>Manu</PageItem>
-            <PageItem>Events</PageItem>
-            <PageItem>Blog</PageItem>
-            <PageItem>Contact</PageItem>
-          </ListWrapper>
-        </PagesContainer>
-      </MenuContainer>
+      <Navigation options={manuOptions}/>
     </NavbarContainer>
   )
 }

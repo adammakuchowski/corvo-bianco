@@ -1,10 +1,13 @@
+import Navigation from '@/components/Navigation/Navigation'
 import {ProductGalleryContainer} from './ProductGalleryStyled'
+
+const productGalleryManuOptions = ['']
 
 const ProductGallery = (): JSX.Element => {
 
   return (
-    <ProductGalleryContainer>
-      {/* <Navigation/> */}
+    <ProductGalleryContainer style={{backgroundColor: 'red', minHeight: '250px'}}>
+      <Navigation fontSize='20px' options={productGalleryManuOptions}/>
     </ProductGalleryContainer>
   )
 }
