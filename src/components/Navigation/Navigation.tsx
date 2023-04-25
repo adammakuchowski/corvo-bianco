@@ -8,15 +8,25 @@ import {
 interface NavigationProps {
   fontSize?: string;
   options: string[];
+  activePage: number;
+  setActivePage: Function;
 }
 
-const Navigation = ({fontSize = '18px', options}:NavigationProps): JSX.Element => {
+const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: NavigationProps): JSX.Element => {
+  const switchPage = (index: number) => {
+    setActivePage(index)
+  }
+
   return (
     <MenuContainer>
       <PagesContainer>
         <ListWrapper style={{fontSize: fontSize}}>
           {options.map((option, index) => (
-            <PageItem key={index}>{option}</PageItem>
+            <PageItem 
+              key={index} 
+              activePage={index === activePage}
+              onClick={() => switchPage(index)}
+            >{option}</PageItem>
           ))}
         </ListWrapper>
       </PagesContainer>
