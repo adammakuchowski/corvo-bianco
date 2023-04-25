@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
 import {cinzel, merriweather} from '@/pages'
@@ -13,19 +14,21 @@ import {
   CartWrapper,
 } from './NavbarStyled'
 
-const manuOptions = ['Homepage', 'Products', 'Manu', 'Events', 'Blog', 'Contact']
+const manuOptions = ['Homepage', 'Products', 'About', 'Events', 'Blog', 'Contact']
 
 export const Navbar = () => {
+  const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
+
   return (
     <NavbarContainer className={merriweather.className}>
       <OptionsContainer>
-      <SettingWrapper>
-        <AiOutlineSetting />
-      </SettingWrapper>
-      <NameContainer className={cinzel.className}>
-        <NameWrapper>Corvo Bianco</NameWrapper>
-      </NameContainer>
-      <ActionsWrapper>
+        <SettingWrapper>
+          <AiOutlineSetting />
+        </SettingWrapper>
+        <NameContainer className={cinzel.className}>
+          <NameWrapper>Corvo Bianco</NameWrapper>
+        </NameContainer>
+        <ActionsWrapper>
           <BsPersonCircle style={{cursor: 'pointer'}} />
           <AiOutlineSearch style={{cursor: 'pointer'}} />
           <CartWrapper>
@@ -36,7 +39,11 @@ export const Navbar = () => {
           </CartWrapper>
         </ActionsWrapper>
       </OptionsContainer>
-      <Navigation options={manuOptions}/>
+      <Navigation
+        options={manuOptions}
+        activePage={productNavbarPage}
+        setActivePage={setProductNavbarPage}
+      />
     </NavbarContainer>
   )
 }

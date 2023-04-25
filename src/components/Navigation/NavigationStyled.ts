@@ -23,11 +23,18 @@ export const ListWrapper = styled.ul`
   color: black;
   gap: 70px;
 `
+
+interface PageItemProps {
+  activePage: boolean;
+}
+
 export const PageItem = styled.li`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
+  color: ${({activePage}: PageItemProps) => activePage ? '#708238' : '#000000'};
+
   :hover{
-    color: #641B30;
+    color: #708238;
   }
 `
