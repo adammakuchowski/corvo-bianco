@@ -8,7 +8,7 @@ interface ProductsPageProps {
 const ProductsPage = ({products}: ProductsPageProps): JSX.Element => {
   return (
     <ProductsPageContainer>
-      test
+      
     </ProductsPageContainer>
   )
 }
