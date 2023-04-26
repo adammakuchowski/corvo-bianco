@@ -5,8 +5,6 @@ export const MenuContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-
-  background-color: gold;
 `
 
 export const PagesContainer = styled.div`
@@ -31,9 +29,7 @@ interface PageItemProps {
 export const PageItem = styled.li`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-
   color: ${({activePage}: PageItemProps) => activePage ? '#708238' : '#000000'};
-
   :hover{
     color: #708238;
   }
