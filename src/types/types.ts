@@ -1,11 +1,17 @@
 export interface Product {
   name: string;
   brand: string;
-  quality: string;
+  quality: number;
   category: string;
   typ: string;
   color: string;
   productionYear: string;
   countryOfOrigin: string;
   img: any;
+  price: number;
+}
+
+export interface IconComponent {
+  iconComponent: JSX.Element,
+  iconAction?: Function,
 }
