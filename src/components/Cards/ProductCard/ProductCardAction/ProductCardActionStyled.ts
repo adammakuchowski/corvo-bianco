@@ -24,7 +24,7 @@ export const ProductName = styled.div`
   width: 100%;
   height: 50%;
   background-color: white;
-
+  font-weight: 500;
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
@@ -42,8 +42,9 @@ export const ProductDataWrapper = styled.div`
       &:nth-child(2) {
         font-size: 22px;
         letter-spacing: 1px;
-        color: #708238;
+        color: #7c903e;
         font-size: 17px;
+        font-weight: 500;
       }
     }
 `

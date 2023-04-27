@@ -18,11 +18,12 @@ export const IconActionButtonWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+  color: #808080;
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease-in-out;
     :hover{
-        background-color: #708238;
+        background-color: #7c903e;
+        color: #cbcbcb;
     }
 `
-
