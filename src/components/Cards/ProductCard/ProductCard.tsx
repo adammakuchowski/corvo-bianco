@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import Image from 'next/image'
 import {Product} from '@/types/types'
 import {
@@ -6,7 +7,6 @@ import {
   ProductCardActionWrapper,
   ProductCardContainer,
 } from './ProductCardStyled'
-import {useState} from 'react';
 import ProductCardAction from './ProductCardAction/ProductCardAction';
 
 interface ProductCardProps {
@@ -19,13 +19,12 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
 
   return (
     <ProductCardContainer>
-      <ImgContainer onClick={() => isActive(!active)}>
+      <ImgContainer onClick={() => isActive(!active)} active={active}>
         <ImgWrapper>
           <Image
             src={img}
             alt=''
-            height={350}
-            width={118}
+            fill
             style={{objectFit: 'cover'}}
           />
         </ImgWrapper>

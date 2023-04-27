@@ -6,7 +6,7 @@ import ProductGallery from '@/components/ProductGallery/ProductGallery'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
-  weight: ['400', '700']
+  weight: ['400', '500', '600', '700']
 })
 
 export const merriweather = Merriweather({
