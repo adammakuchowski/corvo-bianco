@@ -9,10 +9,10 @@ export const ProductGalleryContentWrapper = styled.div`
 `
 
 export const ProductsPageContainer = styled.div`
+  margin: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  height: 600px;
+  min-height: 600px;
 `

@@ -8,7 +8,7 @@ import {
 interface NavigationProps {
   fontSize?: string;
   options: string[];
-  activePage: number;
+  activePage?: number;
   setActivePage: Function;
 }
 
