@@ -1,11 +1,13 @@
 import styled from 'styled-components'
 
 export const ProductsPageContainer = styled.div`
-  /* background-color: blue; */
-  width: 75%;
+  width: 70%;
   max-width: 75%;
   height: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+
+  flex-wrap: wrap;
+  gap: 90px;
 `

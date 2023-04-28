@@ -20,8 +20,7 @@ export const ImgContainer = styled.button`
   display: flex;
   justify-content: center;
 
-  border: ${({active}: ImgContainerProps) => active ? '0' : 'solid 1px #C0C0C0'};
-  /* transition: all 0.2s ease-in-out; */
+  transition: all 0.4s ease-in-out;
   box-shadow: ${({active}: ImgContainerProps) => active ? '0 0 5px rgba(124, 144, 62, 1)' : '0'};
   cursor: pointer;
   :hover{

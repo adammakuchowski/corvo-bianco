@@ -41,7 +41,7 @@ export const Navbar = () => {
       </OptionsContainer>
       <Navigation
         options={manuOptions}
-        activePage={productNavbarPage}
+        // activePage={productNavbarPage}
         setActivePage={setProductNavbarPage}
       />
     </NavbarContainer>
