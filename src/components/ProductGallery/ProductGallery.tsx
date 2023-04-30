@@ -4,6 +4,7 @@ import {Product} from '@/types/types'
 import {useState} from 'react'
 import Navigation from '../Navigation/Navigation'
 import ProductsPage from './ProductsPage/ProductsPage'
+import Button from '../Buttons/Button/Button'
 
 const productGalleryManuOptions = ['Roes', 'Organic', 'Kosher', 'Champagne', 'Other']
 
@@ -97,6 +98,7 @@ const ProductGallery = (): JSX.Element => {
         />
         <ProductsPageContainer>
           <ProductsPage products={products} />
+          <Button content="View all"/>
         </ProductsPageContainer>
       </ProductGalleryContentWrapper>
     </ProductGalleryContainer>
