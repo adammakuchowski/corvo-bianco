@@ -10,4 +10,5 @@ export const ProductsPageContainer = styled.div`
 
   flex-wrap: wrap;
   gap: 90px;
+  margin-bottom: 70px;
 `

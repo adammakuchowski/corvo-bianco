@@ -15,4 +15,5 @@ export const ProductsPageContainer = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 600px;
+  flex-direction: column;
 `
