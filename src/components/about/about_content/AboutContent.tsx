@@ -1,6 +1,6 @@
-import CircleImgCard from '@/components/Cards/CircleImgCard/CircleImgCard'
-import ImgCard from '@/components/Cards/ImgCard/ImgCard'
-import CircleImgSliderCard from '@/components/Cards/CircleImgSliderCard/CircleImgSliderCard'
+import CircleImgCard from '@/components/cards/circle_img_card/CircleImgCard'
+import CircleImgSliderCard from '@/components/cards/circle_img_slider_card/CircleImgSliderCard'
+import ImgCard from '@/components/cards/img_card/ImgCard'
 import {AboutContentContainer} from './AboutContentStyled'
 
 const circleCardImgs = [

@@ -1,5 +1,5 @@
-import {Footer} from './Footer/Footer'
-import {Navbar} from './Nabvar/Navbar'
+import {Footer} from './footer/Footer'
+import {Navbar} from './nabvar/Navbar'
 
 interface LayoutProps {
   children: JSX.Element;

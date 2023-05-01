@@ -1,5 +1,5 @@
 import {SliderControllerContainer} from './SliderControllerStyled'
-import TileButton from './TileButton/TileButton'
+import TileButton from './tile_button/TileButton'
 
 interface SliderControllerProps {
   imgIndex: number;
