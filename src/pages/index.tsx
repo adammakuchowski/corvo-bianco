@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { Cinzel, Merriweather, Great_Vibes, Playfair_Display, Tangerine, Sacramento} from 'next/font/google'
-import Banner from '@/components/Banner/Banner'
-import About from '@/components/About/About'
-import ProductGallery from '@/components/ProductGallery/ProductGallery'
+import Banner from '@/components/banner/Banner'
+import About from '@/components/about/About'
+import ProductGallery from '@/components/product_gallery/ProductGallery'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],

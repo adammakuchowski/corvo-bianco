@@ -6,6 +6,10 @@ export const ProductGalleryContainer = styled.div`
 
 export const ProductGalleryContentWrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 export const ProductsPageContainer = styled.div`

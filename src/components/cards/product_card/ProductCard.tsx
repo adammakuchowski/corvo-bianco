@@ -1,13 +1,13 @@
 import {useState} from 'react'
 import Image from 'next/image'
 import {Product} from '@/types/types'
+import ProductCardAction from './product_card_action/ProductCardAction'
 import {
   ImgContainer,
   ImgWrapper,
   ProductCardActionWrapper,
   ProductCardContainer,
 } from './ProductCardStyled'
-import ProductCardAction from './ProductCardAction/ProductCardAction';
 
 interface ProductCardProps {
   product: Product;

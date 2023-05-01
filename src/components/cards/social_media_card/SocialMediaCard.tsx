@@ -2,7 +2,7 @@ import {BsFacebook} from 'react-icons/bs'
 import {GrInstagram} from 'react-icons/gr'
 import {AiFillTwitterCircle} from 'react-icons/ai'
 import {RiYoutubeFill} from 'react-icons/ri'
-import SocialMediaButton from '@/components/Buttons/SocialMediaButton/SocialMediaButton'
+import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
 import {IconComponent} from '@/types/types'
 import {
   ContentWrapper,

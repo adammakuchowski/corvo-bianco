@@ -1,10 +1,14 @@
-import {ProductGalleryContainer, ProductGalleryContentWrapper, ProductsPageContainer} from './ProductsStyled'
-import SectionHeader from '../SectionHeader/SectionHeader'
-import {Product} from '@/types/types'
 import {useState} from 'react'
-import Navigation from '../Navigation/Navigation'
-import ProductsPage from './ProductsPage/ProductsPage'
-import Button from '../Buttons/Button/Button'
+import {Product} from '@/types/types'
+import Navigation from '../navigation/Navigation'
+import Button from '../buttons/button/Button'
+import SectionHeader from '../section_header/SectionHeader'
+import ProductsPage from './products_page/ProductsPage'
+import {
+  ProductGalleryContainer,
+  ProductGalleryContentWrapper,
+  ProductsPageContainer,
+} from './ProductsStyled'
 
 const productGalleryManuOptions = ['Roes', 'Organic', 'Kosher', 'Champagne', 'Other']
 
@@ -98,7 +102,7 @@ const ProductGallery = (): JSX.Element => {
         />
         <ProductsPageContainer>
           <ProductsPage products={products} />
-          <Button content="View all"/>
+          <Button content="View all" />
         </ProductsPageContainer>
       </ProductGalleryContentWrapper>
     </ProductGalleryContainer>

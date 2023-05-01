@@ -10,7 +10,7 @@ import {
   ContentHeaderWrapper,
   ImageSwitchContainer,
 } from './CircleImgSliderCardStyled'
-import SliderController from '../../SliderController/SliderController'
+import SliderController from '../../slider_controller/SliderController'
 
 interface ImgCardProps {
   imgs: any[];

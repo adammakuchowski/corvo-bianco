@@ -2,7 +2,7 @@ import {useState} from 'react'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
 import {cinzel, merriweather} from '@/pages'
-import Navigation from '@/components/Navigation/Navigation'
+import Navigation from '@/components/navigation/Navigation'
 import {
   NavbarContainer,
   NameContainer,

@@ -1,8 +1,8 @@
-import {ContactContainer, ContactWrapper} from './ContactStyled'
-import PhoneCard from '../Cards/PhoneCard/PhoneCard'
-import AvailableHoursCard from '../Cards/AvailableHoursCard/AvailableHoursCard'
-import SocialMediaCard from '../Cards/SocialMediaCard/SocialMediaCard'
 import {playfairDisplay} from '@/pages'
+import AvailableHoursCard from '../cards/available_hours_card/AvailableHoursCard'
+import PhoneCard from '../cards/phone_card/PhoneCard'
+import SocialMediaCard from '../cards/social_media_card/SocialMediaCard'
+import {ContactContainer, ContactWrapper} from './ContactStyled'
 
 const available = {
   fromDay: 'MON',

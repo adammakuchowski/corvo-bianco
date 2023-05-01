@@ -1,9 +1,8 @@
-import Contact from '../Contact/Contact'
-import SectionHeader from '../SectionHeader/SectionHeader'
-import AboutContent from './AboutContent/AboutContent'
-import {
-  AboutContainer,
-} from './AboutStyled'
+
+import Contact from '../contact/Contact'
+import SectionHeader from '../section_header/SectionHeader'
+import AboutContent from './about_content/AboutContent'
+import {AboutContainer} from './AboutStyled'
 
 const About = (): JSX.Element => {
 

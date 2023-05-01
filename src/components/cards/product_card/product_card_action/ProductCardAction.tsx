@@ -4,7 +4,7 @@ import {BsArrowsFullscreen} from 'react-icons/bs'
 import {TiArrowSync} from 'react-icons/ti'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconComponent, Product} from '@/types/types'
-import IconActionButton from '@/components/Buttons/IconActionButton/IconActionButton'
+import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
 import {cinzel} from '@/pages'
 import {
   ProductCardActiveContainer,
