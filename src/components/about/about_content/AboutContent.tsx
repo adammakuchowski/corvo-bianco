@@ -1,4 +1,3 @@
-
 import CircleImgCard from '@/components/cards/circle_img_card/CircleImgCard'
 import CircleImgSliderCard from '@/components/cards/circle_img_slider_card/CircleImgSliderCard'
 import ImgCard from '@/components/cards/img_card/ImgCard'
