@@ -30,6 +30,16 @@ export const ActionsWrapper = styled.div`
   gap: 20px;
   min-width: 100px;
   margin-right: 30px;
+
+  > * {
+      &:nth-child(-n+3) {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+          :hover{
+          color: #708238;
+        }
+      }
+    }
 `
 
 export const CartWrapper = styled.div`
@@ -61,6 +71,10 @@ export const SettingWrapper = styled.div`
   margin-left: 30px;
 
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  :hover{
+      color: #708238;
+  }
 `
 
 export const OptionsContainer = styled.div`
