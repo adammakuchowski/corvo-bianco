@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ContentWarpper = styled.div`
-  /* background-color: blue; */
   min-width: 33%;
   max-width: 33%;
   min-height: 80%;
