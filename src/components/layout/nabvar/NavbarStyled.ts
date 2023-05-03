@@ -6,7 +6,6 @@ export const NavbarContainer = styled.div`
   flex-direction: column;
   justify-content: space-between; 
   align-items: center;
-  /* background-color: #F1F1F1; */
   top: 0;
   z-index: 3;
 `
@@ -65,7 +64,6 @@ export const CartCounter = styled.div`
 `
 
 export const SettingWrapper = styled.div`
-  min-width: 100px;
   font-size: 20px;
   display: flex;
   margin-left: 30px;

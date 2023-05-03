@@ -29,8 +29,8 @@ export const Navbar = () => {
           <NameWrapper>Corvo Bianco</NameWrapper>
         </NameContainer>
         <ActionsWrapper>
-          <BsPersonCircle style={{cursor: 'pointer'}} />
-          <AiOutlineSearch style={{cursor: 'pointer'}} />
+          <BsPersonCircle />
+          <AiOutlineSearch />
           <CartWrapper>
             <AiOutlineShoppingCart />
             {true && (
