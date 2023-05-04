@@ -7,10 +7,8 @@ interface AvailableHoursCardProps {
 }
 
 export const Button = ({content, buttonEvent}: AvailableHoursCardProps) => {
-  const triggerButtonEvent = () => {
-    buttonEvent()
-  }
-
+  const triggerButtonEvent = () => buttonEvent()
+  
   return (
     <ButtonContainer className={cinzel.className} onClick={triggerButtonEvent}>
       {content.toUpperCase()}

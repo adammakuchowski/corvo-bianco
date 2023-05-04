@@ -147,12 +147,12 @@ const products: Product[] = [
   }
 ]
 
-interface GalleryProductVisibility {
+interface ProductsPageStatus {
   viewAll: boolean;
   text: string;
 }
 
-const galleryProductVisibilityStates: GalleryProductVisibility[] = [
+const productsPageStatuses: ProductsPageStatus[] = [
   {
     viewAll: false,
     text: 'View all'
@@ -165,11 +165,11 @@ const galleryProductVisibilityStates: GalleryProductVisibility[] = [
 
 const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
-  const [productVisibility, setProductVisibility] = useState<GalleryProductVisibility>(galleryProductVisibilityStates[0])
+  const [productsPageStatus, setProductsPageStatus] = useState<ProductsPageStatus>(productsPageStatuses[0])
 
-  const galleryProductVisibilityEvent = () => productVisibility.viewAll ?
-    setProductVisibility(galleryProductVisibilityStates[0]) :
-    setProductVisibility(galleryProductVisibilityStates[1])
+  const productsPageEvent = () => productsPageStatus.viewAll ?
+    setProductsPageStatus(productsPageStatuses[0]) :
+    setProductsPageStatus(productsPageStatuses[1])
 
   return (
     <ProductGalleryContainer>
@@ -181,9 +181,9 @@ const ProductGallery = (): JSX.Element => {
           activePage={productGalleryPage}
           setActivePage={setProductGalleryPage}
         />
-        <ProductsPageContainer viewAll={productVisibility.viewAll}>
+        <ProductsPageContainer viewAll={productsPageStatus.viewAll}>
           <ProductsPage products={products} />
-          <Button content={productVisibility.text} buttonEvent={galleryProductVisibilityEvent}/>
+          <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
         </ProductsPageContainer>
       </ProductGalleryContentWrapper>
     </ProductGalleryContainer>
