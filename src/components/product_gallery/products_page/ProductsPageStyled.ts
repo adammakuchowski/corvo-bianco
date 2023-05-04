@@ -7,8 +7,9 @@ export const ProductsPageContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
   flex-wrap: wrap;
   gap: 90px;
-  margin-bottom: 70px;
+  margin-bottom: 20px;
+  padding: 5px;
+  overflow: hidden;
 `
