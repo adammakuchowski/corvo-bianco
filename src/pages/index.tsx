@@ -1,8 +1,16 @@
 import Head from 'next/head'
-import { Cinzel, Merriweather, Great_Vibes, Playfair_Display, Tangerine, Sacramento} from 'next/font/google'
+import {
+  Cinzel,
+  Merriweather,
+  Great_Vibes,
+  Playfair_Display,
+  Tangerine,
+  Sacramento,
+} from 'next/font/google'
 import Banner from '@/components/banner/Banner'
 import About from '@/components/about/About'
 import ProductGallery from '@/components/product_gallery/ProductGallery'
+import {CommunityEvents} from '@/components/community_events/CommunityEvents'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -43,9 +51,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Banner/>
-      <About/>
-      <ProductGallery/>
+      <Banner />
+      <About />
+      <ProductGallery />
+      <CommunityEvents />
     </>
   )
 }
