@@ -132,18 +132,6 @@ const products: Product[] = [
     countryOfOrigin: 'italy',
     img: '/images/bottle.jpg',
     price: 278.00,
-  },
-  {
-    name: 'Airén',
-    brand: 'Marchesi Antinori',
-    quality: 2,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 572.00,
   }
 ]
 
@@ -181,7 +169,7 @@ const ProductGallery = (): JSX.Element => {
           activePage={productGalleryPage}
           setActivePage={setProductGalleryPage}
         />
-        <ProductsPageContainer viewAll={productsPageStatus.viewAll}>
+        <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={products.length}>
           <ProductsPage products={products} />
           <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
         </ProductsPageContainer>
