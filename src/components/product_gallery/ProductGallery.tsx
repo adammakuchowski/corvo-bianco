@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Product} from '@/types/types'
 import Navigation from '../navigation/Navigation'
 import Button from '../buttons/button/Button'
@@ -154,6 +154,14 @@ const productsPageStatuses: ProductsPageStatus[] = [
 const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
   const [productsPageStatus, setProductsPageStatus] = useState<ProductsPageStatus>(productsPageStatuses[0])
+  const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
+
+  useEffect(() => {
+    if (products && products.length > 0) {
+      setCurrentProductsCount(products.length)
+    }
+  }, [products])
+
 
   const productsPageEvent = () => productsPageStatus.viewAll ?
     setProductsPageStatus(productsPageStatuses[0]) :
@@ -169,9 +177,11 @@ const ProductGallery = (): JSX.Element => {
           activePage={productGalleryPage}
           setActivePage={setProductGalleryPage}
         />
-        <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={products.length}>
+        <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={currentProductsCount}>
           <ProductsPage products={products} />
-          <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
+          {currentProductsCount > 4 && (
+            <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
+          )}
         </ProductsPageContainer>
       </ProductGalleryContentWrapper>
     </ProductGalleryContainer>
