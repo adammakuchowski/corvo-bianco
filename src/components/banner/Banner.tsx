@@ -27,9 +27,9 @@ const Banner = (): JSX.Element => {
         </ImgWrapper>
         <BannerOpacity/>
         <BannerNameWrapper>
-          <div style={{fontSize: 20, opacity: 0.7}}>ROYAL CHOICE</div>
-          <div className={cinzel.className} style={{fontSize: 110}}>WINEYARD</div>
-          <div style={{fontSize: 30, marginTop: '50px', opacity: 0.9}}>EXCELLENT QUALITY</div>
+          <div>ROYAL CHOICE</div>
+          <div className={cinzel.className}>WINEYARD</div>
+          <div>EXCELLENT QUALITY</div>
         </BannerNameWrapper>
       </BannerWrapper>
 

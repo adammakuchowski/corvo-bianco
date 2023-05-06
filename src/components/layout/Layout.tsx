@@ -1,11 +1,11 @@
-import {Footer} from './footer/Footer'
-import {Navbar} from './nabvar/Navbar'
+import Footer from './footer/Footer'
+import Navbar from './nabvar/Navbar'
 
 interface LayoutProps {
   children: JSX.Element;
 }
 
-export const Layout = ({children}: LayoutProps): JSX.Element => {
+const Layout = ({children}: LayoutProps): JSX.Element => {
   return (
     <>
       <Navbar />
@@ -14,3 +14,5 @@ export const Layout = ({children}: LayoutProps): JSX.Element => {
     </>
   )
 }
+
+export default Layout

@@ -39,14 +39,14 @@ export const ProductDataWrapper = styled.div`
   justify-content: space-between;
 
   > * {
-      &:nth-child(2) {
-        font-size: 22px;
-        letter-spacing: 1px;
-        color: #7c903e;
-        font-size: 17px;
-        font-weight: 500;
-      }
+    &:nth-child(2) {
+      font-size: 22px;
+      letter-spacing: 1px;
+      color: #7c903e;
+      font-size: 17px;
+      font-weight: 500;
     }
+  }
 `
 
 export const ProductQualityStars = styled.div`

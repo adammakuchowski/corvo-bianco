@@ -41,4 +41,19 @@ export const BannerNameWrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  > * {
+    &:nth-child(1) {
+      font-size: 20px;
+      opacity: 0.7;
+    }
+    &:nth-child(2) {
+      font-size: 110px;
+    }
+    &:nth-child(3) {
+      font-size: 30px;
+      margin-top: 50px; 
+      opacity: 0.9;
+    }
+  }
 `

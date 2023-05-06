@@ -10,7 +10,7 @@ import {
 import Banner from '@/components/banner/Banner'
 import About from '@/components/about/About'
 import ProductGallery from '@/components/product_gallery/ProductGallery'
-import {CommunityEvents} from '@/components/community_events/CommunityEvents'
+import CommunityEvents from '@/components/community_events/CommunityEvents'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],

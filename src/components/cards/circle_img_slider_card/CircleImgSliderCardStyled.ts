@@ -48,28 +48,26 @@ export const ContentHeaderWrapper = styled.div`
   flex-direction: column;
 
   > * {
-      &:nth-child(1) {
-        font-size: 30px;
-        margin: 0px;
-        color: #708238;
-      }
-
-      &:nth-child(2) {
-        font-size: 18px;
-        font-weight: 400;
-        color: #949494;
-        border-bottom: solid 1px #C0C0C0;
-        padding-bottom: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 45%;
-      }
-
-      &:nth-child(3) {
-        margin-bottom: 20px;
-      }
+    &:nth-child(1) {
+      font-size: 30px;
+      margin: 0px;
+      color: #708238;
     }
+      &:nth-child(2) {
+      font-size: 18px;
+      font-weight: 400;
+      color: #949494;
+      border-bottom: solid 1px #C0C0C0;
+      padding-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 45%;
+    }
+    &:nth-child(3) {
+      margin-bottom: 20px;
+    }
+  }
 `
 
 export const ImageSwitchContainer = styled.div`

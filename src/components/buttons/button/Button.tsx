@@ -6,7 +6,7 @@ interface AvailableHoursCardProps {
   buttonEvent: Function;
 }
 
-export const Button = ({content, buttonEvent}: AvailableHoursCardProps) => {
+const Button = ({content, buttonEvent}: AvailableHoursCardProps) => {
   const triggerButtonEvent = () => buttonEvent()
   
   return (
