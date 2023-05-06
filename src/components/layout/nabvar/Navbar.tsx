@@ -16,7 +16,7 @@ import {
 
 const manuOptions = ['Homepage', 'Products', 'About', 'Events', 'Blog', 'Contact']
 
-export const Navbar = () => {
+const Navbar = () => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
 
   return (
@@ -47,3 +47,5 @@ export const Navbar = () => {
     </NavbarContainer>
   )
 }
+
+export default Navbar

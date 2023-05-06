@@ -13,32 +13,30 @@ export const ContentHeaderWrapper = styled.div`
   flex-direction: column;
 
   > * {
-      &:nth-child(1) {
-        font-size: 30px;
-        margin: 0px;
-        color: #949494;
-      }
-
-      &:nth-child(2) {
-        font-size: 90px;
-        font-weight: 400;
-        position: relative;
-        margin-top: -40px;
-        color: #708238;
-        border-bottom: solid 1px #C0C0C0;
-        padding-bottom: 20px;
-      }
-
-      &:nth-child(3) {
-        font-size: 25px;
-        margin: 0px;
-        padding: 0px 10px;
-        position: relative;
-        bottom: 15px;
-        background-color: white;
-        color: #949494;
-      }
+    &:nth-child(1) {
+      font-size: 30px;
+      margin: 0px;
+      color: #949494;
     }
+    &:nth-child(2) {
+      font-size: 90px;
+      font-weight: 400;
+      position: relative;
+      margin-top: -40px;
+      color: #708238;
+      border-bottom: solid 1px #C0C0C0;
+      padding-bottom: 20px;
+    }
+    &:nth-child(3) {
+      font-size: 25px;
+      margin: 0px;
+      padding: 0px 10px;
+      position: relative;
+      bottom: 15px;
+      background-color: white;
+      color: #949494;
+    }
+  }
 `
 
 export const CircleContentImgContainer = styled.div`

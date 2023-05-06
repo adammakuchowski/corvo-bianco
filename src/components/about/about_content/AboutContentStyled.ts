@@ -6,10 +6,10 @@ export const AboutContentContainer = styled.div`
   justify-content: space-between;
 
   > * {
-      &:nth-child(2) {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+    &:nth-child(2) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+  }
 `

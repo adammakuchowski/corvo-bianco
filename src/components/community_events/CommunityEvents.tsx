@@ -1,15 +1,29 @@
+import CommunityEventCard from '../cards/community_event_card/CommunityEventCard'
 import SectionHeader from '../section_header/SectionHeader'
-import {CommunityEventsContainer} from './CommunityEventsStyled'
+import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
+
+const imgs = [
+  '/images/communityEvents1.jpg',
+  '/images/communityEvents3.jpg',
+]
+
+//   '/images/communityEvents2.jpg'
 
 interface CommunityEventsProps {
 
 }
 
-export const CommunityEvents = ({}: CommunityEventsProps): JSX.Element => {
+const CommunityEvents = ({}: CommunityEventsProps): JSX.Element => {
   return (
     <CommunityEventsContainer>
       <SectionHeader title='Community' text='EVENTS' />
-      CommunityEvents
+      <CommunityEventsCardsWrapper>
+        {imgs.map((img, index) => (
+          <CommunityEventCard key={index} img={img} />
+        ))}
+      </CommunityEventsCardsWrapper>
     </CommunityEventsContainer>
   )
 }
+
+export default CommunityEvents
