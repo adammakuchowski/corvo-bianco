@@ -5,6 +5,15 @@ export const BannerContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   margin-top: 10px;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1.5s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 
 export const BannerWrapper = styled.div`

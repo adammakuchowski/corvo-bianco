@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react'
 import CommunityEventCard from '../cards/community_event_card/CommunityEventCard'
 import SectionHeader from '../section_header/SectionHeader'
 import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
@@ -14,8 +15,14 @@ interface CommunityEventsProps {
 }
 
 const CommunityEvents = ({}: CommunityEventsProps): JSX.Element => {
+  const [isActive, setIsActive] = useState(false)
+
+  useEffect(() => {
+    setIsActive(true)
+  }, []);
+
   return (
-    <CommunityEventsContainer>
+    <CommunityEventsContainer className={isActive ? 'active' : ''}>
       <SectionHeader title='Community' text='EVENTS' />
       <CommunityEventsCardsWrapper>
         {imgs.map((img, index) => (

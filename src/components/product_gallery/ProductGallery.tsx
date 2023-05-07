@@ -155,6 +155,11 @@ const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
   const [productsPageStatus, setProductsPageStatus] = useState<ProductsPageStatus>(productsPageStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
+  const [isActive, setIsActive] = useState(false)
+
+  useEffect(() => {
+    setIsActive(true)
+  }, []);
 
   useEffect(() => {
     if (products && products.length > 0) {
@@ -168,7 +173,7 @@ const ProductGallery = (): JSX.Element => {
     setProductsPageStatus(productsPageStatuses[1])
 
   return (
-    <ProductGalleryContainer>
+    <ProductGalleryContainer className={isActive ? 'active' : ''}>
       <SectionHeader title='Vineyard' text='FEATURED WINES' />
       <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
         <Navigation
