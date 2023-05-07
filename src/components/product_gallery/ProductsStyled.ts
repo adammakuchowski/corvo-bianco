@@ -1,7 +1,12 @@
 import styled from 'styled-components'
 
 export const ProductGalleryContainer = styled.div`
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
 
+  &.active {
+    opacity: 1;
+  }
 `
 
 export const ProductGalleryContentWrapper = styled.div`

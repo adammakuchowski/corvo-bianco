@@ -8,6 +8,13 @@ export const NavbarContainer = styled.div`
   align-items: center;
   top: 0;
   z-index: 3;
+
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
 `
 
 export const NameContainer = styled.div`

@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
 import {cinzel} from '@/pages'
@@ -12,8 +13,14 @@ import {
 const img = '/images/banner.jpg'
 
 const Banner = (): JSX.Element => {
+  const [isActive, setIsActive] = useState(false)
+
+  useEffect(() => {
+    setIsActive(true)
+  }, []);
+  
   return (
-    <BannerContainer>
+    <BannerContainer className={isActive ? 'active' : ''}>
       <GiVineLeaf size={50} style={{marginLeft: '50px'}} />
 
       <BannerWrapper>
