@@ -9,11 +9,12 @@ import {
 } from './CommunityEventCardStyled'
 
 interface CommunityEventCardProps {
-  img: any
+  img: any,
+  title: string,
+  text: string,
 }
 
-
-const CommunityEventCard = ({img}: CommunityEventCardProps): JSX.Element => {
+const CommunityEventCard = ({img, title, text}: CommunityEventCardProps): JSX.Element => {
   return (
     <CommunityEventCardContainer>
       <CardWrapper>
@@ -27,8 +28,8 @@ const CommunityEventCard = ({img}: CommunityEventCardProps): JSX.Element => {
         </ImgWrapper>
         <ImgOpacity />
         <ImgNameWrapper className={cinzel.className}>
-          <div>ROYAL CHOICE</div>
-          <div>EVENTS</div>
+          <div>{title}</div>
+          <div>{text}</div>
         </ImgNameWrapper>
       </CardWrapper>
     </CommunityEventCardContainer>

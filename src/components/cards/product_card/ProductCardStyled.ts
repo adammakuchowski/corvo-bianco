@@ -24,9 +24,9 @@ export const ImgContainer = styled.button`
   box-shadow: ${({active}: ImgContainerProps) => active ? '0 0 5px rgba(124, 144, 62, 1)' : '0'};
   cursor: pointer;
   :hover{
-      border: 0;
-      box-shadow: ${({active}: ImgContainerProps) => active ? '0' : '0 0 5px rgba(0, 0, 0, 0.5)'};
-    }
+    border: 0;
+    box-shadow: ${({active}: ImgContainerProps) => active ? '0' : '0 0 5px rgba(0, 0, 0, 0.5)'};
+  }
 `
 
 export const ImgWrapper = styled.div`

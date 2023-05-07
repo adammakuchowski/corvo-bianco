@@ -3,18 +3,20 @@ import CommunityEventCard from '../cards/community_event_card/CommunityEventCard
 import SectionHeader from '../section_header/SectionHeader'
 import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
 
-const imgs = [
-  '/images/communityEvents1.jpg',
-  '/images/communityEvents3.jpg',
+const communityEventCardData = [
+  {
+    title: 'WINERY',
+    text: 'EVENTS',
+    img: '/images/communityEvents1.jpg',
+  },
+  {
+    title: 'EXCLUSIVE',
+    text: 'WINERY',
+    img: '/images/communityEvents3.jpg',
+  }
 ]
 
-//   '/images/communityEvents2.jpg'
-
-interface CommunityEventsProps {
-
-}
-
-const CommunityEvents = ({}: CommunityEventsProps): JSX.Element => {
+const CommunityEvents = (): JSX.Element => {
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -25,8 +27,8 @@ const CommunityEvents = ({}: CommunityEventsProps): JSX.Element => {
     <CommunityEventsContainer className={isActive ? 'active' : ''}>
       <SectionHeader title='Community' text='EVENTS' />
       <CommunityEventsCardsWrapper>
-        {imgs.map((img, index) => (
-          <CommunityEventCard key={index} img={img} />
+        {communityEventCardData.map((data, index) => (
+          <CommunityEventCard key={index} img={data.img} title={data.title} text={data.text} />
         ))}
       </CommunityEventsCardsWrapper>
     </CommunityEventsContainer>
