@@ -78,7 +78,7 @@ export const SettingWrapper = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   :hover{
-      color: #708238;
+    color: #708238;
   }
 `
 

@@ -22,8 +22,8 @@ export const IconActionButtonWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transition: all 0.4s ease-in-out;
-    :hover{
-        background-color: #7c903e;
-        color: #cbcbcb;
-    }
+  :hover{
+    background-color: #7c903e;
+    color: #cbcbcb;
+  }
 `
