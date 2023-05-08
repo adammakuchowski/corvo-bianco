@@ -12,7 +12,7 @@ const communityEventCardData = [
   {
     title: 'EXCLUSIVE',
     text: 'WINERY',
-    img: '/images/communityEvents3.jpg',
+    img: '/images/communityEvents2.jpg',
   }
 ]
 
