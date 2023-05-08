@@ -4,7 +4,7 @@ export const CommunityEventCardContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  width: 40%;
+  width: 50%;
 `
 
 export const CardWrapper = styled.div`
