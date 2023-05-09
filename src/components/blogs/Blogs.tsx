@@ -6,12 +6,12 @@ const blogCardData = [
   {
     date: new Date(2023, 7, 11),
     text: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
-    img: '/images/communityEvents1.jpg',
+    img: '/images/blog1.jpg',
   },
   {
     date: new Date(2023, 10, 21),
     text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat velit ipsa suscipit cupiditate provident autem optio nobis.',
-    img: '/images/communityEvents2.jpg',
+    img: '/images/blog2.jpg',
   }
 ]
 
