@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import moment from 'moment'
 import {
   BlogCardContainer,
   CardWrapper,
@@ -6,7 +7,6 @@ import {
   ImgOpacity,
   ImgWrapper,
 } from './BlogCardStyled'
-import moment from 'moment'
 
 interface BlogCardProps {
   img: any,
