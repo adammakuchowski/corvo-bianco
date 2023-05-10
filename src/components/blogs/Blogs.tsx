@@ -1,16 +1,16 @@
-import BlogCard from '../cards/blogCard/BlogCard'
+import BlogCard from '../cards/blog_card/BlogCard'
 import SectionHeader from '../section_header/SectionHeader'
 import {BlogsCardsWrapper, BlogsContainer} from './BlogsStyled'
 
 const blogCardData = [
   {
-    date: new Date(2023, 7, 11),
-    text: 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.',
+    date: new Date(2023, 7, 8),
+    text: 'There are many variations of passages of Lorem Ipsum available.',
     img: '/images/blog1.jpg',
   },
   {
-    date: new Date(2023, 10, 21),
-    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat velit ipsa suscipit cupiditate provident autem optio nobis.',
+    date: new Date(2023, 10, 11),
+    text: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
     img: '/images/blog2.jpg',
   }
 ]

@@ -28,10 +28,45 @@ export const ImgOpacity = styled.div`
   height: 300px;
   z-index: -1;
   position: absolute;
-  opacity: 0.6;
+  opacity: 0.2;
 `
 
 export const ContentWrapper = styled.div`
   width: 50%;
-  height: 250px;
+  height: 300px;
+
+  display: flex;
+  flex-direction: column;
+`
+
+export const ContentHeader = styled.div`
+  height: 50%;
+  display: flex;
+  align-items: center;
+
+  > * {
+    &:nth-child(1) {
+      font-size: 50px;
+      font-weight: 500;
+      color: #708238;
+      position: relative;
+      left: 40px;
+    }
+    &:nth-child(2) {
+      font-size: 120px;
+      font-weight: 500;
+      color: #d8d8d8;
+    }
+  }
+`
+
+export const ContentText = styled.div`
+  height: 50%;
+
+  display: flex;
+  align-items: center;
+
+  letter-spacing: 3px;
+  line-height: 1.5;
+  padding-left: 40px;
 `
