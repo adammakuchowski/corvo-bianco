@@ -23,6 +23,7 @@ export const NameContainer = styled.div`
   justify-content: center;
   min-width: 240px;
   color: #641B30;
+  /* color: #708238; */
 `
 
 export const NameWrapper = styled.div`
