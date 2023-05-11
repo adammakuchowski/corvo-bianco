@@ -8,7 +8,7 @@ export const BannerContainer = styled.div`
 
   opacity: 0;
   transform: translateY(100%);
-  transition: all 1.5s ease;
+  transition: all 1s ease;
 
   &.active {
     opacity: 1;

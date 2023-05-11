@@ -3,7 +3,8 @@ import styled from 'styled-components'
 export const ProductGalleryContainer = styled.div`
   opacity: 0;
   transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
-
+  margin-top: 30px;
+  
   &.active {
     opacity: 1;
   }
