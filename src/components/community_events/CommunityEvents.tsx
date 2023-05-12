@@ -24,14 +24,16 @@ const CommunityEvents = (): JSX.Element => {
   }, []);
 
   return (
-    <CommunityEventsContainer className={isActive ? 'active' : ''}>
-      <SectionHeader title='Community' text='EVENTS' />
-      <CommunityEventsCardsWrapper>
-        {communityEventCardData.map((data, index) => (
-          <CommunityEventCard key={index} img={data.img} title={data.title} text={data.text} />
-        ))}
-      </CommunityEventsCardsWrapper>
-    </CommunityEventsContainer>
+    <section className='events'>
+      <CommunityEventsContainer className={isActive ? 'active' : ''}>
+        <SectionHeader title='Community' text='EVENTS' />
+        <CommunityEventsCardsWrapper>
+          {communityEventCardData.map((data, index) => (
+            <CommunityEventCard key={index} img={data.img} title={data.title} text={data.text} />
+          ))}
+        </CommunityEventsCardsWrapper>
+      </CommunityEventsContainer>
+    </section>
   )
 }
 

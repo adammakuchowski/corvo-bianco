@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {Product} from '@/types/types'
+import {NavigationOptions, Product} from '@/types/types'
 import Navigation from '../navigation/Navigation'
 import Button from '../buttons/button/Button'
 import SectionHeader from '../section_header/SectionHeader'
@@ -10,7 +10,13 @@ import {
   ProductsPageContainer,
 } from './ProductsStyled'
 
-const productGalleryManuOptions = ['Roes', 'Organic', 'Kosher', 'Champagne', 'Other']
+const productGalleryManuOptions: NavigationOptions[] = [
+  {name: 'Roes'},
+  {name: 'Organic'},
+  {name: 'Kosher'},
+  {name: 'Champagne'},
+  {name: 'Other'},
+]
 
 const products: Product[] = [
   {
@@ -173,23 +179,25 @@ const ProductGallery = (): JSX.Element => {
     setProductsPageStatus(productsPageStatuses[1])
 
   return (
-    <ProductGalleryContainer className={isActive ? 'active' : ''}>
-      <SectionHeader title='Vineyard' text='FEATURED WINES' />
-      <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
-        <Navigation
-          fontSize='18px'
-          options={productGalleryManuOptions}
-          activePage={productGalleryPage}
-          setActivePage={setProductGalleryPage}
-        />
-        <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={currentProductsCount}>
-          <ProductsPage products={products} />
-          {currentProductsCount > 4 && (
-            <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
-          )}
-        </ProductsPageContainer>
-      </ProductGalleryContentWrapper>
-    </ProductGalleryContainer>
+    <section className='product_gallery'>
+      <ProductGalleryContainer className={isActive ? 'active' : ''}>
+        <SectionHeader title='Vineyard' text='FEATURED WINES' />
+        <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
+          <Navigation
+            fontSize='18px'
+            options={productGalleryManuOptions}
+            activePage={productGalleryPage}
+            setActivePage={setProductGalleryPage}
+          />
+          <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={currentProductsCount}>
+            <ProductsPage products={products} />
+            {currentProductsCount > 4 && (
+              <Button content={productsPageStatus.text} buttonEvent={productsPageEvent} />
+            )}
+          </ProductsPageContainer>
+        </ProductGalleryContentWrapper>
+      </ProductGalleryContainer>
+    </section>
   )
 }
 

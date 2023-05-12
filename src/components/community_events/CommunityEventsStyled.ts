@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CommunityEventsContainer = styled.div`
+  margin-top: 20px;
   height: 650px;
   opacity: 0;
   transition: all 1.5s ease-in-out;

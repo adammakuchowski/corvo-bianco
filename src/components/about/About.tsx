@@ -12,11 +12,15 @@ const About = (): JSX.Element => {
   }, []);
 
   return (
-    <AboutContainer className={isActive ? 'active' : ''}>
-      <SectionHeader title='Welcome' text='VINEYARD'/>
-      <AboutContent/>
-      <Contact/>
-    </AboutContainer>
+    <section className='about'>
+      <AboutContainer className={isActive ? 'active' : ''}>
+        <SectionHeader title='Welcome' text='VINEYARD' />
+        <AboutContent />
+        <section className='contact' style={{width: '100%'}}>
+          <Contact />
+        </section>
+      </AboutContainer>
+    </section>
   )
 }
 
