@@ -75,12 +75,7 @@ export const SettingWrapper = styled.div`
   font-size: 20px;
   display: flex;
   margin-left: 30px;
-
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  :hover{
-    color: #708238;
-  }
+  min-width: 100px;
 `
 
 export const OptionsContainer = styled.div`

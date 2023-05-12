@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-export const IconActionButtonContainer = styled.div`
+export const IconActionButtonContainer = styled.button`
+  border: none;
+	padding: 0;
+  background: none;
   display: flex;
   align-items: center;
   justify-content: center;

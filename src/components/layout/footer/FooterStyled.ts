@@ -44,7 +44,6 @@ export const IconWrapper = styled.div`
 
 export const ArrowWrapper = styled.div`
   color: #999999;
-  font-size: 35px;
 `
 
 export const FooterNameWrapper = styled.div`

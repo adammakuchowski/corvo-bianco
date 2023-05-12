@@ -3,6 +3,7 @@ import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-ic
 import {BsPersonCircle} from 'react-icons/bs'
 import {cinzel, merriweather} from '@/pages'
 import Navigation from '@/components/navigation/Navigation'
+import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
 import {
   NavbarContainer,
   NameContainer,
@@ -28,16 +29,16 @@ const Navbar = () => {
     <NavbarContainer className={`${merriweather.className} ${isActive ? 'active' : ''}`}>
       <OptionsContainer>
         <SettingWrapper>
-          <AiOutlineSetting />
+          <SocialMediaButton iconComponent={<AiOutlineSetting />} />
         </SettingWrapper>
         <NameContainer className={cinzel.className}>
           <NameWrapper>Corvo Bianco</NameWrapper>
         </NameContainer>
         <ActionsWrapper>
-          <BsPersonCircle />
-          <AiOutlineSearch />
+          <SocialMediaButton iconComponent={<BsPersonCircle />} />
+          <SocialMediaButton iconComponent={<AiOutlineSearch />} />
           <CartWrapper>
-            <AiOutlineShoppingCart />
+            <SocialMediaButton iconComponent={<AiOutlineShoppingCart />} />
             {true && (
               <CartCounter>2</CartCounter>
             )}

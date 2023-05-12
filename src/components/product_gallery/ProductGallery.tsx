@@ -177,7 +177,7 @@ const ProductGallery = (): JSX.Element => {
       <SectionHeader title='Vineyard' text='FEATURED WINES' />
       <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
         <Navigation
-          fontSize='20px'
+          fontSize='18px'
           options={productGalleryManuOptions}
           activePage={productGalleryPage}
           setActivePage={setProductGalleryPage}

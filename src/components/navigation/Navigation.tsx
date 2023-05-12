@@ -1,3 +1,4 @@
+import {merriweather} from '@/pages'
 import {
   MenuContainer,
   PagesContainer,
@@ -20,9 +21,11 @@ const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: Nav
   return (
     <MenuContainer>
       <PagesContainer>
-        <ListWrapper style={{fontSize: fontSize}}>
+        <ListWrapper>
           {options.map((option, index) => (
             <PageItem 
+              className={merriweather.className}
+              style={{fontSize: fontSize}}
               key={index} 
               activePage={index === activePage}
               onClick={() => switchPage(index)}
