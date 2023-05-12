@@ -15,3 +15,8 @@ export interface IconComponent {
   iconComponent: JSX.Element,
   iconAction?: Function,
 }
+
+export interface NavigationOptions {
+  name: string;
+  sectionName?: string;
+}

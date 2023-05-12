@@ -34,7 +34,7 @@ const Footer = () => {
               ))}
             </IconWrapper>
             <ArrowWrapper>
-              <SocialMediaButton iconComponent={<BsArrowUpCircle />} fontSize = '25px'/>
+              <SocialMediaButton iconComponent={<BsArrowUpCircle />} fontSize = '25px' sectionName='start'/>
             </ArrowWrapper>
           </FooterToolboxWrapper>
         </FooterToolbox>

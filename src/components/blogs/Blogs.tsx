@@ -17,14 +17,16 @@ const blogCardData = [
 
 const Blogs = () => {
   return (
-    <BlogsContainer>
-      <SectionHeader title='Vineyard' text='BLOG WINES' />
-      <BlogsCardsWrapper>
-        {blogCardData.map((data, index) => (
-          <BlogCard key={index} img={data.img} date={data.date} text={data.text} />
-        ))}
-      </BlogsCardsWrapper>
-    </BlogsContainer>
+    <section className='blog'>
+      <BlogsContainer>
+        <SectionHeader title='Vineyard' text='BLOG WINES' />
+        <BlogsCardsWrapper>
+          {blogCardData.map((data, index) => (
+            <BlogCard key={index} img={data.img} date={data.date} text={data.text} />
+          ))}
+        </BlogsCardsWrapper>
+      </BlogsContainer>
+    </section>
   )
 }
 
