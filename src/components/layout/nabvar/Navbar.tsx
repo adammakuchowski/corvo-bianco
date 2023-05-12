@@ -13,8 +13,16 @@ import {
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
+import {IconComponent} from '@/types/types'
+import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
 
 const manuOptions = ['Homepage', 'Products', 'About', 'Events', 'Blog', 'Contact']
+
+const socialMedias: IconComponent[] = [
+  {iconComponent: <BsPersonCircle />},
+  {iconComponent: <AiOutlineSearch />},
+]
+
 
 const Navbar = () => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
@@ -28,16 +36,16 @@ const Navbar = () => {
     <NavbarContainer className={`${merriweather.className} ${isActive ? 'active' : ''}`}>
       <OptionsContainer>
         <SettingWrapper>
-          <AiOutlineSetting />
+          <SocialMediaButton iconComponent={<AiOutlineSetting />} />
         </SettingWrapper>
         <NameContainer className={cinzel.className}>
           <NameWrapper>Corvo Bianco</NameWrapper>
         </NameContainer>
         <ActionsWrapper>
-          <BsPersonCircle />
-          <AiOutlineSearch />
+          <SocialMediaButton iconComponent={<BsPersonCircle />} />
+          <SocialMediaButton iconComponent={<AiOutlineSearch />} />
           <CartWrapper>
-            <AiOutlineShoppingCart />
+            <SocialMediaButton iconComponent={<AiOutlineShoppingCart />} />
             {true && (
               <CartCounter>2</CartCounter>
             )}

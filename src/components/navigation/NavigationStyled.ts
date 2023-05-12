@@ -26,7 +26,11 @@ interface PageItemProps {
   activePage: boolean;
 }
 
-export const PageItem = styled.li`
+export const PageItem = styled.button`
+  border: none;
+	padding: 0;
+  background: none;
+
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   color: ${({activePage}: PageItemProps) => activePage ? '#708238' : '#000000'};
