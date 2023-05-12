@@ -3,6 +3,7 @@ import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-ic
 import {BsPersonCircle} from 'react-icons/bs'
 import {cinzel, merriweather} from '@/pages'
 import Navigation from '@/components/navigation/Navigation'
+import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
 import {
   NavbarContainer,
   NameContainer,
@@ -13,16 +14,8 @@ import {
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
-import {IconComponent} from '@/types/types'
-import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
 
 const manuOptions = ['Homepage', 'Products', 'About', 'Events', 'Blog', 'Contact']
-
-const socialMedias: IconComponent[] = [
-  {iconComponent: <BsPersonCircle />},
-  {iconComponent: <AiOutlineSearch />},
-]
-
 
 const Navbar = () => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
