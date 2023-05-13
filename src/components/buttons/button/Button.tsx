@@ -1,16 +1,16 @@
 import {cinzel} from '@/pages'
 import {ButtonContainer} from './ButtonStyled'
 
-interface AvailableHoursCardProps {
+interface ButtonProps {
   content: string;
-  buttonEvent: Function;
+  buttonAction?: Function;
 }
 
-const Button = ({content, buttonEvent}: AvailableHoursCardProps) => {
-  const triggerButtonEvent = () => buttonEvent()
+const Button = ({content, buttonAction}: ButtonProps) => {
+  const onButtonAction = () => buttonAction && buttonAction()
   
   return (
-    <ButtonContainer className={cinzel.className} onClick={triggerButtonEvent}>
+    <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
       {content.toUpperCase()}
     </ButtonContainer>
   )
