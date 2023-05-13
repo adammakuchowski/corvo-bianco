@@ -9,13 +9,11 @@ interface SocialMediaButtonProps {
 }
 
 const SocialMediaButton = ({iconComponent, iconAction, fontSize = '20px', sectionName}: SocialMediaButtonProps): JSX.Element => {
-  const iconActionHandler = () => {
-    iconAction && iconAction()
-  }
-
+  const onIconAction = () => iconAction && iconAction()
+  
   return (
     <Link to={sectionName ?? ''} smooth={true} duration={500}>
-      <SocialMediaButtonContainer onClick={iconActionHandler} style={{fontSize: fontSize}}>
+      <SocialMediaButtonContainer onClick={onIconAction} style={{fontSize: fontSize}}>
         {iconComponent}
       </SocialMediaButtonContainer>
     </Link>

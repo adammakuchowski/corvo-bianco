@@ -9,12 +9,10 @@ interface IconActionButtonProps {
 }
 
 const IconActionButton = ({iconComponent, iconAction}: IconActionButtonProps): JSX.Element => {
-  const iconActionHandler = () => {
-    iconAction && iconAction()
-  }
+  const onIconAction = () => iconAction && iconAction()
 
   return (
-    <IconActionButtonContainer onClick={iconActionHandler}>
+    <IconActionButtonContainer onClick={onIconAction}>
       <IconActionButtonWrapper>
         {iconComponent}
       </IconActionButtonWrapper>
