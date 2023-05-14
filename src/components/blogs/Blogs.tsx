@@ -2,7 +2,13 @@ import BlogCard from '../cards/blog_card/BlogCard'
 import SectionHeader from '../section_header/SectionHeader'
 import {BlogsCardsWrapper, BlogsContainer} from './BlogsStyled'
 
-const blogCardData = [
+interface BlogCarData {
+  date: Date;
+  text: string;
+  img: any;
+}
+
+const blogCardData: BlogCarData[] = [
   {
     date: new Date(2023, 7, 8),
     text: 'There are many variations of passages of Lorem Ipsum available.',
