@@ -14,5 +14,6 @@ export const TextButtonContainer = styled.button`
 
   :hover {
     color: #708238;
+    transform: scale(1.01);
   }
 `
