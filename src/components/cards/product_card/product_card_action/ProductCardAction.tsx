@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import {BsStarFill} from 'react-icons/bs'
 import {IoMdHeartEmpty} from 'react-icons/io'
 import {BsArrowsFullscreen} from 'react-icons/bs'
@@ -5,6 +6,7 @@ import {TiArrowSync} from 'react-icons/ti'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconComponent, Product} from '@/types/types'
 import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
+import Popup from '@/components/popups/popup_img/PopupImg'
 import {cinzel} from '@/pages'
 import {
   ProductCardActiveContainer,
@@ -21,18 +23,29 @@ interface ProductCardActionProps {
 
 const productQualityStartsRainge = [1, 2, 3, 4, 5]
 
-const ProductCardActions: IconComponent[] = [
-  {iconComponent: <BsArrowsFullscreen />},
-  {iconComponent: <TiArrowSync />},
-  {iconComponent: <IoMdHeartEmpty />},
-  {iconComponent: <AiOutlineShoppingCart />},
-]
-
 const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Element => {
+  const [popupIsOpen, setPopupIsOpen] = useState<boolean>(false)
   const {name, price, quality} = product
+
+  const ProductCardActions: IconComponent[] = [
+    {
+      iconComponent: <BsArrowsFullscreen />,
+      iconAction: () => setPopupIsOpen(true),
+    },
+    {
+      iconComponent: <TiArrowSync />
+    },
+    {
+      iconComponent: <IoMdHeartEmpty />
+    },
+    {
+      iconComponent: <AiOutlineShoppingCart />
+    },
+  ]
 
   return active ? (
     <ProductCardActiveContainer className={cinzel.className}>
+      <Popup isOpen={popupIsOpen} onClose={setPopupIsOpen} data={product}/>
       {ProductCardActions.map((icon, index) => (
         <IconActionButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
       ))}
