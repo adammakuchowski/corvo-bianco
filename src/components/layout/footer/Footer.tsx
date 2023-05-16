@@ -22,7 +22,7 @@ const socialMedias: IconComponent[] = [
   {iconComponent: <GrPinterest />},
 ]
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <FooterContainer>
       <FooterWrapper>

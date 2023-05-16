@@ -6,7 +6,7 @@ interface ButtonProps {
   buttonAction?: Function;
 }
 
-const Button = ({content, buttonAction}: ButtonProps) => {
+const Button = ({content, buttonAction}: ButtonProps): JSX.Element => {
   const onButtonAction = () => buttonAction && buttonAction()
   
   return (
