@@ -7,7 +7,7 @@ interface TextButtonProps {
   overrideStyle?: object;
 }
 
-const TextButton = ({content, buttonAction, overrideStyle}: TextButtonProps) => {
+const TextButton = ({content, buttonAction, overrideStyle}: TextButtonProps): JSX.Element => {
   const onButtonAction = () => buttonAction &&  buttonAction()
 
   return (

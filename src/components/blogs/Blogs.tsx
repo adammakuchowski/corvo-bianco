@@ -21,7 +21,7 @@ const blogCardData: BlogCarData[] = [
   }
 ]
 
-const Blogs = () => {
+const Blogs = (): JSX.Element => {
   return (
     <section className='blog'>
       <BlogsContainer>
