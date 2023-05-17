@@ -23,7 +23,7 @@ export const PopupContainer = styled.div`
   background-color: white;
   padding: 10px;
   z-index: 1000;
-  width: 30%;
+  width: 60%;
   height: 90%;
   display: flex;
   flex-direction: column;
@@ -62,9 +62,15 @@ export const CloseButtonWrapper = styled.button`
   }
 `
 
+export const PopupContentContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+`
+
 export const PopupImgContainer = styled.div`
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -78,3 +84,36 @@ export const ImgWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `
+
+export const PopupDataContainer = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  background-color: pink;
+`
+
+export const DataHeaderWrapper = styled.div`
+  width: 100%;
+  height: 30%;
+  display: flex;
+  background-color: gold;
+
+  justify-content: center;
+  align-items: center;
+`
+
+export const DataHeader = styled.div`
+  font-weight: 500;
+  font-size: 40px;
+`
+
+export const DataContainer = styled.div`
+  width: 100%;
+  height: 40%;
+
+  background-color: gray;
+`
+
+
