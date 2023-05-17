@@ -6,7 +6,7 @@ import {TiArrowSync} from 'react-icons/ti'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconComponent, Product} from '@/types/types'
 import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
-import Popup from '@/components/popups/product_popup/ProductPopup'
+import ProductPopup from '@/components/popups/product_popup/ProductPopup'
 import {cinzel} from '@/pages'
 import {
   ProductCardActiveContainer,
@@ -45,7 +45,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
 
   return active ? (
     <ProductCardActiveContainer className={cinzel.className}>
-      <Popup isOpen={popupIsOpen} onClose={setPopupIsOpen} product={product}/>
+      <ProductPopup isOpen={popupIsOpen} onClose={setPopupIsOpen} product={product}/>
       {ProductCardActions.map((icon, index) => (
         <IconActionButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
       ))}
