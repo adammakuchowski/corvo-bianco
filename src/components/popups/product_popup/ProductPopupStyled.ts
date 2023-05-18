@@ -90,18 +90,19 @@ export const PopupDataContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-
-  background-color: pink;
+/* 
+  background-color: pink; */
 `
 
 export const DataHeaderWrapper = styled.div`
   width: 100%;
-  height: 30%;
+  height: 20%;
   display: flex;
-  background-color: gold;
+  /* background-color: gold; */
 
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  padding-left: 10px;
 `
 
 export const DataHeader = styled.div`
@@ -113,7 +114,12 @@ export const DataContainer = styled.div`
   width: 100%;
   height: 40%;
 
-  background-color: gray;
+  /* background-color: gray; */
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 `
 
 
