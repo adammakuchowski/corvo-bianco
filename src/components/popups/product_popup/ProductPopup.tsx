@@ -15,6 +15,7 @@ import {
   PopupImgContainer,
   PopupOverlayContainer,
 } from './ProductPopupStyled'
+import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
 
 interface ProductPopupProps {
   isOpen: boolean;
@@ -43,7 +44,6 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
     color,
     productionYear,
     countryOfOrigin,
-    price,
   ]
 
   useEffect(() => {
@@ -89,7 +89,9 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
               </DataHeader>
             </DataHeaderWrapper>
             <DataContainer>
-              {}
+              {productSpec.map((specification, index) => (
+                <ProductFeatureEntry key={index} value={specification}/>
+              ))}
             </DataContainer>
 
           </PopupDataContainer>
