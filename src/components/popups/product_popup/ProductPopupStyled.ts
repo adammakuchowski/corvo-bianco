@@ -103,6 +103,15 @@ export const DataHeaderWrapper = styled.div`
   justify-content: start;
   align-items: center;
   padding-left: 10px;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 
 export const DataHeader = styled.div`
@@ -120,6 +129,17 @@ export const DataContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1.2s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 
+export const CounterContainer = styled.div`
 
+`

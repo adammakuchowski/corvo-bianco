@@ -5,6 +5,7 @@ import {Product} from '@/types/types'
 import {
   CloseButtonContainer,
   CloseButtonWrapper,
+  CounterContainer,
   DataContainer,
   DataHeader,
   DataHeaderWrapper,
@@ -61,15 +62,12 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
   return (
     <PopupOverlayContainer className={isActive ? 'active' : ''}>
       <PopupContainer className={isActive ? 'active' : ''}>
-
         <CloseButtonContainer>
           <CloseButtonWrapper onClick={onClosePopup}>
             <IoCloseCircleOutline />
           </CloseButtonWrapper>
         </CloseButtonContainer>
-
         <PopupContentContainer>
-
           <PopupImgContainer>
             <ImgWrapper>
               <Image
@@ -80,23 +78,21 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
               />
             </ImgWrapper>
           </PopupImgContainer>
-
-
           <PopupDataContainer>
-            <DataHeaderWrapper>
+            <DataHeaderWrapper className={isActive ? 'active' : ''}>
               <DataHeader>
                 {name}
               </DataHeader>
             </DataHeaderWrapper>
-            <DataContainer>
+            <DataContainer className={isActive ? 'active' : ''}>
               {productSpec.map((specification, index) => (
                 <ProductFeatureEntry key={index} value={specification}/>
               ))}
             </DataContainer>
-
+            <CounterContainer>
+              
+            </CounterContainer>
           </PopupDataContainer>
-
-
         </PopupContentContainer>
       </PopupContainer>
     </PopupOverlayContainer>
