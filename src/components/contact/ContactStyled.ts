@@ -19,9 +19,9 @@ export const ContactWrapper = styled.div`
   height: 200px;
 
   > * {
-      &:nth-child(2) {
-        border-right: solid 1px #C0C0C0;
-        border-left: solid 1px #C0C0C0;
-      }
+    &:nth-child(2) {
+      border-right: solid 1px #C0C0C0;
+      border-left: solid 1px #C0C0C0;
     }
+  }
 `
