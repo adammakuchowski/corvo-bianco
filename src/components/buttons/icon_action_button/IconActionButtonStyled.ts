@@ -15,6 +15,10 @@ export const IconActionButtonContainer = styled.button`
   height: 55px;
   width: 55px;
   overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  :hover{
+    border: solid 1px #e5e5e5;
+  }
 `
 
 export const IconActionButtonWrapper = styled.div`
@@ -24,9 +28,10 @@ export const IconActionButtonWrapper = styled.div`
   color: #808080;
   align-items: center;
   justify-content: center;
-  transition: all 0.4s ease-in-out;
+  font-size: 15px;
+  transition: all 0.3s ease-in-out;
   :hover{
-    background-color: #7c903e;
-    color: #cbcbcb;
+    background-color: #8ea648;
+    color: #e5e5e5;
   }
 `

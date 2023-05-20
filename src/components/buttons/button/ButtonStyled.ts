@@ -10,13 +10,14 @@ export const ButtonContainer = styled.button`
 	padding: 11px 53px;
 	text-shadow:0px 1px 0px #ffffff;
 	cursor: pointer;
-  transition: all 0.4s ease-in-out;
   letter-spacing: 1px;
   margin-top: 40px;
   margin-bottom: 10px;
   
-  :hover {
-    border: 1px solid #616161;
-    color: #616161;
+  transition: all 0.3s ease-in-out;
+  :hover{
+    border: 1px solid #0000;
+    background-color: #8ea648;
+    color: #0000;
   }
 `

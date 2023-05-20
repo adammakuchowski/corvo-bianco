@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import Image from 'next/image'
 import {IoCloseCircleOutline} from 'react-icons/io5'
+import Counter from '@/components/counter/Counter'
 import {Product} from '@/types/types'
 import {
   CloseButtonContainer,
@@ -89,8 +90,8 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
                 <ProductFeatureEntry key={index} value={specification}/>
               ))}
             </DataContainer>
-            <CounterContainer>
-              
+            <CounterContainer className={isActive ? 'active' : ''}>
+              <Counter/>
             </CounterContainer>
           </PopupDataContainer>
         </PopupContentContainer>
