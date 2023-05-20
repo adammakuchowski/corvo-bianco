@@ -192,7 +192,7 @@ const ProductGallery = (): JSX.Element => {
           <ProductsPageContainer viewAll={productsPageStatus.viewAll} productsCount={currentProductsCount}>
             <ProductsPage products={products} />
             {currentProductsCount > 4 && (
-              <Button content={productsPageStatus.text} buttonAction={productsPageEvent} />
+              <Button text={productsPageStatus.text} buttonAction={productsPageEvent} />
             )}
           </ProductsPageContainer>
         </ProductGalleryContentWrapper>

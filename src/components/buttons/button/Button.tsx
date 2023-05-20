@@ -2,16 +2,16 @@ import {cinzel} from '@/pages'
 import {ButtonContainer} from './ButtonStyled'
 
 interface ButtonProps {
-  content: string;
+  text: string;
   buttonAction?: Function;
 }
 
-const Button = ({content, buttonAction}: ButtonProps): JSX.Element => {
+const Button = ({text, buttonAction}: ButtonProps): JSX.Element => {
   const onButtonAction = () => buttonAction && buttonAction()
   
   return (
     <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
-      {content.toUpperCase()}
+      {text.toUpperCase()}
     </ButtonContainer>
   )
 }
