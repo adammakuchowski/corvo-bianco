@@ -14,14 +14,27 @@ interface SocialMediaCardProps {
   headerText: string;
 }
 
-const socialMedias: IconComponent[] = [
-  {iconComponent: <BsFacebook/>},
-  {iconComponent: <GrInstagram/>},
-  {iconComponent: <AiFillTwitterCircle/>},
-  {iconComponent: <RiYoutubeFill/>},
-]
-
 const SocialMediaCard = ({headerText}: SocialMediaCardProps): JSX.Element => {
+  const openPage = (address: string) => window.open(address)
+
+  const socialMedias: IconComponent[] = [
+    {
+      iconComponent: <BsFacebook/>,
+      iconAction: () => openPage('https://facebook.com/'),
+    },
+    {
+      iconComponent: <GrInstagram/>,
+      iconAction: () => openPage('https://www.instagram.com/'),
+    },
+    {
+      iconComponent: <AiFillTwitterCircle/>,
+      iconAction: () => openPage('https://twitter.com/'),
+    },
+    {
+      iconComponent: <RiYoutubeFill/>,
+      iconAction: () => openPage('https://www.youtube.com/'),
+    }
+  ]
 
   return (
     <SocialMediaCardContainer>
