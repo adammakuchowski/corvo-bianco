@@ -15,14 +15,29 @@ import {
   IconWrapper,
 } from './FooterStyled'
 
-const socialMedias: IconComponent[] = [
-  {iconComponent: <FiFacebook />},
-  {iconComponent: <FiTwitter />},
-  {iconComponent: <AiOutlineGoogle />},
-  {iconComponent: <GrPinterest />},
-]
 
 const Footer = (): JSX.Element => {
+  const openPage = (address: string) => window.open(address)
+
+  const socialMedias: IconComponent[] = [
+    {
+      iconComponent: <FiFacebook />,
+      iconAction: () => openPage('https://facebook.com/'),
+    },
+    {
+      iconComponent: <FiTwitter />,
+      iconAction: () => openPage('https://twitter.com/'),
+    },
+    {
+      iconComponent: <AiOutlineGoogle />,
+      iconAction: () => openPage('https://www.google.com/'),
+    },
+    {
+      iconComponent: <GrPinterest />,
+      iconAction: () => openPage('https://pinterest.com/'),
+    }
+  ]
+
   return (
     <FooterContainer>
       <FooterWrapper>
