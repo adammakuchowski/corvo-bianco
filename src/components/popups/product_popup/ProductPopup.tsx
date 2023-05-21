@@ -39,7 +39,7 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
     price,
   } = product
 
-  const productSpec = [    
+  const productSpec = [
     brand,
     category,
     typ,
@@ -49,10 +49,14 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
   ]
 
   useEffect(() => {
-    isOpen && setisActive(true)
+    if (isOpen) {
+      setisActive(true)
+      document.body.style.overflow = 'hidden'
+    }
 
     return () => {
       setisActive(false)
+      document.body.style.overflow = 'auto'
     }
   }, [isOpen])
 
@@ -87,11 +91,11 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
             </DataHeaderWrapper>
             <DataContainer className={isActive ? 'active' : ''}>
               {productSpec.map((specification, index) => (
-                <ProductFeatureEntry key={index} value={specification}/>
+                <ProductFeatureEntry key={index} value={specification} />
               ))}
             </DataContainer>
             <CounterContainer className={isActive ? 'active' : ''}>
-              <Counter/>
+              <Counter />
             </CounterContainer>
           </PopupDataContainer>
         </PopupContentContainer>
