@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import {NavigationOptions, Product} from '@/types/types'
-import Navigation from '../navigation/Navigation'
-import Button from '../buttons/button/Button'
-import SectionHeader from '../section_header/SectionHeader'
+import Navigation from '@/components/navigation/Navigation'
+import SectionHeader from '@/components/section_header/SectionHeader'
+import Button from '@/components/buttons/button/Button'
 import ProductsPage from '../products_list/ProductsList'
 import {
   ProductGalleryContainer,

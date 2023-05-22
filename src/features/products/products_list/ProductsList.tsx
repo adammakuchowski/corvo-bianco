@@ -1,5 +1,5 @@
 import {Product} from '@/types/types'
-import ProductCard from '@/components/cards/product_card/ProductCard'
+import ProductCard from '../product_card/ProductCard'
 import {ProductsListContainer} from './ProductsListStyled'
 
 interface ProductsListProps {
