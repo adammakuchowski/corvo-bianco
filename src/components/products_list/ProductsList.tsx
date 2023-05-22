@@ -1,19 +1,19 @@
 import {Product} from '@/types/types'
 import ProductCard from '@/components/cards/product_card/ProductCard'
-import {ProductsPageContainer} from './ProductsPageStyled'
+import {ProductsListContainer} from './ProductsListStyled'
 
-interface ProductsPageProps {
+interface ProductsListProps {
   products: Product[];
 }
 
-const ProductsPage = ({products}: ProductsPageProps): JSX.Element => {
+const ProductsList = ({products}: ProductsListProps): JSX.Element => {
   return (
-    <ProductsPageContainer>
+    <ProductsListContainer>
       {products.map((product, index) => (
         <ProductCard key={index} product={product}/>
       ))}
-    </ProductsPageContainer>
+    </ProductsListContainer>
   )
 }
 
-export default ProductsPage
+export default ProductsList

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ProductsPageContainer = styled.div`
+export const ProductsListContainer = styled.div`
   width: 70%;
   max-width: 75%;
   height: 100%;
