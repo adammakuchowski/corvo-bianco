@@ -3,7 +3,7 @@ import {NavigationOptions, Product} from '@/types/types'
 import Navigation from '../navigation/Navigation'
 import Button from '../buttons/button/Button'
 import SectionHeader from '../section_header/SectionHeader'
-import ProductsPage from './products_page/ProductsPage'
+import ProductsPage from '../products_list/ProductsList'
 import {
   ProductGalleryContainer,
   ProductGalleryContentWrapper,
