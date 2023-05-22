@@ -1,6 +1,5 @@
-
-import BlogCard from '@/components/cards/blog_card/BlogCard';
-import SectionHeader from '@/components/section_header/SectionHeader';
+import BlogCard from '@/components/cards/blog_card/BlogCard'
+import SectionHeader from '@/components/section_header/SectionHeader'
 import {BlogsCardsWrapper, BlogsContainer} from './BlogsStyled'
 
 interface BlogCarData {
