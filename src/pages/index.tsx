@@ -12,6 +12,7 @@ import About from '@/components/about/About'
 import Banner from '@/components/banner/Banner'
 import Blogs from '@/components/blogs/Blogs'
 import CommunityEvents from '@/components/community_events/CommunityEvents'
+import ProductCart from '@/features/products/product_cart/productCart'
 
 export const cinzel = Cinzel({
   subsets: ['latin'],
@@ -52,6 +53,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <ProductCart/>
       <Banner />
       <About />
       <ProductGallery />

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {SyntheticEvent, useEffect, useState} from 'react'
 import Image from 'next/image'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
@@ -11,21 +11,21 @@ import {
   DataHeader,
   DataHeaderWrapper,
   ImgWrapper,
-  PopupContainer,
-  PopupContentContainer,
-  PopupDataContainer,
-  PopupImgContainer,
-  PopupOverlayContainer,
-} from './ProductPopupStyled'
+  ModalContainer,
+  ModalContentContainer,
+  ModalDataContainer,
+  ModalImgContainer,
+  ModalOverlayContainer,
+} from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
 
-interface ProductPopupProps {
+interface ProductModalProps {
   isOpen: boolean;
   onClose: Function;
   product: Product;
 }
 
-const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Element | null => {
+const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setisActive] = useState<boolean>(false)
   const {
     img,
@@ -60,20 +60,24 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
     }
   }, [isOpen])
 
-  const onClosePopup = () => onClose(false)
+  const onCloseModal = () => onClose(false)
+
+  const onStopPropagation = (event: SyntheticEvent) => {
+    event.stopPropagation()
+  }
 
   if (!isOpen) return null
 
   return (
-    <PopupOverlayContainer className={isActive ? 'active' : ''}>
-      <PopupContainer className={isActive ? 'active' : ''}>
+    <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
+      <ModalContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
         <CloseButtonContainer>
-          <CloseButtonWrapper onClick={onClosePopup}>
+          <CloseButtonWrapper onClick={onCloseModal}>
             <IoCloseCircleOutline />
           </CloseButtonWrapper>
         </CloseButtonContainer>
-        <PopupContentContainer>
-          <PopupImgContainer>
+        <ModalContentContainer>
+          <ModalImgContainer>
             <ImgWrapper>
               <Image
                 src={img}
@@ -82,8 +86,8 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
                 style={{objectFit: 'cover'}}
               />
             </ImgWrapper>
-          </PopupImgContainer>
-          <PopupDataContainer>
+          </ModalImgContainer>
+          <ModalDataContainer>
             <DataHeaderWrapper className={isActive ? 'active' : ''}>
               <DataHeader>
                 {name}
@@ -97,11 +101,11 @@ const ProductPopup = ({isOpen, onClose, product}: ProductPopupProps): JSX.Elemen
             <CounterContainer className={isActive ? 'active' : ''}>
               <Counter />
             </CounterContainer>
-          </PopupDataContainer>
-        </PopupContentContainer>
-      </PopupContainer>
-    </PopupOverlayContainer>
+          </ModalDataContainer>
+        </ModalContentContainer>
+      </ModalContainer>
+    </ModalOverlayContainer>
   )
 }
 
-export default ProductPopup
+export default ProductModal

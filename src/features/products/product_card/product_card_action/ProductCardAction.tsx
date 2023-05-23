@@ -6,7 +6,6 @@ import {TiArrowSync} from 'react-icons/ti'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconComponent, Product} from '@/types/types'
 import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
-import ProductPopup from '@/features/products/product_popup/ProductPopup'
 import {cinzel} from '@/pages'
 import {
   ProductCardActiveContainer,
@@ -15,6 +14,7 @@ import {
   ProductName,
   ProductQualityStars,
 } from './ProductCardActionStyled'
+import ProductModal from '../../product_modal/ProductModal'
 
 interface ProductCardActionProps {
   product: Product;
@@ -24,13 +24,13 @@ interface ProductCardActionProps {
 const productQualityStartsRainge = [1, 2, 3, 4, 5]
 
 const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Element => {
-  const [popupIsOpen, setPopupIsOpen] = useState<boolean>(false)
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
   const {name, price, quality} = product
 
   const ProductCardActions: IconComponent[] = [
     {
       iconComponent: <BsArrowsFullscreen />,
-      iconAction: () => setPopupIsOpen(true),
+      iconAction: () => setModalIsOpen(true),
     },
     {
       iconComponent: <TiArrowSync />
@@ -45,7 +45,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
 
   return active ? (
     <ProductCardActiveContainer className={cinzel.className}>
-      <ProductPopup isOpen={popupIsOpen} onClose={setPopupIsOpen} product={product}/>
+      <ProductModal isOpen={modalIsOpen} onClose={setModalIsOpen} product={product}/>
       {ProductCardActions.map((icon, index) => (
         <IconActionButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
       ))}
