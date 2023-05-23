@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const PopupOverlayContainer = styled.div`
+export const ModalOverlayContainer = styled.div`
   position: fixed;
   left: 0;
   top: 0;
@@ -15,7 +15,7 @@ export const PopupOverlayContainer = styled.div`
   }
 `
 
-export const PopupContainer = styled.div`
+export const ModalContainer = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
@@ -62,13 +62,13 @@ export const CloseButtonWrapper = styled.button`
   }
 `
 
-export const PopupContentContainer = styled.div`
+export const ModalContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
 `
 
-export const PopupImgContainer = styled.div`
+export const ModalImgContainer = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
@@ -85,7 +85,7 @@ export const ImgWrapper = styled.div`
   align-items: center;
 `
 
-export const PopupDataContainer = styled.div`
+export const ModalDataContainer = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
