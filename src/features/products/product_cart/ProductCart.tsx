@@ -1,7 +1,7 @@
 import {
   ProductCartContainer,
   ProductCartOverlayContainer,
-} from './productCartStyled'
+} from './ProductCartStyled'
 
 interface ProductCartProps {
 
