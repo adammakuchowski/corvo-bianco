@@ -26,7 +26,7 @@ interface ProductModalProps {
 }
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
-  const [isActive, setisActive] = useState<boolean>(false)
+  const [isActive, setIsActive] = useState<boolean>(false)
   const {
     img,
     name,
@@ -50,12 +50,12 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
 
   useEffect(() => {
     if (isOpen) {
-      setisActive(true)
+      setIsActive(true)
       document.body.style.overflow = 'hidden'
     }
 
     return () => {
-      setisActive(false)
+      setIsActive(false)
       document.body.style.overflow = 'auto'
     }
   }, [isOpen])
