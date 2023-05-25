@@ -12,7 +12,7 @@ export const ProductCartOverlayContainer = styled.div`
   z-index: 1000;
 
   opacity: 0;
-  transition: all 0.6s ease;
+  transition: all 0.3s ease-in-out;
   &.active {
     opacity: 1;
   }
@@ -32,12 +32,10 @@ export const ProductCartContainer = styled.div`
   flex-direction: column;
   gap: 10px;
 
-  opacity: 0;
   transform: translateX(100%);
-  transition: all 1s ease;
+  transition: all 0.4s ease-in-out;
 
   &.active {
-    opacity: 1;
     transform: translateY(0);
   }
 `

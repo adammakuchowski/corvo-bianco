@@ -15,6 +15,7 @@ import {
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
+import ProductCart from '@/features/products/product_cart/ProductCart'
 
 const manuOptions: NavigationOptions[] = [
   {
@@ -42,10 +43,13 @@ const manuOptions: NavigationOptions[] = [
 const Navbar = () => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
   const [isActive, setIsActive] = useState(false)
+  const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
 
   useEffect(() => {
     setIsActive(true)
-  }, []);
+  }, [])
+
+  const openCart = () => setCartIsOpen(true)
 
   return (
     <section className='start'>
@@ -61,7 +65,7 @@ const Navbar = () => {
             <SocialMediaButton iconComponent={<BsPersonCircle />} />
             <SocialMediaButton iconComponent={<AiOutlineSearch />} />
             <CartWrapper>
-              <SocialMediaButton iconComponent={<AiOutlineShoppingCart />} />
+              <SocialMediaButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {true && (
                 <CartCounter>2</CartCounter>
               )}
@@ -74,6 +78,7 @@ const Navbar = () => {
           setActivePage={setProductNavbarPage}
         />
       </NavbarContainer>
+      <ProductCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen}/>
     </section>
   )
 }

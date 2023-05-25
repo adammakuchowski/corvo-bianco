@@ -5,17 +5,17 @@ import {
 } from './ProductCartStyled'
 
 interface ProductCartProps {
-
+  cartIsOpen: boolean;
+  setCartIsOpen: (value: boolean) => void;
 }
 
-const ProductCart = ({}: ProductCartProps): JSX.Element | null => {
+const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
 
-  const [isOpen, setIsOpen] = useState<boolean>(true)
   // const isOpen = true
 
   useEffect(() => {
-    if (isOpen) {
+    if (cartIsOpen) {
       setIsActive(true)
       document.body.style.overflow = 'hidden'
     }
@@ -24,17 +24,17 @@ const ProductCart = ({}: ProductCartProps): JSX.Element | null => {
       setIsActive(false)
       document.body.style.overflow = 'auto'
     }
-  }, [isOpen])
+  }, [cartIsOpen])
 
-  const onCloseModal = () => setIsOpen(false)
+  const onCloseModal = () => setCartIsOpen(false)
 
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
   
-  if (!isOpen) return null
+  if (!cartIsOpen) return null
 
   return (
-    <ProductCartOverlayContainer onClick={onCloseModal}>
-      <ProductCartContainer onClick={onStopPropagation}>
+    <ProductCartOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal} >
+      <ProductCartContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
         
       </ProductCartContainer>
     </ProductCartOverlayContainer>
