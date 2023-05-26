@@ -1,8 +1,53 @@
 import {SyntheticEvent, useEffect, useState} from 'react'
+import {IoCloseCircleOutline} from 'react-icons/io5'
+import IconButton from '@/components/buttons/icon_button/IconButton'
+import {Product} from '@/types/types'
 import {
+  CloseButtonContainer,
+  HeaderContainer,
+  HeaderContentWrapper,
   ProductCartContainer,
   ProductCartOverlayContainer,
+  CloseButtonWrapper
 } from './ProductCartStyled'
+
+const cartProducts: CartProduct[] = [
+  {
+    product: {
+      name: 'Moscato',
+      brand: 'Marchesi Antinori',
+      quality: 3,
+      category: 'organic',
+      typ: 'dry',
+      color: 'white',
+      productionYear: '2006',
+      countryOfOrigin: 'italy',
+      img: '/images/bottle.jpg',
+      price: 278.00,
+    },
+    quantity: 1,
+  },
+  {
+    product: {
+      name: 'Cabernet Sauvignon',
+      brand: 'Marchesi Antinori',
+      quality: 4,
+      category: 'organic',
+      typ: 'dry',
+      color: 'white',
+      productionYear: '2006',
+      countryOfOrigin: 'italy',
+      img: '/images/bottle.jpg',
+      price: 120.20,
+    },
+    quantity: 2,
+  }
+]
+
+interface CartProduct {
+  product: Product;
+  quantity: number;
+}
 
 interface ProductCartProps {
   cartIsOpen: boolean;
@@ -11,13 +56,24 @@ interface ProductCartProps {
 
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
+  const [cartTotal, setCartTotal] = useState<number>(0)
 
-  // const isOpen = true
+  const getTotalCartPrice = (): number => (
+    cartProducts.reduce((total: number, amount: CartProduct) => {
+      const {product: {price}, quantity} = amount
+      const totalPrice = price * quantity
+
+      return total + totalPrice
+    }, 0)
+  )
 
   useEffect(() => {
     if (cartIsOpen) {
       setIsActive(true)
       document.body.style.overflow = 'hidden'
+
+      const totalCartPrice = getTotalCartPrice()
+      setCartTotal(totalCartPrice)
     }
 
     return () => {
@@ -29,16 +85,28 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const onCloseModal = () => setCartIsOpen(false)
 
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
-  
+
   if (!cartIsOpen) return null
 
   return (
     <ProductCartOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal} >
       <ProductCartContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
-        
+        <HeaderContainer>
+          <CloseButtonContainer>
+            <CloseButtonWrapper>
+              <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize = '25px'/>
+            </CloseButtonWrapper>
+          </CloseButtonContainer>
+          <HeaderContentWrapper>
+            
+          </HeaderContentWrapper>
+        </HeaderContainer>
+
       </ProductCartContainer>
     </ProductCartOverlayContainer>
   )
 }
 
 export default ProductCart
+
+// {`${cartTotal.toFixed(2)} $`}

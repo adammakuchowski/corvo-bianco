@@ -3,7 +3,7 @@ import {FiFacebook, FiTwitter} from 'react-icons/fi'
 import {AiOutlineGoogle} from 'react-icons/ai'
 import {GrPinterest} from 'react-icons/gr'
 import {IconComponent} from '@/types/types'
-import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
+import IconButton from '@/components/buttons/icon_button/IconButton'
 import {cinzel} from '@/pages'
 import {
   ArrowWrapper,
@@ -45,11 +45,11 @@ const Footer = (): JSX.Element => {
           <FooterToolboxWrapper>
             <IconWrapper>
               {socialMedias.map((icon, index) => (
-                <SocialMediaButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
+                <IconButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
               ))}
             </IconWrapper>
             <ArrowWrapper>
-              <SocialMediaButton iconComponent={<BsArrowUpCircle />} fontSize = '25px' sectionName='start'/>
+              <IconButton iconComponent={<BsArrowUpCircle />} fontSize = '25px' sectionName='start'/>
             </ArrowWrapper>
           </FooterToolboxWrapper>
         </FooterToolbox>
