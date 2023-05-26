@@ -18,12 +18,12 @@ export const ProductGalleryContentWrapper = styled.div`
   align-items: center;
 `
 
-interface ProductsPageContainerPops {
+interface ProductsListContainerPops {
   viewAll: boolean;
   productsCount: number;
 }
 
-export const ProductsPageContainer = styled.div`
+export const ProductsListContainer = styled.div`
   margin: 50px;
   width: 100%;
   display: flex;
@@ -32,9 +32,9 @@ export const ProductsPageContainer = styled.div`
   flex-direction: column;
   transition: all 0.8s ease-in-out;
 
-  height: ${({viewAll, productsCount}: ProductsPageContainerPops) => {
-    const productsPageLevels = productsCount / 4
-    const levelsRounded = Math.ceil(productsPageLevels)
+  height: ${({viewAll, productsCount}: ProductsListContainerPops) => {
+    const ProductsListLevels = productsCount / 4
+    const levelsRounded = Math.ceil(ProductsListLevels)
     const height = viewAll ? 560 + 530 * (levelsRounded - 1) : 560
 
     return `${height}px`;

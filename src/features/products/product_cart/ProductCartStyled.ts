@@ -39,3 +39,27 @@ export const ProductCartContainer = styled.div`
     transform: translateY(0);
   }
 `
+
+export const HeaderContainer = styled.div`
+  width: 100%;
+  height: 6%;
+  background-color: blue;
+`
+
+export const CloseButtonContainer = styled.div`
+  width: 100%;
+  background-color: red;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+`
+
+export const CloseButtonWrapper = styled.div`
+  background-color: green;
+`
+
+export const HeaderContentWrapper = styled.div`
+
+
+`

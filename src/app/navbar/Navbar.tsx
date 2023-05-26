@@ -4,7 +4,7 @@ import {BsPersonCircle} from 'react-icons/bs'
 import {NavigationOptions} from '@/types/types'
 import {cinzel, merriweather} from '@/pages'
 import Navigation from '@/components/navigation/Navigation'
-import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
+import IconButton from '@/components/buttons/icon_button/IconButton'
 import {
   NavbarContainer,
   NameContainer,
@@ -56,16 +56,16 @@ const Navbar = () => {
       <NavbarContainer className={`${merriweather.className} ${isActive ? 'active' : ''}`}>
         <OptionsContainer>
           <SettingWrapper>
-            <SocialMediaButton iconComponent={<AiOutlineSetting />} />
+            <IconButton iconComponent={<AiOutlineSetting />} />
           </SettingWrapper>
           <NameContainer className={cinzel.className}>
             <NameWrapper>Corvo Bianco</NameWrapper>
           </NameContainer>
           <ActionsWrapper>
-            <SocialMediaButton iconComponent={<BsPersonCircle />} />
-            <SocialMediaButton iconComponent={<AiOutlineSearch />} />
+            <IconButton iconComponent={<BsPersonCircle />} />
+            <IconButton iconComponent={<AiOutlineSearch />} />
             <CartWrapper>
-              <SocialMediaButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
+              <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {true && (
                 <CartCounter>2</CartCounter>
               )}

@@ -2,7 +2,7 @@ import {BsFacebook} from 'react-icons/bs'
 import {GrInstagram} from 'react-icons/gr'
 import {AiFillTwitterCircle} from 'react-icons/ai'
 import {RiYoutubeFill} from 'react-icons/ri'
-import SocialMediaButton from '@/components/buttons/social_media_button/SocialMediaButton'
+import IconButton from '@/components/buttons/icon_button/IconButton'
 import {IconComponent} from '@/types/types'
 import {
   ContentWrapper,
@@ -41,7 +41,7 @@ const SocialMediaCard = ({headerText}: SocialMediaCardProps): JSX.Element => {
       <HeaderContentWrapper>{headerText}</HeaderContentWrapper>
       <ContentWrapper>
         {socialMedias.map((icon, index) => (
-          <SocialMediaButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction}/>
+          <IconButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction}/>
         ))}
       </ContentWrapper>
     </SocialMediaCardContainer>

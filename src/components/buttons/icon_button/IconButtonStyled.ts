@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const SocialMediaButtonContainer = styled.button`
+export const IconButtonContainer = styled.button`
   border: none;
 	padding: 0;
   background: none;
