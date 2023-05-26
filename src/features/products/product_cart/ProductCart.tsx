@@ -59,7 +59,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const [cartTotal, setCartTotal] = useState<number>(0)
 
   const getTotalCartPrice = (): number => (
-    cartProducts.reduce((total: number, amount: CartProduct) => {
+    cartProducts.reduce((total: number, amount: CartProduct): number => {
       const {product: {price}, quantity} = amount
       const totalPrice = price * quantity
 
