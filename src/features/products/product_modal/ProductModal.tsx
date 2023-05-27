@@ -1,5 +1,6 @@
 import {SyntheticEvent, useEffect, useState} from 'react'
 import Image from 'next/image'
+import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
@@ -20,7 +21,6 @@ import {
   ModalOverlayContainer,
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
-import {useDispatch} from 'react-redux'
 import {addToCart} from '../productsSlice'
 
 interface ProductModalProps {

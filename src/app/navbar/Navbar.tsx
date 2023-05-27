@@ -70,7 +70,9 @@ const Navbar = () => {
             <IconButton iconComponent={<AiOutlineSearch />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
-              {!!cartCount && <CartCounter>{cartCount}</CartCounter>}
+              {!!cartCount && (
+                <CartCounter>{cartCount}</CartCounter>
+              )}
             </CartWrapper>
           </ActionsWrapper>
         </OptionsContainer>
@@ -80,7 +82,7 @@ const Navbar = () => {
           setActivePage={setProductNavbarPage}
         />
       </NavbarContainer>
-      <ProductCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen}/>
+      <ProductCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen} />
     </section>
   )
 }
