@@ -2,8 +2,10 @@ import {SyntheticEvent, useEffect, useState} from 'react'
 import Image from 'next/image'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
+import Button from '@/components/buttons/button/Button'
 import {Product} from '@/types/types'
 import {
+  ButtonWrapper,
   CloseButtonContainer,
   CloseButtonWrapper,
   CounterContainer,
@@ -27,6 +29,7 @@ interface ProductModalProps {
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
+  const [quantity, setQuantity] = useState<number>(1)
   const {
     img,
     name,
@@ -41,11 +44,11 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
 
   const productSpec = [
     brand,
-    category,
     typ,
-    color,
     productionYear,
+    color,
     countryOfOrigin,
+    `${price} $`,
   ]
 
   useEffect(() => {
@@ -99,7 +102,10 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
               ))}
             </DataContainer>
             <CounterContainer className={isActive ? 'active' : ''}>
-              <Counter />
+              <Counter countNumber={quantity} setCountNumber={setQuantity} />
+              <ButtonWrapper>
+                <Button text='Add to cart' />
+              </ButtonWrapper>
             </CounterContainer>
           </ModalDataContainer>
         </ModalContentContainer>

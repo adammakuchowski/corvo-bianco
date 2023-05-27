@@ -11,8 +11,6 @@ export const ButtonContainer = styled.button`
 	text-shadow:0px 1px 0px #ffffff;
 	cursor: pointer;
   letter-spacing: 1px;
-  margin-top: 40px;
-  margin-bottom: 10px;
   
   transition: all 0.3s ease-in-out;
   :hover{

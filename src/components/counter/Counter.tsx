@@ -1,12 +1,15 @@
 import {useState} from 'react'
 import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
 import IconActionButton from '../buttons/icon_action_button/IconActionButton'
-import {CounterContainer, CounterWrapper, CountNumber, ButtonWrapper} from './CounterStyled'
+import {CounterContainer, CounterWrapper, CountNumber} from './CounterStyled'
 import Button from '../buttons/button/Button'
 
-const Counter = (): JSX.Element => {
-  const [countNumber, setCountNumber] = useState<number>(1)
+interface CounterProps {
+  countNumber: number;
+  setCountNumber: (value: number) => void;
+}
 
+const Counter = ({countNumber, setCountNumber}: CounterProps): JSX.Element => {
   const incrementCountNumber = () => setCountNumber(countNumber + 1)
   const decrementCountNumber = () => setCountNumber(countNumber > 1 ? countNumber - 1 : countNumber)
 
@@ -17,9 +20,6 @@ const Counter = (): JSX.Element => {
         <CountNumber>{countNumber}</CountNumber>
         <IconActionButton iconComponent={<AiOutlinePlus />} iconAction={incrementCountNumber} />
       </CounterWrapper>
-      <ButtonWrapper>
-        <Button text='Add to cart'/>
-      </ButtonWrapper>
     </CounterContainer>
   )
 }
