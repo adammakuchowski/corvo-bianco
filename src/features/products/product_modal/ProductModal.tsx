@@ -1,5 +1,6 @@
 import {SyntheticEvent, useEffect, useState} from 'react'
 import Image from 'next/image'
+import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
@@ -20,6 +21,7 @@ import {
   ModalOverlayContainer,
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
+import {addToCart} from '../productsSlice'
 
 interface ProductModalProps {
   isOpen: boolean;
@@ -30,6 +32,7 @@ interface ProductModalProps {
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
+  const dispatch = useDispatch()
   const {
     img,
     name,
@@ -50,6 +53,12 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     countryOfOrigin,
     `${price} $`,
   ]
+
+  const onAddProductToCart = () => {
+    if (product && quantity) {
+      dispatch(addToCart(product, quantity))
+    }
+  }
 
   useEffect(() => {
     if (isOpen) {
@@ -104,7 +113,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             <CounterContainer className={isActive ? 'active' : ''}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
               <ButtonWrapper>
-                <Button text='Add to cart' />
+                <Button text='Add to cart' buttonAction={onAddProductToCart} />
               </ButtonWrapper>
             </CounterContainer>
           </ModalDataContainer>
