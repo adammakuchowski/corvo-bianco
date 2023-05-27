@@ -129,8 +129,8 @@ export const DataContainer = styled.div`
   margin-top: 40px;
 
   opacity: 0;
-  transform: translateY(50%);
-  transition: all 1.2s ease;
+  transform: translateY(40%);
+  transition: all 1s ease;
 
   &.active {
     opacity: 1;
@@ -147,8 +147,8 @@ export const CounterContainer = styled.div`
   justify-content: center;
   align-items: center;
   opacity: 1;
-  transform: translateY(50%);
-  transition: all 1.4s ease;
+  transform: translateY(40%);
+  transition: all 1s ease;
 
   &.active {
     opacity: 1;

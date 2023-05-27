@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react'
+import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
 import {NavigationOptions} from '@/types/types'
 import {cinzel, merriweather} from '@/pages'
 import Navigation from '@/components/navigation/Navigation'
 import IconButton from '@/components/buttons/icon_button/IconButton'
+import ProductCart from '@/features/products/product_cart/ProductCart'
 import {
   NavbarContainer,
   NameContainer,
@@ -15,7 +17,7 @@ import {
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
-import ProductCart from '@/features/products/product_cart/ProductCart'
+import {AppState} from '../store'
 
 const manuOptions: NavigationOptions[] = [
   {
@@ -45,6 +47,8 @@ const Navbar = () => {
   const [isActive, setIsActive] = useState(false)
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
 
+  const cartCount = useSelector((state: AppState) => state.products.productsCart.length)
+
   useEffect(() => {
     setIsActive(true)
   }, [])
@@ -66,9 +70,7 @@ const Navbar = () => {
             <IconButton iconComponent={<AiOutlineSearch />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
-              {true && (
-                <CartCounter>2</CartCounter>
-              )}
+              {!!cartCount && <CartCounter>{cartCount}</CartCounter>}
             </CartWrapper>
           </ActionsWrapper>
         </OptionsContainer>

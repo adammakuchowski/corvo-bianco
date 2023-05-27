@@ -123,35 +123,4 @@ export const products: Product[] = [
   }
 ]
 
-export const productsCart: ProductCart[] = [
-  {
-    product: {
-      name: 'Moscato',
-      brand: 'Marchesi Antinori',
-      quality: 3,
-      category: 'organic',
-      typ: 'dry',
-      color: 'white',
-      productionYear: '2006',
-      countryOfOrigin: 'italy',
-      img: '/images/bottle.jpg',
-      price: 278.00,
-    },
-    quantity: 1,
-  },
-  {
-    product: {
-      name: 'Cabernet Sauvignon',
-      brand: 'Marchesi Antinori',
-      quality: 4,
-      category: 'organic',
-      typ: 'dry',
-      color: 'white',
-      productionYear: '2006',
-      countryOfOrigin: 'italy',
-      img: '/images/bottle.jpg',
-      price: 120.20,
-    },
-    quantity: 2,
-  }
-]
+export const productsCart: ProductCart[] = []
