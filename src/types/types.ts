@@ -11,6 +11,11 @@ export interface Product {
   price: number;
 }
 
+export interface ProductCart {
+  product: Product;
+  quantity: number;
+}
+
 export interface IconComponent {
   iconComponent: JSX.Element,
   iconAction?: Function,

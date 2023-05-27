@@ -23,9 +23,3 @@ export const CounterWrapper = styled.div`
   align-items: center;
   gap: 50px;
 `
-
-export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`

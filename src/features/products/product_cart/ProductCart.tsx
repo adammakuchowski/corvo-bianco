@@ -1,7 +1,7 @@
 import {SyntheticEvent, useEffect, useState} from 'react'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import IconButton from '@/components/buttons/icon_button/IconButton'
-import {Product} from '@/types/types'
+import {ProductCart, Product} from '@/types/types'
 import {
   CloseButtonContainer,
   HeaderContainer,
@@ -10,44 +10,8 @@ import {
   ProductCartOverlayContainer,
   CloseButtonWrapper
 } from './ProductCartStyled'
-
-const cartProducts: CartProduct[] = [
-  {
-    product: {
-      name: 'Moscato',
-      brand: 'Marchesi Antinori',
-      quality: 3,
-      category: 'organic',
-      typ: 'dry',
-      color: 'white',
-      productionYear: '2006',
-      countryOfOrigin: 'italy',
-      img: '/images/bottle.jpg',
-      price: 278.00,
-    },
-    quantity: 1,
-  },
-  {
-    product: {
-      name: 'Cabernet Sauvignon',
-      brand: 'Marchesi Antinori',
-      quality: 4,
-      category: 'organic',
-      typ: 'dry',
-      color: 'white',
-      productionYear: '2006',
-      countryOfOrigin: 'italy',
-      img: '/images/bottle.jpg',
-      price: 120.20,
-    },
-    quantity: 2,
-  }
-]
-
-interface CartProduct {
-  product: Product;
-  quantity: number;
-}
+import {useSelector} from 'react-redux'
+import {getproductsCart} from '../productsSlice'
 
 interface ProductCartProps {
   cartIsOpen: boolean;
@@ -58,8 +22,10 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const [isActive, setIsActive] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
 
+  const productsCart = useSelector(getproductsCart)
+
   const getTotalCartPrice = (): number => (
-    cartProducts.reduce((total: number, amount: CartProduct): number => {
+    productsCart.reduce((total: number, amount: ProductCart): number => {
       const {product: {price}, quantity} = amount
       const totalPrice = price * quantity
 

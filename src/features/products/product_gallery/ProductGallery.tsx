@@ -9,6 +9,8 @@ import {
   ProductGalleryContentWrapper,
   ProductsListContainer,
 } from './ProductsStyled'
+import {useSelector} from 'react-redux'
+import {getAllProducts} from '../productsSlice'
 
 const productGalleryManuOptions: NavigationOptions[] = [
   {name: 'Roes'},
@@ -16,129 +18,6 @@ const productGalleryManuOptions: NavigationOptions[] = [
   {name: 'Kosher'},
   {name: 'Champagne'},
   {name: 'Other'},
-]
-
-const products: Product[] = [
-  {
-    name: 'Moscato',
-    brand: 'Marchesi Antinori',
-    quality: 3,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 278.00,
-  },
-  {
-    name: 'Cabernet Sauvignon',
-    brand: 'Marchesi Antinori',
-    quality: 4,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 120.20,
-  },
-  {
-    name: 'Airén',
-    brand: 'Marchesi Antinori',
-    quality: 2,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 572.00,
-  },
-  {
-    name: 'Chardonnay',
-    brand: 'Marchesi Antinori',
-    quality: 5,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 356.00,
-  },
-  {
-    name: 'Syrah',
-    brand: 'Marchesi Antinori',
-    quality: 1,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 99.99,
-  },
-  {
-    name: 'Garnacha',
-    brand: 'Marchesi Antinori',
-    quality: 3,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 278.00,
-  },
-  {
-    name: 'Airén',
-    brand: 'Marchesi Antinori',
-    quality: 2,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 572.00,
-  },
-  {
-    name: 'Chardonnay',
-    brand: 'Marchesi Antinori',
-    quality: 5,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 356.00,
-  },
-  {
-    name: 'Syrah',
-    brand: 'Marchesi Antinori',
-    quality: 1,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 99.99,
-  },
-  {
-    name: 'Garnacha',
-    brand: 'Marchesi Antinori',
-    quality: 3,
-    category: 'organic',
-    typ: 'dry',
-    color: 'white',
-    productionYear: '2006',
-    countryOfOrigin: 'italy',
-    img: '/images/bottle.jpg',
-    price: 278.00,
-  }
 ]
 
 interface ProductsListStatus {
@@ -162,6 +41,8 @@ const ProductGallery = (): JSX.Element => {
   const [ProductsListStatus, setProductsListStatus] = useState<ProductsListStatus>(ProductsListStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
   const [isActive, setIsActive] = useState(false)
+  
+  const products = useSelector(getAllProducts)
 
   useEffect(() => {
     setIsActive(true)

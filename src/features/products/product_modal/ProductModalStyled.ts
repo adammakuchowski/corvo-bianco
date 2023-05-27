@@ -125,7 +125,8 @@ export const DataContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: start;
+  margin-top: 40px;
 
   opacity: 0;
   transform: translateY(50%);
@@ -139,16 +140,25 @@ export const DataContainer = styled.div`
 
 export const CounterContainer = styled.div`
   width: 100%;
-  height: 40%;
+  height: 20%;
+  margin-top: 40px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  opacity: 0;
-  transform: translateY(30%);
+  opacity: 1;
+  transform: translateY(50%);
   transition: all 1.4s ease;
 
   &.active {
     opacity: 1;
     transform: translateY(0);
   }
+`
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
 `
