@@ -4,7 +4,7 @@ import {AiOutlineGoogle} from 'react-icons/ai'
 import {GrPinterest} from 'react-icons/gr'
 import {IconComponent} from '@/types/types'
 import IconButton from '@/components/buttons/icon_button/IconButton'
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import {
   ArrowWrapper,
   FooterContainer,

@@ -1,5 +1,5 @@
 import {Link} from 'react-scroll'
-import {merriweather} from '@/pages'
+import {merriweather} from '@/fonts/fonts'
 import {NavigationOptions} from '@/types/types'
 import {
   MenuContainer,
@@ -7,6 +7,7 @@ import {
   ListWrapper,
   PageItem,
 } from './NavigationStyled'
+
 
 interface NavigationProps {
   fontSize?: string;

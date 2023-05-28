@@ -1,4 +1,4 @@
-import {playfairDisplay} from '@/pages'
+import {playfairDisplay} from '@/fonts/fonts'
 import AvailableHoursCard from '@/components/cards/available_hours_card/AvailableHoursCard'
 import PhoneCard from '@/components/cards/phone_card/PhoneCard'
 import SocialMediaCard from '@/components/cards/social_media_card/SocialMediaCard'

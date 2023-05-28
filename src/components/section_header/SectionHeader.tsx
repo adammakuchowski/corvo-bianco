@@ -1,4 +1,4 @@
-import {cinzel, greatVibes} from '@/pages'
+import {cinzel, greatVibes} from '@/fonts/fonts'
 import {
   SectionHeaderContainer,
   SectionHeaderContentWrapper,

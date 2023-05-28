@@ -1,4 +1,4 @@
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import {ButtonContainer} from './ButtonStyled'
 
 interface ButtonProps {
