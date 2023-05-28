@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import {
   BannerContainer,
   BannerNameWrapper,

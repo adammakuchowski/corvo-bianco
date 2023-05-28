@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import {playfairDisplay, greatVibes, tangerine, sacramento} from '@/pages'
+import {playfairDisplay, greatVibes, tangerine, sacramento} from '@/fonts/fonts'
 import {
   CircleContentImgContainer,
   CircleContentImgWrapper,

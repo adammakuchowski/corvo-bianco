@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import {
   CardWrapper,
   CommunityEventCardContainer,

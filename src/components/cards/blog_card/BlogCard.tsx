@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import moment from 'moment'
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import TextButton from '@/components/buttons/text_button/TextButton'
 import {
   BlogCardContainer,

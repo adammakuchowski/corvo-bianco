@@ -6,7 +6,7 @@ import {TiArrowSync} from 'react-icons/ti'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {IconComponent, Product} from '@/types/types'
 import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
-import {cinzel} from '@/pages'
+import {cinzel} from '@/fonts/fonts'
 import {
   ProductCardActiveContainer,
   ProductCardNotActiveContainer,
