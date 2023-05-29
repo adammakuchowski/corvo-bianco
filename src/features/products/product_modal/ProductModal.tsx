@@ -57,6 +57,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
 
       setTimeout(() => {
         setProductModalButtonStatus(productModalButtonStatuses[0])
+        setQuantity(1)
       }, 1200)
     }
   }
