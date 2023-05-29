@@ -25,7 +25,7 @@ interface ProductsListStatus {
   text: string;
 }
 
-const ProductsListStatuses: ProductsListStatus[] = [
+const productsListStatuses: ProductsListStatus[] = [
   {
     viewAll: false,
     text: 'View all'
@@ -38,7 +38,7 @@ const ProductsListStatuses: ProductsListStatus[] = [
 
 const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
-  const [ProductsListStatus, setProductsListStatus] = useState<ProductsListStatus>(ProductsListStatuses[0])
+  const [productsListStatus, setProductsListStatus] = useState<ProductsListStatus>(productsListStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
   const [isActive, setIsActive] = useState(false)
   
@@ -55,9 +55,9 @@ const ProductGallery = (): JSX.Element => {
   }, [products])
 
 
-  const ProductsListEvent = () => ProductsListStatus.viewAll ?
-    setProductsListStatus(ProductsListStatuses[0]) :
-    setProductsListStatus(ProductsListStatuses[1])
+  const ProductsListEvent = () => productsListStatus.viewAll ?
+    setProductsListStatus(productsListStatuses[0]) :
+    setProductsListStatus(productsListStatuses[1])
 
   return (
     <section className='product_gallery'>
@@ -70,10 +70,10 @@ const ProductGallery = (): JSX.Element => {
             activePage={productGalleryPage}
             setActivePage={setProductGalleryPage}
           />
-          <ProductsListContainer viewAll={ProductsListStatus.viewAll} productsCount={currentProductsCount}>
+          <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
             <ProductsList products={products} />
             {currentProductsCount > 4 && (
-              <Button text={ProductsListStatus.text} buttonAction={ProductsListEvent} />
+              <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
             )}
           </ProductsListContainer>
         </ProductGalleryContentWrapper>
