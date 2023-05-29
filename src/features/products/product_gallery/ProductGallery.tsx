@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react'
-import {NavigationOptions, Product} from '@/types/types'
+import {useSelector} from 'react-redux'
 import Navigation from '@/components/navigation/Navigation'
 import SectionHeader from '@/components/section_header/SectionHeader'
 import Button from '@/components/buttons/button/Button'
@@ -9,32 +9,9 @@ import {
   ProductGalleryContentWrapper,
   ProductsListContainer,
 } from './ProductsStyled'
-import {useSelector} from 'react-redux'
 import {getAllProducts} from '../productsSlice'
-
-const productGalleryManuOptions: NavigationOptions[] = [
-  {name: 'Roes'},
-  {name: 'Organic'},
-  {name: 'Kosher'},
-  {name: 'Champagne'},
-  {name: 'Other'},
-]
-
-interface ProductsListStatus {
-  viewAll: boolean;
-  text: string;
-}
-
-const productsListStatuses: ProductsListStatus[] = [
-  {
-    viewAll: false,
-    text: 'View all'
-  },
-  {
-    viewAll: true,
-    text: 'View less'
-  }
-]
+import {ProductsListStatus} from './types'
+import {productGalleryManuOptions, productsListStatuses} from './constants'
 
 const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
