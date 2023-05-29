@@ -4,7 +4,6 @@ import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
-import {Product} from '@/types/types'
 import {
   ButtonWrapper,
   CloseButtonContainer,
@@ -22,16 +21,13 @@ import {
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
 import {addToCart} from '../productsSlice'
-
-interface ProductModalProps {
-  isOpen: boolean;
-  onClose: Function;
-  product: Product;
-}
+import {ProductModalButtonStatus, ProductModalProps} from './types'
+import {productModalButtonStatuses} from './constants'
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
+  const [productModalButtonStatus, setProductModalButtonStatus] = useState<ProductModalButtonStatus>(productModalButtonStatuses[0])
   const dispatch = useDispatch()
   const {
     img,
@@ -57,6 +53,11 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   const onAddProductToCart = () => {
     if (product && quantity) {
       dispatch(addToCart(product, quantity))
+      setProductModalButtonStatus(productModalButtonStatuses[1])
+
+      setTimeout(() => {
+        setProductModalButtonStatus(productModalButtonStatuses[0])
+      }, 1200)
     }
   }
 
@@ -79,6 +80,8 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   }
 
   if (!isOpen) return null
+
+  const {disabled, text} = productModalButtonStatus
 
   return (
     <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
@@ -113,7 +116,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             <CounterContainer className={isActive ? 'active' : ''}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
               <ButtonWrapper>
-                <Button text='Add to cart' buttonAction={onAddProductToCart} />
+                <Button text={text} buttonAction={onAddProductToCart} disabled={disabled} />
               </ButtonWrapper>
             </CounterContainer>
           </ModalDataContainer>

@@ -1,4 +1,5 @@
 import {SyntheticEvent, useEffect, useState} from 'react'
+import {useSelector} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import IconButton from '@/components/buttons/icon_button/IconButton'
 import {ProductCart, Product} from '@/types/types'
@@ -10,7 +11,6 @@ import {
   ProductCartOverlayContainer,
   CloseButtonWrapper
 } from './ProductCartStyled'
-import {useSelector} from 'react-redux'
 import {getproductsCart} from '../productsSlice'
 
 interface ProductCartProps {
