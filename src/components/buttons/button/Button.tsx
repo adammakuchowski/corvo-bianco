@@ -4,14 +4,13 @@ import {ButtonContainer} from './ButtonStyled'
 interface ButtonProps {
   text: string;
   buttonAction?: Function;
-  disabled?: boolean;
 }
 
-const Button = ({text, buttonAction, disabled = false}: ButtonProps): JSX.Element => {
+const Button = ({text, buttonAction}: ButtonProps): JSX.Element => {
   const onButtonAction = () => buttonAction && buttonAction()
   
   return (
-    <ButtonContainer className={cinzel.className} onClick={onButtonAction} disabled={disabled}>
+    <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
       {text.toUpperCase()}
     </ButtonContainer>
   )

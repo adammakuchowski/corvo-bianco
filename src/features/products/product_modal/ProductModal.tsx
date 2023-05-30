@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
+import ButtonDisabled from '@/components/buttons/button_disabled/ButtonDisabled'
 import {
   ButtonWrapper,
   CloseButtonContainer,
@@ -58,7 +59,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
       setTimeout(() => {
         setProductModalButtonStatus(productModalButtonStatuses[0])
         setQuantity(1)
-      }, 1200)
+      }, 2000)
     }
   }
 
@@ -82,7 +83,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
 
   if (!isOpen) return null
 
-  const {disabled, text} = productModalButtonStatus
+  const {disabled} = productModalButtonStatus
 
   return (
     <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
@@ -116,8 +117,9 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             </DataContainer>
             <CounterContainer className={isActive ? 'active' : ''}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
-              <ButtonWrapper>
-                <Button text={text} buttonAction={onAddProductToCart} disabled={disabled} />
+              <ButtonWrapper>{disabled ?
+                <ButtonDisabled text='Product added' /> :
+                <Button text='Add to cart' buttonAction={onAddProductToCart} />}
               </ButtonWrapper>
             </CounterContainer>
           </ModalDataContainer>
