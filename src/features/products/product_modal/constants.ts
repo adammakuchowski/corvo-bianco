@@ -2,11 +2,9 @@ import {ProductModalButtonStatus} from './types'
 
 export const productModalButtonStatuses: ProductModalButtonStatus[] = [
   {
-    disabled: false,
-    text: 'Add to cart'
+    disabled: false
   },
   {
     disabled: true,
-    text: 'Product added'
   }
 ]

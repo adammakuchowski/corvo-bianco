@@ -8,5 +8,4 @@ export interface ProductModalProps {
 
 export interface ProductModalButtonStatus {
   disabled: boolean;
-  text: string;
 }
