@@ -20,6 +20,4 @@ const ButtonDisabled = ({text}: ButtonDisabledProps): JSX.Element => {
   )
 }
 
-
-
 export default ButtonDisabled

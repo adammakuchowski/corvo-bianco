@@ -5,6 +5,7 @@ import SectionHeader from '@/components/section_header/SectionHeader'
 import Button from '@/components/buttons/button/Button'
 import ProductsList from '../products_list/ProductsList'
 import {
+  ButtonWrapper,
   ProductGalleryContainer,
   ProductGalleryContentWrapper,
   ProductsListContainer,
@@ -50,7 +51,9 @@ const ProductGallery = (): JSX.Element => {
           <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
             <ProductsList products={products} />
             {currentProductsCount > 4 && (
-              <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
+              <ButtonWrapper>
+                <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
+              </ButtonWrapper>
             )}
           </ProductsListContainer>
         </ProductGalleryContentWrapper>
