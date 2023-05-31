@@ -11,9 +11,8 @@ export const ButtonDisabledContainer = styled.button`
   text-shadow: 0px 1px 0px #ffffff;
   letter-spacing: 1px;
 
-  transition: all 2s ease;
+  transition: all 1.8s ease;
   &.active {
-    background-color: white;
-    color: #b3b3b3;
+    background-color: #747474;
   }
 `

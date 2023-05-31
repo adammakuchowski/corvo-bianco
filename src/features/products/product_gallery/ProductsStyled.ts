@@ -10,6 +10,10 @@ export const ProductGalleryContainer = styled.div`
   }
 `
 
+export const ButtonWrapper = styled.div`
+  margin-top: 30px;
+`
+
 export const ProductGalleryContentWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -33,9 +37,9 @@ export const ProductsListContainer = styled.div`
   transition: all 0.8s ease-in-out;
 
   height: ${({viewAll, productsCount}: ProductsListContainerPops) => {
-    const ProductsListLevels = productsCount / 4
-    const levelsRounded = Math.ceil(ProductsListLevels)
-    const height = viewAll ? 560 + 530 * (levelsRounded - 1) : 560
+    const productsListLevels = productsCount / 4
+    const levelsRounded = Math.ceil(productsListLevels)
+    const height = viewAll ? 560 + 520 * (levelsRounded - 1) : 560
 
     return `${height}px`;
   }};

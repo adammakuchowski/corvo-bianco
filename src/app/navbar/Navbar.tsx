@@ -1,8 +1,8 @@
-import {useEffect, useState} from 'react'
+import {useCallback, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
-import {NavigationOptions} from '@/types/types'
+import {NavigationOptions, ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather, cinzel} from '@/fonts/fonts'
 import Navigation from '@/components/navigation/Navigation'
 import IconButton from '@/components/buttons/icon_button/IconButton'
@@ -44,14 +44,25 @@ const manuOptions: NavigationOptions[] = [
 
 const Navbar = () => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState<boolean>(false)
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
+  const [cartCount, setCartCount] = useState<number>(0)
 
-  const cartCount = useSelector((state: AppState) => state.products.productsCart.length)
+  const productsCart = useSelector((state: AppState) => state.products.productsCart)
 
   useEffect(() => {
     setIsActive(true)
   }, [])
+
+  const getCartCount = useCallback(() => {
+    if (!productsCart || !productsCart.length) return 0
+
+    return productsCart.reduce((total: number, amount: ProductCartInterface): number => total += amount.quantity, 0)
+  }, [productsCart])
+  
+  useEffect(() => {
+    setCartCount(getCartCount())
+  }, [getCartCount])
 
   const openCart = () => setCartIsOpen(true)
 
