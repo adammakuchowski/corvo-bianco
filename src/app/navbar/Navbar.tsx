@@ -2,6 +2,7 @@ import {useCallback, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
+import {IoMdHeartEmpty} from 'react-icons/io'
 import {NavigationOptions, ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather, cinzel} from '@/fonts/fonts'
 import Navigation from '@/components/navigation/Navigation'
@@ -79,6 +80,7 @@ const Navbar = () => {
           <ActionsWrapper>
             <IconButton iconComponent={<BsPersonCircle />} />
             <IconButton iconComponent={<AiOutlineSearch />} />
+            <IconButton iconComponent={<IoMdHeartEmpty />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (

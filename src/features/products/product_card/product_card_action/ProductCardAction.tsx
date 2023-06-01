@@ -27,7 +27,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
   const {name, price, quality} = product
 
-  const ProductCardActions: IconComponent[] = [
+  const productCardActions: IconComponent[] = [
     {
       iconComponent: <BsArrowsFullscreen />,
       iconAction: () => setModalIsOpen(true),
@@ -46,7 +46,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
   return active ? (
     <ProductCardActiveContainer className={cinzel.className}>
       <ProductModal isOpen={modalIsOpen} onClose={setModalIsOpen} product={product}/>
-      {ProductCardActions.map((icon, index) => (
+      {productCardActions.map((icon, index) => (
         <IconActionButton key={index} iconComponent={icon.iconComponent} iconAction={icon.iconAction} />
       ))}
     </ProductCardActiveContainer>
