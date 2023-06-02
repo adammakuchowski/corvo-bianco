@@ -5,7 +5,3 @@ export interface ProductModalProps {
   onClose: Function;
   product: Product;
 }
-
-export interface ProductModalButtonStatus {
-  disabled: boolean;
-}

@@ -140,11 +140,11 @@ export const DataContainer = styled.div`
 
 export const CounterContainer = styled.div`
   width: 100%;
-  height: 20%;
+  height: 18%;
   margin-top: 40px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   opacity: 1;
   transform: translateY(40%);
@@ -160,5 +160,5 @@ export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15px;
+  margin-top: 20px;
 `

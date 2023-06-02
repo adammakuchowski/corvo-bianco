@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
-import ButtonDisabled from '@/components/buttons/button_disabled/ButtonDisabled'
+import CircularProgress from '@mui/material/CircularProgress'
 import {
   ButtonWrapper,
   CloseButtonContainer,
@@ -21,14 +21,13 @@ import {
   ModalOverlayContainer,
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
+import {ProductModalProps} from './types'
 import {addToCart} from '../productsSlice'
-import {ProductModalButtonStatus, ProductModalProps} from './types'
-import {productModalButtonStatuses} from './constants'
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
-  const [productModalButtonStatus, setProductModalButtonStatus] = useState<ProductModalButtonStatus>(productModalButtonStatuses[0])
+  const [buttonActive, setButtonActive] = useState<boolean>(true)
   const dispatch = useDispatch()
   const {
     img,
@@ -54,12 +53,12 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   const onAddProductToCart = () => {
     if (product && quantity) {
       dispatch(addToCart(product, quantity))
-      setProductModalButtonStatus(productModalButtonStatuses[1])
+      setButtonActive(false)
 
       setTimeout(() => {
-        setProductModalButtonStatus(productModalButtonStatuses[0])
+        setButtonActive(true)
         setQuantity(1)
-      }, 1500)
+      }, 2000)
     }
   }
 
@@ -82,8 +81,6 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   }
 
   if (!isOpen) return null
-
-  const {disabled} = productModalButtonStatus
 
   return (
     <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
@@ -117,9 +114,10 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             </DataContainer>
             <CounterContainer className={isActive ? 'active' : ''}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
-              <ButtonWrapper>{disabled ?
-                <ButtonDisabled text='Product added' /> :
-                <Button text='Add to cart' buttonAction={onAddProductToCart} />}
+              <ButtonWrapper>{buttonActive ?
+                <Button text='Add to cart' buttonAction={onAddProductToCart} /> :
+                <CircularProgress sx={{color: '#8ea648'}} />
+              }
               </ButtonWrapper>
             </CounterContainer>
           </ModalDataContainer>
