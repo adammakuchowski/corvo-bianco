@@ -30,7 +30,10 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
         </ImgWrapper>
       </ImgContainer>
       <ProductCardActionWrapper>
-        <ProductCardAction active={active} product={product}/>
+        <ProductCardAction
+          active={active}
+          product={product}
+        />
       </ProductCardActionWrapper>
     </ProductCardContainer>
   )

@@ -3,7 +3,7 @@ import {IconButtonContainer} from './IconButtonStyled'
 
 interface IconButtonProps {
   iconComponent: any;
-  iconAction?: Function;
+  iconAction?: () => void;
   fontSize?: string;
   sectionName?: string;
 }

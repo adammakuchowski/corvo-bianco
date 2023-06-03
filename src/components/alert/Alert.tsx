@@ -1,23 +1,24 @@
-import {useEffect, useState} from 'react'
+import {useContext, useEffect} from 'react'
+import AlertContext from '@/context/AlertContext'
 import {AlertContainer, AlertIconWrapper} from './AlertStyled'
 
 interface AlertProps {
   iconComponent: any;
-  isActive: boolean;
 }
 
-const Alert = ({iconComponent, isActive}: AlertProps): JSX.Element => {
-  // const [isActive, setIsActive] = useState<boolean>(false)
-  // useEffect(() => {
-  //   setIsActive(true)
+const Alert = ({iconComponent}: AlertProps): JSX.Element => {
+  const {isAlertActive, setAlertActive} = useContext(AlertContext)
 
-  //   setTimeout(()=> {
-  //     setIsActive(false)
-  //   }, 2000)
-  // }, [])
+  useEffect(() => {
+    if(!isAlertActive) return
+
+    setTimeout(()=> {
+      setAlertActive(false)
+    }, 1500)
+  }, [isAlertActive, setAlertActive])
 
   return (
-    <AlertContainer className={isActive ? 'active' : ''}>
+    <AlertContainer className={isAlertActive ? 'active' : ''}>
       <AlertIconWrapper>
         {iconComponent}
       </AlertIconWrapper>

@@ -3,7 +3,7 @@ import {TextButtonContainer} from './TextButtonStyled'
 
 interface TextButtonProps {
   content: string;
-  buttonAction?: Function;
+  buttonAction?: () => void;
   overrideStyle?: object;
 }
 
