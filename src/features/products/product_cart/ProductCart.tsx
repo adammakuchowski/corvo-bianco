@@ -74,5 +74,3 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 }
 
 export default ProductCart
-
-// {`${cartTotal.toFixed(2)} $`}
