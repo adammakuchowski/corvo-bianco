@@ -1,9 +1,9 @@
-import {useState} from 'react';
+import {useState} from 'react'
+import CircularProgress from '@mui/material/CircularProgress'
 import {
   IconActionButtonContainer,
   IconActionButtonWrapper,
 } from './IconActionButtonStyled'
-import CircularProgress from '@mui/material/CircularProgress';
 
 interface IconActionButtonProps {
   iconComponent: any;

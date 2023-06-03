@@ -4,7 +4,7 @@ import {Product} from '@/types/types'
 import Alert from '@/components/alert/Alert'
 import ProductCard from '../product_card/ProductCard'
 import {ProductsListContainer} from './ProductsListStyled'
-import AlertContext from '@/context/AlertContext'
+import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 
 interface ProductsListProps {
   products: Product[];
@@ -12,12 +12,14 @@ interface ProductsListProps {
 
 const ProductsList = ({products}: ProductsListProps): JSX.Element => {
   const [isAlertActive, setIsAlertActive] = useState<boolean>(false)
+
+  const alertContextValue: AlertContextValue = {
+    isAlertActive: isAlertActive,
+    setAlertActive: (value: boolean) => setIsAlertActive(value),
+  }
   
   return (
-    <AlertContext.Provider value={{
-      isAlertActive: isAlertActive,
-      setAlertActive: (value: boolean) => setIsAlertActive(value),
-    }}>
+    <AlertContext.Provider value={alertContextValue}>
       <ProductsListContainer>
         <Alert
           iconComponent={<BsFillCartCheckFill />}

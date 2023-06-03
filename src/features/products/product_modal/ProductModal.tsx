@@ -62,14 +62,14 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     if (product && quantity) {
       dispatch(addToCart(product, quantity))
       setButtonActive(false)
+      
+      if (!isAlertActive) {
+        setAlertActive(true)
+      }
 
       setTimeout(() => {
         setButtonActive(true)
         setQuantity(1)
-
-        if (!isAlertActive) {
-          setAlertActive(true)
-        }
       }, 1500)
     }
   }
