@@ -1,4 +1,4 @@
-import {SyntheticEvent, useEffect, useState} from 'react'
+import {SyntheticEvent, useCallback, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import IconButton from '@/components/buttons/icon_button/IconButton'
@@ -24,14 +24,14 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 
   const productsCart = useSelector(getproductsCart)
 
-  const getTotalCartPrice = (): number => (
+  const getTotalCartPrice = useCallback((): number => (
     productsCart.reduce((total: number, amount: ProductCart): number => {
       const {product: {price}, quantity} = amount
       const totalPrice = price * quantity
 
       return total + totalPrice
     }, 0)
-  )
+  ), [productsCart])
 
   useEffect(() => {
     if (cartIsOpen) {
@@ -46,7 +46,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
       setIsActive(false)
       document.body.style.overflow = 'auto'
     }
-  }, [cartIsOpen])
+  }, [cartIsOpen, getTotalCartPrice])
 
   const onCloseModal = () => setCartIsOpen(false)
 
