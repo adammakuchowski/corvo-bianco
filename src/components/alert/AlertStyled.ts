@@ -4,7 +4,7 @@ export const AlertContainer = styled.div`
   position: fixed;
   height: 150px;
   width: 250px;
-  z-index: 1000;
+  z-index: 1001;
   left: 100;
   top: 0;
   right: 0;

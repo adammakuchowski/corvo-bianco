@@ -17,8 +17,9 @@ export interface ProductCart {
 }
 
 export interface IconComponent {
-  iconComponent: JSX.Element,
-  iconAction?: Function,
+  iconComponent: JSX.Element;
+  iconAction?: () => void;
+  progressEffect?: boolean;
 }
 
 export interface NavigationOptions {

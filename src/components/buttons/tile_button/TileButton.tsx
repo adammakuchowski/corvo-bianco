@@ -4,7 +4,7 @@ import {TileButtonContainer} from './TileButtonStyled'
 interface TileButtonProps {
   index: number;
   imgIndex: number;
-  setImgIndex: Function;
+  setImgIndex: (value: number) => void;
 }
 
 const TileButton = ({index, setImgIndex, imgIndex}: TileButtonProps): JSX.Element => {

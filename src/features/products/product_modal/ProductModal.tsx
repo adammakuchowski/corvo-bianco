@@ -1,10 +1,12 @@
-import {SyntheticEvent, useEffect, useState} from 'react'
+import {SyntheticEvent, useContext, useEffect, useState} from 'react'
 import Image from 'next/image'
 import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
+import AlertContext from '@/context/AlertContext'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
 import CircularProgress from '@mui/material/CircularProgress'
+import {Product} from '@/types/types'
 import {
   ButtonWrapper,
   CloseButtonContainer,
@@ -21,13 +23,19 @@ import {
   ModalOverlayContainer,
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
-import {ProductModalProps} from './types'
 import {addToCart} from '../productsSlice'
+
+export interface ProductModalProps {
+  isOpen: boolean;
+  onClose: (value: boolean) => void;
+  product: Product;
+}
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
   const [buttonActive, setButtonActive] = useState<boolean>(true)
+  const {isAlertActive, setAlertActive} = useContext(AlertContext)
   const dispatch = useDispatch()
   const {
     img,
@@ -58,7 +66,11 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
       setTimeout(() => {
         setButtonActive(true)
         setQuantity(1)
-      }, 2000)
+
+        if (!isAlertActive) {
+          setAlertActive(true)
+        }
+      }, 1500)
     }
   }
 

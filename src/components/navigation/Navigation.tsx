@@ -13,7 +13,7 @@ interface NavigationProps {
   fontSize?: string;
   options: NavigationOptions[];
   activePage?: number;
-  setActivePage: Function;
+  setActivePage: (value: number) => void;
 }
 
 const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: NavigationProps): JSX.Element => {

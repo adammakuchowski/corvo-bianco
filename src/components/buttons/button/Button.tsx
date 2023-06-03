@@ -3,7 +3,7 @@ import {ButtonContainer} from './ButtonStyled'
 
 interface ButtonProps {
   text: string;
-  buttonAction?: Function;
+  buttonAction?: () => void;
 }
 
 const Button = ({text, buttonAction}: ButtonProps): JSX.Element => {
