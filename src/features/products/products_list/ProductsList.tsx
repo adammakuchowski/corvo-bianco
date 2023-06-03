@@ -1,10 +1,10 @@
 import {useState} from 'react'
 import {BsFillCartCheckFill} from 'react-icons/bs'
+import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 import {Product} from '@/types/types'
 import Alert from '@/components/alert/Alert'
 import ProductCard from '../product_card/ProductCard'
 import {ProductsListContainer} from './ProductsListStyled'
-import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 
 interface ProductsListProps {
   products: Product[];

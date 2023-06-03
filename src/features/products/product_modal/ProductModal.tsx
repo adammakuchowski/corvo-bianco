@@ -1,4 +1,9 @@
-import {SyntheticEvent, useContext, useEffect, useState} from 'react'
+import {
+  SyntheticEvent,
+  useContext,
+  useEffect,
+  useState
+} from 'react'
 import Image from 'next/image'
 import {useDispatch} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
@@ -62,7 +67,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     if (product && quantity) {
       dispatch(addToCart(product, quantity))
       setButtonActive(false)
-      
+
       if (!isAlertActive) {
         setAlertActive(true)
       }
