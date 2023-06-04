@@ -17,13 +17,11 @@ const ProductsList = ({products}: ProductsListProps): JSX.Element => {
     isAlertActive: isAlertActive,
     setAlertActive: (value: boolean) => setIsAlertActive(value),
   }
-  
+
   return (
     <AlertContext.Provider value={alertContextValue}>
       <ProductsListContainer>
-        <Alert
-          iconComponent={<BsFillCartCheckFill />}
-        />
+          <Alert iconComponent={<BsFillCartCheckFill />} />
         {products.map((product, index) => (
           <ProductCard
             key={index}
