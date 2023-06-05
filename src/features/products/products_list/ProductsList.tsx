@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {BsFillCartCheckFill} from 'react-icons/bs'
 import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 import {Product} from '@/types/types'
@@ -12,16 +12,33 @@ interface ProductsListProps {
 
 const ProductsList = ({products}: ProductsListProps): JSX.Element => {
   const [isAlertActive, setIsAlertActive] = useState<boolean>(false)
+  const [alertIcon, setAlertIcon] = useState<any>()
+  const [alertOverflow, setAlertOverflow] = useState<string>('auto')
+
+  useEffect(() => {
+    if (isAlertActive) {
+      document.body.style.overflow = alertOverflow
+    }
+
+    return () => {
+      document.body.style.overflow = alertOverflow
+    }
+  }, [alertOverflow, isAlertActive])
+
 
   const alertContextValue: AlertContextValue = {
     isAlertActive: isAlertActive,
     setAlertActive: (value: boolean) => setIsAlertActive(value),
+    alertIcon: alertIcon,
+    setAlertIcon: (value: any) => setAlertIcon(value),
+    alertOverflow: alertOverflow,
+    setAlertOverflow: (value: string) => setAlertOverflow(value),
   }
 
   return (
     <AlertContext.Provider value={alertContextValue}>
       <ProductsListContainer>
-          <Alert iconComponent={<BsFillCartCheckFill />} />
+        <Alert iconComponent={alertIcon} />
         {products.map((product, index) => (
           <ProductCard
             key={index}
