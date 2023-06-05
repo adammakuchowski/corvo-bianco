@@ -18,7 +18,7 @@ import {
   ProductQualityStars,
 } from './ProductCardActionStyled'
 import ProductModal from '../../product_modal/ProductModal'
-import {addToCart} from '../../productsSlice'
+import {addToCart, addToFavorites} from '../../productsSlice'
 
 interface ProductCardActionProps {
   product: Product;
@@ -36,9 +36,9 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
     setAlertOverflow
   } = useContext(AlertContext)
   const dispatch = useDispatch()
-  
-  const {name, price, quality} = product
 
+  const {name, price, quality} = product
+  
   const productCardActions: IconComponent[] = [
     {
       iconComponent: <BsArrowsFullscreen />,
@@ -52,6 +52,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
       iconAction: () => {
         if (isAlertActive) return
 
+        dispatch(addToFavorites(product))
         setAlertIcon(<FaHeart />)
         setAlertOverflow('auto')
         setAlertActive(true)
