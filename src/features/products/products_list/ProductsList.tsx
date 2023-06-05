@@ -1,5 +1,4 @@
 import {useEffect, useState} from 'react'
-import {BsFillCartCheckFill} from 'react-icons/bs'
 import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 import {Product} from '@/types/types'
 import Alert from '@/components/alert/Alert'

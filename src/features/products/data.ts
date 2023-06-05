@@ -122,5 +122,3 @@ export const products: Product[] = [
     price: 278.00,
   }
 ]
-
-export const productsCart: ProductCart[] = []

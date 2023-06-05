@@ -1,17 +1,19 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
-import {productsCart, products} from './data'
+import {products} from './data'
 
 export interface ProductsState {
   productsList: Product[];
   productsCart: ProductCart[];
+  favoriteProducts: Product[];
   status: 'idle' | 'loading' | 'failed'
 }
 
 const initialState: ProductsState = {
   productsList: products,
-  productsCart: productsCart,
+  productsCart: [],
+  favoriteProducts: [],
   status: 'idle',
 }
 
@@ -32,10 +34,22 @@ export const productsSlice = createSlice({
         }
       }
     },
+    addToFavorites: {
+      reducer(state, action) {
+        state.favoriteProducts.push(action.payload)
+      },
+      prepare(product: Product): any {
+        return {
+          payload: {
+            product,
+          }
+        }
+      }
+    },
   },
 })
 
-export const {addToCart} = productsSlice.actions
+export const {addToCart, addToFavorites} = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
 export const getproductsCart = (state: AppState) => state.products.productsCart
