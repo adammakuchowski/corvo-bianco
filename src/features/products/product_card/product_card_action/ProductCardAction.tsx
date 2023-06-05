@@ -1,9 +1,10 @@
 import {useContext, useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {BsStarFill} from 'react-icons/bs'
+import {BsFillCartCheckFill, BsFillSuitHeartFill, BsStarFill} from 'react-icons/bs'
 import {IoMdHeartEmpty} from 'react-icons/io'
 import {BsArrowsFullscreen} from 'react-icons/bs'
 import {TiArrowSync} from 'react-icons/ti'
+import {FaHeart} from 'react-icons/fa'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import AlertContext from '@/context/AlertContext'
 import {IconComponent, Product} from '@/types/types'
@@ -28,8 +29,14 @@ const productQualityStartsRainge = [1, 2, 3, 4, 5]
 
 const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Element => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false)
-  const {isAlertActive, setAlertActive} = useContext(AlertContext)
+  const {
+    isAlertActive,
+    setAlertActive,
+    setAlertIcon,
+    setAlertOverflow
+  } = useContext(AlertContext)
   const dispatch = useDispatch()
+  
   const {name, price, quality} = product
 
   const productCardActions: IconComponent[] = [
@@ -41,7 +48,15 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
       iconComponent: <TiArrowSync />
     },
     {
-      iconComponent: <IoMdHeartEmpty />
+      iconComponent: <IoMdHeartEmpty />,
+      iconAction: () => {
+        if (isAlertActive) return
+
+        setAlertIcon(<FaHeart />)
+        setAlertOverflow('auto')
+        setAlertActive(true)
+      },
+      progressEffect: true,
     },
     {
       iconComponent: <AiOutlineShoppingCart />,
@@ -49,6 +64,8 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
         if (isAlertActive) return
 
         dispatch(addToCart(product, 1))
+        setAlertIcon(<BsFillCartCheckFill />)
+        setAlertOverflow('auto')
         setAlertActive(true)
       },
       progressEffect: true,

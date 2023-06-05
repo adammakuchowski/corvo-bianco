@@ -6,6 +6,7 @@ import {
 } from 'react'
 import Image from 'next/image'
 import {useDispatch} from 'react-redux'
+import {BsFillCartCheckFill} from 'react-icons/bs'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import AlertContext from '@/context/AlertContext'
 import Counter from '@/components/counter/Counter'
@@ -40,8 +41,14 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
   const [buttonActive, setButtonActive] = useState<boolean>(true)
-  const {isAlertActive, setAlertActive} = useContext(AlertContext)
+  const {
+    isAlertActive,
+    setAlertActive,
+    setAlertIcon,
+    setAlertOverflow
+  } = useContext(AlertContext)
   const dispatch = useDispatch()
+  
   const {
     img,
     name,
@@ -69,6 +76,8 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
       setButtonActive(false)
 
       if (!isAlertActive) {
+        setAlertIcon(<BsFillCartCheckFill />)
+        setAlertOverflow('hidden')
         setAlertActive(true)
       }
 
@@ -82,12 +91,12 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   useEffect(() => {
     if (isOpen) {
       setIsActive(true)
-      // document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden'
     }
 
     return () => {
       setIsActive(false)
-      // document.body.style.overflow = 'auto'
+      document.body.style.overflow = 'auto'
     }
   }, [isOpen])
 
