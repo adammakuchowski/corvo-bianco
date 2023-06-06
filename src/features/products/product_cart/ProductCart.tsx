@@ -1,8 +1,9 @@
 import {SyntheticEvent, useCallback, useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
+import {BsTrash} from 'react-icons/bs'
 import IconButton from '@/components/buttons/icon_button/IconButton'
-import {ProductCart, Product} from '@/types/types'
+import {ProductCart} from '@/types/types'
 import {
   CloseButtonContainer,
   HeaderContainer,
@@ -11,7 +12,7 @@ import {
   ProductCartOverlayContainer,
   CloseButtonWrapper
 } from './ProductCartStyled'
-import {getproductsCart} from '../productsSlice'
+import {clearCart, getproductsCart} from '../productsSlice'
 
 interface ProductCartProps {
   cartIsOpen: boolean;
@@ -21,6 +22,7 @@ interface ProductCartProps {
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
+  const dispatch = useDispatch()
 
   const productsCart = useSelector(getproductsCart)
 
@@ -49,6 +51,11 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   }, [cartIsOpen, getTotalCartPrice])
 
   const onCloseModal = () => setCartIsOpen(false)
+  const onClearCart = () => {
+    dispatch(clearCart())
+    onCloseModal()
+    // add bin alert
+  }
 
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
 
@@ -60,11 +67,12 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
         <HeaderContainer>
           <CloseButtonContainer>
             <CloseButtonWrapper>
-              <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize = '25px'/>
+              <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' />
+              <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
             </CloseButtonWrapper>
           </CloseButtonContainer>
           <HeaderContentWrapper>
-            
+
           </HeaderContentWrapper>
         </HeaderContainer>
 
