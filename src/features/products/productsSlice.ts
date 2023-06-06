@@ -34,22 +34,16 @@ export const productsSlice = createSlice({
         }
       }
     },
-    addToFavorites: {
-      reducer(state, action) {
-        state.favoriteProducts.push(action.payload)
-      },
-      prepare(product: Product): any {
-        return {
-          payload: {
-            product,
-          }
-        }
-      }
+    clearCart(state) {
+      state.productsCart = []
+    },
+    addToFavorites(state, action) {
+      state.favoriteProducts.push(action.payload)
     },
   },
 })
 
-export const {addToCart, addToFavorites} = productsSlice.actions
+export const {addToCart, clearCart, addToFavorites} = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
 export const getproductsCart = (state: AppState) => state.products.productsCart

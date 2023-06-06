@@ -57,6 +57,12 @@ export const CloseButtonContainer = styled.div`
 
 export const CloseButtonWrapper = styled.div`
   background-color: green;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
 
 export const HeaderContentWrapper = styled.div`
