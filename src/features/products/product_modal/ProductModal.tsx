@@ -48,7 +48,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     setAlertOverflow
   } = useContext(AlertContext)
   const dispatch = useDispatch()
-  
+
   const {
     img,
     name,
@@ -100,7 +100,11 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     }
   }, [isOpen])
 
-  const onCloseModal = () => onClose(false)
+  const onCloseModal = () => {
+    if (isAlertActive) return
+
+    onClose(false)
+  }
 
   const onStopPropagation = (event: SyntheticEvent) => {
     event.stopPropagation()
