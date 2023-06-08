@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const DisabledIconButtonContainer = styled.button`
-  border: none;
 	padding: 0;
+  border: none;
   background: none;
   display: flex;
   align-items: center;
