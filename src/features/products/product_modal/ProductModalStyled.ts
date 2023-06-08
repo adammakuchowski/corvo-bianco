@@ -46,20 +46,10 @@ export const CloseButtonContainer = styled.div`
   top: 10px;
 `
 
-export const CloseButtonWrapper = styled.button`
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 32px;
-  padding: 0;
-  margin: 0;
-  color: #808080;
-  transition: all 0.2s ease-in-out;
-
-  :hover{
-    color: #7c903e;
-    transform: scale(1.1);
-  }
+export const CloseButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 export const ModalContentContainer = styled.div`

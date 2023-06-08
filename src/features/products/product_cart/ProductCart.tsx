@@ -53,7 +53,6 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const onCloseModal = () => setCartIsOpen(false)
   const onClearCart = () => {
     dispatch(clearCart())
-    onCloseModal()
     // add bin alert
   }
 
