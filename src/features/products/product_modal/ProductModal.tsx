@@ -11,6 +11,7 @@ import {IoCloseCircleOutline} from 'react-icons/io5'
 import AlertContext from '@/context/AlertContext'
 import Counter from '@/components/counter/Counter'
 import Button from '@/components/buttons/button/Button'
+import IconButton from '@/components/buttons/icon_button/IconButton'
 import CircularProgress from '@mui/material/CircularProgress'
 import {Product} from '@/types/types'
 import {
@@ -41,13 +42,13 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   const [isActive, setIsActive] = useState<boolean>(false)
   const [quantity, setQuantity] = useState<number>(1)
   const [buttonActive, setButtonActive] = useState<boolean>(true)
+  const dispatch = useDispatch()
   const {
     isAlertActive,
     setAlertActive,
     setAlertIcon,
     setAlertOverflow
   } = useContext(AlertContext)
-  const dispatch = useDispatch()
 
   const {
     img,
@@ -116,8 +117,13 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
       <ModalContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
         <CloseButtonContainer>
-          <CloseButtonWrapper onClick={onCloseModal}>
-            <IoCloseCircleOutline />
+          <CloseButtonWrapper>
+            <IconButton
+              iconComponent={<IoCloseCircleOutline />}
+              iconAction={onCloseModal}
+              fontSize='28px'
+              disabled={isAlertActive}
+            />
           </CloseButtonWrapper>
         </CloseButtonContainer>
         <ModalContentContainer>
