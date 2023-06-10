@@ -7,12 +7,13 @@ import {ProductCart} from '@/types/types'
 import {
   CloseButtonContainer,
   HeaderContainer,
-  HeaderContentWrapper,
   ProductCartContainer,
   ProductCartOverlayContainer,
-  CloseButtonWrapper
+  CloseButtonWrapper,
+  ProductCartContentContainer
 } from './ProductCartStyled'
-import {clearCart, getproductsCart} from '../productsSlice'
+import {clearCart, getProductsCart} from '../productsSlice'
+import ProductCartEntry from './product_cart_entry/ProductCartEntry'
 
 interface ProductCartProps {
   cartIsOpen: boolean;
@@ -24,7 +25,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const [cartTotal, setCartTotal] = useState<number>(0)
   const dispatch = useDispatch()
 
-  const productsCart = useSelector(getproductsCart)
+  const productsCart = useSelector(getProductsCart)
 
   const getTotalCartPrice = useCallback((): number => (
     productsCart.reduce((total: number, amount: ProductCart): number => {
@@ -70,11 +71,14 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
               <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
             </CloseButtonWrapper>
           </CloseButtonContainer>
-          <HeaderContentWrapper>
-
-          </HeaderContentWrapper>
         </HeaderContainer>
 
+        <ProductCartContentContainer>
+          {productsCart.map((product, index) => (
+            <ProductCartEntry key={index} productCart={product}/>
+          ))}
+        </ProductCartContentContainer>
+        
       </ProductCartContainer>
     </ProductCartOverlayContainer>
   )

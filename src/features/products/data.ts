@@ -1,7 +1,8 @@
-import {ProductCart, Product} from '@/types/types'
+import {Product} from '@/types/types'
 
 export const products: Product[] = [
   {
+    id: '0',
     name: 'Moscato',
     brand: 'Marchesi Antinori',
     quality: 3,
@@ -14,6 +15,7 @@ export const products: Product[] = [
     price: 278.00,
   },
   {
+    id: '1',
     name: 'Cabernet Sauvignon',
     brand: 'Marchesi Antinori',
     quality: 4,
@@ -26,6 +28,7 @@ export const products: Product[] = [
     price: 120.20,
   },
   {
+    id: '2',
     name: 'Airén',
     brand: 'Marchesi Antinori',
     quality: 2,
@@ -38,6 +41,7 @@ export const products: Product[] = [
     price: 572.00,
   },
   {
+    id: '3',
     name: 'Chardonnay',
     brand: 'Marchesi Antinori',
     quality: 5,
@@ -50,6 +54,7 @@ export const products: Product[] = [
     price: 356.00,
   },
   {
+    id: '4',
     name: 'Syrah',
     brand: 'Marchesi Antinori',
     quality: 1,
@@ -62,6 +67,7 @@ export const products: Product[] = [
     price: 99.99,
   },
   {
+    id: '5',
     name: 'Garnacha',
     brand: 'Marchesi Antinori',
     quality: 3,
@@ -74,6 +80,7 @@ export const products: Product[] = [
     price: 278.00,
   },
   {
+    id: '6',
     name: 'Airén',
     brand: 'Marchesi Antinori',
     quality: 2,
@@ -86,6 +93,7 @@ export const products: Product[] = [
     price: 572.00,
   },
   {
+    id: '7',
     name: 'Chardonnay',
     brand: 'Marchesi Antinori',
     quality: 5,
@@ -98,6 +106,7 @@ export const products: Product[] = [
     price: 356.00,
   },
   {
+    id: '8',
     name: 'Syrah',
     brand: 'Marchesi Antinori',
     quality: 1,
@@ -110,6 +119,7 @@ export const products: Product[] = [
     price: 99.99,
   },
   {
+    id: '9',
     name: 'Garnacha',
     brand: 'Marchesi Antinori',
     quality: 3,

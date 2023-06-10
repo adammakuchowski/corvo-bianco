@@ -9,7 +9,7 @@ export const ProductCartOverlayContainer = styled.div`
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, .7);
-  z-index: 1000;
+  z-index: 1002;
 
   opacity: 0;
   transition: all 0.3s ease-in-out;
@@ -25,7 +25,7 @@ export const ProductCartContainer = styled.div`
   transform: translate(0%, 0%);
   background-color: white;
   padding: 10px;
-  z-index: 1000;
+  z-index: 1002;
   width: 20%;
   height: 100%;
   display: flex;
@@ -42,14 +42,13 @@ export const ProductCartContainer = styled.div`
 
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 6%;
+  height: 3%;
   background-color: blue;
+  display: flex;
 `
 
 export const CloseButtonContainer = styled.div`
   width: 100%;
-  background-color: red;
-
   display: flex;
   justify-content: flex-end;
   align-items: start;
@@ -57,15 +56,16 @@ export const CloseButtonContainer = styled.div`
 
 export const CloseButtonWrapper = styled.div`
   background-color: green;
-
+  height: 100%;
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
-export const HeaderContentWrapper = styled.div`
-
-
+export const ProductCartContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: gold;
 `
