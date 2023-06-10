@@ -46,6 +46,6 @@ export const productsSlice = createSlice({
 export const {addToCart, clearCart, addToFavorites} = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
-export const getproductsCart = (state: AppState) => state.products.productsCart
+export const getProductsCart = (state: AppState) => state.products.productsCart
 
 export default productsSlice.reducer
