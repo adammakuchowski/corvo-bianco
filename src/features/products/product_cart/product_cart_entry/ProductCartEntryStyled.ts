@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ProductCartEntryContainer = styled.div`
   display: flex;
   background-color: red;
-  width: 100%;
+  padding: 10px;
 `
 
 export const ImgContainer = styled.div`
@@ -21,4 +21,8 @@ export const ImgWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+export const ContentContainer = styled.div`
+
 `

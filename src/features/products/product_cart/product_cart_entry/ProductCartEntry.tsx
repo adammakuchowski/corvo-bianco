@@ -1,6 +1,11 @@
 import Image from 'next/image'
 import {ProductCart} from '@/types/types'
-import {ImgContainer, ImgWrapper, ProductCartEntryContainer} from './ProductCartEntryStyled'
+import {
+  ContentContainer,
+  ImgContainer,
+  ImgWrapper,
+  ProductCartEntryContainer,
+} from './ProductCartEntryStyled'
 
 interface ProductCartEntryProps {
   productCart: ProductCart
@@ -21,7 +26,11 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
           />
         </ImgWrapper>
       </ImgContainer>
-      
+
+      <ContentContainer>
+
+      </ContentContainer>
+
     </ProductCartEntryContainer>
   )
 }
