@@ -52,11 +52,8 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   }, [cartIsOpen, getTotalCartPrice])
 
   const onCloseModal = () => setCartIsOpen(false)
-  const onClearCart = () => {
-    dispatch(clearCart())
-    // add bin alert
-  }
-
+  const onClearCart = () => dispatch(clearCart())
+  
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
 
   if (!cartIsOpen) return null

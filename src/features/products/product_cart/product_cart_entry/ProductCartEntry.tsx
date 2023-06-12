@@ -1,7 +1,9 @@
 import Image from 'next/image'
 import {ProductCart} from '@/types/types'
 import {
+  ContentBodyContainer,
   ContentContainer,
+  ContentHeaderContainer,
   ImgContainer,
   ImgWrapper,
   ProductCartEntryContainer,
@@ -28,7 +30,13 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
       </ImgContainer>
 
       <ContentContainer>
+        <ContentHeaderContainer>
 
+        </ContentHeaderContainer>
+
+        <ContentBodyContainer>
+          
+        </ContentBodyContainer>
       </ContentContainer>
 
     </ProductCartEntryContainer>

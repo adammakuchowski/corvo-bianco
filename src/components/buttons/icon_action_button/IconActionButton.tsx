@@ -21,7 +21,7 @@ const IconActionButton = ({iconComponent, iconAction, progressEffect = false}: I
       setIsProcessing(true)
       setTimeout(() => {
         setIsProcessing(false)
-      }, 1000)
+      }, 1200)
     }
   }
 

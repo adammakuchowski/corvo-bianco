@@ -31,6 +31,7 @@ export const ProductCartContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  overflow: auto;
 
   transform: translateX(100%);
   transition: all 0.4s ease-in-out;
