@@ -14,12 +14,12 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({product}: ProductCardProps): JSX.Element => {
-  const [active, isActive] = useState<boolean>(false)
+  const [isActive, setIsActive] = useState<boolean>(false)
   const {img} = product
 
   return (
     <ProductCardContainer>
-      <ImgContainer onClick={() => isActive(!active)} active={active}>
+      <ImgContainer onClick={() => setIsActive(!isActive)} active={isActive}>
         <ImgWrapper>
           <Image
             src={img}
@@ -31,7 +31,7 @@ const ProductCard = ({product}: ProductCardProps): JSX.Element => {
       </ImgContainer>
       <ProductCardActionWrapper>
         <ProductCardAction
-          active={active}
+          active={isActive}
           product={product}
         />
       </ProductCardActionWrapper>

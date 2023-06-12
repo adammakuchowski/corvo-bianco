@@ -24,5 +24,13 @@ export const ImgWrapper = styled.div`
 `
 
 export const ContentContainer = styled.div`
+  background-color: red;
+`
+
+export const ContentHeaderContainer = styled.div`
+
+`
+
+export const ContentBodyContainer = styled.div`
 
 `
