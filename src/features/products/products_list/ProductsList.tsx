@@ -13,6 +13,7 @@ const ProductsList = ({products}: ProductsListProps): JSX.Element => {
   const [isAlertActive, setIsAlertActive] = useState<boolean>(false)
   const [alertIcon, setAlertIcon] = useState<any>()
   const [alertOverflow, setAlertOverflow] = useState<string>('auto')
+  const [acticeCardIndex, setActiceCardIndex] = useState<any>()
 
   useEffect(() => {
     if (isAlertActive) {
@@ -41,7 +42,10 @@ const ProductsList = ({products}: ProductsListProps): JSX.Element => {
         {products.map((product, index) => (
           <ProductCard
             key={index}
+            index={index}
             product={product}
+            setActiceCardIndex={setActiceCardIndex}
+            activeCard={index === acticeCardIndex}
           />
         ))}
       </ProductsListContainer>
