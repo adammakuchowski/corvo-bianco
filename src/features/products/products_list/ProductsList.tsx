@@ -13,7 +13,7 @@ const ProductsList = ({products}: ProductsListProps): JSX.Element => {
   const [isAlertActive, setIsAlertActive] = useState<boolean>(false)
   const [alertIcon, setAlertIcon] = useState<any>()
   const [alertOverflow, setAlertOverflow] = useState<string>('auto')
-  const [acticeCardIndex, setActiceCardIndex] = useState<any>()
+  const [acticeCardIndex, setActiceCardIndex] = useState<number>()
 
   useEffect(() => {
     if (isAlertActive) {
