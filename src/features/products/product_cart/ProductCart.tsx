@@ -5,12 +5,12 @@ import {BsTrash} from 'react-icons/bs'
 import IconButton from '@/components/buttons/icon_button/IconButton'
 import {ProductCart} from '@/types/types'
 import {
-  CloseButtonContainer,
   HeaderContainer,
   ProductCartContainer,
   ProductCartOverlayContainer,
-  CloseButtonWrapper,
-  ProductCartContentContainer
+  ProductCartContentContainer,
+  CartButtonsContainer,
+  CartButtonsWrapper
 } from './ProductCartStyled'
 import {clearCart, getProductsCart} from '../productsSlice'
 import ProductCartEntry from './product_cart_entry/ProductCartEntry'
@@ -62,12 +62,12 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     <ProductCartOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal} >
       <ProductCartContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
         <HeaderContainer>
-          <CloseButtonContainer>
-            <CloseButtonWrapper>
+          <CartButtonsContainer>
+            <CartButtonsWrapper>
               <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' />
               <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
-            </CloseButtonWrapper>
-          </CloseButtonContainer>
+            </CartButtonsWrapper>
+          </CartButtonsContainer>
         </HeaderContainer>
 
         <ProductCartContentContainer>
