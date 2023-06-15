@@ -48,14 +48,14 @@ export const HeaderContainer = styled.div`
   display: flex;
 `
 
-export const CloseButtonContainer = styled.div`
+export const CartButtonsContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: start;
 `
 
-export const CloseButtonWrapper = styled.div`
+export const CartButtonsWrapper = styled.div`
   background-color: green;
   height: 100%;
   width: 100%;

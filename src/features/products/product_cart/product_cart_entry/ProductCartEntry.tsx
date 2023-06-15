@@ -1,12 +1,17 @@
 import Image from 'next/image'
+import {BsTrash} from 'react-icons/bs'
+import {cinzel} from '@/fonts/fonts'
 import {ProductCart} from '@/types/types'
+import IconButton from '@/components/buttons/icon_button/IconButton'
 import {
   ContentBodyContainer,
   ContentContainer,
   ContentHeaderContainer,
+  HeaderButtonWrapper,
   ImgContainer,
   ImgWrapper,
   ProductCartEntryContainer,
+  ProductNameWrapper,
 } from './ProductCartEntryStyled'
 
 interface ProductCartEntryProps {
@@ -14,7 +19,7 @@ interface ProductCartEntryProps {
 }
 
 const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => {
-  const {product: {img}} = productCart
+  const {product: {img, name}} = productCart
 
   return (
     <ProductCartEntryContainer>
@@ -30,12 +35,15 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
       </ImgContainer>
 
       <ContentContainer>
-        <ContentHeaderContainer>
-
+        <ContentHeaderContainer className={cinzel.className}>
+          <ProductNameWrapper>{name}</ProductNameWrapper>
+          <HeaderButtonWrapper>
+            <IconButton iconComponent={<BsTrash />} iconAction={() => {}} fontSize='20px' />
+          </HeaderButtonWrapper>
         </ContentHeaderContainer>
 
         <ContentBodyContainer>
-          
+
         </ContentBodyContainer>
       </ContentContainer>
 

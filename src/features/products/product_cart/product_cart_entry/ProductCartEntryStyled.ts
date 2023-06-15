@@ -24,10 +24,22 @@ export const ImgWrapper = styled.div`
 `
 
 export const ContentContainer = styled.div`
-  background-color: red;
+  width: 75%;
+  background-color: pink;
 `
 
 export const ContentHeaderContainer = styled.div`
+  background-color: gold;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const ProductNameWrapper = styled.div`
+  font-weight: 600;
+`
+
+export const HeaderButtonWrapper = styled.div`
 
 `
 
