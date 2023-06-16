@@ -11,7 +11,6 @@ export const ImgContainer = styled.div`
   height: 100px;
   width: 100px;
   justify-content: center;
-
 `
 
 export const ImgWrapper = styled.div`
