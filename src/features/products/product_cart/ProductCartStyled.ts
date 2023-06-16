@@ -44,7 +44,6 @@ export const ProductCartContainer = styled.div`
 export const HeaderContainer = styled.div`
   width: 100%;
   height: 3%;
-  background-color: blue;
   display: flex;
 `
 
@@ -56,7 +55,6 @@ export const CartButtonsContainer = styled.div`
 `
 
 export const CartButtonsWrapper = styled.div`
-  background-color: green;
   height: 100%;
   width: 100%;
   display: flex;
@@ -68,5 +66,4 @@ export const ProductCartContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: gold;
 `
