@@ -51,7 +51,7 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
 
         <ContentBodyContainer>
           <ProductPriceWrapper>{`${totalProductPrice} $`}</ProductPriceWrapper>
-          <ProductCartEntryCounter/>
+          <ProductCartEntryCounter productCart={productCart}/>
         </ContentBodyContainer>
       </ContentContainer>
 

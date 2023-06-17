@@ -40,10 +40,29 @@ export const productsSlice = createSlice({
     addToFavorites(state, action) {
       state.favoriteProducts.push(action.payload)
     },
+    incrementQuantityProductCart(state, action) {
+      const productId = action.payload
+      const updatedProductCart = state.productsCart.map((productCart: ProductCart) => {
+        if(productCart.product.id !== productId) return productCart
+
+        const {quantity} = productCart
+        return {...productCart, quantity: quantity + 1}
+      })
+
+      state.productsCart = updatedProductCart
+    },
+    decrementQuantityProductCart(state, action) {
+
+    }
   },
 })
 
-export const {addToCart, clearCart, addToFavorites} = productsSlice.actions
+export const {
+  addToCart, 
+  clearCart, 
+  addToFavorites,
+  incrementQuantityProductCart
+} = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
 export const getProductsCart = (state: AppState) => state.products.productsCart
