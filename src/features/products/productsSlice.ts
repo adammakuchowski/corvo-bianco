@@ -40,20 +40,20 @@ export const productsSlice = createSlice({
     addToFavorites(state, action) {
       state.favoriteProducts.push(action.payload)
     },
-    incrementQuantityProductCart(state, action) {
-      const productId = action.payload
+    updateQuantityProductCart(state, action) {
+      const {id, actionOperator} = action.payload
       const updatedProductCart = state.productsCart.map((productCart: ProductCart) => {
-        if(productCart.product.id !== productId) return productCart
+        if(productCart.product.id !== id) return productCart
 
         const {quantity} = productCart
-        return {...productCart, quantity: quantity + 1}
+        if(actionOperator === 'increment') return {...productCart, quantity: quantity + 1}
+        if(actionOperator === 'decrement') return {...productCart, quantity: quantity - 1}
+
+        return productCart
       })
 
       state.productsCart = updatedProductCart
     },
-    decrementQuantityProductCart(state, action) {
-
-    }
   },
 })
 
@@ -61,7 +61,7 @@ export const {
   addToCart, 
   clearCart, 
   addToFavorites,
-  incrementQuantityProductCart
+  updateQuantityProductCart
 } = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
