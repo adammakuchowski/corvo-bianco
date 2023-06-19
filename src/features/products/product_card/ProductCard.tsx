@@ -1,6 +1,7 @@
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import Image from 'next/image'
 import {Product} from '@/types/types'
+import AlertContext from '@/context/AlertContext'
 import ProductCardAction from './product_card_action/ProductCardAction'
 import {
   ImgContainer,
@@ -18,6 +19,7 @@ interface ProductCardProps {
 
 const ProductCard = ({index, product, setActiceCardIndex, activeCard = false}: ProductCardProps): JSX.Element => {
   const [isActive, setIsActive] = useState<boolean>(activeCard)
+  const {isAlertActive} = useContext(AlertContext)
   const {img} = product
 
   useEffect(() => {
@@ -25,6 +27,8 @@ const ProductCard = ({index, product, setActiceCardIndex, activeCard = false}: P
   }, [activeCard])
 
   const onCardActive = () => {
+    if(isAlertActive) return
+
     setIsActive(!isActive)
     if (!isActive) {
       setActiceCardIndex(index)
@@ -33,7 +37,7 @@ const ProductCard = ({index, product, setActiceCardIndex, activeCard = false}: P
 
   return (
     <ProductCardContainer>
-      <ImgContainer onClick={onCardActive} active={isActive}>
+      <ImgContainer onClick={onCardActive} active={isActive} isAlertActive={isAlertActive}>
         <ImgWrapper>
           <Image
             src={img}

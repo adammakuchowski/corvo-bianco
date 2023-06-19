@@ -7,6 +7,7 @@ export const ProductCardContainer = styled.div`
 
 interface ImgContainerProps {
   active: boolean;
+  isAlertActive: boolean;
 }
 
 export const ImgContainer = styled.button`
@@ -22,10 +23,10 @@ export const ImgContainer = styled.button`
 
   transition: all 0.3s ease-in-out;
   box-shadow: ${({active}: ImgContainerProps) => active ? '0 0 5px rgba(124, 144, 62, 1)' : '0'};
-  cursor: pointer;
+  cursor: ${({isAlertActive}: ImgContainerProps) => isAlertActive ? '' : 'pointer'};
   :hover{
     border: 0;
-    box-shadow: ${({active}: ImgContainerProps) => active ? '0' : '0 0 5px rgba(0, 0, 0, 0.5)'};
+    box-shadow: ${({active, isAlertActive}: ImgContainerProps) => (active || isAlertActive) ? '0' : '0 0 5px rgba(0, 0, 0, 0.5)'};
   }
 `
 

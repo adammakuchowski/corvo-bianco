@@ -45,6 +45,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
   height: 3%;
   display: flex;
+  border-bottom: solid 1px #1111;
 `
 
 export const CartButtonsContainer = styled.div`

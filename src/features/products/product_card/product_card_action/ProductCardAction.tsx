@@ -1,6 +1,6 @@
 import {useContext, useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {BsFillCartCheckFill, BsFillSuitHeartFill, BsStarFill} from 'react-icons/bs'
+import {BsFillCartCheckFill, BsStarFill} from 'react-icons/bs'
 import {IoMdHeartEmpty} from 'react-icons/io'
 import {BsArrowsFullscreen} from 'react-icons/bs'
 import {TiArrowSync} from 'react-icons/ti'
