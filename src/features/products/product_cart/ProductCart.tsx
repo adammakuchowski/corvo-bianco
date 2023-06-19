@@ -22,6 +22,7 @@ interface ProductCartProps {
 
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const [isActive, setIsActive] = useState<boolean>(false)
+  const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
   const dispatch = useDispatch()
 
@@ -37,6 +38,8 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   ), [productsCart])
 
   useEffect(() => {
+    productsCart.length ? setIsTrashDisabled(false) : setIsTrashDisabled(true)
+      
     if (cartIsOpen) {
       setIsActive(true)
       document.body.style.overflow = 'hidden'
@@ -49,7 +52,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
       setIsActive(false)
       document.body.style.overflow = 'auto'
     }
-  }, [cartIsOpen, getTotalCartPrice])
+  }, [cartIsOpen, getTotalCartPrice, productsCart])
 
   const onCloseModal = () => setCartIsOpen(false)
   const onClearCart = () => dispatch(clearCart())
@@ -64,7 +67,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
         <HeaderContainer>
           <CartButtonsContainer>
             <CartButtonsWrapper>
-              <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' />
+              <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' disabled={isTrashDisabled}/>
               <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
             </CartButtonsWrapper>
           </CartButtonsContainer>

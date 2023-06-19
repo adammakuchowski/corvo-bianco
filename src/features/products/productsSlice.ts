@@ -54,6 +54,12 @@ export const productsSlice = createSlice({
 
       state.productsCart = updatedProductCart
     },
+    removeProductCart(state, action) {
+      const {id} = action.payload
+      const updatedProductCart = state.productsCart.filter((productCart: ProductCart) => productCart.product.id !== id)
+
+      state.productsCart = updatedProductCart
+    },
   },
 })
 
@@ -61,7 +67,8 @@ export const {
   addToCart, 
   clearCart, 
   addToFavorites,
-  updateQuantityProductCart
+  updateQuantityProductCart,
+  removeProductCart,
 } = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
