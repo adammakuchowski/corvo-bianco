@@ -23,7 +23,20 @@ export const productsSlice = createSlice({
   reducers: {
     addToCart: {
       reducer(state, action) {
-        state.productsCart.push(action.payload)
+        const {productsCart} = state
+        const {payload: {product: {id}, quantity}} = action
+        
+        if (productsCart.every(productCart => productCart.product.id !== id)) {
+          state.productsCart.push(action.payload)
+        } else {
+          const updatedProductsCart = productsCart.map(productCart => {
+            if(productCart.product.id !== id) return productCart
+            
+            return {...productCart, quantity: productCart.quantity + quantity}
+          })
+          
+          state.productsCart = updatedProductsCart
+        }
       },
       prepare(product: Product, quantity: number): any {
         return {
@@ -41,13 +54,13 @@ export const productsSlice = createSlice({
       state.favoriteProducts.push(action.payload)
     },
     updateQuantityProductCart(state, action) {
-      const {id, actionOperator} = action.payload
+      const {id, actionOperator, value} = action.payload
       const updatedProductCart = state.productsCart.map((productCart: ProductCart) => {
-        if(productCart.product.id !== id) return productCart
+        if (productCart.product.id !== id) return productCart
 
         const {quantity} = productCart
-        if(actionOperator === 'increment') return {...productCart, quantity: quantity + 1}
-        if(actionOperator === 'decrement') return {...productCart, quantity: quantity - 1}
+        if (actionOperator === 'increment') return {...productCart, quantity: quantity + value}
+        if (actionOperator === 'decrement') return {...productCart, quantity: quantity - value}
 
         return productCart
       })
@@ -64,8 +77,8 @@ export const productsSlice = createSlice({
 })
 
 export const {
-  addToCart, 
-  clearCart, 
+  addToCart,
+  clearCart,
   addToFavorites,
   updateQuantityProductCart,
   removeProductCart,
