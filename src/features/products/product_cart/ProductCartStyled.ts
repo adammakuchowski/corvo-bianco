@@ -20,6 +20,7 @@ export const ProductCartOverlayContainer = styled.div`
 
 export const ProductCartContainer = styled.div`
   position: fixed;
+  justify-content: space-between;
   top: 0;
   right: 0;
   transform: translate(0%, 0%);
@@ -41,11 +42,17 @@ export const ProductCartContainer = styled.div`
   }
 `
 
+export const ProductCartWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 export const HeaderContainer = styled.div`
   width: 100%;
-  height: 3%;
   display: flex;
   border-bottom: solid 1px #1111;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
 `
 
 export const CartButtonsContainer = styled.div`
@@ -67,4 +74,28 @@ export const ProductCartContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+`
+
+export const ProductCartSummaryContainer = styled.div`
+  margin-bottom: 15px;
+  height: 5%;
+  border-top: solid 1px #1111;
+  padding-top: 10px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const ProductCartTotalWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`
+
+export const ProductCartButtonWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
 `

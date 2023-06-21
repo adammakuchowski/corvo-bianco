@@ -14,7 +14,7 @@ const Alert = ({iconComponent}: AlertProps): JSX.Element => {
 
     setTimeout(()=> {
       setAlertActive(false)
-    }, 1000)
+    }, 800)
   }, [isAlertActive, setAlertActive])
 
   return (

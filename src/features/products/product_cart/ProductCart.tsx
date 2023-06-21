@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
 import IconButton from '@/components/buttons/icon_button/IconButton'
+import TextButton from '@/components/buttons/text_button/TextButton'
 import {ProductCart} from '@/types/types'
 import {
   HeaderContainer,
@@ -10,7 +11,11 @@ import {
   ProductCartOverlayContainer,
   ProductCartContentContainer,
   CartButtonsContainer,
-  CartButtonsWrapper
+  CartButtonsWrapper,
+  ProductCartSummaryContainer,
+  ProductCartWrapper,
+  ProductCartTotalWrapper,
+  ProductCartButtonWrapper
 } from './ProductCartStyled'
 import {clearCart, getProductsCart} from '../productsSlice'
 import ProductCartEntry from './product_cart_entry/ProductCartEntry'
@@ -39,7 +44,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 
   useEffect(() => {
     productsCart.length ? setIsTrashDisabled(false) : setIsTrashDisabled(true)
-      
+
     if (cartIsOpen) {
       setIsActive(true)
       document.body.style.overflow = 'hidden'
@@ -56,7 +61,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 
   const onCloseModal = () => setCartIsOpen(false)
   const onClearCart = () => dispatch(clearCart())
-  
+
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
 
   if (!cartIsOpen) return null
@@ -64,21 +69,31 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   return (
     <ProductCartOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal} >
       <ProductCartContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
-        <HeaderContainer>
-          <CartButtonsContainer>
-            <CartButtonsWrapper>
-              <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' disabled={isTrashDisabled}/>
-              <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
-            </CartButtonsWrapper>
-          </CartButtonsContainer>
-        </HeaderContainer>
+        <ProductCartWrapper>
+          <HeaderContainer>
+            <CartButtonsContainer>
+              <CartButtonsWrapper>
+                <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' disabled={isTrashDisabled} />
+                <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
+              </CartButtonsWrapper>
+            </CartButtonsContainer>
+          </HeaderContainer>
+          <ProductCartContentContainer>
+            {productsCart.map((product, index) => (
+              <ProductCartEntry key={index} productCart={product} />
+            ))}
+          </ProductCartContentContainer>
+        </ProductCartWrapper>
 
-        <ProductCartContentContainer>
-          {productsCart.map((product, index) => (
-            <ProductCartEntry key={index} productCart={product}/>
-          ))}
-        </ProductCartContentContainer>
-        
+        <ProductCartSummaryContainer>
+          <ProductCartTotalWrapper>
+            <span>cart total:</span>
+            <b>{`${cartTotal.toFixed(2)} $`}</b>
+          </ProductCartTotalWrapper>
+          <ProductCartButtonWrapper>
+            {!!productsCart.length && <TextButton content='checkout' upperCase={false} />}
+          </ProductCartButtonWrapper>
+        </ProductCartSummaryContainer>
       </ProductCartContainer>
     </ProductCartOverlayContainer>
   )
