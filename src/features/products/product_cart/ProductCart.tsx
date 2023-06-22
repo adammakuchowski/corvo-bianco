@@ -91,7 +91,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
             <b>{`${cartTotal.toFixed(2)} $`}</b>
           </ProductCartTotalWrapper>
           <ProductCartButtonWrapper>
-            {!!productsCart.length && <TextButton content='checkout' upperCase={false} />}
+            <TextButton content='checkout' upperCase={false} disabled={!productsCart.length} />
           </ProductCartButtonWrapper>
         </ProductCartSummaryContainer>
       </ProductCartContainer>
