@@ -1,15 +1,27 @@
 import {useEffect, useState} from 'react'
 import {cinzel} from '@/fonts/fonts'
-import {TextButtonContainer} from './TextButtonStyled'
+import {DisabledTextButtonContainer, TextButtonContainer} from './TextButtonStyled'
 
 interface TextButtonProps {
   content: string;
   buttonAction?: () => void;
   overrideStyle?: object;
   upperCase?: boolean;
+  disabled?: boolean;
 }
 
-const TextButton = ({content, buttonAction, overrideStyle, upperCase = true}: TextButtonProps): JSX.Element => {
+interface DisabledTextButtonProps {
+  content?: string;
+  overrideStyle?: object;
+}
+
+const DisabledTextButton = ({content, overrideStyle}: DisabledTextButtonProps): JSX.Element => (
+  <DisabledTextButtonContainer className={cinzel.className} style={overrideStyle}>
+    {content}
+  </DisabledTextButtonContainer>
+)
+
+const TextButton = ({content, buttonAction, overrideStyle, upperCase = true, disabled = false}: TextButtonProps): JSX.Element => {
   const [textButton, setTextButton] = useState<string>()
   const onButtonAction = () => buttonAction && buttonAction()
 
@@ -18,9 +30,14 @@ const TextButton = ({content, buttonAction, overrideStyle, upperCase = true}: Te
   }, [upperCase, content])
 
   return (
-    <TextButtonContainer className={cinzel.className} onClick={onButtonAction} style={overrideStyle}>
-      {textButton}
-    </TextButtonContainer>
+    <>
+      {disabled ?
+        <DisabledTextButton content={textButton} overrideStyle={overrideStyle} /> :
+        <TextButtonContainer className={cinzel.className} onClick={onButtonAction} style={overrideStyle}>
+          {textButton}
+        </TextButtonContainer>
+      }
+    </>
   )
 }
 
