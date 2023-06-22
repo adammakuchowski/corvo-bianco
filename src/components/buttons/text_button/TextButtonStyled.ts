@@ -20,14 +20,14 @@ export const TextButtonContainer = styled.button`
 `
 
 export const DisabledTextButtonContainer = styled.button`
+	padding: 0;
   font-family: none;
   border: none;
-	padding: 0;
   background: none;
   display: flex;
-  justify-content: flex-start;
 	font-size: 15px;
+  justify-content: flex-start;
   font-weight: 600;
-	text-shadow:0px 1px 0px #ffffff;
   color: #d3d3d3;
+	text-shadow:0px 1px 0px #ffffff;
 `
