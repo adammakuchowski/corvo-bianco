@@ -12,4 +12,6 @@ export const ProductsListContainer = styled.div`
   margin-bottom: 20px;
   padding: 5px;
   overflow: hidden;
+
+  background-color: red;
 `

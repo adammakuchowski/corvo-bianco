@@ -36,6 +36,8 @@ export const ProductsListContainer = styled.div`
   flex-direction: column;
   transition: all 0.8s ease-in-out;
 
+  background-color: blue;
+
   height: ${({viewAll, productsCount}: ProductsListContainerPops) => {
     const productsListLevels = productsCount / 4
     const levelsRounded = Math.ceil(productsListLevels)

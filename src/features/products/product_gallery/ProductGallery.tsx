@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux'
 import Navigation from '@/components/navigation/Navigation'
 import SectionHeader from '@/components/section_header/SectionHeader'
 import Button from '@/components/buttons/button/Button'
+import {Product} from '@/types/types'
 import ProductsList from '../products_list/ProductsList'
 import {
   ButtonWrapper,
@@ -19,7 +20,8 @@ const ProductGallery = (): JSX.Element => {
   const [productsListStatus, setProductsListStatus] = useState<ProductsListStatus>(productsListStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
   const [isActive, setIsActive] = useState(false)
-  
+
+  const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
   const products = useSelector(getAllProducts)
 
   useEffect(() => {
@@ -27,10 +29,17 @@ const ProductGallery = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    if (products && products.length > 0) {
-      setCurrentProductsCount(products.length)
+    if (categoryProducts?.length) {
+      setCurrentProductsCount(categoryProducts.length)
     }
-  }, [products])
+  }, [categoryProducts])
+
+  useEffect(() => {
+    const currentMenuOption = productGalleryManuOptions.find(option => option.index === productGalleryPage)
+    const name = currentMenuOption?.name.toLocaleLowerCase()
+    const currentPorducts = products.filter(product => product.category === name)
+    setCategoryProducts(currentPorducts)
+  }, [productGalleryPage, products])
 
 
   const ProductsListEvent = () => productsListStatus.viewAll ?
@@ -49,7 +58,7 @@ const ProductGallery = (): JSX.Element => {
             setActivePage={setProductGalleryPage}
           />
           <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
-            <ProductsList products={products} />
+            <ProductsList products={categoryProducts} />
             {currentProductsCount > 4 && (
               <ButtonWrapper>
                 <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
