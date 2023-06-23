@@ -130,5 +130,18 @@ export const products: Product[] = [
     countryOfOrigin: 'italy',
     img: '/images/bottle.jpg',
     price: 278.00,
+  },
+  {
+    id: '10',
+    name: 'Garnacha',
+    brand: 'Marchesi Antinori',
+    quality: 3,
+    category: 'roes',
+    typ: 'dry',
+    color: 'white',
+    productionYear: '2006',
+    countryOfOrigin: 'italy',
+    img: '/images/bottle.jpg',
+    price: 278.00,
   }
 ]

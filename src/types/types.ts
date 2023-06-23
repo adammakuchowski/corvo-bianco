@@ -26,4 +26,5 @@ export interface IconComponent {
 export interface NavigationOptions {
   name: string;
   sectionName?: string;
+  index?: number;
 }
