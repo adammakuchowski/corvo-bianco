@@ -17,7 +17,6 @@ const ProductsList = ({products, productGalleryPage}: ProductsListProps): JSX.El
   const [acticeCardIndex, setActiceCardIndex] = useState<number | null>(null)
 
   useEffect(() => {
-    console.log(123)
     setActiceCardIndex(null)
   }, [productGalleryPage])
 
