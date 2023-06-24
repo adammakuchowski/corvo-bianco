@@ -80,16 +80,12 @@ export const ModalDataContainer = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-/* 
-  background-color: pink; */
 `
 
 export const DataHeaderWrapper = styled.div`
   width: 100%;
   height: 20%;
   display: flex;
-  /* background-color: gold; */
-
   justify-content: start;
   align-items: center;
   padding-left: 10px;

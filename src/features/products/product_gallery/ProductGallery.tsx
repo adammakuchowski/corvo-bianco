@@ -7,6 +7,7 @@ import {Product} from '@/types/types'
 import ProductsList from '../products_list/ProductsList'
 import {
   ButtonWrapper,
+  NavigationWrapper,
   ProductGalleryContainer,
   ProductGalleryContentWrapper,
   ProductsListContainer,
@@ -51,19 +52,21 @@ const ProductGallery = (): JSX.Element => {
       <ProductGalleryContainer className={isActive ? 'active' : ''}>
         <SectionHeader title='Vineyard' text='FEATURED WINES' />
         <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
-          <Navigation
-            fontSize='18px'
-            options={productGalleryManuOptions}
-            activePage={productGalleryPage}
-            setActivePage={setProductGalleryPage}
-          />
+          <NavigationWrapper>
+            <Navigation
+              fontSize='18px'
+              options={productGalleryManuOptions}
+              activePage={productGalleryPage}
+              setActivePage={setProductGalleryPage}
+            />
+          </NavigationWrapper>
           <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
-            <ProductsList products={categoryProducts} />
-            {currentProductsCount > 4 && (
-              <ButtonWrapper>
+            <ProductsList products={categoryProducts} productGalleryPage={productGalleryPage}/>
+            <ButtonWrapper>
+              {currentProductsCount > 4 && (
                 <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
-              </ButtonWrapper>
-            )}
+              )}
+            </ButtonWrapper>
           </ProductsListContainer>
         </ProductGalleryContentWrapper>
       </ProductGalleryContainer>

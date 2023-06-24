@@ -13,7 +13,7 @@ import {
 interface ProductCardProps {
   index: number;
   product: Product;
-  setActiceCardIndex: (value: number) => void;
+  setActiceCardIndex: (value: number | null) => void;
   activeCard: boolean;
 }
 

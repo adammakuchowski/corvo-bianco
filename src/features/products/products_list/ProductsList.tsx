@@ -7,13 +7,18 @@ import {ProductsListContainer} from './ProductsListStyled'
 
 interface ProductsListProps {
   products: Product[];
+  productGalleryPage?: number;
 }
 
-const ProductsList = ({products}: ProductsListProps): JSX.Element => {
+const ProductsList = ({products, productGalleryPage}: ProductsListProps): JSX.Element => {
   const [isAlertActive, setIsAlertActive] = useState<boolean>(false)
   const [alertIcon, setAlertIcon] = useState<any>()
   const [alertOverflow, setAlertOverflow] = useState<string>('auto')
-  const [acticeCardIndex, setActiceCardIndex] = useState<number>()
+  const [acticeCardIndex, setActiceCardIndex] = useState<number | null>(null)
+
+  useEffect(() => {
+    setActiceCardIndex(null)
+  }, [productGalleryPage])
 
   useEffect(() => {
     if (isAlertActive) {
