@@ -10,8 +10,17 @@ export const ProductGalleryContainer = styled.div`
   }
 `
 
+export const NavigationWrapper = styled.div`
+  margin-bottom: 50px;
+`
+
 export const ButtonWrapper = styled.div`
-  margin-top: 30px;
+  width: 70%;
+  padding: 5px;
+  min-height: 50px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 `
 
 export const ProductGalleryContentWrapper = styled.div`
@@ -28,20 +37,17 @@ interface ProductsListContainerPops {
 }
 
 export const ProductsListContainer = styled.div`
-  margin: 50px;
   width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   transition: all 0.8s ease-in-out;
 
-  background-color: blue;
-
   height: ${({viewAll, productsCount}: ProductsListContainerPops) => {
     const productsListLevels = productsCount / 4
     const levelsRounded = Math.ceil(productsListLevels)
-    const height = viewAll ? 560 + 520 * (levelsRounded - 1) : 560
+    const height = viewAll ? 525 * levelsRounded : 525
 
     return `${height}px`;
   }};
