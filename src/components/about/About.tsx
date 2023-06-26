@@ -5,7 +5,7 @@ import AboutContent from './about_content/AboutContent'
 import {AboutContainer} from './AboutStyled'
 
 const About = (): JSX.Element => {
-  const [isActive, setIsActive] = useState(false)
+  const [isActive, setIsActive] = useState<boolean>(false)
 
   useEffect(() => {
     setIsActive(true)
