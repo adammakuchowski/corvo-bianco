@@ -1,5 +1,6 @@
 import {SyntheticEvent, useCallback, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import {useRouter} from 'next/router'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
 import IconButton from '@/components/buttons/icon_button/IconButton'
@@ -26,12 +27,16 @@ interface ProductCartProps {
 }
 
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
+  const router = useRouter()
   const [isActive, setIsActive] = useState<boolean>(false)
   const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
+  const productsCart = useSelector(getProductsCart)
   const dispatch = useDispatch()
 
-  const productsCart = useSelector(getProductsCart)
+  const toCheckout = () => {
+    router.push('/checkout')
+  }
 
   const getTotalCartPrice = useCallback((): number => (
     productsCart.reduce((total: number, amount: ProductCart): number => {
@@ -91,7 +96,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
             <b>{`${cartTotal.toFixed(2)} $`}</b>
           </ProductCartTotalWrapper>
           <ProductCartButtonWrapper>
-            <TextButton content='checkout' upperCase={false} disabled={!productsCart.length} />
+            <TextButton content='checkout' upperCase={false} disabled={!productsCart.length} buttonAction={toCheckout} />
           </ProductCartButtonWrapper>
         </ProductCartSummaryContainer>
       </ProductCartContainer>
