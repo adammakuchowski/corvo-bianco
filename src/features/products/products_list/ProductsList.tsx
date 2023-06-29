@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import AlertContext, {AlertContextValue} from '@/context/AlertContext'
 import {Product} from '@/types/types'
-import Alert from '@/components/alert/Alert'
+import Alert from '@/components/common/alert/Alert'
 import ProductCard from '../product_card/ProductCard'
 import {ProductsListContainer} from './ProductsListStyled'
 

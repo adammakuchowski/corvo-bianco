@@ -3,47 +3,24 @@ import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BsPersonCircle} from 'react-icons/bs'
 import {IoMdHeartEmpty} from 'react-icons/io'
-import {NavigationOptions, ProductCart as ProductCartInterface} from '@/types/types'
+import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather, cinzel} from '@/fonts/fonts'
-import Navigation from '@/components/navigation/Navigation'
+import Navigation from '@/components/common/navigation/Navigation'
 import IconButton from '@/components/buttons/icon_button/IconButton'
+import HeaderName from '@/components/common/header_name/HeaderName'
 import ProductCart from '@/features/products/product_cart/ProductCart'
 import {
   NavbarContainer,
-  NameContainer,
-  NameWrapper,
   OptionsContainer,
   ActionsWrapper,
   SettingWrapper,
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
-import {AppState} from '../store'
+import {AppState} from '../../../app/store'
+import {manuOptions} from './data'
 
-const manuOptions: NavigationOptions[] = [
-  {
-    name: 'About',
-    sectionName: 'about'
-  },
-  {
-    name: 'Products',
-    sectionName: 'product_gallery'
-  },
-  {
-    name: 'Events',
-    sectionName: 'events'
-  },
-  {
-    name: 'Blog',
-    sectionName: 'blog'
-  },
-  {
-    name: 'Contact',
-    sectionName: 'contact'
-  },
-]
-
-const Navbar = () => {
+const Navbar = (): JSX.Element => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
   const [isActive, setIsActive] = useState<boolean>(false)
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
@@ -60,7 +37,7 @@ const Navbar = () => {
 
     return productsCart.reduce((total: number, amount: ProductCartInterface): number => total += amount.quantity, 0)
   }, [productsCart])
-  
+
   useEffect(() => {
     setCartCount(getCartCount())
   }, [getCartCount])
@@ -74,9 +51,7 @@ const Navbar = () => {
           <SettingWrapper>
             <IconButton iconComponent={<AiOutlineSetting />} />
           </SettingWrapper>
-          <NameContainer className={cinzel.className}>
-            <NameWrapper>Corvo Bianco</NameWrapper>
-          </NameContainer>
+          <HeaderName />
           <ActionsWrapper>
             <IconButton iconComponent={<BsPersonCircle />} />
             <IconButton iconComponent={<AiOutlineSearch />} />
@@ -91,7 +66,6 @@ const Navbar = () => {
         </OptionsContainer>
         <Navigation
           options={manuOptions}
-          // activePage={productNavbarPage}
           setActivePage={setProductNavbarPage}
         />
       </NavbarContainer>

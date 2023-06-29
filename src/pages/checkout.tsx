@@ -1,8 +1,10 @@
+import HeaderName from '@/components/common/header_name/HeaderName'
+
 const Checkout = (): JSX.Element => {
   return (
-    <div>
-      Checkout
-    </div>
+    <>
+      <HeaderName />
+    </>
   )
 }
 
