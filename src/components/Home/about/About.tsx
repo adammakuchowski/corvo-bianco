@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
-import Contact from '../contact/Contact'
-import SectionHeader from '@/components/section_header/SectionHeader'
+import Contact from '@/components/Home/contact/Contact'
+import SectionHeader from '@/components/common/section_header/SectionHeader'
 import AboutContent from './about_content/AboutContent'
 import {AboutContainer} from './AboutStyled'
 

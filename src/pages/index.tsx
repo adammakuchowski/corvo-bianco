@@ -1,11 +1,11 @@
 import Head from 'next/head'
 import ProductGallery from '@/features/products/product_gallery/ProductGallery'
-import About from '@/components/about/About'
-import Banner from '@/components/banner/Banner'
-import Blogs from '@/components/blogs/Blogs'
-import CommunityEvents from '@/components/community_events/CommunityEvents'
-import Navbar from '@/app/navbar/Navbar'
-import Footer from '@/app/footer/Footer'
+import About from '@/components/Home/about/About'
+import Banner from '@/components/Home/banner/Banner'
+import Blogs from '@/components/Home/blogs/Blogs'
+import CommunityEvents from '@/components/Home/community_events/CommunityEvents'
+import Navbar from '@/components/shared/navbar/Navbar'
+import Footer from '@/components/shared/footer/Footer'
 
 export default function Home() {
   return (

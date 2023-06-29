@@ -17,20 +17,6 @@ export const NavbarContainer = styled.div`
   }
 `
 
-export const NameContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 240px;
-  color: #641B30;
-  /* color: #708238; */
-`
-
-export const NameWrapper = styled.div`
-  font-size: 35px;
-  font-weight: bold;
-`
-
 export const ActionsWrapper = styled.div`
   font-size: 20px;
   display: flex;
