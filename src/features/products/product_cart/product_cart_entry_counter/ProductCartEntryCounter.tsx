@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
-import IconButton from '@/components/buttons/icon_button/IconButton'
+import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import {ProductCart} from '@/types/types'
 import {ProductCartEntryCounterContainer, ProductQuantityWrapper} from './ProductCartEntryCounterStyled'
 import {updateQuantityProductCart} from '../../productsSlice'

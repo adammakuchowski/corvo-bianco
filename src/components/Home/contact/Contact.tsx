@@ -1,7 +1,7 @@
 import {playfairDisplay} from '@/fonts/fonts'
-import AvailableHoursCard from '@/components/cards/available_hours_card/AvailableHoursCard'
-import PhoneCard from '@/components/cards/phone_card/PhoneCard'
-import SocialMediaCard from '@/components/cards/social_media_card/SocialMediaCard'
+import PhoneCard from '@/components/common/cards/phone_card/PhoneCard'
+import AvailableHoursCard from '@/components/common/cards/available_hours_card/AvailableHoursCard'
+import SocialMediaCard from '@/components/common/cards/social_media_card/SocialMediaCard'
 import {ContactContainer, ContactWrapper} from './ContactStyled'
 
 const available = {

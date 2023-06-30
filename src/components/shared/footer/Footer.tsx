@@ -3,7 +3,7 @@ import {FiFacebook, FiTwitter} from 'react-icons/fi'
 import {AiOutlineGoogle} from 'react-icons/ai'
 import {GrPinterest} from 'react-icons/gr'
 import {IconComponent} from '@/types/types'
-import IconButton from '@/components/buttons/icon_button/IconButton'
+import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import {cinzel} from '@/fonts/fonts'
 import {
   ArrowWrapper,

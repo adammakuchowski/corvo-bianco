@@ -2,13 +2,13 @@ import {BsFacebook} from 'react-icons/bs'
 import {GrInstagram} from 'react-icons/gr'
 import {AiFillTwitterCircle} from 'react-icons/ai'
 import {RiYoutubeFill} from 'react-icons/ri'
-import IconButton from '@/components/buttons/icon_button/IconButton'
 import {IconComponent} from '@/types/types'
 import {
   ContentWrapper,
   HeaderContentWrapper,
   SocialMediaCardContainer,
 } from './SocialMediaCardStyled'
+import IconButton from '../../buttons/icon_button/IconButton'
 
 interface SocialMediaCardProps {
   headerText: string;
