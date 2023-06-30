@@ -8,7 +8,7 @@ import {FaHeart} from 'react-icons/fa'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
 import AlertContext from '@/context/AlertContext'
 import {IconComponent, Product} from '@/types/types'
-import IconActionButton from '@/components/buttons/icon_action_button/IconActionButton'
+import IconActionButton from '@/components/common/buttons/icon_action_button/IconActionButton'
 import {cinzel} from '@/fonts/fonts'
 import {
   ProductCardActiveContainer,

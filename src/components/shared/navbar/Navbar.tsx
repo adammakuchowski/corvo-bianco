@@ -6,7 +6,7 @@ import {IoMdHeartEmpty} from 'react-icons/io'
 import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather, cinzel} from '@/fonts/fonts'
 import Navigation from '@/components/common/navigation/Navigation'
-import IconButton from '@/components/buttons/icon_button/IconButton'
+import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import ProductCart from '@/features/products/product_cart/ProductCart'
 import {

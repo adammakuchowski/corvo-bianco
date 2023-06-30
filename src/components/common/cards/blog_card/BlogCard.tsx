@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import moment from 'moment'
 import {cinzel} from '@/fonts/fonts'
-import TextButton from '@/components/buttons/text_button/TextButton'
 import {
   BlogCardContainer,
   CardWrapper,
@@ -11,6 +10,7 @@ import {
   ImgOpacity,
   ImgWrapper,
 } from './BlogCardStyled'
+import TextButton from '../../buttons/text_button/TextButton'
 
 interface BlogCardProps {
   img: any,

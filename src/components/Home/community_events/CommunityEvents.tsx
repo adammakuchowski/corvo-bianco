@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import CommunityEventCard from '@/components/cards/community_event_card/CommunityEventCard'
+import CommunityEventCard from '@/components/common/cards/community_event_card/CommunityEventCard'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
 

@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import Navigation from '@/components/common/navigation/Navigation'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
-import Button from '@/components/buttons/button/Button'
+import Button from '@/components/common/buttons/button/Button'
 import {Product} from '@/types/types'
 import ProductsList from '../products_list/ProductsList'
 import {

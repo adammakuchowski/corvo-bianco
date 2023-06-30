@@ -3,8 +3,8 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
-import IconButton from '@/components/buttons/icon_button/IconButton'
-import TextButton from '@/components/buttons/text_button/TextButton'
+import IconButton from '@/components/common/buttons/icon_button/IconButton'
+import TextButton from '@/components/common/buttons/text_button/TextButton'
 import {ProductCart} from '@/types/types'
 import {
   HeaderContainer,

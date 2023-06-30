@@ -4,7 +4,7 @@ import Image from 'next/image'
 import {BsTrash} from 'react-icons/bs'
 import {cinzel} from '@/fonts/fonts'
 import {ProductCart} from '@/types/types'
-import IconButton from '@/components/buttons/icon_button/IconButton'
+import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import {
   ContentBodyContainer,
   ContentContainer,
