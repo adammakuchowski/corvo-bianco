@@ -1,10 +1,11 @@
-import HeaderName from '@/components/common/header_name/HeaderName'
+import CheckoutHeader from '@/components/Checkout/CheckoutHeader/CheckoutHeader'
+import {CheckoutContainer} from './styles/checkoutStyled'
 
 const Checkout = (): JSX.Element => {
   return (
-    <>
-      <HeaderName />
-    </>
+    <CheckoutContainer>
+      <CheckoutHeader />
+    </CheckoutContainer>
   )
 }
 
