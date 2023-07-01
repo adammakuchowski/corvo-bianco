@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CheckoutHeaderContainer = styled.div`
+export const HeaderContainer = styled.div`
   width: 75%;
   height: 10vh;
   display: flex;
@@ -19,7 +19,7 @@ export const CheckoutHeaderContainer = styled.div`
   }
 `
 
-export const ComeBackButtonWrapper = styled.div`
+export const BackHomeButtonWrapper = styled.div`
   position: absolute;
   top: 50;
   left: 0;

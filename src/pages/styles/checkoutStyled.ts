@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CheckoutContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  height: 100vh;
 `

@@ -2,9 +2,9 @@ import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
-import {CheckoutHeaderContainer, ComeBackButtonWrapper} from './CheckoutHeaderStyled'
+import {HeaderContainer, BackHomeButtonWrapper} from './HeaderStyled'
 
-const CheckoutHeader = (): JSX.Element => {
+const Header = (): JSX.Element => {
   const router = useRouter()
   const [isActive, setIsActive] = useState<boolean>(false)
 
@@ -17,13 +17,13 @@ const CheckoutHeader = (): JSX.Element => {
   }, []);
   
   return (
-    <CheckoutHeaderContainer className={isActive ? 'active' : ''}>
-      <ComeBackButtonWrapper>
+    <HeaderContainer className={isActive ? 'active' : ''}>
+      <BackHomeButtonWrapper>
         <TextButton content='back to home' upperCase={false} buttonAction={toHome} />
-      </ComeBackButtonWrapper>
+      </BackHomeButtonWrapper>
       <HeaderName />
-    </CheckoutHeaderContainer>
+    </HeaderContainer>
   )
 }
 
-export default CheckoutHeader
+export default Header
