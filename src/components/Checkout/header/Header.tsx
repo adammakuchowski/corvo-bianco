@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
-import {HeaderContainer, ComeBackButtonWrapper} from './HeaderStyled'
+import {HeaderContainer, BackHomeButtonWrapper} from './HeaderStyled'
 
 const Header = (): JSX.Element => {
   const router = useRouter()
@@ -18,9 +18,9 @@ const Header = (): JSX.Element => {
   
   return (
     <HeaderContainer className={isActive ? 'active' : ''}>
-      <ComeBackButtonWrapper>
+      <BackHomeButtonWrapper>
         <TextButton content='back to home' upperCase={false} buttonAction={toHome} />
-      </ComeBackButtonWrapper>
+      </BackHomeButtonWrapper>
       <HeaderName />
     </HeaderContainer>
   )

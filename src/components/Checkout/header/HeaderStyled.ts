@@ -19,7 +19,7 @@ export const HeaderContainer = styled.div`
   }
 `
 
-export const ComeBackButtonWrapper = styled.div`
+export const BackHomeButtonWrapper = styled.div`
   position: absolute;
   top: 50;
   left: 0;
