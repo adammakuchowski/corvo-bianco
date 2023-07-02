@@ -4,18 +4,17 @@ import HeaderName from '@/components/common/header_name/HeaderName'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
 import {HeaderContainer, BackHomeButtonWrapper} from './HeaderStyled'
 
-const Header = (): JSX.Element => {
+interface HeaderProps {
+  isActive: boolean;
+}
+
+const Header = ({isActive}: HeaderProps): JSX.Element => {
   const router = useRouter()
-  const [isActive, setIsActive] = useState<boolean>(false)
 
   const toHome = () => {
     router.push('/')
   }
 
-  useEffect(() => {
-    setIsActive(true)
-  }, []);
-  
   return (
     <HeaderContainer className={isActive ? 'active' : ''}>
       <BackHomeButtonWrapper>

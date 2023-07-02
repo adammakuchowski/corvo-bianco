@@ -15,8 +15,11 @@ import {
   IconWrapper,
 } from './FooterStyled'
 
+interface FooterProps {
+  upButtonIsVisible?: boolean;
+}
 
-const Footer = (): JSX.Element => {
+const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
   const openPage = (address: string) => window.open(address)
 
   const socialMedias: IconComponent[] = [
@@ -49,7 +52,9 @@ const Footer = (): JSX.Element => {
               ))}
             </IconWrapper>
             <ArrowWrapper>
-              <IconButton iconComponent={<BsArrowUpCircle />} fontSize = '25px' sectionName='start'/>
+              {upButtonIsVisible && (
+                <IconButton iconComponent={<BsArrowUpCircle />} fontSize='25px' sectionName='start' />
+              )}
             </ArrowWrapper>
           </FooterToolboxWrapper>
         </FooterToolbox>
