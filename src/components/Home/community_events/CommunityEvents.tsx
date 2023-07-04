@@ -1,6 +1,7 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import CommunityEventCard from '@/components/common/cards/community_event_card/CommunityEventCard'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
+import HomeContext from '@/context/HomeContext'
 import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
 
 const communityEventCardData = [
@@ -17,15 +18,11 @@ const communityEventCardData = [
 ]
 
 const CommunityEvents = (): JSX.Element => {
-  const [isActive, setIsActive] = useState(false)
-
-  useEffect(() => {
-    setIsActive(true)
-  }, []);
+  const {className} = useContext(HomeContext)
 
   return (
     <section className='events'>
-      <CommunityEventsContainer className={isActive ? 'active' : ''}>
+      <CommunityEventsContainer className={className}>
         <SectionHeader title='Community' text='EVENTS' />
         <CommunityEventsCardsWrapper>
           {communityEventCardData.map((data, index) => (

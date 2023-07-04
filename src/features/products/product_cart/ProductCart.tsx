@@ -28,7 +28,7 @@ interface ProductCartProps {
 
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const router = useRouter()
-  const [isActive, setIsActive] = useState<boolean>(false)
+  const [productCartClassName, setProductCartClassName] = useState<string>('')
   const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
   const productsCart = useSelector(getProductsCart)
@@ -51,7 +51,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     productsCart.length ? setIsTrashDisabled(false) : setIsTrashDisabled(true)
 
     if (cartIsOpen) {
-      setIsActive(true)
+      setProductCartClassName('active')
       document.body.style.overflow = 'hidden'
 
       const totalCartPrice = getTotalCartPrice()
@@ -59,7 +59,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     }
 
     return () => {
-      setIsActive(false)
+      setProductCartClassName('')
       document.body.style.overflow = 'auto'
     }
   }, [cartIsOpen, getTotalCartPrice, productsCart])
@@ -72,8 +72,8 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   if (!cartIsOpen) return null
 
   return (
-    <ProductCartOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal} >
-      <ProductCartContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
+    <ProductCartOverlayContainer className={productCartClassName} onClick={onCloseModal} >
+      <ProductCartContainer className={productCartClassName} onClick={onStopPropagation}>
         <ProductCartWrapper>
           <HeaderContainer>
             <CartButtonsContainer>

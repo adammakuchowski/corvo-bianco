@@ -1,9 +1,10 @@
-import {useEffect, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import Navigation from '@/components/common/navigation/Navigation'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import Button from '@/components/common/buttons/button/Button'
 import {Product} from '@/types/types'
+import HomeContext from '@/context/HomeContext'
 import ProductsList from '../products_list/ProductsList'
 import {
   ButtonWrapper,
@@ -20,14 +21,10 @@ const ProductGallery = (): JSX.Element => {
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
   const [productsListStatus, setProductsListStatus] = useState<ProductsListStatus>(productsListStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
-  const [isActive, setIsActive] = useState(false)
+  const {className} = useContext(HomeContext)
 
   const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
   const products = useSelector(getAllProducts)
-
-  useEffect(() => {
-    setIsActive(true)
-  }, []);
 
   useEffect(() => {
     if (categoryProducts?.length) {
@@ -49,7 +46,7 @@ const ProductGallery = (): JSX.Element => {
 
   return (
     <section className='product_gallery'>
-      <ProductGalleryContainer className={isActive ? 'active' : ''}>
+      <ProductGalleryContainer className={className}>
         <SectionHeader title='Vineyard' text='FEATURED WINES' />
         <ProductGalleryContentWrapper style={{minHeight: '250px'}}>
           <NavigationWrapper>
