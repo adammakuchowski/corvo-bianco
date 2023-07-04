@@ -1,19 +1,16 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import Contact from '@/components/Home/contact/Contact'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
+import HomeContext from '@/context/HomeContext'
 import AboutContent from './about_content/AboutContent'
 import {AboutContainer} from './AboutStyled'
 
 const About = (): JSX.Element => {
-  const [isActive, setIsActive] = useState<boolean>(false)
-
-  useEffect(() => {
-    setIsActive(true)
-  }, []);
+  const {className} = useContext(HomeContext)
 
   return (
     <section className='about'>
-      <AboutContainer className={isActive ? 'active' : ''}>
+      <AboutContainer className={className}>
         <SectionHeader title='Welcome' text='VINEYARD' />
         <AboutContent />
         <section className='contact' style={{width: '100%'}}>

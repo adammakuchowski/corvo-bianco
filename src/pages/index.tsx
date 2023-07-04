@@ -1,4 +1,6 @@
+import {useEffect, useState} from 'react'
 import Head from 'next/head'
+import HomeContext, {HomeContextValue} from '@/context/HomeContext'
 import ProductGallery from '@/features/products/product_gallery/ProductGallery'
 import About from '@/components/Home/about/About'
 import Banner from '@/components/Home/banner/Banner'
@@ -8,8 +10,18 @@ import Navbar from '@/components/shared/navbar/Navbar'
 import Footer from '@/components/shared/footer/Footer'
 
 export default function Home() {
+  const [className, setClassName] = useState<string>('')
+
+  useEffect(() => {
+    setClassName('active')
+  }, [])
+
+  const homeContextValue: HomeContextValue = {
+    className: className,
+  }
+
   return (
-    <>
+    <HomeContext.Provider value={homeContextValue}>
       <Head>
         <title>Corvo Bianco Premium Wines</title>
         <meta name="description" content="High quality premium wine shop" />
@@ -23,6 +35,6 @@ export default function Home() {
       <CommunityEvents />
       <Blogs />
       <Footer />
-    </>
+    </HomeContext.Provider>
   )
 }

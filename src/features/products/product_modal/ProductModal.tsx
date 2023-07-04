@@ -39,7 +39,7 @@ export interface ProductModalProps {
 }
 
 const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Element | null => {
-  const [isActive, setIsActive] = useState<boolean>(false)
+  const [isProductModalActive, setIsProductModalActive] = useState<string>('')
   const [quantity, setQuantity] = useState<number>(1)
   const [buttonActive, setButtonActive] = useState<boolean>(true)
   const dispatch = useDispatch()
@@ -91,12 +91,12 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
 
   useEffect(() => {
     if (isOpen) {
-      setIsActive(true)
+      setIsProductModalActive('active')
       document.body.style.overflow = 'hidden'
     }
 
     return () => {
-      setIsActive(false)
+      setIsProductModalActive('')
       document.body.style.overflow = 'auto'
     }
   }, [isOpen])
@@ -114,8 +114,8 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
   if (!isOpen) return null
 
   return (
-    <ModalOverlayContainer className={isActive ? 'active' : ''} onClick={onCloseModal}>
-      <ModalContainer className={isActive ? 'active' : ''} onClick={onStopPropagation}>
+    <ModalOverlayContainer className={isProductModalActive} onClick={onCloseModal}>
+      <ModalContainer className={isProductModalActive} onClick={onStopPropagation}>
         <CloseButtonContainer>
           <CloseButtonWrapper>
             <IconButton
@@ -138,17 +138,17 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             </ImgWrapper>
           </ModalImgContainer>
           <ModalDataContainer>
-            <DataHeaderWrapper className={isActive ? 'active' : ''}>
+            <DataHeaderWrapper className={isProductModalActive}>
               <DataHeader>
                 {name}
               </DataHeader>
             </DataHeaderWrapper>
-            <DataContainer className={isActive ? 'active' : ''}>
+            <DataContainer className={isProductModalActive}>
               {productSpec.map((specification, index) => (
                 <ProductFeatureEntry key={index} value={specification} />
               ))}
             </DataContainer>
-            <CounterContainer className={isActive ? 'active' : ''}>
+            <CounterContainer className={isProductModalActive}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
               <ButtonWrapper>{buttonActive ?
                 <Button text='Add to cart' buttonAction={onAddProductToCart} /> :

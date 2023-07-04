@@ -1,7 +1,8 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
 import {cinzel} from '@/fonts/fonts'
+import HomeContext from '@/context/HomeContext'
 import {
   BannerContainer,
   BannerNameWrapper,
@@ -13,16 +14,11 @@ import {
 const img = '/images/banner.jpg'
 
 const Banner = (): JSX.Element => {
-  const [isActive, setIsActive] = useState(false)
-
-  useEffect(() => {
-    setIsActive(true)
-  }, []);
+  const {className} = useContext(HomeContext)
   
   return (
-    <BannerContainer className={isActive ? 'active' : ''}>
+    <BannerContainer className={className}>
       <GiVineLeaf size={50} style={{marginLeft: '50px'}} />
-
       <BannerWrapper>
         <ImgWrapper>
           <Image
@@ -39,7 +35,6 @@ const Banner = (): JSX.Element => {
           <div>EXCELLENT QUALITY</div>
         </BannerNameWrapper>
       </BannerWrapper>
-
       <GiVineLeaf size={50} style={{marginRight: '50px'}} />
     </BannerContainer>
   )
