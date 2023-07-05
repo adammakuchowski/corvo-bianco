@@ -22,16 +22,15 @@ import {manuOptions} from './data'
 
 const Navbar = (): JSX.Element => {
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
-  const [isActive, setIsActive] = useState<boolean>(false)
+  const [className, setClassName] = useState<string>('')
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
   const [cartCount, setCartCount] = useState<number>(0)
 
   const productsCart = useSelector((state: AppState) => state.products.productsCart)
 
   useEffect(() => {
-    setIsActive(true)
+    setClassName('active')
   }, [])
-
   const getCartCount = useCallback(() => {
     if (!productsCart || !productsCart.length) return 0
 
@@ -46,7 +45,7 @@ const Navbar = (): JSX.Element => {
 
   return (
     <section className='start'>
-      <NavbarContainer className={`${merriweather.className} ${isActive ? 'active' : ''}`}>
+      <NavbarContainer className={`${merriweather.className} ${className}`}>
         <OptionsContainer>
           <SettingWrapper>
             <IconButton iconComponent={<AiOutlineSetting />} />

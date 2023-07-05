@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react'
 import {BsArrowUpCircle} from 'react-icons/bs'
 import {FiFacebook, FiTwitter} from 'react-icons/fi'
 import {AiOutlineGoogle} from 'react-icons/ai'
@@ -21,6 +22,11 @@ interface FooterProps {
 
 const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
   const openPage = (address: string) => window.open(address)
+  const [className, setClassName] = useState<string>('')
+
+  useEffect(() => {
+    setClassName('active')
+  }, [])
 
   const socialMedias: IconComponent[] = [
     {
@@ -44,7 +50,7 @@ const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
   return (
     <FooterContainer>
       <FooterWrapper>
-        <FooterToolbox>
+        <FooterToolbox className={className}>
           <FooterToolboxWrapper>
             <IconWrapper>
               {socialMedias.map((icon, index) => (
@@ -58,7 +64,7 @@ const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
             </ArrowWrapper>
           </FooterToolboxWrapper>
         </FooterToolbox>
-        <FooterNameWrapper className={cinzel.className}>
+        <FooterNameWrapper className={`${cinzel.className} ${className}`}>
           Corvo Bianco
         </FooterNameWrapper>
       </FooterWrapper>

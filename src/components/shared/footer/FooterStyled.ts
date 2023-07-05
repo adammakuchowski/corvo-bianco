@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
-  /* background-color: red; */
   width: 100%;
   height: 200px;
-
   display: flex;
   justify-content: center;
 `
@@ -18,16 +16,22 @@ export const FooterToolbox = styled.div`
   background-color: #EFEFEF;
   width: 100%;
   height: 75px;
-
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 1s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `
 
 export const FooterToolboxWrapper = styled.div`
   width: 53%;
   height: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -52,6 +56,13 @@ export const FooterNameWrapper = styled.div`
   border-bottom: solid 1px #C0C0C0;
   margin-top: 35px;
   padding-bottom: 20px;
-  /* color: #708238; */
   color: #641B30;
+  opacity: 0;
+  transform: translateY(150%);
+  transition: all 1s ease;
+
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `

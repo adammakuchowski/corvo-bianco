@@ -1,23 +1,29 @@
 import {useState, useEffect} from 'react'
+import CheckoutContext, {CheckoutContextValue} from '@/context/CheckoutContext'
 import Header from '@/components/Checkout/header/Header'
 import Content from '@/components/Checkout/content/Content'
 import Footer from '@/components/shared/footer/Footer'
 import {CheckoutContainer} from './styles/checkoutStyled'
 
 const Checkout = (): JSX.Element => {
-  // move it to checkout context
-  const [isActive, setIsActive] = useState<boolean>(false)
+  const [className, setClassName] = useState<string>('')
 
   useEffect(() => {
-    setIsActive(true)
-  }, []);
-  
+    setClassName('active')
+  }, [])
+
+  const checkoutContextValue: CheckoutContextValue = {
+    className: className,
+  }
+
   return (
-    <CheckoutContainer>
-      <Header isActive={isActive} />
-      <Content />
-      <Footer upButtonIsVisible={false}/>
-    </CheckoutContainer>
+    <CheckoutContext.Provider value={checkoutContextValue}>
+      <CheckoutContainer>
+        <Header className={className} />
+        <Content />
+        <Footer upButtonIsVisible={false} />
+      </CheckoutContainer>
+    </CheckoutContext.Provider>
   )
 }
 

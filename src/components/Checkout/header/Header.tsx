@@ -5,10 +5,10 @@ import TextButton from '@/components/common/buttons/text_button/TextButton'
 import {HeaderContainer, BackHomeButtonWrapper} from './HeaderStyled'
 
 interface HeaderProps {
-  isActive: boolean;
+  className: string;
 }
 
-const Header = ({isActive}: HeaderProps): JSX.Element => {
+const Header = ({className}: HeaderProps): JSX.Element => {
   const router = useRouter()
 
   const toHome = () => {
@@ -16,7 +16,7 @@ const Header = ({isActive}: HeaderProps): JSX.Element => {
   }
 
   return (
-    <HeaderContainer className={isActive ? 'active' : ''}>
+    <HeaderContainer className={className}>
       <BackHomeButtonWrapper>
         <TextButton content='back to home' upperCase={false} buttonAction={toHome} />
       </BackHomeButtonWrapper>
