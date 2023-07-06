@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import CheckoutContext, {CheckoutContextValue} from '@/context/CheckoutContext'
 import Header from '@/components/Checkout/header/Header'
-import Content from '@/components/Checkout/content/Content'
+import CheckoutSummary from '@/components/Checkout/checkoutSummary/CheckoutSummary'
 import Footer from '@/components/shared/footer/Footer'
 import {CheckoutContainer} from './styles/checkoutStyled'
 
@@ -20,7 +20,7 @@ const Checkout = (): JSX.Element => {
     <CheckoutContext.Provider value={checkoutContextValue}>
       <CheckoutContainer>
         <Header className={className} />
-        <Content />
+        <CheckoutSummary />
         <Footer upButtonIsVisible={false} />
       </CheckoutContainer>
     </CheckoutContext.Provider>
