@@ -20,7 +20,7 @@ export const FooterToolbox = styled.div`
   justify-content: flex-start;
   align-items: center;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(50%);
   transition: all 1s ease;
 
   &.active {

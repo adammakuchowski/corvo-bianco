@@ -6,7 +6,7 @@ import About from '@/components/Home/about/About'
 import Banner from '@/components/Home/banner/Banner'
 import Blogs from '@/components/Home/blogs/Blogs'
 import CommunityEvents from '@/components/Home/community_events/CommunityEvents'
-import Navbar from '@/components/shared/navbar/Navbar'
+import Navbar from '@/components/Home/navbar/Navbar'
 import Footer from '@/components/shared/footer/Footer'
 
 export default function Home() {
