@@ -1,10 +1,10 @@
 import {useCallback, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
-import {BsPersonCircle} from 'react-icons/bs'
-import {IoMdHeartEmpty} from 'react-icons/io'
+import {BiMessageRoundedError} from 'react-icons/bi'
+import {FiHeart} from 'react-icons/fi'
 import {ProductCart as ProductCartInterface} from '@/types/types'
-import {merriweather, cinzel} from '@/fonts/fonts'
+import {merriweather} from '@/fonts/fonts'
 import Navigation from '@/components/common/navigation/Navigation'
 import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import HeaderName from '@/components/common/header_name/HeaderName'
@@ -52,9 +52,10 @@ const Navbar = (): JSX.Element => {
           </SettingWrapper>
           <HeaderName />
           <ActionsWrapper>
-            <IconButton iconComponent={<BsPersonCircle />} />
+            {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
             <IconButton iconComponent={<AiOutlineSearch />} />
-            <IconButton iconComponent={<IoMdHeartEmpty />} />
+            <IconButton iconComponent={<BiMessageRoundedError />} />
+            <IconButton iconComponent={<FiHeart />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (

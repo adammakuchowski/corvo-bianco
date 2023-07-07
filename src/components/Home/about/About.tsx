@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react'
+import {useContext} from 'react'
 import Contact from '@/components/Home/contact/Contact'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import HomeContext from '@/context/HomeContext'

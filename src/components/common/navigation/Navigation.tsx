@@ -33,7 +33,9 @@ const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: Nav
                 key={index}
                 activePage={index === activePage}
                 onClick={() => switchPage(index)}
-              >{option.name}</PageItem>
+              >
+                {option.name}
+              </PageItem>
             </Link>
           ))}
         </ListWrapper>
