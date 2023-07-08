@@ -30,10 +30,11 @@ export const PageItem = styled.button`
   border: none;
 	padding: 0;
   background: none;
-
-  cursor: pointer;
   transition: all 0.2s ease-in-out;
   color: ${({activePage}: PageItemProps) => activePage ? '#708238' : '#000000'};
+  border-bottom: ${({activePage}: PageItemProps) => activePage ? '1px solid #708238' : ''};
+  cursor: pointer;
+
   :hover{
     color: #708238;
   }
