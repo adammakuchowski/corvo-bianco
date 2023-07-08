@@ -11,16 +11,13 @@ interface SectionHeaderProps {
   text: string;
 }
 
-const SectionHeader = ({title, text}: SectionHeaderProps): JSX.Element => {
-
-  return (
-    <SectionHeaderContainer>
-      <SectionHeaderContentWrapper>
-        <SectionHeaderTitleWrapper className={greatVibes.className}>{title}</SectionHeaderTitleWrapper>
-        <SectionHeaderTextWrapper className={cinzel.className}>{text}</SectionHeaderTextWrapper>
-      </SectionHeaderContentWrapper>
-    </SectionHeaderContainer>
-  )
-}
+const SectionHeader = ({title, text}: SectionHeaderProps): JSX.Element => (
+  <SectionHeaderContainer>
+    <SectionHeaderContentWrapper>
+      <SectionHeaderTitleWrapper className={greatVibes.className}>{title}</SectionHeaderTitleWrapper>
+      <SectionHeaderTextWrapper className={cinzel.className}>{text}</SectionHeaderTextWrapper>
+    </SectionHeaderContentWrapper>
+  </SectionHeaderContainer>
+)
 
 export default SectionHeader

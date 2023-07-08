@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import CheckoutContext, {CheckoutContextValue} from '@/context/CheckoutContext'
-import Header from '@/components/Checkout/header/Header'
+import Header from '@/components/shared/header/Header'
 import Summary from '@/components/Checkout/summary/Summary'
 import Footer from '@/components/shared/footer/Footer'
 import {CheckoutContainer} from './styles/checkoutStyled'
