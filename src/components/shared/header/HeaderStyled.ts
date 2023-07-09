@@ -9,9 +9,9 @@ export const HeaderContainer = styled.div`
   border-bottom: solid 1px #C0C0C0;
   top: 0;
   z-index: 3;
+
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
-
   position: relative;
 
   &.active {
