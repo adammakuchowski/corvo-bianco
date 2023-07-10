@@ -24,7 +24,7 @@ const CheckoutForm = () => {
         <ContactDetailsWrapper>
           <SubectionName text='Contact' />
           <ContactDetailsInputWrapper>
-            <FormControl sx={{width: '80ch'}}>
+            <FormControl sx={{maxWidth: '80ch'}}>
               <TextField id="outlined-basic" label="E-mail" variant="outlined" color='success' />
             </FormControl>
           </ContactDetailsInputWrapper>

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const CheckoutFormContainer = styled.div`
   width: 50%;
   height: 100%;
+  border-right: solid 1px #C0C0C0;
 `
 
 export const FromWrapper = styled.div`
