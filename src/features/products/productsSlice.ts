@@ -86,5 +86,16 @@ export const {
 
 export const getAllProducts = (state: AppState) => state.products.productsList
 export const getProductsCart = (state: AppState) => state.products.productsCart
+export const getTotalCartPrice = (state: AppState) => {
+  const productsCart = state.products.productsCart
+
+  return productsCart.reduce((total: number, amount: ProductCart): number => {
+    const {product: {price}, quantity} = amount
+    const totalPrice = price * quantity
+
+    return total + totalPrice
+  }, 0)
+}
+
 
 export default productsSlice.reducer

@@ -13,7 +13,7 @@ const TileButton = ({index, setImgIndex, imgIndex}: TileButtonProps): JSX.Elemen
   useEffect(() => {
     const activeColor = index === imgIndex ? '#708238' : '#949494'
     setBackgroundColor(activeColor)
-  }, [imgIndex])
+  }, [imgIndex, index])
 
   return (
     <TileButtonContainer

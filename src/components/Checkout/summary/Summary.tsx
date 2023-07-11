@@ -2,6 +2,7 @@ import {useContext, useEffect, useState} from 'react'
 import CheckoutForm from '@/components/common/forms/checkout_form/CheckoutForm'
 import CheckoutContext from '@/context/CheckoutContext'
 import {SummaryContainer} from './SummaryStyled'
+import CheckoutContents from '../checkout_contents/CheckoutContents'
 
 const Summary = () => {
   const {className} = useContext(CheckoutContext)
@@ -16,6 +17,7 @@ const Summary = () => {
   return (
     <SummaryContainer className={delayClassName}>
       <CheckoutForm/>
+      <CheckoutContents/>
     </SummaryContainer>
   )
 }
