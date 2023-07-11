@@ -31,6 +31,7 @@ const Navbar = (): JSX.Element => {
   useEffect(() => {
     setClassName('active')
   }, [])
+  
   const getCartCount = useCallback(() => {
     if (!productsCart || !productsCart.length) return 0
 

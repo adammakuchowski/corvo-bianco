@@ -5,7 +5,6 @@ import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
 import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
-import {ProductCart} from '@/types/types'
 import {
   HeaderContainer,
   ProductCartContainer,
@@ -18,7 +17,7 @@ import {
   ProductCartTotalWrapper,
   ProductCartButtonWrapper
 } from './ProductCartStyled'
-import {clearCart, getProductsCart} from '../productsSlice'
+import {clearCart, getProductsCart, getTotalCartPrice} from '../productsSlice'
 import ProductCartEntry from './product_cart_entry/ProductCartEntry'
 
 interface ProductCartProps {
@@ -32,20 +31,13 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
   const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
   const productsCart = useSelector(getProductsCart)
+  const totalCartPrice = useSelector(getTotalCartPrice)
+
   const dispatch = useDispatch()
 
   const toCheckout = () => {
     router.push('/checkout')
   }
-
-  const getTotalCartPrice = useCallback((): number => (
-    productsCart.reduce((total: number, amount: ProductCart): number => {
-      const {product: {price}, quantity} = amount
-      const totalPrice = price * quantity
-
-      return total + totalPrice
-    }, 0)
-  ), [productsCart])
 
   useEffect(() => {
     productsCart.length ? setIsTrashDisabled(false) : setIsTrashDisabled(true)
@@ -54,7 +46,6 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
       setProductCartClassName('active')
       document.body.style.overflow = 'hidden'
 
-      const totalCartPrice = getTotalCartPrice()
       setCartTotal(totalCartPrice)
     }
 
@@ -62,7 +53,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
       setProductCartClassName('')
       document.body.style.overflow = 'auto'
     }
-  }, [cartIsOpen, getTotalCartPrice, productsCart])
+  }, [cartIsOpen, productsCart, totalCartPrice])
 
   const onCloseModal = () => setCartIsOpen(false)
   const onClearCart = () => dispatch(clearCart())
