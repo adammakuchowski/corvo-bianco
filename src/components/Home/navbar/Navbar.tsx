@@ -1,4 +1,5 @@
 import {useCallback, useEffect, useState} from 'react'
+import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BiMessageRoundedError} from 'react-icons/bi'
@@ -21,6 +22,7 @@ import {AppState} from '../../../app/store'
 import {manuOptions} from './data'
 
 const Navbar = (): JSX.Element => {
+  const router = useRouter()
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
   const [className, setClassName] = useState<string>('')
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
@@ -43,7 +45,8 @@ const Navbar = (): JSX.Element => {
   }, [getCartCount])
 
   const openCart = () => setCartIsOpen(true)
-
+  const toRouting = (path: string) => router.push(`/${path}`)
+ 
   return (
     <section className='start'>
       <NavbarContainer className={`${merriweather.className} ${className}`}>
@@ -55,7 +58,7 @@ const Navbar = (): JSX.Element => {
           <ActionsWrapper>
             {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
             <IconButton iconComponent={<AiOutlineSearch />} />
-            <IconButton iconComponent={<BiMessageRoundedError />} />
+            <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/>
             <IconButton iconComponent={<FiHeart />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
