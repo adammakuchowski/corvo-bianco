@@ -4,6 +4,7 @@ const Contact = (): JSX.Element => {
   
   return (
     <ContactContainer>
+      
     </ContactContainer>
   )
 }
