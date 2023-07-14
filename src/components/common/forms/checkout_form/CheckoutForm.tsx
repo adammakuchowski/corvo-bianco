@@ -4,7 +4,7 @@ import FormControl from '@mui/material/FormControl'
 import {
   isEmailValid,
   isStringValid,
-} from '@/utils/validators'
+} from '@/utils/regexValidators'
 import {
   CountryDetailsInputWrapper,
   AdressDetailsWrapper,
@@ -27,16 +27,20 @@ const CheckoutForm = () => {
   const [name, setName] = useState<string>('')
   const [nameError, setNameError] = useState<boolean>(false)
 
+  const [surname, setSurname] = useState<string>('')
+  const [surnameError, setSurnameError] = useState<boolean>(false)
+
   const emailValidator = () => {
     if (!email) return setEmailError(false)
-
     setEmailError(!isEmailValid(email))
   }
 
-  const textValidator = () => {
-    if (!name) return setNameError(false)
-
-    setNameError(!isStringValid(name))
+  const textValidator = (
+    value: string,
+    errorSetter: (value: boolean) => void
+  ) => {
+    if (!value) return errorSetter(false)
+    errorSetter(!isStringValid(value))
   }
 
   return (
@@ -72,6 +76,11 @@ const CheckoutForm = () => {
                 variant="outlined"
                 color='success'
                 required
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                onBlur={() => textValidator(name, setNameError)}
+                error={!!nameError}
               />
             </FormControl>
             <FormControl sx={{width: '45ch'}}>
@@ -80,7 +89,13 @@ const CheckoutForm = () => {
                 label="Surname"
                 variant="outlined"
                 color='success'
-                required />
+                required
+                type="text"
+                value={surname}
+                onChange={(e) => setSurname(e.target.value)}
+                onBlur={() => textValidator(surname, setSurnameError)}
+                error={!!surnameError}
+              />
             </FormControl>
           </PersonDetailsInputWrapper>
         </PersonDetailsWrapper>
