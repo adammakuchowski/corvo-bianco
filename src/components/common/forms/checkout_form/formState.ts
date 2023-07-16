@@ -2,5 +2,7 @@ import {FromState} from './types'
 
 export const fromInitState: FromState = {
   email: '',
-  emailError: false
+  emailError: false,
+  name: '',
+  nameError: false,
 }

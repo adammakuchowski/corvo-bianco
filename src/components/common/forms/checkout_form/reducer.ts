@@ -1,16 +1,12 @@
-import {SET_EMAIL, SET_EMAIL_ERROR} from './constants'
+import {formActionTypes} from './constants'
 import {FromState} from './types'
 
-export const formRecuder = (fromState: FromState, action: {type: string, value: any}) => {
-  const {type, value} = action
+export const formRecuder = (fromState: FromState, action: {type: string, value: any, key: string}) => {
+  const {type, value, key} = action
   
-  if (type === SET_EMAIL) {
-    return {...fromState, email: value}
+  if (formActionTypes.includes(type)) {
+    return {...fromState, [key]: value}
   }
   
-  if (type === SET_EMAIL_ERROR) {
-    return {...fromState, emailError: value}
-  }
-
   return {...fromState}
 }
