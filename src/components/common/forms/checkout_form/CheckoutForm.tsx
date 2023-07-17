@@ -1,10 +1,12 @@
-import {useReducer, useState} from 'react'
+import {useReducer} from 'react'
 import TextField from '@mui/material/TextField'
 import FormControl from '@mui/material/FormControl'
 import {
+  inEmptyString,
+  isCardNumberValid,
   isEmailValid,
   isStringValid,
-} from '@/utils/regexValidators'
+} from '@/utils/inputValidators'
 import {
   CountryDetailsInputWrapper,
   AdressDetailsWrapper,
@@ -22,10 +24,22 @@ import SectionName from '../../section_name/SectionName'
 import SubectionName from '../../subsection_name/SubectionName'
 import {formRecuder} from './reducer'
 import {
+  SET_ADRESS,
+  SET_ADRESS_ERROR,
+  SET_CARD_NUMBER,
+  SET_CARD_NUMBER_ERROR,
+  SET_CITY,
+  SET_CITY_ERROR,
+  SET_COUNTRY,
+  SET_COUNTRY_ERROR,
   SET_EMAIL, 
   SET_EMAIL_ERROR,
   SET_NAME,
   SET_NAME_ERROR,
+  SET_POSTAL_CODE,
+  SET_POSTAL_CODE_ERROR,
+  SET_SURNAME,
+  SET_SURNAME_ERROR,
 } from './constants'
 
 const CheckoutForm = () => {
@@ -86,6 +100,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.surname}
+                onChange={(e) => dispatch({type: SET_SURNAME, value: e.target.value, key: 'surname'})}
+                onBlur={() => textValidator(fromState.name, SET_SURNAME_ERROR, 'surnameError')}
+                error={fromState.surnameError}
               />
             </FormControl>
           </PersonDetailsInputWrapper>
@@ -101,6 +120,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
+                value={fromState.adress}
+                onChange={(e) => dispatch({type: SET_ADRESS, value: e.target.value, key: 'adress'})}
+                onBlur={() => dispatch({type: SET_ADRESS_ERROR, value: inEmptyString(fromState.adress), key: 'adressError'})}
+                error={fromState.adressError}
               />
             </FormControl>
           </CountryDetailsInputWrapper>
@@ -112,6 +135,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.postalCode}
+                onChange={(e) => dispatch({type: SET_POSTAL_CODE, value: e.target.value, key: 'postalCode'})}
+                onBlur={() => dispatch({type: SET_POSTAL_CODE_ERROR, value: inEmptyString(fromState.postalCode), key: 'postalCodeError'})}
+                error={fromState.postalCodeError}
               />
             </FormControl>
             <FormControl sx={{width: '25ch'}}>
@@ -121,6 +149,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.city}
+                onChange={(e) => dispatch({type: SET_CITY, value: e.target.value, key: 'city'})}
+                onBlur={() => textValidator(fromState.city, SET_CITY_ERROR, 'cityError')}
+                error={fromState.cityError}
               />
             </FormControl>
             <FormControl sx={{width: '25ch'}}>
@@ -130,6 +163,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.country}
+                onChange={(e) => dispatch({type: SET_COUNTRY, value: e.target.value, key: 'country'})}
+                onBlur={() => textValidator(fromState.country, SET_COUNTRY_ERROR, 'countryError')}
+                error={fromState.countryError}
               />
             </FormControl>
           </CountryDetailsInputWrapper>
@@ -144,6 +182,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.cardNumber}
+                onChange={(e) => dispatch({type: SET_CARD_NUMBER, value: e.target.value, key: 'cardNumber'})}
+                onBlur={() => dispatch({type: SET_CARD_NUMBER_ERROR, value: isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'})}
+                error={fromState.cardNumberError}
               />
             </FormControl>
           </PaymentDetailsInputWrapper>
