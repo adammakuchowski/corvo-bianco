@@ -22,6 +22,12 @@ export const SET_COUNTRY_ERROR = 'setCountryError'
 export const SET_CARD_NUMBER = 'setCardNumber'
 export const SET_CARD_NUMBER_ERROR = 'setCardNumberError'
 
+export const SET_CARD_DATE = 'setCardDate'
+export const SET_CARD_DATE_ERROR = 'setCardDateError'
+
+export const SET_CARD_CVC = 'setCardCvc'
+export const SET_CARD_CVC_ERROR = 'setCardCvcError'
+
 export const formActionTypes = [
   SET_EMAIL,
   SET_EMAIL_ERROR,
@@ -38,5 +44,9 @@ export const formActionTypes = [
   SET_COUNTRY,
   SET_COUNTRY_ERROR,
   SET_CARD_NUMBER,
-  SET_CARD_NUMBER_ERROR
+  SET_CARD_NUMBER_ERROR,
+  SET_CARD_DATE,
+  SET_CARD_DATE_ERROR,
+  SET_CARD_CVC,
+  SET_CARD_CVC_ERROR
 ]

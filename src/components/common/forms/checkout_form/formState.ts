@@ -17,4 +17,8 @@ export const fromInitState: FromState = {
   countryError: false,
   cardNumber: '',
   cardNumberError: false,
+  cardDate: '',
+  cardDateError: false,
+  cardCvc: '',
+  cardCvcError: false,
 }
