@@ -15,4 +15,8 @@ export interface FromState {
   countryError: boolean;
   cardNumber: string;
   cardNumberError: boolean;
+  cardDate: string;
+  cardDateError: boolean;
+  cardCvc: string;
+  cardCvcError: boolean;
 }

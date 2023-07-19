@@ -3,6 +3,8 @@ import TextField from '@mui/material/TextField'
 import FormControl from '@mui/material/FormControl'
 import {
   inEmptyString,
+  isCardCvcValid,
+  isCardDateValid,
   isCardNumberValid,
   isEmailValid,
   isStringValid,
@@ -26,6 +28,10 @@ import {formRecuder} from './reducer'
 import {
   SET_ADRESS,
   SET_ADRESS_ERROR,
+  SET_CARD_CVC,
+  SET_CARD_CVC_ERROR,
+  SET_CARD_DATE,
+  SET_CARD_DATE_ERROR,
   SET_CARD_NUMBER,
   SET_CARD_NUMBER_ERROR,
   SET_CITY,
@@ -185,7 +191,7 @@ const CheckoutForm = () => {
                 type='text'
                 value={fromState.cardNumber}
                 onChange={(e) => dispatch({type: SET_CARD_NUMBER, value: e.target.value, key: 'cardNumber'})}
-                onBlur={() => dispatch({type: SET_CARD_NUMBER_ERROR, value: isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'})}
+                onBlur={() => dispatch({type: SET_CARD_NUMBER_ERROR, value: !isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'})}
                 error={fromState.cardNumberError}
               />
             </FormControl>
@@ -198,6 +204,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.cardDate}
+                onChange={(e) => dispatch({type: SET_CARD_DATE, value: e.target.value, key: 'cardDate'})}
+                onBlur={() => dispatch({type: SET_CARD_DATE_ERROR, value: !isCardDateValid(fromState.cardDate), key: 'cardDateError'})}
+                error={fromState.cardDateError}
               />
             </FormControl>
             <FormControl sx={{width: '45ch'}}>
@@ -207,6 +218,11 @@ const CheckoutForm = () => {
                 variant='outlined'
                 color='success'
                 required
+                type='text'
+                value={fromState.cardCvc}
+                onChange={(e) => dispatch({type: SET_CARD_CVC, value: e.target.value, key: 'cardCvc'})}
+                onBlur={() => dispatch({type: SET_CARD_CVC_ERROR, value: !isCardCvcValid(fromState.cardCvc), key: 'cardCvcError'})}
+                error={fromState.cardCvcError}
               />
             </FormControl>
           </PaymentDetailsInputWrapper>
