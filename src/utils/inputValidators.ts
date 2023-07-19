@@ -9,7 +9,7 @@ export const isStringValid = (value: string): boolean => regexValid(STRING_REGEX
 const CARD_NUMBER_REGEX = /^\d{16}$/
 export const isCardNumberValid = (value: string): boolean => regexValid(CARD_NUMBER_REGEX, value)
 
-const CARD_DATE_REGEX = /^(0[1-9]|1[0-2])\/\d{2}$/
+const CARD_DATE_REGEX = /^(0?[1-9]|[1-9][0-9])\/(0?[1-9]|[1-9][0-9])$/
 export const isCardDateValid = (value: string): boolean => regexValid(CARD_DATE_REGEX, value)
 
 const CARD_CVC_REGEX = /^\d{3}$/

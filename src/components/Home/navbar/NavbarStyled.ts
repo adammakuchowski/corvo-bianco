@@ -23,6 +23,7 @@ export const ActionsWrapper = styled.div`
   gap: 20px;
   min-width: 100px;
   margin-right: 30px;
+  justify-content: flex-end;
 
   > * {
       &:nth-child(-n+3) {
