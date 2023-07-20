@@ -1,4 +1,5 @@
 import {useReducer} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
 import TextField from '@mui/material/TextField'
 import FormControl from '@mui/material/FormControl'
 import {
@@ -21,43 +22,20 @@ import {
   PaymentDetailsWrapper,
   PaymentDetailsInputWrapper,
 } from './CheckoutFormStyled'
-import {fromInitState} from './formState'
-import SectionName from '../../section_name/SectionName'
-import SubectionName from '../../subsection_name/SubectionName'
-import {formRecuder} from './reducer'
-import {
-  SET_ADRESS,
-  SET_ADRESS_ERROR,
-  SET_CARD_CVC,
-  SET_CARD_CVC_ERROR,
-  SET_CARD_DATE,
-  SET_CARD_DATE_ERROR,
-  SET_CARD_NUMBER,
-  SET_CARD_NUMBER_ERROR,
-  SET_CITY,
-  SET_CITY_ERROR,
-  SET_COUNTRY,
-  SET_COUNTRY_ERROR,
-  SET_EMAIL, 
-  SET_EMAIL_ERROR,
-  SET_NAME,
-  SET_NAME_ERROR,
-  SET_POSTAL_CODE,
-  SET_POSTAL_CODE_ERROR,
-  SET_SURNAME,
-  SET_SURNAME_ERROR,
-} from './constants'
+import SectionName from '../../../../components/common/section_name/SectionName'
+import SubectionName from '../../../../components/common/subsection_name/SubectionName'
+import {getCheckoutFromState, updateCheckoutform} from '../checkoutSlice'
 
 const CheckoutForm = () => {
-  const [fromState, dispatch] = useReducer(formRecuder, fromInitState)
+  const dispatch = useDispatch()
+  const fromState = useSelector(getCheckoutFromState)
 
-  const emailValidator = () => dispatch({type: SET_EMAIL_ERROR, value: !isEmailValid(fromState.email), key: 'emailError'})
+  const emailValidator = () => dispatch(updateCheckoutform({value: !isEmailValid(fromState.email), key: 'emailError'}))
 
   const textValidator = (
     value: string,
-    errorActionType: string,
     key: string,
-  ) => dispatch({type: errorActionType, value: !isStringValid(value), key})
+  ) => dispatch(updateCheckoutform({value: !isStringValid(value), key}))
 
   return (
     <CheckoutFormContainer>
@@ -75,7 +53,7 @@ const CheckoutForm = () => {
                 required
                 type='email'
                 value={fromState.email}
-                onChange={(e) => dispatch({type: SET_EMAIL, value: e.target.value, key: 'email'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'email'}))}
                 onBlur={emailValidator}
                 error={fromState.emailError}
               />
@@ -94,8 +72,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.name}
-                onChange={(e) => dispatch({type: SET_NAME, value: e.target.value, key: 'name'})}
-                onBlur={() => textValidator(fromState.name, SET_NAME_ERROR, 'nameError')}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'name'}))}
+                onBlur={() => textValidator(fromState.name, 'nameError')}
                 error={fromState.nameError}
               />
             </FormControl>
@@ -108,8 +86,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.surname}
-                onChange={(e) => dispatch({type: SET_SURNAME, value: e.target.value, key: 'surname'})}
-                onBlur={() => textValidator(fromState.name, SET_SURNAME_ERROR, 'surnameError')}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'surname'}))}
+                onBlur={() => textValidator(fromState.name, 'surnameError')}
                 error={fromState.surnameError}
               />
             </FormControl>
@@ -127,8 +105,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.adress}
-                onChange={(e) => dispatch({type: SET_ADRESS, value: e.target.value, key: 'adress'})}
-                onBlur={() => dispatch({type: SET_ADRESS_ERROR, value: inEmptyString(fromState.adress), key: 'adressError'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'adress'}))}
+                onBlur={() => dispatch(updateCheckoutform({value: inEmptyString(fromState.adress), key: 'adressError'}))}
                 error={fromState.adressError}
               />
             </FormControl>
@@ -143,8 +121,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.postalCode}
-                onChange={(e) => dispatch({type: SET_POSTAL_CODE, value: e.target.value, key: 'postalCode'})}
-                onBlur={() => dispatch({type: SET_POSTAL_CODE_ERROR, value: inEmptyString(fromState.postalCode), key: 'postalCodeError'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'postalCode'}))}
+                onBlur={() => dispatch(updateCheckoutform({value: inEmptyString(fromState.postalCode), key: 'postalCodeError'}))}
                 error={fromState.postalCodeError}
               />
             </FormControl>
@@ -157,8 +135,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.city}
-                onChange={(e) => dispatch({type: SET_CITY, value: e.target.value, key: 'city'})}
-                onBlur={() => textValidator(fromState.city, SET_CITY_ERROR, 'cityError')}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'city'}))}
+                onBlur={() => textValidator(fromState.city, 'cityError')}
                 error={fromState.cityError}
               />
             </FormControl>
@@ -171,8 +149,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.country}
-                onChange={(e) => dispatch({type: SET_COUNTRY, value: e.target.value, key: 'country'})}
-                onBlur={() => textValidator(fromState.country, SET_COUNTRY_ERROR, 'countryError')}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'country'}))}
+                onBlur={() => textValidator(fromState.country, 'countryError')}
                 error={fromState.countryError}
               />
             </FormControl>
@@ -190,8 +168,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.cardNumber}
-                onChange={(e) => dispatch({type: SET_CARD_NUMBER, value: e.target.value, key: 'cardNumber'})}
-                onBlur={() => dispatch({type: SET_CARD_NUMBER_ERROR, value: !isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardNumber'}))}
+                onBlur={() => dispatch(updateCheckoutform({value: !isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'}))}
                 error={fromState.cardNumberError}
               />
             </FormControl>
@@ -206,8 +184,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.cardDate}
-                onChange={(e) => dispatch({type: SET_CARD_DATE, value: e.target.value, key: 'cardDate'})}
-                onBlur={() => dispatch({type: SET_CARD_DATE_ERROR, value: !isCardDateValid(fromState.cardDate), key: 'cardDateError'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardDate'}))}
+                onBlur={() => dispatch(updateCheckoutform({value: !isCardDateValid(fromState.cardDate), key: 'cardDateError'}))}
                 error={fromState.cardDateError}
               />
             </FormControl>
@@ -220,8 +198,8 @@ const CheckoutForm = () => {
                 required
                 type='text'
                 value={fromState.cardCvc}
-                onChange={(e) => dispatch({type: SET_CARD_CVC, value: e.target.value, key: 'cardCvc'})}
-                onBlur={() => dispatch({type: SET_CARD_CVC_ERROR, value: !isCardCvcValid(fromState.cardCvc), key: 'cardCvcError'})}
+                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardCvc'}))}
+                onBlur={() => dispatch(updateCheckoutform({value: !isCardCvcValid(fromState.cardCvc), key: 'cardCvcError'}))}
                 error={fromState.cardCvcError}
               />
             </FormControl>

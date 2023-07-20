@@ -1,4 +1,9 @@
+export interface CheckoutState {
+  checkoutForm: FromState;
+}
+
 export interface FromState {
+  [key: string]: any;
   email: string;
   emailError: boolean;
   name: string;

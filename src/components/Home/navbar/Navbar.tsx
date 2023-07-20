@@ -52,14 +52,14 @@ const Navbar = (): JSX.Element => {
       <NavbarContainer className={`${merriweather.className} ${className}`}>
         <OptionsContainer>
           <SettingWrapper>
-            <IconButton iconComponent={<AiOutlineSetting />} />
+            {/* <IconButton iconComponent={<AiOutlineSetting />} /> */}
           </SettingWrapper>
           <HeaderName />
           <ActionsWrapper>
             {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
-            <IconButton iconComponent={<AiOutlineSearch />} />
-            <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/>
-            <IconButton iconComponent={<FiHeart />} />
+            {/* <IconButton iconComponent={<AiOutlineSearch />} />
+            <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/> */}
+            {/* <IconButton iconComponent={<FiHeart />} /> */}
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (

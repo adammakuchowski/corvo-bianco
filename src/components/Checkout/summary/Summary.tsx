@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react'
-import CheckoutForm from '@/components/common/forms/checkout_form/CheckoutForm'
+import CheckoutForm from '@/features/products/checkout/checkout_form/CheckoutForm'
 import CheckoutContext from '@/context/CheckoutContext'
 import {SummaryContainer} from './SummaryStyled'
 import CheckoutContents from '../checkout_contents/CheckoutContents'
