@@ -4,6 +4,5 @@ const OrderSchema = new mongoose.Schema({
 
 })
 
-const OrderModel = mongoose.model('OrderModel', OrderSchema);
+export default mongoose.model('OrderModel', OrderSchema)
 
-module.exports = OrderModel
