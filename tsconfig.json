@@ -18,6 +18,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx", 
+    "db/models/Product.js", 
+    "db/models/Order.js", 
+    "db/utils/mongo.js"
+  ],
   "exclude": ["node_modules"]
 }
