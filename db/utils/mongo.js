@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
 const MONGODB_URL = process.env.MONGODB_URL
+const DB_NAME = process.env.DB_NAME
 
 if (!MONGODB_URL) {
   throw new Error(
@@ -29,7 +30,7 @@ async function dbConnect() {
       bufferCommands: false,
     }
 
-    cached.promise = mongoose.connect(MONGODB_URL, opts).then((mongoose) => {
+    cached.promise = await mongoose.connect(`${MONGODB_URL}/${DB_NAME}`, opts).then((mongoose) => {
       return mongoose
     })
   }
