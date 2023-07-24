@@ -12,6 +12,8 @@ const ProductSchema = new mongoose.Schema({
   countryOfOrigin: String,
   img: Buffer,
   price: Number,
+}, {
+  collection: 'Product'
 })
 
 export default mongoose.model('ProductModel', ProductSchema)

@@ -12,7 +12,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const {method} = req
-  dbConnect()
+  await dbConnect()
 
   if (req.method === HttpMethod.GET) {
 
