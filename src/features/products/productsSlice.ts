@@ -1,21 +1,37 @@
-import {createSlice} from '@reduxjs/toolkit'
+import axios, {Canceler} from 'axios'
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
-import {products} from './data'
 
 export interface ProductsState {
   productsList: Product[];
   productsCart: ProductCart[];
   favoriteProducts: Product[];
-  status: 'idle' | 'loading' | 'failed'
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error?: string | null;
 }
 
 const initialState: ProductsState = {
-  productsList: products,
+  productsList: [],
   productsCart: [],
   favoriteProducts: [],
   status: 'idle',
+  error: null
 }
+
+export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
+  try {
+    let cancel: Canceler
+    const response = await axios.get('http://localhost:1337/products/getAllProducts', {
+      cancelToken: new axios.CancelToken(c => cancel = c)
+    })
+
+    return response.data
+  } catch (error: any) {
+    console.error('[Fetch Products Error]:', error.message)
+    throw error
+  }
+})
 
 export const productsSlice = createSlice({
   name: 'products',
@@ -74,6 +90,20 @@ export const productsSlice = createSlice({
       state.productsCart = updatedProductCart
     },
   },
+  extraReducers(builder) {
+    builder
+      .addCase(fetchProducts.pending, (state, action) => {
+        state.status = 'loading'
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.productsList = state.productsList.concat(action.payload)
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.status = 'failed'
+        state.error = action.error.message
+      })
+  }
 })
 
 export const {
@@ -96,6 +126,5 @@ export const getTotalCartPrice = (state: AppState) => {
     return total + totalPrice
   }, 0)
 }
-
 
 export default productsSlice.reducer

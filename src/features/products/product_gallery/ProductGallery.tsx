@@ -1,11 +1,15 @@
 import {useContext, useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
+import {AppState} from '@/app/store'
 import Navigation from '@/components/common/navigation/Navigation'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import Button from '@/components/common/buttons/button/Button'
 import {Product} from '@/types/types'
 import HomeContext from '@/context/HomeContext'
 import ProductsList from '../products_list/ProductsList'
+import {fetchProducts, getAllProducts} from '../productsSlice'
+import {ProductsListStatus} from './types'
+import {productGalleryManuOptions, productsListStatuses} from './constants'
 import {
   ButtonWrapper,
   NavigationWrapper,
@@ -13,18 +17,24 @@ import {
   ProductGalleryContentWrapper,
   ProductsListContainer,
 } from './ProductsStyled'
-import {getAllProducts} from '../productsSlice'
-import {ProductsListStatus} from './types'
-import {productGalleryManuOptions, productsListStatuses} from './constants'
 
 const ProductGallery = (): JSX.Element => {
+  const dispatch = useDispatch()
+  const {className} = useContext(HomeContext)
+
   const [productGalleryPage, setProductGalleryPage] = useState<number>(1)
   const [productsListStatus, setProductsListStatus] = useState<ProductsListStatus>(productsListStatuses[0])
   const [currentProductsCount, setCurrentProductsCount] = useState<number>(0)
-  const {className} = useContext(HomeContext)
-
   const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
+
   const products = useSelector(getAllProducts)
+  const productsStatus = useSelector((state: AppState) => state.products.status)
+
+  useEffect(() => {
+    if (productsStatus === 'idle') {
+      dispatch<any>(fetchProducts())
+    }
+  }, [productsStatus, dispatch])
 
   useEffect(() => {
     if (categoryProducts?.length) {
