@@ -25,3 +25,7 @@ export interface FromState {
   cardCvc: string;
   cardCvcError: boolean;
 }
+
+export interface Order extends FromState {
+  products: string[];
+}

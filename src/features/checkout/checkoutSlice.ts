@@ -1,7 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
-import {CheckoutState, FromState} from './types'
+import {CheckoutState} from './types'
 
 const initialState: CheckoutState = {
   checkoutForm: {
