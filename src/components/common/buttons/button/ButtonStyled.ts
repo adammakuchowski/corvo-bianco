@@ -19,3 +19,15 @@ export const ButtonContainer = styled.button`
     color: #0000;
   }
 `
+
+export const DisabledButtonContainer = styled.button`
+  background: none;
+  color: #bcbcbc;
+	border-radius: 23px;
+	border: 1px solid #bcbcbc;
+	font-size: 15px;
+  font-weight: 600;
+	padding: 11px 53px;
+	text-shadow: 0px 1px 0px #ffffff;
+  letter-spacing: 1px;
+`
