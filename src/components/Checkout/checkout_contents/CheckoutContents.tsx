@@ -5,6 +5,7 @@ import SectionName from '@/components/common/section_name/SectionName'
 import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
 import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
+import {FromState} from '@/features/checkout/types'
 import {
   CheckoutContentsContainer,
   ContentsContainerWrapper,
@@ -12,11 +13,21 @@ import {
   SummaryContainer,
   SummaryTextWrapper,
 } from './CheckoutContentsStyled'
+import {getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
 
 const CheckoutContents = () => {
   const [overflow, setOverflow] = useState('hidden')
+  const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(false)
   const productsCart = useSelector(getProductsCart)
   const totalCartPrice = useSelector(getTotalCartPrice).toFixed(2)
+
+  const fromState = useSelector(getCheckoutFromState)
+
+  const adam = (fromState: FromState) => {
+    console.log('fromState', fromState)
+  }
+
+  const xxx = adam(fromState)
 
   useEffect(() => {
     if (productsCart.length < 5) {
@@ -42,7 +53,7 @@ const CheckoutContents = () => {
         <SummaryTextWrapper className={cinzel.className}>
           {`Total Cost Price: ${totalCartPrice} $`}
         </SummaryTextWrapper>
-          <Button text='order' disabled={true}/>
+        <Button text='order' disabled={orderFinalizeButtonIsActive} />
       </SummaryContainer>
     </CheckoutContentsContainer>
   )

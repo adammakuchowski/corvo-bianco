@@ -21,7 +21,7 @@ const Button = ({text, buttonAction, disabled = false}: ButtonProps): JSX.Elemen
 
   return (
     <>
-      {false ?
+      {disabled ?
         <DisabledButton text={text} /> :
         <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
           {text.toUpperCase()}

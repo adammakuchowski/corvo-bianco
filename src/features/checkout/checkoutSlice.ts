@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {AppState} from '@/app/store'
-import {CheckoutState} from './types'
+import {CheckoutState, FromState} from './types'
 
 const initialState: CheckoutState = {
   checkoutForm: {
@@ -43,7 +43,7 @@ export const {
   updateCheckoutform
 } = checkoutSlice.actions
 
-export const getCheckoutFromState = (state: AppState) => state.checkout.checkoutForm
+export const getCheckoutFromState = (state: AppState): FromState => state.checkout.checkoutForm
 
 export default checkoutSlice.reducer
 

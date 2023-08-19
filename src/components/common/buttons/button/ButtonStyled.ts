@@ -9,10 +9,10 @@ export const ButtonContainer = styled.button`
   font-weight: 600;
 	padding: 11px 53px;
 	text-shadow: 0px 1px 0px #ffffff;
-	cursor: pointer;
   letter-spacing: 1px;
-  
   transition: all 0.3s ease-in-out;
+	cursor: pointer;
+
   :hover{
     border: 1px solid #0000;
     background-color: #8ea648;
