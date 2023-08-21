@@ -23,18 +23,19 @@ import {
   PaymentDetailsWrapper,
   PaymentDetailsInputWrapper,
 } from './CheckoutFormStyled'
-import {getCheckoutFromState, updateCheckoutform} from '../checkoutSlice'
+import {getCheckoutFromState, updateCheckoutForm} from '../checkoutSlice'
 
 const CheckoutForm = () => {
   const dispatch = useDispatch()
   const fromState = useSelector(getCheckoutFromState)
 
-  const emailValidator = () => dispatch(updateCheckoutform({value: !isEmailValid(fromState.email), key: 'emailError'}))
+  const emailValidator = () => dispatch(updateCheckoutForm({value: !isEmailValid(fromState.email.value), objectKey: 'email', propertyKey: 'error'}))
 
   const textValidator = (
     value: string,
-    key: string,
-  ) => dispatch(updateCheckoutform({value: !isStringValid(value), key}))
+    objectKey: string,
+    propertyKey: string,
+  ) => dispatch(updateCheckoutForm({value: !isStringValid(value), objectKey, propertyKey}))
 
   return (
     <CheckoutFormContainer>
@@ -51,10 +52,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='email'
-                value={fromState.email}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'email'}))}
+                value={fromState.email.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'email', propertyKey: 'value'}))}
                 onBlur={emailValidator}
-                error={fromState.emailError}
+                error={fromState.email.error}
               />
             </FormControl>
           </ContactDetailsInputWrapper>
@@ -70,10 +71,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.name}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'name'}))}
-                onBlur={() => textValidator(fromState.name, 'nameError')}
-                error={fromState.nameError}
+                value={fromState.name.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'name', propertyKey: 'value'}))}
+                onBlur={() => textValidator(fromState.name.value, 'name', 'error')}
+                error={fromState.name.error}
               />
             </FormControl>
             <FormControl sx={{width: '45ch'}}>
@@ -84,10 +85,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.surname}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'surname'}))}
-                onBlur={() => textValidator(fromState.name, 'surnameError')}
-                error={fromState.surnameError}
+                value={fromState.surname.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'surname', propertyKey: 'value'}))}
+                onBlur={() => textValidator(fromState.name.value, 'surname', 'error')}
+                error={fromState.surname.error}
               />
             </FormControl>
           </PersonDetailsInputWrapper>
@@ -103,10 +104,16 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.adress}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'adress'}))}
-                onBlur={() => dispatch(updateCheckoutform({value: inEmptyString(fromState.adress), key: 'adressError'}))}
-                error={fromState.adressError}
+                value={fromState.adress.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'adress', propertyKey: 'value'}))}
+                onBlur={() => dispatch(
+                  updateCheckoutForm({
+                    value: inEmptyString(fromState.adress.value),
+                    objectKey: 'adress',
+                    propertyKey: 'error',
+                  })
+                )}
+                error={fromState.adress.error}
               />
             </FormControl>
           </CountryDetailsInputWrapper>
@@ -119,10 +126,16 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.postalCode}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'postalCode'}))}
-                onBlur={() => dispatch(updateCheckoutform({value: inEmptyString(fromState.postalCode), key: 'postalCodeError'}))}
-                error={fromState.postalCodeError}
+                value={fromState.postalCode.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'postalCode', propertyKey: 'value'}))}
+                onBlur={() => dispatch(
+                  updateCheckoutForm({
+                    value: inEmptyString(fromState.postalCode.value),
+                    objectKey: 'postalCode',
+                    propertyKey: 'error',
+                  })
+                )}
+                error={fromState.postalCode.error}
               />
             </FormControl>
             <FormControl sx={{width: '25ch'}}>
@@ -133,10 +146,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.city}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'city'}))}
-                onBlur={() => textValidator(fromState.city, 'cityError')}
-                error={fromState.cityError}
+                value={fromState.city.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'city', propertyKey: 'value'}))}
+                onBlur={() => textValidator(fromState.city.value, 'city', 'error')}
+                error={fromState.city.error}
               />
             </FormControl>
             <FormControl sx={{width: '25ch'}}>
@@ -147,10 +160,10 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.country}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'country'}))}
-                onBlur={() => textValidator(fromState.country, 'countryError')}
-                error={fromState.countryError}
+                value={fromState.country.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'country', propertyKey: 'value'}))}
+                onBlur={() => textValidator(fromState.country.value, 'country', 'error')}
+                error={fromState.country.error}
               />
             </FormControl>
           </CountryDetailsInputWrapper>
@@ -166,10 +179,16 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.cardNumber}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardNumber'}))}
-                onBlur={() => dispatch(updateCheckoutform({value: !isCardNumberValid(fromState.cardNumber), key: 'cardNumberError'}))}
-                error={fromState.cardNumberError}
+                value={fromState.cardNumber.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'cardNumber', propertyKey: 'value'}))}
+                onBlur={() => dispatch(
+                  updateCheckoutForm({
+                    value: !isCardNumberValid(fromState.cardNumber.value),
+                    objectKey: 'cardNumber',
+                    propertyKey: 'error',
+                  })
+                )}
+                error={fromState.cardNumber.error}
               />
             </FormControl>
           </PaymentDetailsInputWrapper>
@@ -182,10 +201,16 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.cardDate}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardDate'}))}
-                onBlur={() => dispatch(updateCheckoutform({value: !isCardDateValid(fromState.cardDate), key: 'cardDateError'}))}
-                error={fromState.cardDateError}
+                value={fromState.cardDate.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'cardDate', propertyKey: 'value'}))}
+                onBlur={() => dispatch(
+                  updateCheckoutForm({
+                    value: !isCardDateValid(fromState.cardDate.value),
+                    objectKey: 'cardDate',
+                    propertyKey: 'error',
+                  })
+                )}
+                error={fromState.cardDate.error}
               />
             </FormControl>
             <FormControl sx={{width: '45ch'}}>
@@ -196,10 +221,16 @@ const CheckoutForm = () => {
                 color='success'
                 required
                 type='text'
-                value={fromState.cardCvc}
-                onChange={(e) => dispatch(updateCheckoutform({value: e.target.value, key: 'cardCvc'}))}
-                onBlur={() => dispatch(updateCheckoutform({value: !isCardCvcValid(fromState.cardCvc), key: 'cardCvcError'}))}
-                error={fromState.cardCvcError}
+                value={fromState.cardCvc.value}
+                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'cardCvc', propertyKey: 'value'}))}
+                onBlur={() => dispatch(
+                  updateCheckoutForm({
+                    value: !isCardCvcValid(fromState.cardCvc.value),
+                    objectKey: 'cardCvc',
+                    propertyKey: 'error',
+                  })
+                )}
+                error={fromState.cardCvc.error}
               />
             </FormControl>
           </PaymentDetailsInputWrapper>
