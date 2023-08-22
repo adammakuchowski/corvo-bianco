@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {use, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
@@ -17,17 +17,15 @@ import {getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
 
 const CheckoutContents = () => {
   const [overflow, setOverflow] = useState('hidden')
-  const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(false)
+  const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
   const productsCart = useSelector(getProductsCart)
   const totalCartPrice = useSelector(getTotalCartPrice).toFixed(2)
-
   const fromState = useSelector(getCheckoutFromState)
-
-  const adam = (fromState: FromState) => {
-    console.log('fromState', fromState)
-  }
-
-  const xxx = adam(fromState)
+  const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
+  
+  useEffect(() => {
+    setoOrderFinalizeButtonIsActive(!validateCheckoutForm(fromState))
+  }, [fromState])
 
   useEffect(() => {
     if (productsCart.length < 5) {
