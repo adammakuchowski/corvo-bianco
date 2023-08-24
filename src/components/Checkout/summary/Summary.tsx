@@ -18,7 +18,7 @@ const Summary = () => {
   return (
     <SummaryContainer className={delayClassName}>
       <CheckoutForm/>
-      <CheckoutContents/>
+      <CheckoutContents />
     </SummaryContainer>
   )
 }

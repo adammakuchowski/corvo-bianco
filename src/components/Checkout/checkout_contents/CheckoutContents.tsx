@@ -1,7 +1,11 @@
+import {use, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
+import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
-import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
+import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
+import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
+import {FromState} from '@/features/checkout/types'
 import {
   CheckoutContentsContainer,
   ContentsContainerWrapper,
@@ -9,13 +13,19 @@ import {
   SummaryContainer,
   SummaryTextWrapper,
 } from './CheckoutContentsStyled'
-import {cinzel} from '@/fonts/fonts'
-import {useEffect, useState} from 'react'
+import {getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
 
 const CheckoutContents = () => {
   const [overflow, setOverflow] = useState('hidden')
+  const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
   const productsCart = useSelector(getProductsCart)
   const totalCartPrice = useSelector(getTotalCartPrice).toFixed(2)
+  const fromState = useSelector(getCheckoutFromState)
+  const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
+  
+  useEffect(() => {
+    setoOrderFinalizeButtonIsActive(!validateCheckoutForm(fromState))
+  }, [fromState])
 
   useEffect(() => {
     if (productsCart.length < 5) {
@@ -41,8 +51,8 @@ const CheckoutContents = () => {
         <SummaryTextWrapper className={cinzel.className}>
           {`Total Cost Price: ${totalCartPrice} $`}
         </SummaryTextWrapper>
+        <Button text='order' disabled={orderFinalizeButtonIsActive} />
       </SummaryContainer>
-
     </CheckoutContentsContainer>
   )
 }
