@@ -6,6 +6,7 @@ import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
 import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
 import {FromState} from '@/features/checkout/types'
+import {mapFormOrderToApiFormat} from '@/services/formMappingService'
 import {
   CheckoutContentsContainer,
   ContentsContainerWrapper,
@@ -19,9 +20,14 @@ const CheckoutContents = () => {
   const [overflow, setOverflow] = useState('hidden')
   const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
   const productsCart = useSelector(getProductsCart)
-  const totalCartPrice = useSelector(getTotalCartPrice).toFixed(2)
+  const totalCartPrice = Number(useSelector(getTotalCartPrice).toFixed(2))
   const fromState = useSelector(getCheckoutFromState)
   const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
+
+  const confirmOrder = () => {
+    const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
+    //
+  }
   
   useEffect(() => {
     setoOrderFinalizeButtonIsActive(!validateCheckoutForm(fromState))
@@ -51,7 +57,7 @@ const CheckoutContents = () => {
         <SummaryTextWrapper className={cinzel.className}>
           {`Total Cost Price: ${totalCartPrice} $`}
         </SummaryTextWrapper>
-        <Button text='order' disabled={orderFinalizeButtonIsActive} />
+        <Button text='order' buttonAction={confirmOrder} disabled={orderFinalizeButtonIsActive} />
       </SummaryContainer>
     </CheckoutContentsContainer>
   )

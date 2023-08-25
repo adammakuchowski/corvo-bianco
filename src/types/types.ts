@@ -28,3 +28,23 @@ export interface NavigationOptions {
   sectionName?: string;
   index?: number;
 }
+
+export interface ProductOrderApiFormat {
+  objectId: string;
+  quantity: number;
+}
+
+export interface OrderApiFormat {
+  email: string;
+  name: string;
+  surname: string;
+  products: ProductOrderApiFormat[];
+  adress: string;
+  postalCode: string;
+  city: string;
+  country: string;
+  cardNumber: string;
+  cardDate: string;
+  cardCvc: string;
+  totalCostPrice: number;
+}
