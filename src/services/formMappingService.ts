@@ -9,7 +9,11 @@ const mapProductsCartToOrderApiFormat = (productsCart: ProductCart[]): ProductOr
   productsCart.map(product => ({objectId: product.product.id, quantity: product.quantity}))
 )
 
-export const mapFormOrderToApiFormat = (fromState: FromState, productsCart: ProductCart[], totalCostPrice: number): OrderApiFormat => {
+export const mapFormOrderToApiFormat = (
+  fromState: FromState,
+  productsCart: ProductCart[],
+  totalCostPrice: number,
+): OrderApiFormat => {
   const productsCartOrderApiFormat = mapProductsCartToOrderApiFormat(productsCart)
 
   return {

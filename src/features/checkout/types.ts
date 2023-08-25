@@ -1,5 +1,7 @@
 export interface CheckoutState {
   checkoutForm: FromState;
+  orderCreateStatus: 'idle' | 'loading' | 'succeeded' | 'failed';
+  orderCreateError?: string | null;
 }
 
 export interface FromState {

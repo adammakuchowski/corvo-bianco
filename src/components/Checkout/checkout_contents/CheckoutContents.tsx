@@ -1,5 +1,6 @@
-import {use, useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {AppState} from '@/app/store'
 import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
 import Button from '@/components/common/buttons/button/Button'
@@ -14,21 +15,25 @@ import {
   SummaryContainer,
   SummaryTextWrapper,
 } from './CheckoutContentsStyled'
-import {getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
+import {createOrder, getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
 
 const CheckoutContents = () => {
+  const dispatch = useDispatch()
   const [overflow, setOverflow] = useState('hidden')
   const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
   const productsCart = useSelector(getProductsCart)
   const totalCartPrice = Number(useSelector(getTotalCartPrice).toFixed(2))
   const fromState = useSelector(getCheckoutFromState)
+  const orderCreateStatus = useSelector((state: AppState) => state.checkout.orderCreateStatus)
   const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
 
   const confirmOrder = () => {
     const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
-    //
+    if (orderCreateStatus === 'idle') {
+      dispatch<any>(createOrder(order))
+    }
   }
-  
+
   useEffect(() => {
     setoOrderFinalizeButtonIsActive(!validateCheckoutForm(fromState))
   }, [fromState])

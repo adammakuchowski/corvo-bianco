@@ -1,5 +1,7 @@
-import {createSlice} from '@reduxjs/toolkit'
+import axios, {Canceler} from 'axios'
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {AppState} from '@/app/store'
+import {OrderApiFormat} from '@/types/types'
 import {CheckoutState, FromState} from './types'
 
 const initialState: CheckoutState = {
@@ -44,7 +46,9 @@ const initialState: CheckoutState = {
       value: '',
       error: false,
     },
-  }
+  },
+  orderCreateStatus: 'idle',
+  orderCreateError: null
 }
 
 interface UpdateCheckoutFormAction {
@@ -56,6 +60,20 @@ interface UpdateCheckoutFormAction {
   type: string;
 }
 
+export const createOrder = createAsyncThunk('orders/createOrder', async (order: OrderApiFormat) => {
+  try {
+    let cancel: Canceler
+    const response = await axios.post('http://localhost:1337/orders/createOrder', order, {
+      cancelToken: new axios.CancelToken(c => cancel = c)
+    })
+
+    return response.data
+  } catch (error: any) {
+    console.error('[Create Order Error]:', error.message)
+    throw error
+  }
+})
+
 export const checkoutSlice = createSlice({
   name: 'checkout',
   initialState,
@@ -65,6 +83,22 @@ export const checkoutSlice = createSlice({
 
       state.checkoutForm[objectKey][propertyKey] = value
     },
+    resetOrderCreateStatus(state: CheckoutState) {
+      state.orderCreateStatus = 'idle'
+    }
+  },
+  extraReducers(builder) {
+    builder
+      .addCase(createOrder.pending, (state) => {
+        state.orderCreateStatus = 'loading'
+      })
+      .addCase(createOrder.fulfilled, (state) => {
+        state.orderCreateStatus = 'succeeded'
+      })
+      .addCase(createOrder.rejected, (state, action) => {
+        state.orderCreateStatus = 'failed'
+        state.orderCreateError = action.error.message
+      })
   }
 })
 
