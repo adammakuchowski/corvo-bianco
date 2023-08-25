@@ -28,8 +28,8 @@ const CheckoutContents = () => {
   const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
 
   const confirmOrder = () => {
-    const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
     if (orderCreateStatus === 'idle') {
+      const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
       dispatch<any>(createOrder(order))
     }
   }
