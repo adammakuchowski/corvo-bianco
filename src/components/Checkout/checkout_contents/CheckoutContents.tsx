@@ -1,11 +1,13 @@
-import {use, useEffect, useState} from 'react'
-import {useSelector} from 'react-redux'
+import {useEffect, useState} from 'react'
+import {useDispatch, useSelector} from 'react-redux'
+import {AppState} from '@/app/store'
 import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
 import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
 import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
 import {FromState} from '@/features/checkout/types'
+import {mapFormOrderToApiFormat} from '@/services/formMappingService'
 import {
   CheckoutContentsContainer,
   ContentsContainerWrapper,
@@ -13,16 +15,25 @@ import {
   SummaryContainer,
   SummaryTextWrapper,
 } from './CheckoutContentsStyled'
-import {getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
+import {createOrder, getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
 
 const CheckoutContents = () => {
+  const dispatch = useDispatch()
   const [overflow, setOverflow] = useState('hidden')
   const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
   const productsCart = useSelector(getProductsCart)
-  const totalCartPrice = useSelector(getTotalCartPrice).toFixed(2)
+  const totalCartPrice = Number(useSelector(getTotalCartPrice).toFixed(2))
   const fromState = useSelector(getCheckoutFromState)
+  const orderCreateStatus = useSelector((state: AppState) => state.checkout.orderCreateStatus)
   const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
-  
+
+  const confirmOrder = () => {
+    if (orderCreateStatus === 'idle') {
+      const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
+      dispatch<any>(createOrder(order))
+    }
+  }
+
   useEffect(() => {
     setoOrderFinalizeButtonIsActive(!validateCheckoutForm(fromState))
   }, [fromState])
@@ -51,7 +62,7 @@ const CheckoutContents = () => {
         <SummaryTextWrapper className={cinzel.className}>
           {`Total Cost Price: ${totalCartPrice} $`}
         </SummaryTextWrapper>
-        <Button text='order' disabled={orderFinalizeButtonIsActive} />
+        <Button text='order' buttonAction={confirmOrder} disabled={orderFinalizeButtonIsActive} />
       </SummaryContainer>
     </CheckoutContentsContainer>
   )

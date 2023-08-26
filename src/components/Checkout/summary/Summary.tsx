@@ -1,5 +1,5 @@
 import {useContext, useEffect, useState} from 'react'
-
+import CircularProgress from '@mui/material/CircularProgress'
 import CheckoutContext from '@/context/CheckoutContext'
 import CheckoutForm from '@/features/checkout/checkout_form/CheckoutForm'
 import {SummaryContainer} from './SummaryStyled'
@@ -17,6 +17,7 @@ const Summary = () => {
 
   return (
     <SummaryContainer className={delayClassName}>
+      {/* <CircularProgress sx={{color: '#8ea648'}} /> */}
       <CheckoutForm/>
       <CheckoutContents />
     </SummaryContainer>

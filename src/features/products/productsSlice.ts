@@ -92,7 +92,7 @@ export const productsSlice = createSlice({
   },
   extraReducers(builder) {
     builder
-      .addCase(fetchProducts.pending, (state, action) => {
+      .addCase(fetchProducts.pending, (state) => {
         state.status = 'loading'
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
