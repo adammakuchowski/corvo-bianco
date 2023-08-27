@@ -103,7 +103,8 @@ export const checkoutSlice = createSlice({
 })
 
 export const {
-  updateCheckoutForm
+  updateCheckoutForm,
+  resetOrderCreateStatus
 } = checkoutSlice.actions
 
 export const getCheckoutFromState = (state: AppState): FromState => state.checkout.checkoutForm
