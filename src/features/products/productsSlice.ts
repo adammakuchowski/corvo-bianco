@@ -63,13 +63,16 @@ export const productsSlice = createSlice({
         }
       }
     },
+    updateProductsCart(state, action: {payload: ProductCart[]}) {
+      state.productsCart = action.payload
+    },
     clearCart(state) {
       state.productsCart = []
     },
-    addToFavorites(state, action) {
+    addToFavorites(state, action: {payload: Product}) {
       state.favoriteProducts.push(action.payload)
     },
-    updateQuantityProductCart(state, action) {
+    updateQuantityProductCart(state, action: {payload: {id: string, actionOperator: string, value: number}}) {
       const {id, actionOperator, value} = action.payload
       const updatedProductCart = state.productsCart.map((productCart: ProductCart) => {
         if (productCart.product.id !== id) return productCart
@@ -83,7 +86,7 @@ export const productsSlice = createSlice({
 
       state.productsCart = updatedProductCart
     },
-    removeProductCart(state, action) {
+    removeProductCart(state, action: {payload: {id: string}}) {
       const {id} = action.payload
       const updatedProductCart = state.productsCart.filter((productCart: ProductCart) => productCart.product.id !== id)
 
@@ -108,6 +111,7 @@ export const productsSlice = createSlice({
 
 export const {
   addToCart,
+  updateProductsCart,
   clearCart,
   addToFavorites,
   updateQuantityProductCart,

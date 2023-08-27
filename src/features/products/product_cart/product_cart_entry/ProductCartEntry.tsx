@@ -31,7 +31,10 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
     (price * quantity).toFixed(2)
   ), [price, quantity])
 
-  const onRemovePorductCard = () => dispatch(removeProductCart({id}))
+  const onRemovePorductCard = () => {
+    dispatch(removeProductCart({id}))
+    localStorage.setItem('productsCart', JSON.stringify([]))
+  }
 
   return (
     <ProductCartEntryContainer>
@@ -56,7 +59,7 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
 
         <ContentBodyContainer>
           <ProductPriceWrapper>{`${totalProductPrice} $`}</ProductPriceWrapper>
-          <ProductCartEntryCounter productCart={productCart}/>
+          <ProductCartEntryCounter productCart={productCart} />
         </ContentBodyContainer>
       </ContentContainer>
 

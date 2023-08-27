@@ -17,7 +17,12 @@ import {
   ProductCartTotalWrapper,
   ProductCartButtonWrapper
 } from './ProductCartStyled'
-import {clearCart, getProductsCart, getTotalCartPrice} from '../productsSlice'
+import {
+  clearCart,
+  getProductsCart,
+  getTotalCartPrice,
+  updateProductsCart,
+} from '../productsSlice'
 import ProductCartEntry from './product_cart_entry/ProductCartEntry'
 
 interface ProductCartProps {
@@ -55,8 +60,24 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     }
   }, [cartIsOpen, productsCart, totalCartPrice])
 
+  useEffect(() => {
+    const localStorageProductsCart = localStorage.getItem('productsCart')
+    const storageProductsCart = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
+
+    dispatch(updateProductsCart(storageProductsCart))
+  }, [dispatch])
+
+  useEffect(() => {
+    if (productsCart?.length) {
+      localStorage.setItem('productsCart', JSON.stringify(productsCart))
+    }
+  }, [productsCart])
+
   const onCloseModal = () => setCartIsOpen(false)
-  const onClearCart = () => dispatch(clearCart())
+  const onClearCart = () => {
+    dispatch(clearCart())
+    localStorage.setItem('productsCart', JSON.stringify([]))
+  }
 
   const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
 
