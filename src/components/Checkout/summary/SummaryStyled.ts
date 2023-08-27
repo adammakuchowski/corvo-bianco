@@ -16,3 +16,36 @@ export const SummaryContainer = styled.div`
     opacity: 1;
   }
 `
+
+export const SummaryContentContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const CreateOrderContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const OrderCreatorContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  font-weight: 500;
+`
+
+export const IconWrapper = styled.div`
+  font-size: 50px;
+`
+
+export const ResultOrderTextWrapper = styled.div`
+  font-size: 20px;
+`
