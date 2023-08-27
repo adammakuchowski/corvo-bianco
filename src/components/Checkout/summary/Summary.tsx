@@ -36,15 +36,15 @@ const OrderCreatorFulfilled = () => {
 
 const OrderCreatorError = () => {
   return (
-      <OrderCreatorContainer>
+    <OrderCreatorContainer>
       <IconWrapper style={{color: '#e32323'}}>
-          <VscError />
-        </IconWrapper>
-        <ResultOrderTextWrapper className={cinzel.className}>
-          There was a problem while creating your order, please contact support or try again later.
-        </ResultOrderTextWrapper>
-      </OrderCreatorContainer>
-    )
+        <VscError />
+      </IconWrapper>
+      <ResultOrderTextWrapper className={cinzel.className}>
+        There was a problem while creating your order, please contact support or try again later.
+      </ResultOrderTextWrapper>
+    </OrderCreatorContainer>
+  )
 }
 
 const OrderProgressCreator = ({orderCreateStatus}: OrderProgressCreatorProps) => {
@@ -84,10 +84,6 @@ const Summary = () => {
       setDelayClassName(className)
     }, 300)
   }, [className])
-
-  useEffect(() => {
-    // TODO: implement resetting of order status and shopping cart status 
-  }, [orderCreateStatus])
 
   return (
     <SummaryContainer className={delayClassName}>
