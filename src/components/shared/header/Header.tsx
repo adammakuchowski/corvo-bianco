@@ -24,6 +24,7 @@ const Header = ({className}: HeaderProps): JSX.Element => {
     if (createOrderResultStatuses.includes(orderCreateStatus)) {
       dispatch(resetOrderCreateStatus())
       dispatch(clearCart())
+      localStorage.setItem('productsCart', JSON.stringify([]))
     }
   }
 
