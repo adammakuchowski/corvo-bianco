@@ -11,7 +11,7 @@ export const ProductGalleryContainer = styled.div`
 `
 
 export const NavigationWrapper = styled.div`
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `
 
 export const ButtonWrapper = styled.div`
@@ -39,7 +39,7 @@ interface ProductsListContainerPops {
 export const ProductsListContainer = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
   transition: all 0.8s ease-in-out;

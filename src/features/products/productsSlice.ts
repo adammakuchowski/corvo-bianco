@@ -7,7 +7,7 @@ export interface ProductsState {
   productsList: Product[];
   productsCart: ProductCart[];
   favoriteProducts: Product[];
-  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  productFetchStatus: 'idle' | 'loading' | 'succeeded' | 'failed';
   error?: string | null;
 }
 
@@ -15,7 +15,7 @@ const initialState: ProductsState = {
   productsList: [],
   productsCart: [],
   favoriteProducts: [],
-  status: 'idle',
+  productFetchStatus: 'idle',
   error: null
 }
 
@@ -28,7 +28,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async ()
 
     return response.data
   } catch (error: any) {
-    console.error('[Fetch Products Error]:', error.message)
+    console.error('[fetchProducts]:', error.message)
     throw error
   }
 })
@@ -96,14 +96,14 @@ export const productsSlice = createSlice({
   extraReducers(builder) {
     builder
       .addCase(fetchProducts.pending, (state) => {
-        state.status = 'loading'
+        state.productFetchStatus = 'loading'
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
-        state.status = 'succeeded'
+        state.productFetchStatus = 'succeeded'
         state.productsList = state.productsList.concat(action.payload)
       })
       .addCase(fetchProducts.rejected, (state, action) => {
-        state.status = 'failed'
+        state.productFetchStatus = 'failed'
         state.error = action.error.message
       })
   }
