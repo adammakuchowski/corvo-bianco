@@ -69,7 +69,7 @@ export const createOrder = createAsyncThunk('orders/createOrder', async (order: 
 
     return response.data
   } catch (error: any) {
-    console.error('[Create Order Error]:', error.message)
+    console.error('[createOrder]:', error.message)
     throw error
   }
 })

@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+import CircularProgress from '@mui/material/CircularProgress'
 import {AppState} from '@/app/store'
 import Navigation from '@/components/common/navigation/Navigation'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
@@ -28,13 +29,13 @@ const ProductGallery = (): JSX.Element => {
   const [categoryProducts, setCategoryProducts] = useState<Product[]>([])
 
   const products = useSelector(getAllProducts)
-  const productsStatus = useSelector((state: AppState) => state.products.status)
+  const productFetchStatus = useSelector((state: AppState) => state.products.productFetchStatus)
 
   useEffect(() => {
-    if (productsStatus === 'idle') {
+    if (productFetchStatus === 'idle') {
       dispatch<any>(fetchProducts())
     }
-  }, [productsStatus, dispatch])
+  }, [productFetchStatus, dispatch])
 
   useEffect(() => {
     if (categoryProducts?.length) {
@@ -68,12 +69,17 @@ const ProductGallery = (): JSX.Element => {
             />
           </NavigationWrapper>
           <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
-            <ProductsList products={categoryProducts} productGalleryPage={productGalleryPage}/>
-            <ButtonWrapper>
-              {currentProductsCount > 4 && (
-                <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
-              )}
-            </ButtonWrapper>
+            {(productFetchStatus === 'succeeded') ?
+              <>
+                <ProductsList products={categoryProducts} productGalleryPage={productGalleryPage} />
+                <ButtonWrapper>
+                  {currentProductsCount > 4 && (
+                    <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
+                  )}
+                </ButtonWrapper>
+              </> :
+              <CircularProgress sx={{color: '#8ea648'}} size={50} />
+            }
           </ProductsListContainer>
         </ProductGalleryContentWrapper>
       </ProductGalleryContainer>

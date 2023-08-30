@@ -7,6 +7,7 @@ import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
 import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
 import {FromState} from '@/features/checkout/types'
+import {getCheckoutFromState, createOrder} from '@/features/checkout/checkoutSlice'
 import {mapFormOrderToApiFormat} from '@/services/formMappingService'
 import {
   CheckoutContentsContainer,
@@ -15,7 +16,7 @@ import {
   SummaryContainer,
   SummaryTextWrapper,
 } from './CheckoutContentsStyled'
-import {createOrder, getCheckoutFromState} from '../../../features/checkout/checkoutSlice'
+
 
 const CheckoutContents = () => {
   const dispatch = useDispatch()
