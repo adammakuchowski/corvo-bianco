@@ -1,21 +1,15 @@
-import {SyntheticEvent, useCallback, useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
-import {IoCloseCircleOutline} from 'react-icons/io5'
-import {BsTrash} from 'react-icons/bs'
-import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
+import SidePanel from '@/components/common/side_panel/SidePanel'
 import {
-  HeaderContainer,
-  ProductCartContainer,
-  ProductCartOverlayContainer,
   ProductCartContentContainer,
-  CartButtonsContainer,
-  CartButtonsWrapper,
   ProductCartSummaryContainer,
   ProductCartWrapper,
   ProductCartTotalWrapper,
-  ProductCartButtonWrapper
+  ProductCartButtonWrapper,
+  ProductCartContainer,
 } from './ProductCartStyled'
 import {
   clearCart,
@@ -32,7 +26,6 @@ interface ProductCartProps {
 
 const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element | null => {
   const router = useRouter()
-  const [productCartClassName, setProductCartClassName] = useState<string>('')
   const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
   const [cartTotal, setCartTotal] = useState<number>(0)
   const productsCart = useSelector(getProductsCart)
@@ -48,15 +41,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     productsCart.length ? setIsTrashDisabled(false) : setIsTrashDisabled(true)
 
     if (cartIsOpen) {
-      setProductCartClassName('active')
-      document.body.style.overflow = 'hidden'
-
       setCartTotal(totalCartPrice)
-    }
-
-    return () => {
-      setProductCartClassName('')
-      document.body.style.overflow = 'auto'
     }
   }, [cartIsOpen, productsCart, totalCartPrice])
 
@@ -79,29 +64,25 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     localStorage.setItem('productsCart', JSON.stringify([]))
   }
 
-  const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
-
   if (!cartIsOpen) return null
 
   return (
-    <ProductCartOverlayContainer className={productCartClassName} onClick={onCloseModal} >
-      <ProductCartContainer className={productCartClassName} onClick={onStopPropagation}>
+    <SidePanel
+      sidePanelIsOpen={cartIsOpen}
+      setIsSidePanelOpen={setCartIsOpen}
+      onClear={onClearCart}
+      isTrashDisabled={isTrashDisabled}
+      onCloseModal={onCloseModal}
+      headerName='CART'
+    >
+      <ProductCartContainer>
         <ProductCartWrapper>
-          <HeaderContainer>
-            <CartButtonsContainer>
-              <CartButtonsWrapper>
-                <IconButton iconComponent={<BsTrash />} iconAction={onClearCart} fontSize='20px' disabled={isTrashDisabled} />
-                <IconButton iconComponent={<IoCloseCircleOutline />} iconAction={onCloseModal} fontSize='25px' />
-              </CartButtonsWrapper>
-            </CartButtonsContainer>
-          </HeaderContainer>
           <ProductCartContentContainer>
             {productsCart.map((product, index) => (
               <ProductCartEntry key={index} productCart={product} />
             ))}
           </ProductCartContentContainer>
         </ProductCartWrapper>
-
         <ProductCartSummaryContainer>
           <ProductCartTotalWrapper>
             <span>cart total:</span>
@@ -112,7 +93,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
           </ProductCartButtonWrapper>
         </ProductCartSummaryContainer>
       </ProductCartContainer>
-    </ProductCartOverlayContainer>
+    </SidePanel>
   )
 }
 
