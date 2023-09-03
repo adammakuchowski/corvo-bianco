@@ -69,7 +69,6 @@ export const SidePanelNameWrapper = styled.div`
 `
 
 export const ChildrenContainer = styled.div`
-  background-color: pink;
   min-height: 90%;
   display: flex;
 `
