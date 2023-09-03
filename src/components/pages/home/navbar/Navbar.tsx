@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BiMessageRoundedError} from 'react-icons/bi'
 import {FiHeart} from 'react-icons/fi'
+import {AppState} from '@/app/store'
 import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather} from '@/fonts/fonts'
 import Navigation from '@/components/common/navigation/Navigation'
@@ -18,8 +19,8 @@ import {
   CartCounter,
   CartWrapper,
 } from './NavbarStyled'
-import {AppState} from '../../../app/store'
 import {manuOptions} from './data'
+
 
 const Navbar = (): JSX.Element => {
   const router = useRouter()
@@ -59,7 +60,7 @@ const Navbar = (): JSX.Element => {
             {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
             {/* <IconButton iconComponent={<AiOutlineSearch />} />
             <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/> */}
-            {/* <IconButton iconComponent={<FiHeart />} /> */}
+            <IconButton iconComponent={<FiHeart />} />
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (
