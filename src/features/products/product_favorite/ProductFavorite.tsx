@@ -8,6 +8,7 @@ interface ProductFavoriteProps {
   setFavoriteIsOpen: (value: boolean) => void;
 }
 
+// TODO: rename to FavoriteProducts
 const ProductFavorite = ({favoriteIsOpen, setFavoriteIsOpen}: ProductFavoriteProps): JSX.Element | null => {
   const favoriteProducts = useSelector(getFavoriteProducts)
   const [isTrashDisabled, setIsTrashDisabled] = useState<boolean>(false)
