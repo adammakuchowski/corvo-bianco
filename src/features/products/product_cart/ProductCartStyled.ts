@@ -10,6 +10,7 @@ export const ProductCartContainer = styled.div`
 export const ProductCartWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  flex: 1;
 `
 
 export const ProductCartContentContainer = styled.div`
@@ -22,6 +23,7 @@ export const ProductCartSummaryContainer = styled.div`
   margin-bottom: 15px;
   height: 5%;
   border-top: solid 1px #1111;
+  margin-top: 10px;
   padding-top: 10px;
   display: flex;
   flex-direction: row;
