@@ -69,6 +69,6 @@ export const SidePanelNameWrapper = styled.div`
 `
 
 export const ChildrenContainer = styled.div`
-  min-height: 90%;
+  flex: 1;
   display: flex;
 `
