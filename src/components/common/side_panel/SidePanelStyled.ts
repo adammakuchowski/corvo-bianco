@@ -32,6 +32,7 @@ export const SidePanelContainer = styled.div`
   flex-direction: column;
   gap: 10px;
   overflow: auto;
+  /* scrollbar-gutter: stable; */
 
   transform: translateX(100%);
   transition: all 0.4s ease-in-out;
