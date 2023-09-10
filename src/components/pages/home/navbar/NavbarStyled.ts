@@ -41,7 +41,7 @@ export const CartWrapper = styled.div`
   cursor: pointer;
 `
 
-export const CartCounter = styled.div`
+export const IconCounterWrapper = styled.div`
   position: absolute;
   top: -15px;
   right: -15px;

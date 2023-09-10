@@ -11,15 +11,17 @@ import Navigation from '@/components/common/navigation/Navigation'
 import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import ProductCart from '@/features/products/product_cart/ProductCart'
+import {getFavoriteProducts, getProductsCart} from '@/features/products/productsSlice'
 import {
   NavbarContainer,
   OptionsContainer,
   ActionsWrapper,
   SettingWrapper,
-  CartCounter,
+  IconCounterWrapper,
   CartWrapper,
 } from './NavbarStyled'
 import {manuOptions} from './data'
+import FavoriteProducts from '@/features/products/favorite_product/FavoriteProducts'
 
 
 const Navbar = (): JSX.Element => {
@@ -29,12 +31,16 @@ const Navbar = (): JSX.Element => {
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
   const [cartCount, setCartCount] = useState<number>(0)
 
-  const productsCart = useSelector((state: AppState) => state.products.productsCart)
+  const [favoriteIsOpen, setFavoriteIsOpen] = useState<boolean>(false)
+  const [favoriteCount, setFavoriteCount] = useState<number>(0)
+
+  const productsCart = useSelector(getProductsCart)
+  const favoriteProducts = useSelector(getFavoriteProducts)
 
   useEffect(() => {
     setClassName('active')
   }, [])
-  
+
   const getCartCount = useCallback(() => {
     if (!productsCart || !productsCart.length) return 0
 
@@ -43,11 +49,14 @@ const Navbar = (): JSX.Element => {
 
   useEffect(() => {
     setCartCount(getCartCount())
-  }, [getCartCount])
+    setFavoriteCount(favoriteProducts.length)
+  }, [getCartCount, favoriteProducts])
 
   const openCart = () => setCartIsOpen(true)
   const toRouting = (path: string) => router.push(`/${path}`)
- 
+
+  const openFavorite = () => setFavoriteIsOpen(true)
+
   return (
     <section className='start'>
       <NavbarContainer className={`${merriweather.className} ${className}`}>
@@ -60,11 +69,16 @@ const Navbar = (): JSX.Element => {
             {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
             {/* <IconButton iconComponent={<AiOutlineSearch />} />
             <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/> */}
-            <IconButton iconComponent={<FiHeart />} />
+            <CartWrapper>
+              <IconButton iconComponent={<FiHeart />} iconAction={openFavorite} />
+              {!!favoriteCount && (
+                <IconCounterWrapper>{favoriteCount}</IconCounterWrapper>
+              )}
+            </CartWrapper>
             <CartWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (
-                <CartCounter>{cartCount}</CartCounter>
+                <IconCounterWrapper>{cartCount}</IconCounterWrapper>
               )}
             </CartWrapper>
           </ActionsWrapper>
@@ -75,6 +89,7 @@ const Navbar = (): JSX.Element => {
         />
       </NavbarContainer>
       <ProductCart cartIsOpen={cartIsOpen} setCartIsOpen={setCartIsOpen} />
+      <FavoriteProducts favoriteIsOpen={favoriteIsOpen} setFavoriteIsOpen={setFavoriteIsOpen} />
     </section>
   )
 }
