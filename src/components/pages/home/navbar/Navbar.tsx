@@ -11,6 +11,7 @@ import Navigation from '@/components/common/navigation/Navigation'
 import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import ProductCart from '@/features/products/product_cart/ProductCart'
+import FavoriteProducts from '@/features/products/favorite_product/FavoriteProducts'
 import {getFavoriteProducts, getProductsCart} from '@/features/products/productsSlice'
 import {
   NavbarContainer,
@@ -21,7 +22,6 @@ import {
   IconWrapper,
 } from './NavbarStyled'
 import {manuOptions} from './data'
-import FavoriteProducts from '@/features/products/favorite_product/FavoriteProducts'
 
 
 const Navbar = (): JSX.Element => {
