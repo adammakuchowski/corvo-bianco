@@ -36,7 +36,7 @@ export const ActionsWrapper = styled.div`
     }
 `
 
-export const CartWrapper = styled.div`
+export const IconWrapper = styled.div`
   position: relative;
   cursor: pointer;
 `

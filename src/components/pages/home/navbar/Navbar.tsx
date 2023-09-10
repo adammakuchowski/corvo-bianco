@@ -18,7 +18,7 @@ import {
   ActionsWrapper,
   SettingWrapper,
   IconCounterWrapper,
-  CartWrapper,
+  IconWrapper,
 } from './NavbarStyled'
 import {manuOptions} from './data'
 import FavoriteProducts from '@/features/products/favorite_product/FavoriteProducts'
@@ -69,18 +69,18 @@ const Navbar = (): JSX.Element => {
             {/* <IconButton iconComponent={<BsPersonCircle />} /> */}
             {/* <IconButton iconComponent={<AiOutlineSearch />} />
             <IconButton iconComponent={<BiMessageRoundedError />} iconAction={() => toRouting('contact')}/> */}
-            <CartWrapper>
+            <IconWrapper>
               <IconButton iconComponent={<FiHeart />} iconAction={openFavorite} />
               {!!favoriteCount && (
                 <IconCounterWrapper>{favoriteCount}</IconCounterWrapper>
               )}
-            </CartWrapper>
-            <CartWrapper>
+            </IconWrapper>
+            <IconWrapper>
               <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={openCart} />
               {!!cartCount && (
                 <IconCounterWrapper>{cartCount}</IconCounterWrapper>
               )}
-            </CartWrapper>
+            </IconWrapper>
           </ActionsWrapper>
         </OptionsContainer>
         <Navigation
