@@ -33,7 +33,6 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
 
   const onRemovePorductCard = () => {
     dispatch(removeProductCart({id}))
-    localStorage.setItem('productsCart', JSON.stringify([]))
   }
 
   return (

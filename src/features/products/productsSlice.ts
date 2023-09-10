@@ -66,8 +66,14 @@ export const productsSlice = createSlice({
     updateProductsCart(state, action: {payload: ProductCart[]}) {
       state.productsCart = action.payload
     },
+    updateFavoriteProducts(state, action: {payload: Product[]}) {
+      state.favoriteProducts = action.payload
+    },
     clearCart(state) {
       state.productsCart = []
+    },
+    clearFavorite(state) {
+      state.favoriteProducts = []
     },
     addToFavorites(state, action: {payload: Product}) {
       state.favoriteProducts.push(action.payload)
@@ -112,14 +118,17 @@ export const productsSlice = createSlice({
 export const {
   addToCart,
   updateProductsCart,
+  updateFavoriteProducts,
   clearCart,
   addToFavorites,
   updateQuantityProductCart,
   removeProductCart,
+  clearFavorite,
 } = productsSlice.actions
 
 export const getAllProducts = (state: AppState) => state.products.productsList
 export const getProductsCart = (state: AppState) => state.products.productsCart
+export const getFavoriteProducts = (state: AppState) => state.products.favoriteProducts
 export const getTotalCartPrice = (state: AppState) => {
   const productsCart = state.products.productsCart
 
