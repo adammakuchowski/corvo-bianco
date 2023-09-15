@@ -1,4 +1,4 @@
-import {useEffect, useMemo} from 'react'
+import {useMemo} from 'react'
 import {useDispatch} from 'react-redux'
 import Image from 'next/image'
 import {BsTrash} from 'react-icons/bs'
@@ -47,7 +47,6 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
           />
         </ImgWrapper>
       </ImgContainer>
-
       <ContentContainer>
         <ContentHeaderContainer className={cinzel.className}>
           <ProductNameWrapper>{name}</ProductNameWrapper>
@@ -55,13 +54,11 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
             <IconButton iconComponent={<BsTrash />} iconAction={onRemovePorductCard} fontSize='20px' />
           </HeaderButtonWrapper>
         </ContentHeaderContainer>
-
         <ContentBodyContainer>
           <ProductPriceWrapper>{`${totalProductPrice} $`}</ProductPriceWrapper>
           <ProductCartEntryCounter productCart={productCart} />
         </ContentBodyContainer>
       </ContentContainer>
-
     </ProductCartEntryContainer>
   )
 }

@@ -41,16 +41,16 @@ export const productsSlice = createSlice({
       reducer(state, action) {
         const {productsCart} = state
         const {payload: {product: {id}, quantity}} = action
-        
+
         if (productsCart.every(productCart => productCart.product.id !== id)) {
           state.productsCart.push(action.payload)
         } else {
           const updatedProductsCart = productsCart.map(productCart => {
-            if(productCart.product.id !== id) return productCart
-            
+            if (productCart.product.id !== id) return productCart
+
             return {...productCart, quantity: productCart.quantity + quantity}
           })
-          
+
           state.productsCart = updatedProductsCart
         }
       },
@@ -76,7 +76,9 @@ export const productsSlice = createSlice({
       state.favoriteProducts = []
     },
     addToFavorites(state, action: {payload: Product}) {
-      state.favoriteProducts.push(action.payload)
+      if (!state.favoriteProducts.some(product => product.id === action.payload.id)) {
+        state.favoriteProducts.push(action.payload)
+      }
     },
     updateQuantityProductCart(state, action: {payload: {id: string, actionOperator: string, value: number}}) {
       const {id, actionOperator, value} = action.payload
@@ -97,6 +99,12 @@ export const productsSlice = createSlice({
       const updatedProductCart = state.productsCart.filter((productCart: ProductCart) => productCart.product.id !== id)
 
       state.productsCart = updatedProductCart
+    },
+    removeFavoriteProduct(state, action: {payload: {id: string}}) {
+      const {id} = action.payload
+      const updatedFavoriteProducts = state.favoriteProducts.filter((product: Product) => product.id !== id)
+
+      state.favoriteProducts = updatedFavoriteProducts
     },
   },
   extraReducers(builder) {
@@ -123,6 +131,7 @@ export const {
   addToFavorites,
   updateQuantityProductCart,
   removeProductCart,
+  removeFavoriteProduct,
   clearFavorite,
 } = productsSlice.actions
 

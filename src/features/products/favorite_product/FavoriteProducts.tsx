@@ -1,8 +1,9 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import SidePanel from '@/components/common/side_panel/SidePanel'
-import {FavoriteProductsContainer} from './FavoriteProductsStyled'
+import {FavoriteProductsContainer, FavoriteProductsContentContainer} from './FavoriteProductsStyled'
 import {clearFavorite, getFavoriteProducts, updateFavoriteProducts} from '../productsSlice'
+import FavoriteProductEntry from './favorite_product_entry/FavoriteProductEntry'
 
 interface FavoriteProductsProps {
   favoriteIsOpen: boolean;
@@ -53,7 +54,11 @@ const FavoriteProducts = ({favoriteIsOpen, setFavoriteIsOpen}: FavoriteProductsP
       headerName='FAVORITE'
     >
       <FavoriteProductsContainer>
-
+        <FavoriteProductsContentContainer>
+          {favoriteProducts.map((product, index) => (
+            <FavoriteProductEntry key={index} favoriteProduct={product} />
+          ))}
+        </FavoriteProductsContentContainer>
       </FavoriteProductsContainer>
     </SidePanel>
   )

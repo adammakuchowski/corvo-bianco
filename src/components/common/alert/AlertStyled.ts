@@ -9,11 +9,9 @@ export const AlertContainer = styled.div`
   top: 0;
   right: 0;
   bottom: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   transform: translateY(-100%);
   transition: all 0.4s ease-in-out;
 
