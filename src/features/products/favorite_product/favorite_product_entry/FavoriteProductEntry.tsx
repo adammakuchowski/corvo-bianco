@@ -1,3 +1,4 @@
+import {useEffect, useState} from 'react'
 import Image from 'next/image'
 import {useDispatch, useSelector} from 'react-redux'
 import {BsCheckCircle, BsTrash} from 'react-icons/bs'
@@ -22,7 +23,6 @@ import {
   getProductsCart,
   removeFavoriteProduct,
 } from '../../productsSlice'
-import {useEffect, useState} from 'react'
 
 interface ProductCartEntryProps {
   favoriteProduct: Product;
