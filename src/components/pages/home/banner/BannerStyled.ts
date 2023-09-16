@@ -74,6 +74,10 @@ export const BannerNameWrapper = styled.div`
       @media (max-width: 624px) {
         font-size: 11px;
       }
+
+      @media (max-width: 414px) {
+        font-size: 7px;
+      } 
     }
     &:nth-child(2) {
       font-size: 110px;
@@ -85,6 +89,10 @@ export const BannerNameWrapper = styled.div`
       @media (max-width: 624px) {
         font-size: 62px;
       }
+
+      @media (max-width: 414px) {
+        font-size: 42px;
+      } 
     }
     &:nth-child(3) {
       font-size: 30px;
@@ -98,6 +106,10 @@ export const BannerNameWrapper = styled.div`
       @media (max-width: 624px) {
         font-size: 17px;
       }
+
+      @media (max-width: 414px) {
+        font-size: 12px;
+      } 
     }
   }
 `

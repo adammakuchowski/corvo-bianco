@@ -55,11 +55,19 @@ export const ContentHeader = styled.div`
       color: #708238;
       position: relative;
       left: 40px;
+
+      @media (max-width: 508px) {
+        font-size: 30px;
+      }
     }
     &:nth-child(2) {
       font-size: 120px;
       font-weight: 500;
       color: #d8d8d8;
+
+      @media (max-width: 508px) {
+        font-size: 80px;
+      }
     }
   }
 `
