@@ -1,8 +1,13 @@
 import styled from 'styled-components'
 
-export const ProductCartEntryContainer = styled.div`
+interface FavoriteProductEntryContainerProps {
+  isProductInCart: boolean;
+}
+
+export const FavoriteProductEntryContainer = styled.div<FavoriteProductEntryContainerProps>`
   display: flex;
-  background-color: #1111;
+  background-color: ${({isProductInCart}: FavoriteProductEntryContainerProps) => isProductInCart ? '#c5d298' : '#1111'};
+  transition: all 0.4s ease-in-out;
   padding: 10px 15px 10px 10px;
 `
 
@@ -50,4 +55,8 @@ export const ContentBodyContainer = styled.div`
 
 export const ProductPriceWrapper = styled.div`
 
+`
+
+export const IconWrapper = styled.div`
+  font-size: 20px;
 `
