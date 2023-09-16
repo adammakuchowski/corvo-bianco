@@ -14,6 +14,17 @@ export const BannerContainer = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+
+  @media (max-width: 780px) {
+    > * {
+      &:nth-child(1) {
+        display: none;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+  }
 `
 
 export const BannerWrapper = styled.div`
@@ -55,14 +66,38 @@ export const BannerNameWrapper = styled.div`
     &:nth-child(1) {
       font-size: 20px;
       opacity: 0.7;
+
+      @media (max-width: 872px) {
+        font-size: 15px;
+      }
+
+      @media (max-width: 624px) {
+        font-size: 11px;
+      }
     }
     &:nth-child(2) {
       font-size: 110px;
+
+      @media (max-width: 872px) {
+        font-size: 82px;
+      }
+
+      @media (max-width: 624px) {
+        font-size: 62px;
+      }
     }
     &:nth-child(3) {
       font-size: 30px;
       margin-top: 50px; 
       opacity: 0.9;
+
+      @media (max-width: 872px) {
+        font-size: 22px;
+      }
+
+      @media (max-width: 624px) {
+        font-size: 17px;
+      }
     }
   }
 `

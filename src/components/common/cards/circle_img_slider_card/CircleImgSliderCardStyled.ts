@@ -62,7 +62,6 @@ export const ContentHeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 45%;
     }
     &:nth-child(3) {
       margin-bottom: 20px;

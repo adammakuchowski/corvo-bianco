@@ -7,6 +7,10 @@ export const AvailableHoursCardContainer = styled.div`
   flex-direction: column;
   width: 33%;
   height: 70%;
+  
+  @media (max-width: 872px) {
+    width: 210px;
+  }
 `
 
 export const HeaderContentWrapper = styled.p`

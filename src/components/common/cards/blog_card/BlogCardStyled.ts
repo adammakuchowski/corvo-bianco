@@ -4,6 +4,10 @@ export const BlogCardContainer = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
+
+  @media (max-width: 1111px) {
+    width: 100%;
+  }
 `
 
 export const CardWrapper = styled.div`

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const MenuContainer = styled.div`
-  min-width: 240px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -20,6 +19,14 @@ export const ListWrapper = styled.ul`
   list-style: none;
   color: black;
   gap: 70px;
+
+  @media (max-width: 780px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
 `
 
 interface PageItemProps {

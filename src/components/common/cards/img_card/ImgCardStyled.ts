@@ -21,4 +21,8 @@ export const ContentImgWrapper = styled.div`
   width: 220px;
   height: 650px;
   position: absolute;
+
+  @media (max-width: 872px) {
+    position: relative;
+  }
 `

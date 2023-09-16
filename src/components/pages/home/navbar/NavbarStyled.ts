@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const NavbarContainer = styled.div`
-  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between; 
@@ -71,4 +70,14 @@ export const OptionsContainer = styled.div`
   align-items: center;
   height: 100px;
   border-bottom: solid 1px #C0C0C0;
+
+  @media (max-width: 872px) {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+
+  @media (max-width: 780px) {
+    padding-bottom: 10px;
+  }
 `
