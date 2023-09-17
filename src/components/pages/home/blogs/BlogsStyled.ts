@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BlogsContainer = styled.div`
-  height: 600px;
+  min-height: 600px;
   margin-top: 50px;
 
   display: flex;
@@ -10,10 +10,15 @@ export const BlogsContainer = styled.div`
 `
 
 export const BlogsCardsWrapper = styled.div`
-  height: 300px;
+  min-height: 300px;
   width: 75%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 50px;
+
+  @media (max-width: 1111px) {
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
 `

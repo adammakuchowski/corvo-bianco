@@ -12,4 +12,12 @@ export const AboutContentContainer = styled.div`
       align-items: center;
     }
   }
+
+  @media (max-width: 872px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+  }
 `

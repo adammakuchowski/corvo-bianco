@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const SectionHeaderContainer = styled.div`
-  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,6 +13,8 @@ export const SectionHeaderContentWrapper = styled.div`
   flex-direction: column;
 
   border-bottom: solid 1px #C0C0C0;
+  margin-top: 50px;
+  margin-bottom: 20px;
 `
 
 export const SectionHeaderTitleWrapper = styled.div`

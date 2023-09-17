@@ -5,6 +5,11 @@ export const CommunityEventCardContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   width: 50%;
+  
+  @media (max-width: 780px) {
+    flex-direction: column;
+    width: 75%;
+  }
 `
 
 export const CardWrapper = styled.div`

@@ -6,6 +6,10 @@ export const PhoneCardContainer = styled.div`
   align-items: center;
   flex-direction: column;
   width: 33%;
+
+  @media (max-width: 872px) {
+    width: 100%;
+  }
 `
 
 export const HeaderContentWrapper = styled.p`

@@ -3,7 +3,7 @@ import TileButton from '../../../buttons/tile_button/TileButton'
 
 interface SliderControllerProps {
   imgIndex: number;
-  setImgIndex: () => void;
+  setImgIndex: (index: number) => void;
   imgs: any[];
 }
 

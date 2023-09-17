@@ -1,9 +1,11 @@
 import styled from 'styled-components'
 
 export const ContentWarpper = styled.div`
-  min-width: 33%;
-  max-width: 33%;
-  min-height: 80%;
+  width: 33%;
+  
+  @media (max-width: 872px) {
+    width: 75%;
+  }
 `
 
 export const CircleContentImgContainer = styled.div`
@@ -62,7 +64,6 @@ export const ContentHeaderWrapper = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 45%;
     }
     &:nth-child(3) {
       margin-bottom: 20px;

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const CommunityEventsContainer = styled.div`
   margin-top: 20px;
-  height: 650px;
   opacity: 0;
   transition: all 1.5s ease-in-out;
   display: flex;
@@ -18,6 +17,10 @@ export const CommunityEventsCardsWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 50px;
-  height: 450px;
   width: 75%;
+  
+  @media (max-width: 780px) {
+    flex-direction: column;
+    width: 100%;
+  }
 `
