@@ -50,7 +50,9 @@ export const HeaderButtonWrapper = styled.div`
 
 export const ContentBodyContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  height: 30%;
 `
 
 export const ProductPriceWrapper = styled.div`
