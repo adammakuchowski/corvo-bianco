@@ -133,7 +133,7 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
                 src={img}
                 alt=''
                 fill
-                style={{objectFit: 'cover'}}
+                style={{objectFit: 'fill'}}
               />
             </ImgWrapper>
           </ModalImgContainer>

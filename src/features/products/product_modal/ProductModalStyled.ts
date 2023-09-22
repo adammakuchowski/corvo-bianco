@@ -33,6 +33,10 @@ export const ModalContainer = styled.div`
   &.active {
     opacity: 1;
   }
+
+  @media (max-width: 1773px) {
+    width: 80%;
+  }
 `
 
 export const CloseButtonContainer = styled.div`
@@ -56,23 +60,39 @@ export const ModalContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
+
+  @media (max-width: 670px) {
+    justify-content: center;
+    align-items: center;
+  }
 `
 
 export const ModalImgContainer = styled.div`
-  position: relative;
   width: 50%;
   height: 100%;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 827px) {
+    align-items: center;
+  }
+
+  @media (max-width: 670px) {
+    display: none;
+  }
 `
 
 export const ImgWrapper = styled.div`
-  width: 40%;
-  min-width: 250px;
+  width: 250px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 827px) {
+    width: 200px;
+    height: 75%;
+  }
 `
 
 export const ModalDataContainer = styled.div`
@@ -98,11 +118,20 @@ export const DataHeaderWrapper = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+
+  @media (max-width: 670px) {
+    justify-content: center;
+  }
 `
 
 export const DataHeader = styled.div`
   font-weight: 500;
   font-size: 40px;
+
+  @media (max-width: 827px) {
+    font-size: 30px;
+    align-self: center;
+  }
 `
 
 export const DataContainer = styled.div`
@@ -121,6 +150,12 @@ export const DataContainer = styled.div`
   &.active {
     opacity: 1;
     transform: translateY(0);
+  }
+
+
+  @media (max-width: 670px) {
+    width: 240px;
+    align-self: center;
   }
 `
 
@@ -147,4 +182,8 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+
+  @media (max-width: 670px) {
+    width: 227px;
+  }
 `
