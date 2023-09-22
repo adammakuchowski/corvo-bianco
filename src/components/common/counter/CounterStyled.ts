@@ -6,10 +6,13 @@ export const CounterContainer = styled.div`
   justify-content: space-around;
   width: 50%;
   height: 50%;
-
   color: #7f7f7f;
   font-weight: 500;
   position: relative;
+
+  @media (max-width: 827px) {
+    width: 164px;
+  }
 `
 
 export const CountNumber = styled.div`

@@ -1,10 +1,8 @@
 import styled from 'styled-components'
 
 export const ProductFeatureEntryContainer = styled.div`
-  /* background-color: red; */
   width: 40%;
   height: 20%;
-
   display: flex;
   justify-content: start;
   align-items: center;
