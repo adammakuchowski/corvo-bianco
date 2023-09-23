@@ -8,7 +8,13 @@ export const CheckoutFormContainer = styled.div`
 export const FromWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   border-right: solid 1px #C0C0C0;
+  padding-right: 5%;
+
+  @media (max-width: 1180px) {
+    border-right: transparent;
+  }
 `
 
 export const ContactDetailsWrapper = styled.div`
@@ -29,8 +35,7 @@ export const PersonDetailsWrapper = styled.div`
 
 export const PersonDetailsInputWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  gap: 40px;
+  justify-content: space-between;
 `
 
 export const AdressDetailsWrapper = styled.div`
@@ -47,7 +52,9 @@ export const AdressDetailsWrapper = styled.div`
 export const CountryDetailsInputWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 `
 
 export const PaymentDetailsWrapper = styled.div`
@@ -64,5 +71,6 @@ export const PaymentDetailsWrapper = styled.div`
 export const PaymentDetailsInputWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
 `

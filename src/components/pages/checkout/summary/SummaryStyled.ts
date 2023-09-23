@@ -15,14 +15,28 @@ export const SummaryContainer = styled.div`
   &.active {
     opacity: 1;
   }
+
+  @media (max-width: 1180px) {
+    height: auto;
+    min-height: 70vh;
+    width: 70%;
+  }
+
+  @media (max-width: 780px) {
+    width: 90%;
+  }
 `
 
 export const SummaryContentContainer = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
+
+  @media (max-width: 1180px) {
+    gap: 40px;
+    flex-direction: column;
+  }
 `
 
 export const CreateOrderContainer = styled.div`
@@ -48,4 +62,6 @@ export const IconWrapper = styled.div`
 
 export const ResultOrderTextWrapper = styled.div`
   font-size: 20px;
+  text-align: center;
+  text-align: justify;
 `

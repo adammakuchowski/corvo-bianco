@@ -5,6 +5,5 @@ export const CheckoutContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   flex-direction: column;
-  max-height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 `

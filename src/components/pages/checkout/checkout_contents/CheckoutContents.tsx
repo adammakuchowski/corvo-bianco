@@ -5,7 +5,11 @@ import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
 import Button from '@/components/common/buttons/button/Button'
 import ProductCartEntry from '@/features/products/product_cart/product_cart_entry/ProductCartEntry'
-import {getProductsCart, getTotalCartPrice} from '@/features/products/productsSlice'
+import {
+  getProductsCart,
+  getTotalCartPrice,
+  updateProductsCart,
+} from '@/features/products/productsSlice'
 import {FromState} from '@/features/checkout/types'
 import {getCheckoutFromState, createOrder} from '@/features/checkout/checkoutSlice'
 import {mapFormOrderToApiFormat} from '@/services/formMappingService'
@@ -40,6 +44,13 @@ const CheckoutContents = () => {
   }, [fromState])
 
   useEffect(() => {
+    const localStorageProductsCart = localStorage.getItem('productsCart')
+    const storageProductsCart = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
+
+    dispatch(updateProductsCart(storageProductsCart))
+  }, [dispatch])
+
+  useEffect(() => {
     if (productsCart.length < 5) {
       setOverflow('hidden')
 
@@ -61,7 +72,7 @@ const CheckoutContents = () => {
       </ProductCheckoutContentsContainer>
       <SummaryContainer>
         <SummaryTextWrapper className={cinzel.className}>
-          {`Total Cost Price: ${totalCartPrice} $`}
+          {`Total Price: ${totalCartPrice} $`}
         </SummaryTextWrapper>
         <Button text='order' buttonAction={confirmOrder} disabled={orderFinalizeButtonIsActive} />
       </SummaryContainer>

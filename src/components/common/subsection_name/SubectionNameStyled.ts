@@ -3,7 +3,9 @@ import styled from 'styled-components'
 export const SubectionNameContainer = styled.div`
   display: flex;
   justify-content: flex-start;
-  padding: 20px 0px;
+  align-items: center;
+
+  padding: 10px 0px;
 `
 
 export const SubectionNameTextWrapper = styled.div`

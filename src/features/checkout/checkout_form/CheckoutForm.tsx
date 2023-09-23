@@ -44,7 +44,7 @@ const CheckoutForm = () => {
         <ContactDetailsWrapper>
           <SubectionName text='Contact' />
           <ContactDetailsInputWrapper>
-            <FormControl sx={{maxWidth: '80ch'}}>
+            <FormControl>
               <TextField
                 id='outlined-basic'
                 label='E-mail'
@@ -63,7 +63,7 @@ const CheckoutForm = () => {
         <PersonDetailsWrapper>
           <SubectionName text='Person Details' />
           <PersonDetailsInputWrapper>
-            <FormControl sx={{width: '30ch'}}>
+            <FormControl sx={{width: '45%'}}>
               <TextField
                 id='outlined-basic'
                 label='Name'
@@ -77,7 +77,7 @@ const CheckoutForm = () => {
                 error={fromState.name.error}
               />
             </FormControl>
-            <FormControl sx={{width: '45ch'}}>
+            <FormControl sx={{width: '45%'}}>
               <TextField
                 id='outlined-basic'
                 label='Surname'
@@ -95,30 +95,28 @@ const CheckoutForm = () => {
         </PersonDetailsWrapper>
         <AdressDetailsWrapper>
           <SubectionName text='Adress Details' />
+          <FormControl>
+            <TextField
+              id='outlined-basic'
+              label='Adress'
+              variant='outlined'
+              color='success'
+              required
+              type='text'
+              value={fromState.adress.value}
+              onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'adress', propertyKey: 'value'}))}
+              onBlur={() => dispatch(
+                updateCheckoutForm({
+                  value: inEmptyString(fromState.adress.value),
+                  objectKey: 'adress',
+                  propertyKey: 'error',
+                })
+              )}
+              error={fromState.adress.error}
+            />
+          </FormControl>
           <CountryDetailsInputWrapper>
-            <FormControl sx={{width: '80ch'}}>
-              <TextField
-                id='outlined-basic'
-                label='Adress'
-                variant='outlined'
-                color='success'
-                required
-                type='text'
-                value={fromState.adress.value}
-                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'adress', propertyKey: 'value'}))}
-                onBlur={() => dispatch(
-                  updateCheckoutForm({
-                    value: inEmptyString(fromState.adress.value),
-                    objectKey: 'adress',
-                    propertyKey: 'error',
-                  })
-                )}
-                error={fromState.adress.error}
-              />
-            </FormControl>
-          </CountryDetailsInputWrapper>
-          <CountryDetailsInputWrapper>
-            <FormControl sx={{width: '20ch'}}>
+            <FormControl>
               <TextField
                 id='outlined-basic'
                 label='Postal Code'
@@ -138,7 +136,7 @@ const CheckoutForm = () => {
                 error={fromState.postalCode.error}
               />
             </FormControl>
-            <FormControl sx={{width: '25ch'}}>
+            <FormControl>
               <TextField
                 id='outlined-basic'
                 label='City'
@@ -152,7 +150,7 @@ const CheckoutForm = () => {
                 error={fromState.city.error}
               />
             </FormControl>
-            <FormControl sx={{width: '25ch'}}>
+            <FormControl>
               <TextField
                 id='outlined-basic'
                 label='Country'
@@ -170,30 +168,28 @@ const CheckoutForm = () => {
         </AdressDetailsWrapper>
         <PaymentDetailsWrapper>
           <SubectionName text='Payment Details' />
+          <FormControl>
+            <TextField
+              id='outlined-basic'
+              label='Card Number'
+              variant='outlined'
+              color='success'
+              required
+              type='text'
+              value={fromState.cardNumber.value}
+              onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'cardNumber', propertyKey: 'value'}))}
+              onBlur={() => dispatch(
+                updateCheckoutForm({
+                  value: !isCardNumberValid(fromState.cardNumber.value),
+                  objectKey: 'cardNumber',
+                  propertyKey: 'error',
+                })
+              )}
+              error={fromState.cardNumber.error}
+            />
+          </FormControl>
           <PaymentDetailsInputWrapper>
-            <FormControl sx={{width: '80ch'}}>
-              <TextField
-                id='outlined-basic'
-                label='Card Number'
-                variant='outlined'
-                color='success'
-                required
-                type='text'
-                value={fromState.cardNumber.value}
-                onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'cardNumber', propertyKey: 'value'}))}
-                onBlur={() => dispatch(
-                  updateCheckoutForm({
-                    value: !isCardNumberValid(fromState.cardNumber.value),
-                    objectKey: 'cardNumber',
-                    propertyKey: 'error',
-                  })
-                )}
-                error={fromState.cardNumber.error}
-              />
-            </FormControl>
-          </PaymentDetailsInputWrapper>
-          <PaymentDetailsInputWrapper>
-            <FormControl sx={{width: '30ch'}}>
+            <FormControl sx={{width: '45%'}}>
               <TextField
                 id='outlined-basic'
                 label='MM / YY'
@@ -213,7 +209,7 @@ const CheckoutForm = () => {
                 error={fromState.cardDate.error}
               />
             </FormControl>
-            <FormControl sx={{width: '45ch'}}>
+            <FormControl sx={{width: '45%'}}>
               <TextField
                 id='outlined-basic'
                 label='CVC'
