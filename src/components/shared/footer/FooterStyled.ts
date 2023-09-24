@@ -2,14 +2,16 @@ import styled from 'styled-components'
 
 export const FooterContainer = styled.div`
   width: 100%;
-  height: 200px;
   display: flex;
   justify-content: center;
 `
 
 export const FooterWrapper = styled.div`
   width: 75%;
-  height: 200px;
+
+  @media (max-width: 780px) {
+    width: 90%;
+  }
 `
 
 export const FooterToolbox = styled.div`
@@ -48,6 +50,10 @@ export const IconWrapper = styled.div`
 
 export const ArrowWrapper = styled.div`
   color: #999999;
+
+  @media (max-width: 872px) {
+    display: none;
+  }
 `
 
 export const FooterNameWrapper = styled.div`
@@ -65,4 +71,8 @@ export const FooterNameWrapper = styled.div`
     opacity: 1;
     transform: translateY(0);
   }
+
+  @media (max-width: 489px) {
+    display: none;
+  } 
 `
