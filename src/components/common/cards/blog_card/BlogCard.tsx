@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import moment from 'moment'
+
 import {cinzel} from '@/fonts/fonts'
+
 import {
   BlogCardContainer,
   CardWrapper,
@@ -42,7 +44,7 @@ const BlogCard = ({img, date, text}: BlogCardProps) => {
           <div>{days}</div>
         </ContentHeader>
         <ContentText>{text}</ContentText>
-        <TextButton content='Continue' overrideStyle={{paddingLeft: '40px'}}/>
+        {/* <TextButton content='Continue' overrideStyle={{paddingLeft: '40px'}}/> */}
       </ContentWrapper>
     </BlogCardContainer>
   )

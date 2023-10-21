@@ -5,6 +5,7 @@ import {
 } from 'react'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
+
 import {
   SidePanelButtonsContainer,
   SidePanelButtonsWrapper,

@@ -1,7 +1,9 @@
 import {useContext} from 'react'
+
 import Contact from '@/components/pages/home/contact/Contact'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import HomeContext from '@/context/HomeContext'
+
 import AboutContent from './about_content/AboutContent'
 import {AboutContainer} from './AboutStyled'
 

@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
+
 import {AppState} from '@/app/store'
 import {cinzel} from '@/fonts/fonts'
 import SectionName from '@/components/common/section_name/SectionName'
@@ -13,6 +14,7 @@ import {
 import {FromState} from '@/features/checkout/types'
 import {getCheckoutFromState, createOrder} from '@/features/checkout/checkoutSlice'
 import {mapFormOrderToApiFormat} from '@/services/formMappingService'
+
 import {
   CheckoutContentsContainer,
   ContentsContainerWrapper,

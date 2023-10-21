@@ -1,4 +1,5 @@
 import {cinzel} from '@/fonts/fonts'
+
 import {HeaderNameContainer, HeaderNameWrapper} from './HeaderNameStyled'
 
 interface HeaderNameProps {

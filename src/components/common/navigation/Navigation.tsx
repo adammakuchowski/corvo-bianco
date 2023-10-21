@@ -1,6 +1,8 @@
 import {Link} from 'react-scroll'
+
 import {merriweather} from '@/fonts/fonts'
 import {NavigationOptions} from '@/types/types'
+
 import {
   MenuContainer,
   PagesContainer,

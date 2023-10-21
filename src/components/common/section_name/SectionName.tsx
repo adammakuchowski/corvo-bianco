@@ -1,8 +1,8 @@
 import {cinzel} from '@/fonts/fonts'
+
 import {
   SectionNameContainer,
   SectionNameTextWrapper,
-
 } from './SectionNameStyled'
 
 interface SectionNameProps {

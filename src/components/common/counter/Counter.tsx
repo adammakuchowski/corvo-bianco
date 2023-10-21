@@ -1,6 +1,10 @@
-import {useState} from 'react'
 import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
-import {CounterContainer, CounterWrapper, CountNumber} from './CounterStyled'
+
+import {
+  CounterContainer,
+  CounterWrapper,
+  CountNumber,
+} from './CounterStyled'
 import IconActionButton from '../buttons/icon_action_button/IconActionButton'
 
 interface CounterProps {

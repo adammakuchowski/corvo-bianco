@@ -1,8 +1,10 @@
 import {useState, useEffect, useContext} from 'react'
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
+
 import {cinzel} from '@/fonts/fonts'
 import HomeContext from '@/context/HomeContext'
+
 import {
   BannerContainer,
   BannerNameWrapper,

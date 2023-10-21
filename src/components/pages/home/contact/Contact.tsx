@@ -2,7 +2,11 @@ import {playfairDisplay} from '@/fonts/fonts'
 import PhoneCard from '@/components/common/cards/phone_card/PhoneCard'
 import AvailableHoursCard from '@/components/common/cards/available_hours_card/AvailableHoursCard'
 import SocialMediaCard from '@/components/common/cards/social_media_card/SocialMediaCard'
-import {ContactContainer, ContactWrapper} from './ContactStyled'
+
+import {
+  ContactContainer,
+  ContactWrapper,
+} from './ContactStyled'
 
 const available = {
   fromDay: 'MON',

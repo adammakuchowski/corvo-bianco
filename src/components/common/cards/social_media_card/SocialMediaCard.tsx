@@ -2,7 +2,9 @@ import {BsFacebook} from 'react-icons/bs'
 import {GrInstagram} from 'react-icons/gr'
 import {AiFillTwitterCircle} from 'react-icons/ai'
 import {RiYoutubeFill} from 'react-icons/ri'
+
 import {IconComponent} from '@/types/types'
+
 import {
   ContentWrapper,
   HeaderContentWrapper,

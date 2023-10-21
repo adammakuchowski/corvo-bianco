@@ -1,6 +1,8 @@
 import {useState} from 'react'
 import Image from 'next/image'
+
 import {playfairDisplay, tangerine} from '@/fonts/fonts'
+
 import {
   CircleContentImgContainer,
   CircleContentImgWrapper,
