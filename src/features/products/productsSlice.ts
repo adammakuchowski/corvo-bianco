@@ -3,6 +3,9 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
 
+// mock products data
+import {products} from './data'
+
 export interface ProductsState {
   productsList: Product[];
   productsCart: ProductCart[];
@@ -22,11 +25,13 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
     let cancel: Canceler
-    const response = await axios.get('http://localhost:1337/products/getAllProducts', {
-      cancelToken: new axios.CancelToken(c => cancel = c)
-    })
+    // const response = await axios.get('http://localhost:1337/products/getAllProducts', {
+    //   cancelToken: new axios.CancelToken(c => cancel = c)
+    // })
 
-    return response.data
+    // return response.data
+
+    return products
   } catch (error: any) {
     console.error('[fetchProducts]:', error.message)
     throw error
