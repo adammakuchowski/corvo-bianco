@@ -1,7 +1,6 @@
 import {Product} from '@/types/types'
 
-// old mocked prodcuts data 
-
+// mock products data
 // export const products: Product[] = [
 //   {
 //     id: '0',
@@ -13,7 +12,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_1.jpg',
 //     price: 278.00,
 //   },
 //   {
@@ -26,7 +25,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_2.jpg',
 //     price: 120.20,
 //   },
 //   {
@@ -39,7 +38,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_3.png',
 //     price: 572.00,
 //   },
 //   {
@@ -52,7 +51,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_4.png',
 //     price: 356.00,
 //   },
 //   {
@@ -65,7 +64,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_5.png',
 //     price: 99.99,
 //   },
 //   {
@@ -78,7 +77,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_6.png',
 //     price: 278.00,
 //   },
 //   {
@@ -91,7 +90,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_7.png',
 //     price: 572.00,
 //   },
 //   {
@@ -104,7 +103,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_8.png',
 //     price: 356.00,
 //   },
 //   {
@@ -117,7 +116,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_9.png',
 //     price: 99.99,
 //   },
 //   {
@@ -130,7 +129,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_10.png',
 //     price: 278.00,
 //   },
 //   {
@@ -143,7 +142,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_11.png',
 //     price: 278.00,
 //   },
 //   {
@@ -156,7 +155,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_12.png',
 //     price: 278.00,
 //   },
 //   {
@@ -164,12 +163,12 @@ import {Product} from '@/types/types'
 //     name: 'Chardonnay',
 //     brand: 'Marchesi Antinori',
 //     quality: 5,
-//     category: 'organic',
+//     category: 'kosher',
 //     typ: 'dry',
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_13.png',
 //     price: 356.00,
 //   },
 //   {
@@ -182,7 +181,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_14.png',
 //     price: 572.00,
 //   },
 //   {
@@ -195,7 +194,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_15.png',
 //     price: 99.99,
 //   },
 //   {
@@ -208,7 +207,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_16.png',
 //     price: 278.00,
 //   },
 //   {
@@ -221,7 +220,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_17.png',
 //     price: 120.20,
 //   },
 //   {
@@ -234,7 +233,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_1.jpg',
 //     price: 356.00,
 //   },
 //   {
@@ -247,7 +246,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_2.jpg',
 //     price: 278.00,
 //   },
 //   {
@@ -260,7 +259,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_3.png',
 //     price: 278.00,
 //   },
 //   {
@@ -273,7 +272,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_4.png',
 //     price: 356.00,
 //   },
 //   {
@@ -286,7 +285,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_5.png',
 //     price: 572.00,
 //   },
 //   {
@@ -299,7 +298,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_6.png',
 //     price: 278.00,
 //   },
 //   {
@@ -312,7 +311,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_7.png',
 //     price: 572.00,
 //   },
 //   {
@@ -325,7 +324,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_8.png',
 //     price: 356.00,
 //   },
 //   {
@@ -338,7 +337,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_9.png',
 //     price: 572.00,
 //   },
 //   {
@@ -351,7 +350,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_10.png',
 //     price: 356.00,
 //   },
 //   {
@@ -364,7 +363,7 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_11.png',
 //     price: 99.99,
 //   },
 //   {
@@ -377,7 +376,85 @@ import {Product} from '@/types/types'
 //     color: 'white',
 //     productionYear: '2006',
 //     countryOfOrigin: 'italy',
-//     img: '/images/bottle.jpg',
+//     img: '/images/bottles/bottle_12.png',
 //     price: 278.00,
-//   }
+//   },
+//   {
+//     id: '29',
+//     name: 'Garnacha',
+//     brand: 'Marchesi Antinori',
+//     quality: 3,
+//     category: 'roes',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_10.png',
+//     price: 278.00,
+//   },
+//   {
+//     id: '30',
+//     name: 'Garnacha',
+//     brand: 'Marchesi Antinori',
+//     quality: 3,
+//     category: 'roes',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_11.png',
+//     price: 278.00,
+//   },
+//   {
+//     id: '31',
+//     name: 'Garnacha',
+//     brand: 'Marchesi Antinori',
+//     quality: 3,
+//     category: 'roes',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_12.png',
+//     price: 278.00,
+//   },
+//   {
+//     id: '32',
+//     name: 'Syrah',
+//     brand: 'Marchesi Antinori',
+//     quality: 1,
+//     category: 'kosher',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_11.png',
+//     price: 99.99,
+//   },
+//   {
+//     id: '33',
+//     name: 'Garnacha',
+//     brand: 'Marchesi Antinori',
+//     quality: 3,
+//     category: 'other',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_12.png',
+//     price: 278.00,
+//   },
+//   {
+//     id: '34',
+//     name: 'Airén',
+//     brand: 'Marchesi Antinori',
+//     quality: 2,
+//     category: 'other',
+//     typ: 'dry',
+//     color: 'white',
+//     productionYear: '2006',
+//     countryOfOrigin: 'italy',
+//     img: '/images/bottles/bottle_3.png',
+//     price: 572.00,
+//   },
 // ]

@@ -21,6 +21,7 @@ export const ButtonWrapper = styled.div`
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-top: 15px;
 `
 
 export const ProductGalleryContentWrapper = styled.div`
@@ -47,7 +48,7 @@ export const ProductsListContainer = styled.div`
   height: ${({viewAll, productsCount}: ProductsListContainerPops) => {
     const productsListLevels = productsCount / 4
     const levelsRounded = Math.ceil(productsListLevels)
-    const height = viewAll ? 525 * levelsRounded : 525
+    const height = viewAll ? 525 * levelsRounded : 535
 
     return `${height}px`;
   }};

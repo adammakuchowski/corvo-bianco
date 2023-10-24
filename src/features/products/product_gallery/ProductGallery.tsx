@@ -51,7 +51,7 @@ const ProductGallery = (): JSX.Element => {
   }, [productGalleryPage, products])
 
 
-  const ProductsListEvent = () => productsListStatus.viewAll ?
+  const productsListEvent = () => productsListStatus.viewAll ?
     setProductsListStatus(productsListStatuses[0]) :
     setProductsListStatus(productsListStatuses[1])
 
@@ -74,7 +74,7 @@ const ProductGallery = (): JSX.Element => {
                 <ProductsList products={categoryProducts} productGalleryPage={productGalleryPage} />
                 <ButtonWrapper>
                   {currentProductsCount > 4 && (
-                    <Button text={productsListStatus.text} buttonAction={ProductsListEvent} />
+                    <Button text={productsListStatus.text} buttonAction={productsListEvent} />
                   )}
                 </ButtonWrapper>
               </> :

@@ -3,6 +3,9 @@ import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
 
+// mock products data
+// import {products} from './data'
+
 export interface ProductsState {
   productsList: Product[];
   productsCart: ProductCart[];
