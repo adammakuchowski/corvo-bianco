@@ -1,5 +1,7 @@
 import {useEffect, useState} from 'react'
+
 import {cinzel} from '@/fonts/fonts'
+
 import {DisabledTextButtonContainer, TextButtonContainer} from './TextButtonStyled'
 
 interface TextButtonProps {

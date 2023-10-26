@@ -2,11 +2,13 @@ import {useContext, useEffect, useState} from 'react'
 import {useSelector} from 'react-redux'
 import {BsCheckCircle} from 'react-icons/bs'
 import {VscError} from 'react-icons/vsc'
+
 import CircularProgress from '@mui/material/CircularProgress'
 import {AppState} from '@/app/store'
 import {cinzel} from '@/fonts/fonts'
 import CheckoutContext from '@/context/CheckoutContext'
 import CheckoutForm from '@/features/checkout/checkout_form/CheckoutForm'
+
 import {
   CreateOrderContainer,
   IconWrapper,

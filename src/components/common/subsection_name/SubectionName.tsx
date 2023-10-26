@@ -1,8 +1,8 @@
 import {cinzel} from '@/fonts/fonts'
+
 import {
   SubectionNameContainer,
   SubectionNameTextWrapper,
-
 } from './SubectionNameStyled'
 
 interface SubectionNameProps {

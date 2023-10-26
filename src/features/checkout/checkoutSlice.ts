@@ -1,7 +1,9 @@
 import axios, {Canceler} from 'axios'
+
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {AppState} from '@/app/store'
 import {OrderApiFormat} from '@/types/types'
+
 import {CheckoutState, FromState} from './types'
 
 const initialState: CheckoutState = {

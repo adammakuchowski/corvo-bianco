@@ -1,4 +1,5 @@
 import {cinzel} from '@/fonts/fonts'
+
 import {ButtonContainer, DisabledButtonContainer} from './ButtonStyled'
 
 interface DisabledButtonProps {

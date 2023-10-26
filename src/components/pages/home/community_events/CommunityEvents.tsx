@@ -1,8 +1,13 @@
-import {useState, useEffect, useContext} from 'react'
+import {useContext} from 'react'
+
 import CommunityEventCard from '@/components/common/cards/community_event_card/CommunityEventCard'
 import SectionHeader from '@/components/common/section_header/SectionHeader'
 import HomeContext from '@/context/HomeContext'
-import {CommunityEventsCardsWrapper, CommunityEventsContainer} from './CommunityEventsStyled'
+
+import {
+  CommunityEventsCardsWrapper,
+  CommunityEventsContainer,
+} from './CommunityEventsStyled'
 
 const communityEventCardData = [
   {

@@ -4,6 +4,7 @@ import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
 import {BiMessageRoundedError} from 'react-icons/bi'
 import {FiHeart} from 'react-icons/fi'
+
 import {AppState} from '@/app/store'
 import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather} from '@/fonts/fonts'
@@ -13,6 +14,7 @@ import HeaderName from '@/components/common/header_name/HeaderName'
 import ProductCart from '@/features/products/product_cart/ProductCart'
 import FavoriteProducts from '@/features/products/favorite_product/FavoriteProducts'
 import {getFavoriteProducts, getProductsCart} from '@/features/products/productsSlice'
+
 import {
   NavbarContainer,
   OptionsContainer,

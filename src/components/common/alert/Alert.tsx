@@ -1,5 +1,7 @@
 import {useContext, useEffect} from 'react'
+
 import AlertContext from '@/context/AlertContext'
+
 import {AlertContainer, AlertIconWrapper} from './AlertStyled'
 
 interface AlertProps {

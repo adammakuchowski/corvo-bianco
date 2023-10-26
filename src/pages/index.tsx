@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import Head from 'next/head'
+
 import HomeContext, {HomeContextValue} from '@/context/HomeContext'
 import ProductGallery from '@/features/products/product_gallery/ProductGallery'
 import About from '@/components/pages/home/about/About'

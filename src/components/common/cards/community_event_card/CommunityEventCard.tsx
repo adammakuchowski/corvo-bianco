@@ -1,5 +1,7 @@
 import Image from 'next/image'
+
 import {cinzel} from '@/fonts/fonts'
+
 import {
   CardWrapper,
   CommunityEventCardContainer,

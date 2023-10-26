@@ -1,10 +1,12 @@
 import {useRouter} from 'next/router'
 import {useDispatch, useSelector} from 'react-redux'
+
 import {AppState} from '@/app/store'
 import HeaderName from '@/components/common/header_name/HeaderName'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
 import {clearCart} from '@/features/products/productsSlice'
 import {resetOrderCreateStatus} from '@/features/checkout/checkoutSlice'
+
 import {HeaderContainer, BackHomeButtonWrapper} from './HeaderStyled'
 
 interface HeaderProps {
