@@ -9,13 +9,10 @@ import Blogs from '@/components/pages/home/blogs/Blogs'
 import CommunityEvents from '@/components/pages/home/community_events/CommunityEvents'
 import Navbar from '@/components/pages/home/navbar/Navbar'
 import Footer from '@/components/shared/footer/Footer'
+import {PreLoader} from '@/components/pages/home/pre-loader/PreLoader'
 
 export default function Home() {
   const [className, setClassName] = useState<string>('')
-
-  useEffect(() => {
-    setClassName('active')
-  }, [])
 
   const homeContextValue: HomeContextValue = {
     className: className,
@@ -23,6 +20,7 @@ export default function Home() {
 
   return (
     <HomeContext.Provider value={homeContextValue}>
+      <PreLoader setClassName={setClassName}/>
       <Head>
         <title>Corvo Bianco Premium Wines</title>
         <meta name="description" content="High quality premium wine shop" />
