@@ -14,7 +14,7 @@ export const SectionHeaderContentWrapper = styled.div`
 
   border-bottom: solid 1px #C0C0C0;
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 `
 
 export const SectionHeaderTitleWrapper = styled.div`
@@ -25,6 +25,6 @@ export const SectionHeaderTitleWrapper = styled.div`
 
 export const SectionHeaderTextWrapper = styled.div`
   font-size: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-weight: bold;
 `
