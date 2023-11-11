@@ -1,4 +1,9 @@
-import {useCallback, useEffect, useState} from 'react'
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from 'react'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
 import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
@@ -8,6 +13,7 @@ import {FiHeart} from 'react-icons/fi'
 import {AppState} from '@/app/store'
 import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather} from '@/fonts/fonts'
+import HomeContext from '@/context/HomeContext'
 import Navigation from '@/components/common/navigation/Navigation'
 import IconButton from '@/components/common/buttons/icon_button/IconButton'
 import HeaderName from '@/components/common/header_name/HeaderName'
@@ -29,19 +35,15 @@ import {manuOptions} from './data'
 const Navbar = (): JSX.Element => {
   const router = useRouter()
   const [productNavbarPage, setProductNavbarPage] = useState<number>(0)
-  const [className, setClassName] = useState<string>('')
   const [cartIsOpen, setCartIsOpen] = useState<boolean>(false)
   const [cartCount, setCartCount] = useState<number>(0)
-
   const [favoriteIsOpen, setFavoriteIsOpen] = useState<boolean>(false)
   const [favoriteCount, setFavoriteCount] = useState<number>(0)
 
   const productsCart = useSelector(getProductsCart)
   const favoriteProducts = useSelector(getFavoriteProducts)
 
-  useEffect(() => {
-    setClassName('active')
-  }, [])
+  const {className} = useContext(HomeContext)
 
   const getCartCount = useCallback(() => {
     if (!productsCart || !productsCart.length) return 0
