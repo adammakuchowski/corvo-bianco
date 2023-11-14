@@ -5,7 +5,7 @@ import Header from '@/components/shared/header/Header'
 import Summary from '@/components/pages/checkout/summary/Summary'
 import Footer from '@/components/shared/footer/Footer'
 
-import {CheckoutContainer} from './styles/checkoutStyled'
+import {CheckoutContainer} from '../styles/checkoutStyled'
 
 const Checkout = (): JSX.Element => {
   const [className, setClassName] = useState<string>('')
