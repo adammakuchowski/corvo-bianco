@@ -1,7 +1,10 @@
 import axios, {Canceler} from 'axios'
+
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {Product, ProductCart} from '@/types/types'
 import {AppState} from '@/app/store'
+
+import appConfig from '../../../config/appConfig'
 
 // mock products data
 // import {products} from './data'
@@ -25,7 +28,7 @@ const initialState: ProductsState = {
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
     let cancel: Canceler
-    const response = await axios.get('http://localhost:1337/products/getAllProducts', {
+    const response = await axios.get(`${appConfig.apiBaseUrl}/products/getAllProducts`, {
       cancelToken: new axios.CancelToken(c => cancel = c)
     })
 
@@ -117,7 +120,7 @@ export const productsSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.productFetchStatus = 'succeeded'
-        state.productsList = state.productsList.concat(action.payload)
+        state.productsList = [...action.payload]
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.productFetchStatus = 'failed'
