@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <HomeContext.Provider value={homeContextValue}>
-      <PreLoader setClassName={setClassName}/>
+      <PreLoader setClassName={setClassName} />
       <Head>
         <title>Corvo Bianco Premium Wines</title>
         <meta name="description" content="High quality premium wine shop" />

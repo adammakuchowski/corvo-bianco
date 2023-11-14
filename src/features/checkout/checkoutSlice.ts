@@ -5,6 +5,7 @@ import {AppState} from '@/app/store'
 import {OrderApiFormat} from '@/types/types'
 
 import {CheckoutState, FromState} from './types'
+import appConfig from '../../../config/appConfig'
 
 const initialState: CheckoutState = {
   checkoutForm: {
@@ -65,7 +66,7 @@ interface UpdateCheckoutFormAction {
 export const createOrder = createAsyncThunk('orders/createOrder', async (order: OrderApiFormat) => {
   try {
     let cancel: Canceler
-    const response = await axios.post('http://localhost:1337/orders/createOrder', order, {
+    const response = await axios.post(`${appConfig.apiBaseUrl}/orders/createOrder`, order, {
       cancelToken: new axios.CancelToken(c => cancel = c)
     })
 
