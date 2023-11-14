@@ -1,4 +1,4 @@
-import {ContactContainer} from './styles/contactStyled'
+import {ContactContainer} from '../styles/contactStyled'
 
 const Contact = (): JSX.Element => {
   
