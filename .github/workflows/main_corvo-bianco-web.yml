@@ -60,5 +60,5 @@ jobs:
           package: next.zip
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DF3EB35831614B58AE2888A9048C1700 }}
           
-       - name: Delete zip file
-            run: rm next.zip
+      - name: Delete zip file
+        run: rm next.zip
