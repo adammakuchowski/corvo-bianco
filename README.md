@@ -1,10 +1,10 @@
-# [Corvo-Bianco](https://corvo-bianco-web.azurewebsites.net)
+# [Corvo Bianco](https://corvo-bianco-web.azurewebsites.net)
 
-Corvo-Bianco is a wine online store project built with React using Next.js.
+Corvo Bianco is a wine online store project, built with React using Next.js.
 
 ## Description
 
-Corvo-Bianco was created for learning and improving programming skills, providing a responsive interface for easy browsing of diverse wine offerings. It's a practical application of modern web technologies, perfect for gaining experience in web application design. Additionally, in this project, I made an effort to use as few ready-made components from external libraries as possible, aiming to enhance programming skills.
+Corvo Bianco was created for learning and improving programming skills, providing a responsive interface for easy browsing of diverse wine offerings. It's a practical application of modern web technologies, perfect for gaining experience in web application design. Additionally, in this project, I made an effort to use as few ready-made components from external libraries as possible, aiming to enhance programming skills.
 
 Wine data is fetched from the second part of this project, a dedicated API: https://github.com/adammakuchowski/corvo-bianco-api
 
@@ -34,7 +34,7 @@ Wine data is fetched from the second part of this project, a dedicated API: http
 
 * Before starting use your package manager: npm or yarn to install all necessary dependencies and packages
 
-* If you're trying to start the project on your computer after cloning reop, you won't have real wine data. To address this, use special mock data in the file: src\features\products\data.ts during fetching data from the API.
+* If you're trying to start the project on your local computer after cloning reop, you won't have real wine data. To address this, use special mock data in the file: src\features\products\data.ts during fetching data from the API.
 
 ```
 npm install
@@ -48,7 +48,7 @@ npm run start
 
 ## Link
 
-[Corvo-Bianco](https://corvo-bianco-web.azurewebsites.net)
+[Corvo Bianco](https://corvo-bianco-web.azurewebsites.net)
 
 ## Author
 
