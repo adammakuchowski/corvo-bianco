@@ -26,6 +26,10 @@ export const SentencesWrapper = styled.div`
   color: #641B30;
   font-size: 30px;
   font-weight: 600;
+
+  @media (max-width: 508px) {
+    font-size: 20px;
+  }
 `
 
 export const Sentence = styled.div`
