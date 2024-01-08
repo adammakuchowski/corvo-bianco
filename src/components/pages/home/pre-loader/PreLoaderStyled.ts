@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PreLoaderContainer = styled.div`
   z-index: 100;

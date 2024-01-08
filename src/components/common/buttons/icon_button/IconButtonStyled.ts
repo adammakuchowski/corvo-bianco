@@ -12,7 +12,7 @@ export const DisabledIconButtonContainer = styled.button`
 
 export const IconButtonContainer = styled.button`
   border: none;
-	padding: 0;
+  padding: 0;
   background: none;
   font-size: 20px;
   display: flex;

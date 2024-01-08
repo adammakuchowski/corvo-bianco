@@ -20,5 +20,5 @@ export const manuOptions: NavigationOptions[] = [
   {
     name: 'Contact',
     sectionName: 'contact'
-  },
+  }
 ]

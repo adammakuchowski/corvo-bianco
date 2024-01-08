@@ -1,16 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useState
 } from 'react'
 import {useRouter} from 'next/router'
 import {useSelector} from 'react-redux'
-import {AiOutlineSearch, AiOutlineShoppingCart, AiOutlineSetting} from 'react-icons/ai'
-import {BiMessageRoundedError} from 'react-icons/bi'
+import {AiOutlineShoppingCart} from 'react-icons/ai'
 import {FiHeart} from 'react-icons/fi'
 
-import {AppState} from '@/app/store'
 import {ProductCart as ProductCartInterface} from '@/types/types'
 import {merriweather} from '@/fonts/fonts'
 import HomeContext from '@/context/HomeContext'
@@ -27,10 +27,9 @@ import {
   ActionsWrapper,
   SettingWrapper,
   IconCounterWrapper,
-  IconWrapper,
+  IconWrapper
 } from './NavbarStyled'
 import {manuOptions} from './data'
-
 
 const Navbar = (): JSX.Element => {
   const router = useRouter()
@@ -46,9 +45,11 @@ const Navbar = (): JSX.Element => {
   const {className} = useContext(HomeContext)
 
   const getCartCount = useCallback(() => {
-    if (!productsCart || !productsCart.length) return 0
+    if (!productsCart?.length) return 0
 
-    return productsCart.reduce((total: number, amount: ProductCartInterface): number => total += amount.quantity, 0)
+    return productsCart.reduce((total: number, amount: ProductCartInterface): number => {
+      return total + amount.quantity
+    }, 0)
   }, [productsCart])
 
   useEffect(() => {
@@ -56,10 +57,10 @@ const Navbar = (): JSX.Element => {
     setFavoriteCount(favoriteProducts.length)
   }, [getCartCount, favoriteProducts])
 
-  const openCart = () => setCartIsOpen(true)
-  const toRouting = (path: string) => router.push(`/${path}`)
+  const openCart = (): void => { setCartIsOpen(true) }
+  // const toRouting = async (path: string): Promise<boolean> => await router.push(`/${path}`)
 
-  const openFavorite = () => setFavoriteIsOpen(true)
+  const openFavorite = (): void => { setFavoriteIsOpen(true) }
 
   return (
     <section className='start'>

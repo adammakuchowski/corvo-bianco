@@ -5,7 +5,7 @@ export interface HomeContextValue {
 }
 
 const HomeContext = react.createContext<HomeContextValue>({
-  className: '',
+  className: ''
 })
 
 export default HomeContext

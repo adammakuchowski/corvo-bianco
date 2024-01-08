@@ -5,18 +5,17 @@ import SocialMediaCard from '@/components/common/cards/social_media_card/SocialM
 
 import {
   ContactContainer,
-  ContactWrapper,
+  ContactWrapper
 } from './ContactStyled'
 
 const available = {
   fromDay: 'MON',
   toDay: 'SUN',
   fromHour: '8',
-  toHour: '10',
+  toHour: '10'
 }
 
 const Contact = (): JSX.Element => {
-
   return (
     <ContactContainer>
       <ContactWrapper className={playfairDisplay.className}>

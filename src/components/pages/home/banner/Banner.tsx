@@ -1,4 +1,4 @@
-import {useState, useEffect, useContext} from 'react'
+import {useContext} from 'react'
 import Image from 'next/image'
 import {GiVineLeaf} from 'react-icons/gi'
 
@@ -10,14 +10,14 @@ import {
   BannerNameWrapper,
   BannerOpacity,
   BannerWrapper,
-  ImgWrapper,
+  ImgWrapper
 } from './BannerStyled'
 
 const img = '/images/banner.jpg'
 
 const Banner = (): JSX.Element => {
   const {className} = useContext(HomeContext)
-  
+
   return (
     <BannerContainer className={className}>
       <GiVineLeaf size={50} style={{marginLeft: '50px'}} />

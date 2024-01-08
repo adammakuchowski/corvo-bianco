@@ -1,7 +1,7 @@
 import {
   ContentWrapper,
   HeaderContentWrapper,
-  PhoneCardContainer,
+  PhoneCardContainer
 } from './PhoneCardStyled'
 
 interface PhoneCardProps {
@@ -10,7 +10,6 @@ interface PhoneCardProps {
 }
 
 const PhoneCard = ({headerText, phoneNumber}: PhoneCardProps): JSX.Element => {
-
   return (
     <PhoneCardContainer>
       <HeaderContentWrapper>{headerText}</HeaderContentWrapper>
@@ -20,4 +19,3 @@ const PhoneCard = ({headerText, phoneNumber}: PhoneCardProps): JSX.Element => {
 }
 
 export default PhoneCard
-

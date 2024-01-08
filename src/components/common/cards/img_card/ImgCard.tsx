@@ -3,7 +3,7 @@ import Image from 'next/image'
 import {
   ContentWarpper,
   ContentImgContainer,
-  ContentImgWrapper,
+  ContentImgWrapper
 } from './ImgCardStyled'
 
 interface ImgCardProps {

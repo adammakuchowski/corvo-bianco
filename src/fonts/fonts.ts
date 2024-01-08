@@ -4,7 +4,7 @@ import {
   Great_Vibes,
   Playfair_Display,
   Tangerine,
-  Sacramento,
+  Sacramento
 } from 'next/font/google'
 
 export const cinzel = Cinzel({

@@ -8,7 +8,7 @@ import {IconComponent} from '@/types/types'
 import {
   ContentWrapper,
   HeaderContentWrapper,
-  SocialMediaCardContainer,
+  SocialMediaCardContainer
 } from './SocialMediaCardStyled'
 import IconButton from '../../buttons/icon_button/IconButton'
 
@@ -17,24 +17,24 @@ interface SocialMediaCardProps {
 }
 
 const SocialMediaCard = ({headerText}: SocialMediaCardProps): JSX.Element => {
-  const openPage = (address: string) => window.open(address)
+  const openPage = (address: string): Window | null => window.open(address)
 
   const socialMedias: IconComponent[] = [
     {
       iconComponent: <BsFacebook/>,
-      iconAction: () => openPage('https://facebook.com/'),
+      iconAction: () => openPage('https://facebook.com/')
     },
     {
       iconComponent: <GrInstagram/>,
-      iconAction: () => openPage('https://www.instagram.com/'),
+      iconAction: () => openPage('https://www.instagram.com/')
     },
     {
       iconComponent: <AiFillTwitterCircle/>,
-      iconAction: () => openPage('https://twitter.com/'),
+      iconAction: () => openPage('https://twitter.com/')
     },
     {
       iconComponent: <RiYoutubeFill/>,
-      iconAction: () => openPage('https://www.youtube.com/'),
+      iconAction: () => openPage('https://www.youtube.com/')
     }
   ]
 

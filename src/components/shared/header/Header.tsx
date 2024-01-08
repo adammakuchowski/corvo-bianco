@@ -20,7 +20,7 @@ const Header = ({className}: HeaderProps): JSX.Element => {
   const router = useRouter()
   const orderCreateStatus = useSelector((state: AppState) => state.checkout.orderCreateStatus)
 
-  const toHome = () => {
+  const toHome = (): void => {
     router.push('/')
 
     if (createOrderResultStatuses.includes(orderCreateStatus)) {

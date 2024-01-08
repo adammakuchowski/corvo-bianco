@@ -14,13 +14,13 @@ import {
   ImgWrapper,
   ProductCartEntryContainer,
   ProductNameWrapper,
-  ProductPriceWrapper,
+  ProductPriceWrapper
 } from './ProductCartEntryStyled'
 import ProductCartEntryCounter from '../product_cart_entry_counter/ProductCartEntryCounter'
 import {removeProductCart} from '../../productsSlice'
 
 interface ProductCartEntryProps {
-  productCart: ProductCart
+  productCart: ProductCart;
 }
 
 const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => {
@@ -31,7 +31,7 @@ const ProductCartEntry = ({productCart}: ProductCartEntryProps): JSX.Element => 
     (price * quantity).toFixed(2)
   ), [price, quantity])
 
-  const onRemovePorductCard = () => {
+  const onRemovePorductCard = (): void => {
     dispatch(removeProductCart({id}))
   }
 

@@ -4,7 +4,7 @@ import {
   SectionHeaderContainer,
   SectionHeaderContentWrapper,
   SectionHeaderTitleWrapper,
-  SectionHeaderTextWrapper,
+  SectionHeaderTextWrapper
 } from './SectionHeaderStyled'
 
 interface SectionHeaderProps {

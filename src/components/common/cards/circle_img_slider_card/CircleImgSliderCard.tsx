@@ -10,7 +10,7 @@ import {
   ContentDescriptionWrapper,
   ContentWarpper,
   ContentHeaderWrapper,
-  ImageSwitchContainer,
+  ImageSwitchContainer
 } from './CircleImgSliderCardStyled'
 import SliderController from './slider_controller/SliderController'
 
@@ -25,7 +25,7 @@ const CircleImgSliderCard = ({
   imgs,
   headerLocation,
   headerText,
-  description,
+  description
 }: ImgCardProps): JSX.Element => {
   const [imgIndex, setImgIndex] = useState<number>(0)
 

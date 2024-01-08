@@ -12,9 +12,9 @@ const Alert = ({iconComponent}: AlertProps): JSX.Element => {
   const {isAlertActive, setAlertActive} = useContext(AlertContext)
 
   useEffect(() => {
-    if(!isAlertActive) return
+    if (!isAlertActive) return
 
-    setTimeout(()=> {
+    setTimeout(() => {
       setAlertActive(false)
     }, 800)
   }, [isAlertActive, setAlertActive])

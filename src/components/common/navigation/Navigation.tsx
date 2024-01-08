@@ -7,9 +7,8 @@ import {
   MenuContainer,
   PagesContainer,
   ListWrapper,
-  PageItem,
+  PageItem
 } from './NavigationStyled'
-
 
 interface NavigationProps {
   fontSize?: string;
@@ -19,7 +18,7 @@ interface NavigationProps {
 }
 
 const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: NavigationProps): JSX.Element => {
-  const switchPage = (index: number) => {
+  const switchPage = (index: number): void => {
     setActivePage(index)
   }
 
@@ -31,10 +30,10 @@ const Navigation = ({fontSize = '18px', options, activePage, setActivePage}: Nav
             <Link key={index} to={option.sectionName ?? ''} smooth={true} duration={500}>
               <PageItem
                 className={merriweather.className}
-                style={{fontSize: fontSize}}
+                style={{fontSize}}
                 key={index}
                 activePage={index === activePage}
-                onClick={() => switchPage(index)}
+                onClick={() => { switchPage(index) }}
               >
                 {option.name}
               </PageItem>

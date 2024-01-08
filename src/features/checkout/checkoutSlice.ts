@@ -11,44 +11,44 @@ const initialState: CheckoutState = {
   checkoutForm: {
     email: {
       value: '',
-      error: false,
+      error: false
     },
     name: {
       value: '',
-      error: false,
+      error: false
     },
     surname: {
       value: '',
-      error: false,
+      error: false
     },
     adress: {
       value: '',
-      error: false,
+      error: false
     },
     postalCode: {
       value: '',
-      error: false,
+      error: false
     },
     city: {
       value: '',
-      error: false,
+      error: false
     },
     country: {
       value: '',
-      error: false,
+      error: false
     },
     cardNumber: {
       value: '',
-      error: false,
+      error: false
     },
     cardDate: {
       value: '',
-      error: false,
+      error: false
     },
     cardCvc: {
       value: '',
-      error: false,
-    },
+      error: false
+    }
   },
   orderCreateStatus: 'idle',
   orderCreateError: null
@@ -59,15 +59,16 @@ interface UpdateCheckoutFormAction {
     value: string | boolean;
     objectKey: string;
     propertyKey: string;
-  },
+  };
   type: string;
 }
 
 export const createOrder = createAsyncThunk('orders/createOrder', async (order: OrderApiFormat) => {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let cancel: Canceler
     const response = await axios.post(`${appConfig.apiBaseUrl}/orders/createOrder`, order, {
-      cancelToken: new axios.CancelToken(c => cancel = c)
+      cancelToken: new axios.CancelToken(c => { cancel = c })
     })
 
     return response.data
@@ -81,16 +82,16 @@ export const checkoutSlice = createSlice({
   name: 'checkout',
   initialState,
   reducers: {
-    updateCheckoutForm(state: CheckoutState, action: UpdateCheckoutFormAction) {
+    updateCheckoutForm (state: CheckoutState, action: UpdateCheckoutFormAction) {
       const {payload: {value, objectKey, propertyKey}} = action
 
       state.checkoutForm[objectKey][propertyKey] = value
     },
-    resetOrderCreateStatus(state: CheckoutState) {
+    resetOrderCreateStatus (state: CheckoutState) {
       state.orderCreateStatus = 'idle'
     }
   },
-  extraReducers(builder) {
+  extraReducers (builder) {
     builder
       .addCase(createOrder.pending, (state) => {
         state.orderCreateStatus = 'loading'

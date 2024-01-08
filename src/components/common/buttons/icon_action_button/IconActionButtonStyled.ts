@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const IconActionButtonContainer = styled.button`
   border: none;
-	padding: 0;
+  padding: 0;
   background: none;
   display: flex;
   align-items: center;

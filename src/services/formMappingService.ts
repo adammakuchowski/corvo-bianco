@@ -1,7 +1,7 @@
 import {
   OrderApiFormat,
   ProductCart,
-  ProductOrderApiFormat,
+  ProductOrderApiFormat
 } from '@/types/types'
 import {FromState} from '@/features/checkout/types'
 
@@ -12,7 +12,7 @@ const mapProductsCartToOrderApiFormat = (productsCart: ProductCart[]): ProductOr
 export const mapFormOrderToApiFormat = (
   fromState: FromState,
   productsCart: ProductCart[],
-  totalCostPrice: number,
+  totalCostPrice: number
 ): OrderApiFormat => {
   const productsCartOrderApiFormat = mapProductsCartToOrderApiFormat(productsCart)
 

@@ -4,7 +4,7 @@ import {
   playfairDisplay,
   greatVibes,
   tangerine,
-  sacramento,
+  sacramento
 } from '@/fonts/fonts'
 
 import {
@@ -14,7 +14,7 @@ import {
   ContentDescriptionContainer,
   ContentDescriptionWrapper,
   ContentWarpper,
-  ContentHeaderWrapper,
+  ContentHeaderWrapper
 } from './CircleImgCardStyled'
 
 interface CircleImgCardProps {
@@ -32,9 +32,8 @@ const CircleImgCard = ({
   headerYear,
   headerText,
   description,
-  autograph,
+  autograph
 }: CircleImgCardProps): JSX.Element => {
-  
   return (
     <ContentWarpper>
       <ContentHeaderWrapper>

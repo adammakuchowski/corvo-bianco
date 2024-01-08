@@ -18,13 +18,17 @@ const DisabledButton = ({text}: DisabledButtonProps): JSX.Element => (
 )
 
 const Button = ({text, buttonAction, disabled = false}: ButtonProps): JSX.Element => {
-  const onButtonAction = () => buttonAction && buttonAction()
+  const onButtonAction = (): void => {
+    if (!buttonAction) return
+
+    buttonAction()
+  }
 
   return (
     <>
-      {disabled ?
-        <DisabledButton text={text} /> :
-        <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
+      {disabled
+        ? <DisabledButton text={text} />
+        : <ButtonContainer className={cinzel.className} onClick={onButtonAction}>
           {text.toUpperCase()}
         </ButtonContainer>
       }

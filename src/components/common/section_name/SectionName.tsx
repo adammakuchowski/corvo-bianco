@@ -2,7 +2,7 @@ import {cinzel} from '@/fonts/fonts'
 
 import {
   SectionNameContainer,
-  SectionNameTextWrapper,
+  SectionNameTextWrapper
 } from './SectionNameStyled'
 
 interface SectionNameProps {

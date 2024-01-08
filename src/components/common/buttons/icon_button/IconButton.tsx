@@ -16,8 +16,8 @@ interface DisabledIconButtonProps {
   fontSize?: string;
 }
 
-const DisabledIconButton = ({iconComponent, fontSize}: DisabledIconButtonProps) => (
-  <DisabledIconButtonContainer style={{fontSize: fontSize}}>
+const DisabledIconButton = ({iconComponent, fontSize}: DisabledIconButtonProps): JSX.Element => (
+  <DisabledIconButtonContainer style={{fontSize}}>
     {iconComponent}
   </DisabledIconButtonContainer>
 )
@@ -27,15 +27,19 @@ const IconButton = ({
   iconAction,
   sectionName,
   fontSize = '20px',
-  disabled = false,
+  disabled = false
 }: IconButtonProps): JSX.Element => {
-  const onIconAction = () => iconAction && iconAction()
+  const onIconAction = (): void => {
+    if (!iconAction) return
+
+    iconAction()
+  }
 
   return (
     <Link to={sectionName ?? ''} smooth={true} duration={500}>
-      {disabled ?
-        <DisabledIconButton iconComponent={iconComponent} fontSize={fontSize} /> :
-        <IconButtonContainer onClick={onIconAction} style={{fontSize: fontSize}}>
+      {disabled
+        ? <DisabledIconButton iconComponent={iconComponent} fontSize={fontSize} />
+        : <IconButtonContainer onClick={onIconAction} style={{fontSize}}>
           {iconComponent}
         </IconButtonContainer>
       }
@@ -44,4 +48,3 @@ const IconButton = ({
 }
 
 export default IconButton
-

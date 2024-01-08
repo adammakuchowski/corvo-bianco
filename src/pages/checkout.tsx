@@ -15,7 +15,7 @@ const Checkout = (): JSX.Element => {
   }, [])
 
   const checkoutContextValue: CheckoutContextValue = {
-    className: className,
+    className
   }
 
   return (

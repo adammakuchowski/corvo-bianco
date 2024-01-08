@@ -24,4 +24,3 @@ export const AlertIconWrapper = styled.div`
   font-size: 50px;
   color: #8ea648;
 `
-
