@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import {Product} from '@/types/types'
 
 // mock products data

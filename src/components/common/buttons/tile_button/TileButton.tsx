@@ -18,7 +18,7 @@ const TileButton = ({index, setImgIndex, imgIndex}: TileButtonProps): JSX.Elemen
 
   return (
     <TileButtonContainer
-      onClick={() => setImgIndex(index)}
+      onClick={() => { setImgIndex(index) }}
       style={{backgroundColor: `${backgroundColor}`}}
     >
     </TileButtonContainer>

@@ -15,7 +15,7 @@ import {
   FooterToolbox,
   FooterToolboxWrapper,
   FooterWrapper,
-  IconWrapper,
+  IconWrapper
 } from './FooterStyled'
 
 interface FooterProps {
@@ -23,7 +23,7 @@ interface FooterProps {
 }
 
 const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
-  const openPage = (address: string) => window.open(address)
+  const openPage = (address: string): Window | null => window.open(address)
   const [className, setClassName] = useState<string>('')
 
   useEffect(() => {
@@ -33,19 +33,19 @@ const Footer = ({upButtonIsVisible = true}: FooterProps): JSX.Element => {
   const socialMedias: IconComponent[] = [
     {
       iconComponent: <FiFacebook />,
-      iconAction: () => openPage('https://facebook.com/'),
+      iconAction: () => openPage('https://facebook.com/')
     },
     {
       iconComponent: <FiTwitter />,
-      iconAction: () => openPage('https://twitter.com/'),
+      iconAction: () => openPage('https://twitter.com/')
     },
     {
       iconComponent: <AiOutlineGoogle />,
-      iconAction: () => openPage('https://www.google.com/'),
+      iconAction: () => openPage('https://www.google.com/')
     },
     {
       iconComponent: <GrPinterest />,
-      iconAction: () => openPage('https://pinterest.com/'),
+      iconAction: () => openPage('https://pinterest.com/')
     }
   ]
 

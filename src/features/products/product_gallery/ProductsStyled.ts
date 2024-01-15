@@ -50,6 +50,6 @@ export const ProductsListContainer = styled.div`
     const levelsRounded = Math.ceil(productsListLevels)
     const height = viewAll ? 525 * levelsRounded : 535
 
-    return `${height}px`;
+    return `${height}px`
   }};
 `

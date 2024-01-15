@@ -6,19 +6,19 @@ import HomeContext from '@/context/HomeContext'
 
 import {
   CommunityEventsCardsWrapper,
-  CommunityEventsContainer,
+  CommunityEventsContainer
 } from './CommunityEventsStyled'
 
 const communityEventCardData = [
   {
     title: 'WINERY',
     text: 'EVENTS',
-    img: '/images/communityEvents1.jpg',
+    img: '/images/communityEvents1.jpg'
   },
   {
     title: 'EXCLUSIVE',
     text: 'WINERY',
-    img: '/images/communityEvents2.jpg',
+    img: '/images/communityEvents2.jpg'
   }
 ]
 

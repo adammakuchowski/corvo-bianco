@@ -3,7 +3,7 @@ import {AiOutlineMinus, AiOutlinePlus} from 'react-icons/ai'
 import {
   CounterContainer,
   CounterWrapper,
-  CountNumber,
+  CountNumber
 } from './CounterStyled'
 import IconActionButton from '../buttons/icon_action_button/IconActionButton'
 
@@ -13,8 +13,8 @@ interface CounterProps {
 }
 
 const Counter = ({countNumber, setCountNumber}: CounterProps): JSX.Element => {
-  const incrementCountNumber = () => setCountNumber(countNumber + 1)
-  const decrementCountNumber = () => setCountNumber(countNumber > 1 ? countNumber - 1 : countNumber)
+  const incrementCountNumber = (): void => { setCountNumber(countNumber + 1) }
+  const decrementCountNumber = (): void => { setCountNumber(countNumber > 1 ? countNumber - 1 : countNumber) }
 
   return (
     <CounterContainer>

@@ -16,7 +16,7 @@ import {
   NavigationWrapper,
   ProductGalleryContainer,
   ProductGalleryContentWrapper,
-  ProductsListContainer,
+  ProductsListContainer
 } from './ProductsStyled'
 
 const ProductGallery = (): JSX.Element => {
@@ -50,10 +50,11 @@ const ProductGallery = (): JSX.Element => {
     setCategoryProducts(currentPorducts)
   }, [productGalleryPage, products])
 
-
-  const productsListEvent = () => productsListStatus.viewAll ?
-    setProductsListStatus(productsListStatuses[0]) :
-    setProductsListStatus(productsListStatuses[1])
+  const productsListEvent = (): void => {
+    productsListStatus.viewAll
+      ? setProductsListStatus(productsListStatuses[0])
+      : setProductsListStatus(productsListStatuses[1])
+  }
 
   return (
     <section className='product_gallery'>
@@ -69,16 +70,16 @@ const ProductGallery = (): JSX.Element => {
             />
           </NavigationWrapper>
           <ProductsListContainer viewAll={productsListStatus.viewAll} productsCount={currentProductsCount}>
-            {(productFetchStatus === 'succeeded') ?
-              <>
+            {(productFetchStatus === 'succeeded')
+              ? <>
                 <ProductsList products={categoryProducts} productGalleryPage={productGalleryPage} />
                 <ButtonWrapper>
                   {currentProductsCount > 4 && (
                     <Button text={productsListStatus.text} buttonAction={productsListEvent} />
                   )}
                 </ButtonWrapper>
-              </> :
-              <CircularProgress sx={{color: '#8ea648'}} size={50} />
+              </>
+              : <CircularProgress sx={{color: '#8ea648'}} size={50} />
             }
           </ProductsListContainer>
         </ProductGalleryContentWrapper>
@@ -88,4 +89,3 @@ const ProductGallery = (): JSX.Element => {
 }
 
 export default ProductGallery
-

@@ -1,5 +1,6 @@
 import {useContext, useEffect, useState} from 'react'
 import Image from 'next/image'
+
 import {Product} from '@/types/types'
 import AlertContext from '@/context/AlertContext'
 import ProductCardAction from './product_card_action/ProductCardAction'
@@ -7,7 +8,7 @@ import {
   ImgContainer,
   ImgWrapper,
   ProductCardActionWrapper,
-  ProductCardContainer,
+  ProductCardContainer
 } from './ProductCardStyled'
 
 interface ProductCardProps {
@@ -26,8 +27,8 @@ const ProductCard = ({index, product, setActiceCardIndex, activeCard = false}: P
     setIsActive(activeCard)
   }, [activeCard])
 
-  const onCardActive = () => {
-    if(isAlertActive) return
+  const onCardActive = (): void => {
+    if (isAlertActive) return
 
     setIsActive(!isActive)
     if (!isActive) {

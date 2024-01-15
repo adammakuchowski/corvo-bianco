@@ -27,7 +27,7 @@ import {
   ModalContentContainer,
   ModalDataContainer,
   ModalImgContainer,
-  ModalOverlayContainer,
+  ModalOverlayContainer
 } from './ProductModalStyled'
 import ProductFeatureEntry from './product_feature_entry/ProductFeatureEntry'
 import {addToCart} from '../productsSlice'
@@ -54,12 +54,11 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     img,
     name,
     brand,
-    category,
     typ,
     color,
     productionYear,
     countryOfOrigin,
-    price,
+    price
   } = product
 
   const productSpec = [
@@ -68,10 +67,10 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     productionYear,
     color,
     countryOfOrigin,
-    `${price} $`,
+    `${price} $`
   ]
 
-  const onAddProductToCart = () => {
+  const onAddProductToCart = (): void => {
     if (product && quantity) {
       dispatch(addToCart(product, quantity))
       setButtonActive(false)
@@ -101,13 +100,13 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
     }
   }, [isOpen])
 
-  const onCloseModal = () => {
+  const onCloseModal = (): void => {
     if (isAlertActive) return
 
     onClose(false)
   }
 
-  const onStopPropagation = (event: SyntheticEvent) => {
+  const onStopPropagation = (event: SyntheticEvent): void => {
     event.stopPropagation()
   }
 
@@ -150,9 +149,9 @@ const ProductModal = ({isOpen, onClose, product}: ProductModalProps): JSX.Elemen
             </DataContainer>
             <CounterContainer className={isProductModalActive}>
               <Counter countNumber={quantity} setCountNumber={setQuantity} />
-              <ButtonWrapper>{buttonActive ?
-                <Button text='Add to cart' buttonAction={onAddProductToCart} /> :
-                <CircularProgress sx={{color: '#8ea648'}} />
+              <ButtonWrapper>{buttonActive
+                ? <Button text='Add to cart' buttonAction={onAddProductToCart} />
+                : <CircularProgress sx={{color: '#8ea648'}} />
               }
               </ButtonWrapper>
             </CounterContainer>

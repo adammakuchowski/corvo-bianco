@@ -4,7 +4,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 
 import {
   IconActionButtonContainer,
-  IconActionButtonWrapper,
+  IconActionButtonWrapper
 } from './IconActionButtonStyled'
 
 interface IconActionButtonProps {
@@ -15,7 +15,7 @@ interface IconActionButtonProps {
 
 const IconActionButton = ({iconComponent, iconAction, progressEffect = false}: IconActionButtonProps): JSX.Element => {
   const [isProcessing, setIsProcessing] = useState<boolean>(false)
-  const onIconAction = () => {
+  const onIconAction = (): void => {
     if (!iconAction) return
 
     iconAction()
@@ -29,9 +29,9 @@ const IconActionButton = ({iconComponent, iconAction, progressEffect = false}: I
 
   return (
     <IconActionButtonContainer>
-      {isProcessing ?
-        <CircularProgress sx={{color: '#8ea648'}} /> :
-        <IconActionButtonWrapper onClick={onIconAction}>
+      {isProcessing
+        ? <CircularProgress sx={{color: '#8ea648'}} />
+        : <IconActionButtonWrapper onClick={onIconAction}>
           {iconComponent}
         </IconActionButtonWrapper>
       }
@@ -40,4 +40,3 @@ const IconActionButton = ({iconComponent, iconAction, progressEffect = false}: I
 }
 
 export default IconActionButton
-

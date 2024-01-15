@@ -15,7 +15,7 @@ import {
   OrderCreatorContainer,
   SummaryContainer,
   SummaryContentContainer,
-  ResultOrderTextWrapper,
+  ResultOrderTextWrapper
 } from './SummaryStyled'
 import CheckoutContents from '../checkout_contents/CheckoutContents'
 
@@ -23,7 +23,7 @@ interface OrderProgressCreatorProps {
   orderCreateStatus: 'loading' | 'succeeded' | 'failed';
 }
 
-const OrderCreatorFulfilled = () => {
+const OrderCreatorFulfilled = (): JSX.Element => {
   return (
     <OrderCreatorContainer>
       <IconWrapper style={{color: '#8ea648'}}>
@@ -36,7 +36,7 @@ const OrderCreatorFulfilled = () => {
   )
 }
 
-const OrderCreatorError = () => {
+const OrderCreatorError = (): JSX.Element => {
   return (
     <OrderCreatorContainer>
       <IconWrapper style={{color: '#e32323'}}>
@@ -49,7 +49,7 @@ const OrderCreatorError = () => {
   )
 }
 
-const OrderProgressCreator = ({orderCreateStatus}: OrderProgressCreatorProps) => {
+const OrderProgressCreator = ({orderCreateStatus}: OrderProgressCreatorProps): JSX.Element => {
   const [orderCratorResultComponent, setOrderCratorResultComponent] = useState<JSX.Element>()
 
   useEffect(() => {
@@ -59,15 +59,15 @@ const OrderProgressCreator = ({orderCreateStatus}: OrderProgressCreatorProps) =>
 
   return (
     <CreateOrderContainer>
-      {(orderCreateStatus !== 'loading') ?
-        <>{orderCratorResultComponent}</> :
-        <CircularProgress sx={{color: '#8ea648'}} size={50} />
+      {(orderCreateStatus !== 'loading')
+        ? <>{orderCratorResultComponent}</>
+        : <CircularProgress sx={{color: '#8ea648'}} size={50} />
       }
     </CreateOrderContainer>
   )
 }
 
-const SummaryContent = () => {
+const SummaryContent = (): JSX.Element => {
   return (
     <SummaryContentContainer>
       <CheckoutForm />
@@ -76,7 +76,7 @@ const SummaryContent = () => {
   )
 }
 
-const Summary = () => {
+const Summary = (): JSX.Element => {
   const {className} = useContext(CheckoutContext)
   const [delayClassName, setDelayClassName] = useState<string>('')
   const orderCreateStatus = useSelector((state: AppState) => state.checkout.orderCreateStatus)
@@ -89,9 +89,9 @@ const Summary = () => {
 
   return (
     <SummaryContainer className={delayClassName}>
-      {orderCreateStatus === 'idle' ?
-        <SummaryContent /> :
-        <OrderProgressCreator orderCreateStatus={orderCreateStatus} />}
+      {orderCreateStatus === 'idle'
+        ? <SummaryContent />
+        : <OrderProgressCreator orderCreateStatus={orderCreateStatus} />}
     </SummaryContainer>
   )
 }

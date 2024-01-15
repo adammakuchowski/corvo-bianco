@@ -16,12 +16,12 @@ import {
   ImgWrapper,
   ProductNameWrapper,
   ProductPriceWrapper,
-  IconWrapper,
+  IconWrapper
 } from './FavoriteProductEntryStyled'
 import {
   addToCart,
   getProductsCart,
-  removeFavoriteProduct,
+  removeFavoriteProduct
 } from '../../productsSlice'
 
 interface ProductCartEntryProps {
@@ -35,11 +35,11 @@ const FavoriteProductEntry = ({favoriteProduct}: ProductCartEntryProps): JSX.Ele
 
   const {id, img, name, price} = favoriteProduct
 
-  const onRemoveFavoriteProduct = () => {
+  const onRemoveFavoriteProduct = (): void => {
     dispatch(removeFavoriteProduct({id}))
   }
 
-  const onAddToCart = () => {
+  const onAddToCart = (): void => {
     dispatch(addToCart(favoriteProduct, 1))
   }
 
@@ -70,13 +70,15 @@ const FavoriteProductEntry = ({favoriteProduct}: ProductCartEntryProps): JSX.Ele
         </ContentHeaderContainer>
         <ContentBodyContainer>
           <ProductPriceWrapper>{`${price} $`}</ProductPriceWrapper>
-          {isProductInCart ? (
+          {isProductInCart
+            ? (
             <IconWrapper style={{color: '#8ea648'}}>
               <BsCheckCircle />
             </IconWrapper>
-          ) : (
+              )
+            : (
             <IconButton iconComponent={<AiOutlineShoppingCart />} iconAction={onAddToCart} fontSize='20px' />
-          )}
+              )}
         </ContentBodyContainer>
       </ContentContainer>
     </FavoriteProductEntryContainer>

@@ -1,8 +1,8 @@
 import {useContext, useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {BsFillCartCheckFill, BsStarFill} from 'react-icons/bs'
+import {BsFillCartCheckFill, BsStarFill, BsArrowsFullscreen} from 'react-icons/bs'
 import {IoMdHeartEmpty} from 'react-icons/io'
-import {BsArrowsFullscreen} from 'react-icons/bs'
+
 import {TiArrowSync} from 'react-icons/ti'
 import {FaHeart} from 'react-icons/fa'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
@@ -15,7 +15,7 @@ import {
   ProductCardNotActiveContainer,
   ProductDataWrapper,
   ProductName,
-  ProductQualityStars,
+  ProductQualityStars
 } from './ProductCardActionStyled'
 import ProductModal from '../../product_modal/ProductModal'
 import {addToCart, addToFavorites} from '../../productsSlice'
@@ -38,11 +38,11 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
   const dispatch = useDispatch()
 
   const {name, price, quality} = product
-  
+
   const productCardActions: IconComponent[] = [
     {
       iconComponent: <BsArrowsFullscreen />,
-      iconAction: () => setModalIsOpen(true),
+      iconAction: () => { setModalIsOpen(true) }
     },
     {
       iconComponent: <TiArrowSync />
@@ -57,7 +57,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
         setAlertOverflow('auto')
         setAlertActive(true)
       },
-      progressEffect: true,
+      progressEffect: true
     },
     {
       iconComponent: <AiOutlineShoppingCart />,
@@ -69,11 +69,12 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
         setAlertOverflow('auto')
         setAlertActive(true)
       },
-      progressEffect: true,
-    },
+      progressEffect: true
+    }
   ]
 
-  return active ? (
+  return active
+    ? (
     <ProductCardActiveContainer className={cinzel.className}>
       <ProductModal
         isOpen={modalIsOpen}
@@ -89,7 +90,8 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
         />
       ))}
     </ProductCardActiveContainer>
-  ) : (
+      )
+    : (
     <ProductCardNotActiveContainer className={cinzel.className}>
       <ProductName>{name}</ProductName>
       <ProductDataWrapper>
@@ -102,7 +104,7 @@ const ProductCardAction = ({active, product}: ProductCardActionProps): JSX.Eleme
         <div>{`${price.toFixed(2)} $`}</div>
       </ProductDataWrapper>
     </ProductCardNotActiveContainer>
-  )
+      )
 }
 
 export default ProductCardAction

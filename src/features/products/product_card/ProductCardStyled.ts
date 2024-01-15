@@ -12,7 +12,7 @@ interface ImgContainerProps {
 
 export const ImgContainer = styled.button`
   border: none;
-	padding: 0;
+  padding: 0;
   background: none;
   position: relative;
   

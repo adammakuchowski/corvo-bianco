@@ -27,9 +27,10 @@ const initialState: ProductsState = {
 
 export const fetchProducts = createAsyncThunk('products/fetchProducts', async () => {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     let cancel: Canceler
     const response = await axios.get(`${appConfig.apiBaseUrl}/products/getAllProducts`, {
-      cancelToken: new axios.CancelToken(c => cancel = c)
+      cancelToken: new axios.CancelToken(c => { cancel = c })
     })
 
     return response.data
@@ -44,12 +45,12 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     addToCart: {
-      reducer(state, action) {
+      reducer (state, action) {
         const {productsCart} = state
         const {payload: {product: {id}, quantity}} = action
 
         if (productsCart.every(productCart => productCart.product.id !== id)) {
-          state.productsCart.push(action.payload)
+          state.productsCart.push(action.payload as ProductCart)
         } else {
           const updatedProductsCart = productsCart.map(productCart => {
             if (productCart.product.id !== id) return productCart
@@ -60,7 +61,7 @@ export const productsSlice = createSlice({
           state.productsCart = updatedProductsCart
         }
       },
-      prepare(product: Product, quantity: number): any {
+      prepare (product: Product, quantity: number): any {
         return {
           payload: {
             product,
@@ -69,24 +70,36 @@ export const productsSlice = createSlice({
         }
       }
     },
-    updateProductsCart(state, action: {payload: ProductCart[]}) {
+    updateProductsCart (state, action: {
+      payload: ProductCart[];
+    }) {
       state.productsCart = action.payload
     },
-    updateFavoriteProducts(state, action: {payload: Product[]}) {
+    updateFavoriteProducts (state, action: {
+      payload: Product[];
+    }) {
       state.favoriteProducts = action.payload
     },
-    clearCart(state) {
+    clearCart (state) {
       state.productsCart = []
     },
-    clearFavorite(state) {
+    clearFavorite (state) {
       state.favoriteProducts = []
     },
-    addToFavorites(state, action: {payload: Product}) {
+    addToFavorites (state, action: {
+      payload: Product;
+    }) {
       if (!state.favoriteProducts.some(product => product.id === action.payload.id)) {
         state.favoriteProducts.push(action.payload)
       }
     },
-    updateQuantityProductCart(state, action: {payload: {id: string, actionOperator: string, value: number}}) {
+    updateQuantityProductCart (state, action: {
+      payload: {
+        id: string;
+        actionOperator: string;
+        value: number;
+      };
+    }) {
       const {id, actionOperator, value} = action.payload
       const updatedProductCart = state.productsCart.map((productCart: ProductCart) => {
         if (productCart.product.id !== id) return productCart
@@ -100,20 +113,29 @@ export const productsSlice = createSlice({
 
       state.productsCart = updatedProductCart
     },
-    removeProductCart(state, action: {payload: {id: string}}) {
+    removeProductCart (state, action: {
+      payload: {
+        id: string;
+      };
+    }) {
       const {id} = action.payload
       const updatedProductCart = state.productsCart.filter((productCart: ProductCart) => productCart.product.id !== id)
 
       state.productsCart = updatedProductCart
     },
-    removeFavoriteProduct(state, action: {payload: {id: string}}) {
+    removeFavoriteProduct (state, action: {
+      payload: {
+        id: string;
+      };
+    }
+    ) {
       const {id} = action.payload
       const updatedFavoriteProducts = state.favoriteProducts.filter((product: Product) => product.id !== id)
 
       state.favoriteProducts = updatedFavoriteProducts
-    },
+    }
   },
-  extraReducers(builder) {
+  extraReducers (builder) {
     builder
       .addCase(fetchProducts.pending, (state) => {
         state.productFetchStatus = 'loading'
@@ -138,13 +160,13 @@ export const {
   updateQuantityProductCart,
   removeProductCart,
   removeFavoriteProduct,
-  clearFavorite,
+  clearFavorite
 } = productsSlice.actions
 
-export const getAllProducts = (state: AppState) => state.products.productsList
-export const getProductsCart = (state: AppState) => state.products.productsCart
-export const getFavoriteProducts = (state: AppState) => state.products.favoriteProducts
-export const getTotalCartPrice = (state: AppState) => {
+export const getAllProducts = (state: AppState): Product[] => state.products.productsList
+export const getProductsCart = (state: AppState): ProductCart[] => state.products.productsCart
+export const getFavoriteProducts = (state: AppState): Product[] => state.products.favoriteProducts
+export const getTotalCartPrice = (state: AppState): number => {
   const productsCart = state.products.productsCart
 
   return productsCart.reduce((total: number, amount: ProductCart): number => {

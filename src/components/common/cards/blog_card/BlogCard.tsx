@@ -10,17 +10,17 @@ import {
   ContentText,
   ContentWrapper,
   ImgOpacity,
-  ImgWrapper,
+  ImgWrapper
 } from './BlogCardStyled'
-import TextButton from '../../buttons/text_button/TextButton'
+// import TextButton from '../../buttons/text_button/TextButton'
 
 interface BlogCardProps {
-  img: any,
-  date: Date,
-  text: string,
+  img: any;
+  date: Date;
+  text: string;
 }
 
-const BlogCard = ({img, date, text}: BlogCardProps) => {
+const BlogCard = ({img, date, text}: BlogCardProps): JSX.Element => {
   const monthName = moment(date).format('MMMM')
   const monthAcronym = monthName.substring(0, 3)
   const days = moment(date).format('DD')

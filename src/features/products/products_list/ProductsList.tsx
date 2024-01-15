@@ -30,14 +30,13 @@ const ProductsList = ({products, productGalleryPage}: ProductsListProps): JSX.El
     }
   }, [alertOverflow, isAlertActive])
 
-
   const alertContextValue: AlertContextValue = {
-    isAlertActive: isAlertActive,
-    setAlertActive: (value: boolean) => setIsAlertActive(value),
-    alertIcon: alertIcon,
-    setAlertIcon: (value: any) => setAlertIcon(value),
-    alertOverflow: alertOverflow,
-    setAlertOverflow: (value: string) => setAlertOverflow(value),
+    isAlertActive,
+    setAlertActive: (value: boolean) => { setIsAlertActive(value) },
+    alertIcon,
+    setAlertIcon: (value: any) => { setAlertIcon(value) },
+    alertOverflow,
+    setAlertOverflow: (value: string) => { setAlertOverflow(value) }
   }
 
   return (

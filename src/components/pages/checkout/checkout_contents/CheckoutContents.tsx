@@ -9,7 +9,7 @@ import ProductCartEntry from '@/features/products/product_cart/product_cart_entr
 import {
   getProductsCart,
   getTotalCartPrice,
-  updateProductsCart,
+  updateProductsCart
 } from '@/features/products/productsSlice'
 import {FromState} from '@/features/checkout/types'
 import {getCheckoutFromState, createOrder} from '@/features/checkout/checkoutSlice'
@@ -20,11 +20,11 @@ import {
   ContentsContainerWrapper,
   ProductCheckoutContentsContainer,
   SummaryContainer,
-  SummaryTextWrapper,
+  SummaryTextWrapper
 } from './CheckoutContentsStyled'
+import {ProductCart} from '@/types/types'
 
-
-const CheckoutContents = () => {
+const CheckoutContents = (): JSX.Element => {
   const dispatch = useDispatch()
   const [overflow, setOverflow] = useState('hidden')
   const [orderFinalizeButtonIsActive, setoOrderFinalizeButtonIsActive] = useState<boolean>(true)
@@ -34,7 +34,7 @@ const CheckoutContents = () => {
   const orderCreateStatus = useSelector((state: AppState) => state.checkout.orderCreateStatus)
   const validateCheckoutForm = (fromState: FromState): boolean => Object.values(fromState).every(value => value.value && !value.error)
 
-  const confirmOrder = () => {
+  const confirmOrder = (): void => {
     if (orderCreateStatus === 'idle') {
       const order = mapFormOrderToApiFormat(fromState, productsCart, totalCartPrice)
       dispatch<any>(createOrder(order))
@@ -47,7 +47,7 @@ const CheckoutContents = () => {
 
   useEffect(() => {
     const localStorageProductsCart = localStorage.getItem('productsCart')
-    const storageProductsCart = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
+    const storageProductsCart: ProductCart[] = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
 
     dispatch(updateProductsCart(storageProductsCart))
   }, [dispatch])

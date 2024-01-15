@@ -1,7 +1,7 @@
 import {
   SyntheticEvent,
   useEffect,
-  useState,
+  useState
 } from 'react'
 import {IoCloseCircleOutline} from 'react-icons/io5'
 import {BsTrash} from 'react-icons/bs'
@@ -13,10 +13,9 @@ import {
   ChildrenContainer,
   HeaderContainer,
   SidePanelContainer,
-  SidePanelOverlayContainer,
+  SidePanelOverlayContainer
 } from './SidePanelStyled'
 import IconButton from '../buttons/icon_button/IconButton'
-
 
 interface SidePanelProps {
   children: JSX.Element;
@@ -35,7 +34,7 @@ const SidePanel = ({
   onClear,
   isTrashDisabled,
   onCloseModal,
-  headerName,
+  headerName
 }: SidePanelProps): JSX.Element | null => {
   const [sidePanelClassName, setSidePanelClassName] = useState<string>('')
 
@@ -51,8 +50,8 @@ const SidePanel = ({
     }
   }, [sidePanelIsOpen])
 
-  const onSidePanel = () => setIsSidePanelOpen(false)
-  const onStopPropagation = (event: SyntheticEvent) => event.stopPropagation()
+  const onSidePanel = (): void => { setIsSidePanelOpen(false) }
+  const onStopPropagation = (event: SyntheticEvent): void => { event.stopPropagation() }
 
   if (!sidePanelIsOpen) return null
 

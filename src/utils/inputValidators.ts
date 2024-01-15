@@ -1,4 +1,4 @@
-const regexValid = (regex: RegExp, value: string) => regex.test(value) ? true : false
+const regexValid = (regex: RegExp, value: string): boolean => !!regex.test(value)
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 export const isEmailValid = (value: string): boolean => regexValid(EMAIL_REGEX, value)

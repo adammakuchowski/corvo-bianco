@@ -5,7 +5,7 @@ export interface CheckoutContextValue {
 }
 
 const CheckoutContext = react.createContext<CheckoutContextValue>({
-  className: '',
+  className: ''
 })
 
 export default CheckoutContext

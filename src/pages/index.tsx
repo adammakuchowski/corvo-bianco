@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useState} from 'react'
 import Head from 'next/head'
 
 import HomeContext, {HomeContextValue} from '@/context/HomeContext'
@@ -11,11 +11,11 @@ import Navbar from '@/components/pages/home/navbar/Navbar'
 import Footer from '@/components/shared/footer/Footer'
 import {PreLoader} from '@/components/pages/home/pre-loader/PreLoader'
 
-export default function Home() {
+export default function Home (): JSX.Element {
   const [className, setClassName] = useState<string>('')
 
   const homeContextValue: HomeContextValue = {
-    className: className,
+    className
   }
 
   return (

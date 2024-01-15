@@ -1,7 +1,7 @@
 import {
   AvailableHoursCardContainer,
   ContentWrapper,
-  HeaderContentWrapper,
+  HeaderContentWrapper
 } from './AvailableHoursCardStyled'
 
 interface AvailableHoursCardProps {
@@ -11,7 +11,7 @@ interface AvailableHoursCardProps {
     toDay: string;
     fromHour: string;
     toHour: string;
-  }
+  };
 }
 
 const AvailableHoursCard = ({headerText, available}: AvailableHoursCardProps): JSX.Element => {

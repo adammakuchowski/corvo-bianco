@@ -7,13 +7,13 @@ import {
   CommunityEventCardContainer,
   ImgNameWrapper,
   ImgOpacity,
-  ImgWrapper,
+  ImgWrapper
 } from './CommunityEventCardStyled'
 
 interface CommunityEventCardProps {
-  img: any,
-  title: string,
-  text: string,
+  img: any;
+  title: string;
+  text: string;
 }
 
 const CommunityEventCard = ({img, title, text}: CommunityEventCardProps): JSX.Element => {

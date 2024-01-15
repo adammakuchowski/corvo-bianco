@@ -5,14 +5,14 @@ import {cinzel} from '@/fonts/fonts'
 import {
   PreLoaderContainer,
   Sentence,
-  SentencesWrapper,
+  SentencesWrapper
 } from './PreLoaderStyled'
 
 interface PreLoaderProps {
   setClassName: (className: string) => void;
 }
 
-export const PreLoader = ({setClassName}: PreLoaderProps) => {
+export const PreLoader = ({setClassName}: PreLoaderProps): JSX.Element | null => {
   const [preLoaderClass, setPreLoaderClass] = useState<string>('')
   const [isLoaderExecuted, setIsLoaderExecuted] = useState<any>(null)
 
@@ -20,7 +20,7 @@ export const PreLoader = ({setClassName}: PreLoaderProps) => {
   const [secondWorldClass, setSecondWorldClass] = useState<string>('')
   const [thirdWorldClass, setThirdWorldClass] = useState<string>('')
 
-  const startAnimation = (setClassName: Function) => {
+  const startAnimation = (setClassName: (className: string) => void): void => {
     setTimeout(() => {
       setFirstWorldClass('active')
     }, 100)

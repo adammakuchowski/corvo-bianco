@@ -9,7 +9,7 @@ import {updateQuantityProductCart} from '../../productsSlice'
 const fontSize = '15px'
 
 interface ProductCartEntryCounterProps {
-  productCart: ProductCart
+  productCart: ProductCart;
 }
 
 const ProductCartEntryCounter = ({productCart}: ProductCartEntryCounterProps): JSX.Element => {
@@ -22,13 +22,13 @@ const ProductCartEntryCounter = ({productCart}: ProductCartEntryCounterProps): J
     setIsDecrementButtonDisabled(quantity === 1)
   }, [quantity])
 
-  const incrementQuantityProduct = () => {
+  const incrementQuantityProduct = (): void => {
     dispatch(updateQuantityProductCart({id, actionOperator: 'increment', value: 1}))
   }
 
-  const decrementQuantityProduct = () => {
+  const decrementQuantityProduct = (): void => {
     if (isDecrementButtonDisabled) return
-    
+
     dispatch(updateQuantityProductCart({id, actionOperator: 'decrement', value: 1}))
   }
 

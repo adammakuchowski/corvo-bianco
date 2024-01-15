@@ -25,7 +25,11 @@ const DisabledTextButton = ({content, overrideStyle}: DisabledTextButtonProps): 
 
 const TextButton = ({content, buttonAction, overrideStyle, upperCase = true, disabled = false}: TextButtonProps): JSX.Element => {
   const [textButton, setTextButton] = useState<string>()
-  const onButtonAction = () => buttonAction && buttonAction()
+  const onButtonAction = (): void => {
+    if (!buttonAction) return
+
+    buttonAction()
+  }
 
   useEffect(() => {
     setTextButton(upperCase ? content.toUpperCase() : content)
@@ -33,9 +37,9 @@ const TextButton = ({content, buttonAction, overrideStyle, upperCase = true, dis
 
   return (
     <>
-      {disabled ?
-        <DisabledTextButton content={textButton} overrideStyle={overrideStyle} /> :
-        <TextButtonContainer className={cinzel.className} onClick={onButtonAction} style={overrideStyle}>
+      {disabled
+        ? <DisabledTextButton content={textButton} overrideStyle={overrideStyle} />
+        : <TextButtonContainer className={cinzel.className} onClick={onButtonAction} style={overrideStyle}>
           {textButton}
         </TextButtonContainer>
       }

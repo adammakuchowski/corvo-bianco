@@ -35,7 +35,7 @@ interface PageItemProps {
 
 export const PageItem = styled.button`
   border: none;
-	padding: 0;
+  padding: 0;
   background: none;
   transition: all 0.2s ease-in-out;
   color: ${({activePage}: PageItemProps) => activePage ? '#708238' : '#000000'};

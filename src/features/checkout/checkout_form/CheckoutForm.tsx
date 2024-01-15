@@ -8,7 +8,7 @@ import {
   isCardDateValid,
   isCardNumberValid,
   isEmailValid,
-  isStringValid,
+  isStringValid
 } from '@/utils/inputValidators'
 import SectionName from '@/components/common/section_name/SectionName'
 import SubectionName from '@/components/common/subsection_name/SubectionName'
@@ -23,21 +23,25 @@ import {
   PersonDetailsWrapper,
   ContactDetailsInputWrapper,
   PaymentDetailsWrapper,
-  PaymentDetailsInputWrapper,
+  PaymentDetailsInputWrapper
 } from './CheckoutFormStyled'
 import {getCheckoutFromState, updateCheckoutForm} from '../checkoutSlice'
 
-const CheckoutForm = () => {
+const CheckoutForm = (): JSX.Element => {
   const dispatch = useDispatch()
   const fromState = useSelector(getCheckoutFromState)
 
-  const emailValidator = () => dispatch(updateCheckoutForm({value: !isEmailValid(fromState.email.value), objectKey: 'email', propertyKey: 'error'}))
+  const emailValidator = (): void => {
+    dispatch(updateCheckoutForm({value: !isEmailValid(fromState.email.value), objectKey: 'email', propertyKey: 'error'}))
+  }
 
   const textValidator = (
     value: string,
     objectKey: string,
-    propertyKey: string,
-  ) => dispatch(updateCheckoutForm({value: !isStringValid(value), objectKey, propertyKey}))
+    propertyKey: string
+  ): void => {
+    dispatch(updateCheckoutForm({value: !isStringValid(value), objectKey, propertyKey}))
+  }
 
   return (
     <CheckoutFormContainer>
@@ -75,7 +79,7 @@ const CheckoutForm = () => {
                 type='text'
                 value={fromState.name.value}
                 onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'name', propertyKey: 'value'}))}
-                onBlur={() => textValidator(fromState.name.value, 'name', 'error')}
+                onBlur={() => { textValidator(fromState.name.value, 'name', 'error') }}
                 error={fromState.name.error}
               />
             </FormControl>
@@ -89,7 +93,7 @@ const CheckoutForm = () => {
                 type='text'
                 value={fromState.surname.value}
                 onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'surname', propertyKey: 'value'}))}
-                onBlur={() => textValidator(fromState.name.value, 'surname', 'error')}
+                onBlur={() => { textValidator(fromState.name.value, 'surname', 'error') }}
                 error={fromState.surname.error}
               />
             </FormControl>
@@ -111,7 +115,7 @@ const CheckoutForm = () => {
                 updateCheckoutForm({
                   value: inEmptyString(fromState.adress.value),
                   objectKey: 'adress',
-                  propertyKey: 'error',
+                  propertyKey: 'error'
                 })
               )}
               error={fromState.adress.error}
@@ -132,7 +136,7 @@ const CheckoutForm = () => {
                   updateCheckoutForm({
                     value: inEmptyString(fromState.postalCode.value),
                     objectKey: 'postalCode',
-                    propertyKey: 'error',
+                    propertyKey: 'error'
                   })
                 )}
                 error={fromState.postalCode.error}
@@ -148,7 +152,7 @@ const CheckoutForm = () => {
                 type='text'
                 value={fromState.city.value}
                 onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'city', propertyKey: 'value'}))}
-                onBlur={() => textValidator(fromState.city.value, 'city', 'error')}
+                onBlur={() => { textValidator(fromState.city.value, 'city', 'error') }}
                 error={fromState.city.error}
               />
             </FormControl>
@@ -162,7 +166,7 @@ const CheckoutForm = () => {
                 type='text'
                 value={fromState.country.value}
                 onChange={(e) => dispatch(updateCheckoutForm({value: e.target.value, objectKey: 'country', propertyKey: 'value'}))}
-                onBlur={() => textValidator(fromState.country.value, 'country', 'error')}
+                onBlur={() => { textValidator(fromState.country.value, 'country', 'error') }}
                 error={fromState.country.error}
               />
             </FormControl>
@@ -184,7 +188,7 @@ const CheckoutForm = () => {
                 updateCheckoutForm({
                   value: !isCardNumberValid(fromState.cardNumber.value),
                   objectKey: 'cardNumber',
-                  propertyKey: 'error',
+                  propertyKey: 'error'
                 })
               )}
               error={fromState.cardNumber.error}
@@ -205,7 +209,7 @@ const CheckoutForm = () => {
                   updateCheckoutForm({
                     value: !isCardDateValid(fromState.cardDate.value),
                     objectKey: 'cardDate',
-                    propertyKey: 'error',
+                    propertyKey: 'error'
                   })
                 )}
                 error={fromState.cardDate.error}
@@ -225,7 +229,7 @@ const CheckoutForm = () => {
                   updateCheckoutForm({
                     value: !isCardCvcValid(fromState.cardCvc.value),
                     objectKey: 'cardCvc',
-                    propertyKey: 'error',
+                    propertyKey: 'error'
                   })
                 )}
                 error={fromState.cardCvc.error}

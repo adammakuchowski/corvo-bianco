@@ -3,19 +3,20 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useRouter} from 'next/router'
 import TextButton from '@/components/common/buttons/text_button/TextButton'
 import SidePanel from '@/components/common/side_panel/SidePanel'
+import {ProductCart as IProductCart} from '@/types/types'
 import {
   ProductCartContentContainer,
   ProductCartSummaryContainer,
   ProductCartWrapper,
   ProductCartTotalWrapper,
   ProductCartButtonWrapper,
-  ProductCartContainer,
+  ProductCartContainer
 } from './ProductCartStyled'
 import {
   clearCart,
   getProductsCart,
   getTotalCartPrice,
-  updateProductsCart,
+  updateProductsCart
 } from '../productsSlice'
 import ProductCartEntry from './product_cart_entry/ProductCartEntry'
 
@@ -33,7 +34,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 
   const dispatch = useDispatch()
 
-  const toCheckout = () => {
+  const toCheckout = (): void => {
     router.push('/checkout')
   }
 
@@ -47,7 +48,7 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
 
   useEffect(() => {
     const localStorageProductsCart = localStorage.getItem('productsCart')
-    const storageProductsCart = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
+    const storageProductsCart: IProductCart[] = localStorageProductsCart ? JSON.parse(localStorageProductsCart) : []
 
     dispatch(updateProductsCart(storageProductsCart))
   }, [dispatch])
@@ -58,8 +59,8 @@ const ProductCart = ({cartIsOpen, setCartIsOpen}: ProductCartProps): JSX.Element
     }
   }, [productsCart])
 
-  const onCloseModal = () => setCartIsOpen(false)
-  const onClearCart = () => {
+  const onCloseModal = (): void => { setCartIsOpen(false) }
+  const onClearCart = (): void => {
     dispatch(clearCart())
     localStorage.setItem('productsCart', JSON.stringify([]))
   }

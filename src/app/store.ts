@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from '@reduxjs/toolkit'
 
 import productsReducer from '../features/products/productsSlice'
 import checkoutReducer from '../features/checkout/checkoutSlice'
@@ -6,8 +6,8 @@ import checkoutReducer from '../features/checkout/checkoutSlice'
 const store = configureStore({
   reducer: {
     products: productsReducer,
-    checkout: checkoutReducer,
-  },
+    checkout: checkoutReducer
+  }
 })
 
 export type AppState = ReturnType<typeof store.getState>
